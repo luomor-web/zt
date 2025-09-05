@@ -7,4 +7,4 @@
 添加了拼音功能 thanks for https://github.com/jifei/Pinyin
 
 演示：
-https://zt.cyang.net
+https://zt.luomor.com
