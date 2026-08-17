@@ -23,6 +23,11 @@
 ├── scb.html        # 小学分级常用汉字生字表参考
 ├── Pinyin.php      # 汉字转拼音工具类
 ├── favicon.ico     # 网站图标
+├── js/
+│   └── i18n.js     # 多语言引擎（见下文「多语言 (i18n)」）
+├── lang/           # 语言包（扁平 dotted key JSON）
+│   ├── zh.json     # 中文（默认，key 的权威清单）
+│   └── en.json     # 英文
 ├── img/            # SVG 格子模板和截图
 │   ├── tzg.svg, tzggreen.svg, tzgred.svg    # 田字格
 │   ├── mzg.svg, mzggreen.svg, mzgred.svg    # 米字格
@@ -86,6 +91,21 @@
 | `bs` | 0/1 | 笔顺填充 |
 | `py` | 0/1 | 显示拼音 |
 | `title` | 文本 | 自定义页头 |
+
+## 多语言 (i18n)
+
+- **前端**：`js/i18n.js` + 元素属性标记，覆盖 `index.html`；`scb.html` 未接入
+- **语言包**：`lang/<code>.json`，扁平 dotted key（如 `options.fcolor.1`），`zh.json` 是 key 的权威清单
+- **属性约定**：
+  - `data-i18n="key"` → textContent
+  - `data-i18n-html="key"` → innerHTML（值含内联标签，需与 CSS 选择器保持一致）
+  - `data-i18n-attr="attr:key;attr:key"` → setAttribute（placeholder/aria-label/alt）
+  - `data-i18n-value="key"` → `.value`，仅在用户未编辑过该字段时生效（脏字段保护）
+- **语言解析顺序**：`?lang=` 参数 > `localStorage('tzg-lang')` > `navigator.language`，默认 `zh`
+- **持久化**：手动切换写 localStorage + cookie `tzg_lang`（path=/，1 年）
+- **传给后端**：表单隐藏字段 `name="lang"`（JS 填充），cookie `tzg_lang` 兜底；`tzg.php` 用内嵌 `$T` 数组翻译 `<title>` / `<html lang>` / 空页头默认值
+- **兜底**：HTML 中硬编码的中文即兜底内容，语言包加载失败页面仍完整可用
+- **新增语言**：新建 `lang/<code>.json` → `i18n.js` 的 `SUPPORTED` 加语言码 → 切换器加按钮 → `tzg.php` 的 `$T` 加一项
 
 ## 外部依赖
 

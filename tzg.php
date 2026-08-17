@@ -17,6 +17,17 @@ $title=$_POST['title']??'';//辅字体颜色
 $bs=$_POST['bs']??'0';//笔顺填充
 $py=$_POST['py']??'0';//笔顺填充
 
+$lang=$_POST['lang']??($_COOKIE['tzg_lang']??'zh');//界面语言
+if(!in_array($lang,['zh','en'])){ $lang='zh'; }
+
+/*界面文案翻译（新增语言时在此追加）*/
+$T=[
+'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN'],
+'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en'],
+];
+
+if(trim($title)===''){ $title=$T[$lang]['defaultHeader']; }
+
 /*过滤掉非中文*/
 preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $words, $words);
 $words = implode('', $words[0] );
@@ -69,10 +80,10 @@ if($f_color=='10'){
 	$fcolor=$fz_color['10'];
 }
 ?><!doctype html>
-<html>
+<html lang="<?=$T[$lang]['htmlLang'];?>">
 <head>
 <meta charset="utf-8">
-<title>田字格字帖生成器</title>
+<title><?=htmlspecialchars($T[$lang]['sheetTitle'],ENT_QUOTES,'UTF-8');?></title>
 <style>
 body,div,p,ul,li{ padding:0; margin:0; list-style:none;}
 div{ width:938px; margin:0 auto;padding-left:2px; }
