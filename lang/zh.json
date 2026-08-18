@@ -23,7 +23,7 @@
   "form.words.default": "锄禾日当午，汗滴禾下土。\n谁知盘中餐，粒粒皆辛苦。",
   "form.title.label": "自定义页头",
   "form.title.aria": "自定义页头文字",
-  "form.title.default": "田字格字帖生成器 网址：zt.luomor.com",
+  "form.title.default": "田字格字帖生成器 网址：zzzt.luomor.com",
   "form.submit": "立即生成",
 
   "options.types.title": "田格类型",
@@ -65,6 +65,7 @@
   "preview.caption": "田字格字帖示例 - 支持自定义汉字、笔顺显示、拼音标注",
 
   "footer.copyright": "Copyright © <a href=\"https://www.luomor.com\" target=\"_blank\" rel=\"noopener\">烙馍网</a> | <a id=\"bei-an\" href=\"https://beian.miit.gov.cn/\" target=\"_blank\" rel=\"noopener\">京ICP备16044936号-1</a>",
+  "footer.friendlinks": "友情链接：<a href=\"https://www.doubao.com/\" target=\"_blank\" rel=\"noopener\">豆包</a>",
 
   "switcher.aria": "语言切换",
 
