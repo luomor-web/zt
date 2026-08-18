@@ -65,7 +65,8 @@
   "preview.caption": "田字格字帖示例 - 支持自定义汉字、笔顺显示、拼音标注",
 
   "footer.copyright": "Copyright © <a href=\"https://www.luomor.com\" target=\"_blank\" rel=\"noopener\">烙馍网</a> | <a id=\"bei-an\" href=\"https://beian.miit.gov.cn/\" target=\"_blank\" rel=\"noopener\">京ICP备16044936号-1</a>",
-  "footer.friendlinks": "友情链接：<a href=\"https://www.doubao.com/\" target=\"_blank\" rel=\"noopener\">豆包</a>",
+
+  "friendlinks.title": "🔗 友情链接",
 
   "switcher.aria": "语言切换",
 

@@ -65,7 +65,8 @@
   "preview.caption": "Sample sheet - custom characters, stroke order display, and pinyin annotation",
 
   "footer.copyright": "Copyright © <a href=\"https://www.luomor.com\" target=\"_blank\" rel=\"noopener\">Luomor</a> | <a id=\"bei-an\" href=\"https://beian.miit.gov.cn/\" target=\"_blank\" rel=\"noopener\">京ICP备16044936号-1</a>",
-  "footer.friendlinks": "Friendly Links: <a href=\"https://www.doubao.com/\" target=\"_blank\" rel=\"noopener\">Doubao</a>",
+
+  "friendlinks.title": "🔗 Friendly Links",
 
   "switcher.aria": "Switch language",
 

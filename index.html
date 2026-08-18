@@ -441,6 +441,47 @@
             text-align: center;
         }
 
+        /* 友情链接 */
+        .friendlinks-section {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .friendlinks-section h2 {
+            font-size: 18px;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .friendlinks-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .friendlink-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 24px;
+            color: var(--text-color);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .friendlink-chip:hover {
+            border-color: #667eea;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+
         .preview-section h3 {
             font-size: 18px;
             color: var(--text-color);
@@ -723,11 +764,17 @@ var _hmt = _hmt || [];
                     <figcaption data-i18n="preview.caption">田字格字帖示例 - 支持自定义汉字、笔顺显示、拼音标注</figcaption>
                 </figure>
             </div>
+
+            <div class="friendlinks-section">
+                <h2 data-i18n="friendlinks.title">🔗 友情链接</h2>
+                <div class="friendlinks-list">
+                    <a href="https://www.doubao.com/" target="_blank" rel="noopener" class="friendlink-chip">豆包</a>
+                </div>
+            </div>
         </main>
 
         <aside class="footer">
             <p data-i18n-html="footer.copyright">Copyright © <a href="https://www.luomor.com" target="_blank" rel="noopener">烙馍网</a> | <a id="bei-an" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备16044936号-1</a></p>
-            <p data-i18n-html="footer.friendlinks">友情链接：<a href="https://www.doubao.com/" target="_blank" rel="noopener">豆包</a></p>
         </aside>
     </div>
     <script src="js/i18n.js" defer></script>
