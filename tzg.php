@@ -18,11 +18,12 @@ $bs=$_POST['bs']??'0';//笔顺填充
 $py=$_POST['py']??'0';//笔顺填充
 
 $lang=$_POST['lang']??($_COOKIE['tzg_lang']??'zh');//界面语言
-if(!in_array($lang,['zh','en'])){ $lang='zh'; }
+if(!in_array($lang,['zh','zh-TW','en'],true)){ $lang='zh'; }
 
 /*界面文案翻译（新增语言时在此追加）*/
 $T=[
 'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN'],
+'zh-TW'=>['sheetTitle'=>'田字格字帖產生器','defaultHeader'=>'田字格字帖產生器','htmlLang'=>'zh-TW'],
 'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en'],
 ];
 

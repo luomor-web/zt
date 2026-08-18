@@ -19,7 +19,7 @@
 (function () {
     'use strict';
 
-    var SUPPORTED = ['zh', 'en'];
+    var SUPPORTED = ['zh', 'zh-TW', 'en'];
     var DEFAULT = 'zh';
     var LS_KEY = 'tzg-lang';
     var COOKIE_KEY = 'tzg_lang';
@@ -27,8 +27,14 @@
     var cache = {};      // lang -> dict
     var current = DEFAULT;
 
-    function isSupported(lang) {
-        return SUPPORTED.indexOf(lang) > -1;
+    // 大小写不敏感地匹配语言码（如 zh-tw / ZH-TW → zh-TW）
+    function normalize(lang) {
+        if (!lang) return null;
+        var lower = String(lang).toLowerCase();
+        for (var i = 0; i < SUPPORTED.length; i++) {
+            if (SUPPORTED[i].toLowerCase() === lower) return SUPPORTED[i];
+        }
+        return null;
     }
 
     function detect() {
@@ -36,16 +42,21 @@
         try {
             q = new URLSearchParams(window.location.search).get('lang');
         } catch (e) { /* 忽略老浏览器 */ }
-        if (isSupported(q)) return q;
+        q = normalize(q);
+        if (q) return q;
 
         var saved = null;
         try {
             saved = window.localStorage.getItem(LS_KEY);
         } catch (e) { /* 隐私模式等场景忽略 */ }
-        if (isSupported(saved)) return saved;
+        saved = normalize(saved);
+        if (saved) return saved;
 
         var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
-        return nav.indexOf('en') === 0 ? 'en' : DEFAULT;
+        // 繁体：zh-TW / zh-HK / zh-MO / zh-Hant*
+        if (/^zh[-_](tw|hk|mo|hant)/.test(nav)) return 'zh-TW';
+        if (nav.indexOf('en') === 0) return 'en';
+        return DEFAULT;
     }
 
     function persist(lang) {
@@ -131,7 +142,7 @@
     }
 
     function setLang(lang, save) {
-        if (!isSupported(lang)) lang = DEFAULT;
+        lang = normalize(lang) || DEFAULT;
         current = lang;
         if (save) persist(lang);
         load(lang).then(applyDict).catch(function () {

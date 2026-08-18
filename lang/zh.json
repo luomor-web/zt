@@ -20,7 +20,7 @@
   "form.words.label": "输入想要生成的汉字",
   "form.words.placeholder": "请输入汉字，例如：锄禾日当午，汗滴禾下土\n谁知盘中餐，粒粒皆辛苦。",
   "form.words.aria": "输入汉字",
-  "form.words.default": "星光荣盛\n一五班薛传伟",
+  "form.words.default": "锄禾日当午，汗滴禾下土。\n谁知盘中餐，粒粒皆辛苦。",
   "form.title.label": "自定义页头",
   "form.title.aria": "自定义页头文字",
   "form.title.default": "田字格字帖生成器 网址：zt.luomor.com",

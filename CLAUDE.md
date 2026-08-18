@@ -26,7 +26,8 @@
 ├── js/
 │   └── i18n.js     # 多语言引擎（见下文「多语言 (i18n)」）
 ├── lang/           # 语言包（扁平 dotted key JSON）
-│   ├── zh.json     # 中文（默认，key 的权威清单）
+│   ├── zh.json     # 简体中文（默认，key 的权威清单）
+│   ├── zh-TW.json  # 繁体中文
 │   └── en.json     # 英文
 ├── img/            # SVG 格子模板和截图
 │   ├── tzg.svg, tzggreen.svg, tzgred.svg    # 田字格
