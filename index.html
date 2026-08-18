@@ -522,6 +522,13 @@
                 font-size: 20px;
             }
 
+            /* 小屏幕上语言切换器改为文档流布局，避免绝对定位遮挡标题 */
+            .lang-switcher {
+                position: static;
+                justify-content: flex-end;
+                margin-bottom: 12px;
+            }
+
             .main-card {
                 padding: 20px;
             }
