@@ -22,9 +22,9 @@ if(!in_array($lang,['zh','zh-TW','en'],true)){ $lang='zh'; }
 
 /*界面文案翻译（新增语言时在此追加）*/
 $T=[
-'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN','classLabel'=>'班级','nameLabel'=>'姓名','dateLabel'=>'日期'],
-'zh-TW'=>['sheetTitle'=>'田字格字帖產生器','defaultHeader'=>'田字格字帖產生器','htmlLang'=>'zh-TW','classLabel'=>'班級','nameLabel'=>'姓名','dateLabel'=>'日期'],
-'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en','classLabel'=>'Class','nameLabel'=>'Name','dateLabel'=>'Date'],
+'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN','classLabel'=>'班级','nameLabel'=>'姓名','dateLabel'=>'日期','printBtn'=>'🖨️ 打印','closeBtn'=>'✕ 关闭'],
+'zh-TW'=>['sheetTitle'=>'田字格字帖產生器','defaultHeader'=>'田字格字帖產生器','htmlLang'=>'zh-TW','classLabel'=>'班級','nameLabel'=>'姓名','dateLabel'=>'日期','printBtn'=>'🖨️ 列印','closeBtn'=>'✕ 關閉'],
+'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en','classLabel'=>'Class','nameLabel'=>'Name','dateLabel'=>'Date','printBtn'=>'🖨️ Print','closeBtn'=>'✕ Close'],
 ];
 
 if(trim($title)===''){ $title=$T[$lang]['defaultHeader']; }
@@ -115,11 +115,19 @@ li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Ar
 .afterpage{ page-break-before:always;}
 .page-head{height: 76px;line-height: 96px; font-size: 32px;text-align: center;display: none;color: #666666}
 .page-info{height: 40px;line-height: 40px; font-size: 16px;text-align: center;display: none;color: #666666}
-@media print{.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}}
+@media print{.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}.print-tools{display: none;}}
+.print-tools{position:fixed;top:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:999;}
+.print-tools button{padding:8px 20px;font-size:14px;border:none;border-radius:20px;cursor:pointer;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.print-tools .btn-print{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
+.print-tools .btn-close{background:#999;}
 @page {size: auto;margin: 5mm 16mm 5mm 16mm;}
 </style>
 </head>
 <body>
+<div class="print-tools">
+<button type="button" class="btn-print" onclick="window.print()"><?=$T[$lang]['printBtn'];?></button>
+<button type="button" class="btn-close" onclick="window.close()"><?=$T[$lang]['closeBtn'];?></button>
+</div>
 <div>
 <ul>
 <?php
