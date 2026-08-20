@@ -46,7 +46,7 @@ li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Ar
 .page-head{height: 76px;line-height: 96px; font-size: 32px;text-align: center;display: none;color: #666666}
 .page-info{height: 40px;line-height: 40px; font-size: 16px;text-align: center;display: none;color: #666666}
 @media print{.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}.print-tools{display: none;}}
-.print-tools{position:fixed;top:14px;right:14px;display:flex;gap:8px;z-index:999;}
+.print-tools{position:fixed;top:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:999;}
 .print-tools button{padding:8px 20px;font-size:14px;border:none;border-radius:20px;cursor:pointer;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
 .print-tools .btn-print{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
 .print-tools .btn-close{background:#999;}
