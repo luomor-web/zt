@@ -269,10 +269,15 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
     function saveAsImage(){
         var btns=document.querySelectorAll('.print-tools button');
         btns.forEach(function(b){ b.disabled=true; });
+        // 截图时调整字格内 SVG 的垂直位置
+        var svgs=document.querySelectorAll('li svg');
+        var oldMargins=[];
+        svgs.forEach(function(s,i){ oldMargins[i]=s.style.marginTop; s.style.marginTop='-1px'; });
         html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,
             ignoreElements:function(el){ return el.classList && el.classList.contains('print-tools'); }
         }).then(function(canvas){
             btns.forEach(function(b){ b.disabled=false; });
+            svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
             var a=document.createElement('a');
             a.download='zitie-'+Date.now()+'.png';
             a.href=canvas.toDataURL('image/png');
@@ -281,6 +286,7 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
             document.body.removeChild(a);
         }).catch(function(){
             btns.forEach(function(b){ b.disabled=false; });
+            svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
             alert('<?=$T[$lang]['saveFail'];?>');
         });
     }
