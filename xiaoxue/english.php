@@ -10,6 +10,9 @@ $mode=$_POST['mode']??'letter';
 if(!in_array($mode,['letter','word','sentence'])){ $mode='letter'; }
 $grade=intval($_POST['grade']??'0');//0=全部年级
 $num=intval($_POST['num']??'10');
+$blank=intval($_POST['blank']??'2');//空白练习行数
+if(!in_array($blank,[1,2,3])){ $blank=2; }
+$blank_html=str_repeat('<div class="eng-grid eng-blank"></div>',$blank);
 
 $mode_names=['letter'=>'字母','word'=>'单词','sentence'=>'句子'];
 $title='英语练习（'.$mode_names[$mode].'）';
@@ -30,7 +33,7 @@ if($mode==='letter'){
 		$text=$upper.$lower.' '.$upper.$lower.' '.$upper.$lower.' '.$upper.$lower;
 		echo '<div class="eng-item">';
 		echo '<div class="eng-grid"><div class="eng-text">'.$text.'</div></div>';
-		echo '<div class="eng-grid eng-blank"></div>';
+		echo $blank_html;
 		echo '</div>';
 	}
 }elseif($mode==='word'){
@@ -46,7 +49,7 @@ if($mode==='letter'){
 		echo '<div class="eng-item">';
 		echo '<div class="eng-word-head"><span class="eng-word-zh">'.$zh.'</span></div>';
 		echo '<div class="eng-grid"><div class="eng-text">'.$en.' '.$en.' '.$en.'</div></div>';
-		echo '<div class="eng-grid eng-blank"></div>';
+		echo $blank_html;
 		echo '</div>';
 	}
 }else{
@@ -59,7 +62,7 @@ if($mode==='letter'){
 		echo '<div class="eng-item">';
 		echo '<div class="eng-grid"><div class="eng-text">'.$en.'</div></div>';
 		echo '<div class="eng-zh">'.$zh.'</div>';
-		echo '<div class="eng-grid eng-blank"></div>';
+		echo $blank_html;
 		echo '</div>';
 	}
 }
