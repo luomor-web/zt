@@ -45,7 +45,11 @@ li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Ar
 .afterpage{ page-break-before:always;}
 .page-head{height: 76px;line-height: 96px; font-size: 32px;text-align: center;display: none;color: #666666}
 .page-info{height: 40px;line-height: 40px; font-size: 16px;text-align: center;display: none;color: #666666}
-@media print{.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}}
+@media print{.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}.print-tools{display: none;}}
+.print-tools{position:fixed;top:14px;right:14px;display:flex;gap:8px;z-index:999;}
+.print-tools button{padding:8px 20px;font-size:14px;border:none;border-radius:20px;cursor:pointer;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.print-tools .btn-print{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
+.print-tools .btn-close{background:#999;}
 @page {size: auto;margin: 5mm 16mm 5mm 16mm;}
 CSS;
 }
@@ -162,6 +166,10 @@ function xx_blank_row($rows=1){
 function xx_auto_print($title,$info=''){
 	$title=htmlspecialchars($title,ENT_QUOTES,'UTF-8');
 	return <<<HTML
+<div class="print-tools">
+<button type="button" class="btn-print" onclick="window.print()">🖨️ 打印</button>
+<button type="button" class="btn-close" onclick="window.close()">✕ 关闭</button>
+</div>
 <div id="page-head-box" style="display: none;">
 <div class="page-head">{$title}</div>
 <div class="page-info">{$info}</div>
