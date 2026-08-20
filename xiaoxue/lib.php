@@ -27,6 +27,7 @@ function xx_sheet_css($bglx='tzg',$img_prefix='../img/'){
 	$kaiti=xx_kaiti();
 	return <<<CSS
 body,div,p,ul,li{ padding:0; margin:0; list-style:none;}
+body{ padding-top:60px; }/*屏幕显示时给顶部悬浮按钮留位*/
 div{ width:938px; margin:0 auto;padding-left:2px; }
 li{display: inline-block; width:80px; height:80px; font-family:{$kaiti}; font-size:58px; text-align:center; line-height:85px; background:url({$img_prefix}{$bglx}.svg); background-size:80px 80px; -webkit-print-color-adjust:exact; print-color-adjust:exact; margin:5px 0px 5px -2px; color:#b8b8b8; }
 li.f{color:#000;margin-left:-0px}
@@ -49,7 +50,7 @@ li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Ar
 .print-tools button{padding:8px 20px;font-size:14px;border:none;border-radius:20px;cursor:pointer;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
 .print-tools .btn-print{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
 .print-tools .btn-close{background:#999;}
-@media print{.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}.print-tools{display: none;}}
+@media print{body{padding-top:0;}.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}.print-tools{display: none;}}
 @page {size: auto;margin: 5mm 16mm 5mm 16mm;}
 CSS;
 }
