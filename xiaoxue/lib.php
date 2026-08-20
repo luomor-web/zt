@@ -44,14 +44,14 @@ li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Ar
 	background-position:0 0,0 15px,0 31px,0 46px;
 	background-repeat:no-repeat; }
 .afterpage{ page-break-before:always;}
-.page-head{height: 76px;line-height: 96px; font-size: 32px;text-align: center;display: none;color: #666666}
-.page-info{height: 40px;line-height: 40px; font-size: 16px;text-align: center;display: none;color: #666666}
+.page-head{height: 76px;line-height: 96px; font-size: 32px;text-align: center;color: #666666}
+.page-info{height: 40px;line-height: 40px; font-size: 16px;text-align: center;color: #666666}
 .print-tools{position:fixed;top:14px;left:0;right:0;width:auto;margin:0;padding:0;display:flex;justify-content:center;gap:8px;z-index:999;}
 .print-tools button{padding:8px 20px;font-size:14px;border:none;border-radius:20px;cursor:pointer;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
 .print-tools .btn-print{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
 .print-tools .btn-save{background:#27ae60;}
 .print-tools .btn-close{background:#999;}
-@media print{body{padding-top:0;}.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}.print-tools{display: none;}}
+@media print{body{padding-top:0;}.afterpage{ page-break-before:always;}.print-tools{display: none;}}
 @page {size: auto;margin: 5mm 16mm 5mm 16mm;}
 CSS;
 }
@@ -196,12 +196,8 @@ function xx_auto_print($title,$info=''){
     function saveAsImage(){
         var tools=document.querySelector('.print-tools');
         tools.style.display='none';
-        // 页头标题和班级/姓名/日期仅打印时显示，截图前临时显示
-        var heads=document.querySelectorAll('.page-head,.page-info');
-        heads.forEach(function(el){ el.style.display='block'; });
         html2canvas(document.body,{backgroundColor:'#ffffff',scale:2}).then(function(canvas){
             tools.style.display='';
-            heads.forEach(function(el){ el.style.display=''; });
             var a=document.createElement('a');
             a.download='zitie-'+Date.now()+'.png';
             a.href=canvas.toDataURL('image/png');
@@ -210,7 +206,6 @@ function xx_auto_print($title,$info=''){
             document.body.removeChild(a);
         }).catch(function(){
             tools.style.display='';
-            heads.forEach(function(el){ el.style.display=''; });
             alert('保存失败，请截屏保存');
         });
     }
