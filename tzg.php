@@ -101,7 +101,7 @@ div{ width:938px; margin:0 auto;padding-left:2px; }
 li{display: inline-block; width:80px; height:80px; font-family:"楷体","楷体_gb2312", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, DFKai-SB, "TW\-Kai"; font-size:58px; text-align:center; line-height:85px; background:url(img/<?=$bglx;?>.svg); background-size:80px 80px; -webkit-print-color-adjust:exact; print-color-adjust:exact; margin:5px 0px 5px -2px; color:#b8b8b8; }
 li.f{color:#000;margin-left:-0px}
 li.svg{line-height:84px;}
-li svg{ margin:8px; vertical-align:middle;}
+li svg{ vertical-align:middle;}
 li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
 	-webkit-print-color-adjust:exact; print-color-adjust:exact;
 	background-image:
