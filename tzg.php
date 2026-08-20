@@ -102,7 +102,8 @@ li{display: inline-block; width:80px; height:80px; font-family:"楷体","楷体_
 li.f{color:#000;margin-left:-0px}
 li.svg{line-height:84px;}
 li svg{ magin:8px; vertical-align:middle;}
-li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
+li.py{ height:48px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
+	display:inline-flex;align-items:center;justify-content:center;line-height:normal;
 	-webkit-print-color-adjust:exact; print-color-adjust:exact;
 	background-image:
 	 linear-gradient(#999,#999),

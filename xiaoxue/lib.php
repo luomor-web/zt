@@ -33,7 +33,9 @@ li{display: inline-block; width:80px; height:80px; font-family:{$kaiti}; font-si
 li.f{color:#000;margin-left:-0px}
 li.svg{line-height:84px;}
 li svg{ magin:8px; vertical-align:middle;}
-li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
+li.t{display:inline-flex;align-items:center;justify-content:center;line-height:normal;}
+li.py{ height:48px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
+	display:inline-flex;align-items:center;justify-content:center;line-height:normal;
 	-webkit-print-color-adjust:exact; print-color-adjust:exact;
 	background-image:
 	 linear-gradient(#999,#999),
@@ -143,13 +145,13 @@ function xx_render_hanzi_row($hz,$color,$fcolor,$bs){
 	return ['html'=>$out,'cells'=>$count+1+(int)$kg];
 }
 
-/* 描红文字行：一串汉字以浅灰显示在格子上（组词/古诗用），补齐到 12 的整数倍 */
+/* 描红文字行：一串汉字以浅灰显示在格子上（组词/古诗用），补齐到 12 的整数倍；li.t 用 flex 居中，保证截图不偏移 */
 function xx_trace_text_row($text,$bglx_color='#c8c8c8'){
 	preg_match_all('/./u',$text,$m);
 	$chars=$m[0];
 	$out='';
 	foreach($chars as $c){
-		$out.='<li style="color:'.$bglx_color.'">'.htmlspecialchars($c,ENT_QUOTES,'UTF-8').'</li>';
+		$out.='<li class="t" style="color:'.$bglx_color.'">'.htmlspecialchars($c,ENT_QUOTES,'UTF-8').'</li>';
 	}
 	$n=count($chars);
 	$pad=(12-($n%12))%12;
