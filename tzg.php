@@ -22,9 +22,9 @@ if(!in_array($lang,['zh','zh-TW','en'],true)){ $lang='zh'; }
 
 /*界面文案翻译（新增语言时在此追加）*/
 $T=[
-'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN','classLabel'=>'班级','nameLabel'=>'姓名','dateLabel'=>'日期','printBtn'=>'🖨️ 打印','closeBtn'=>'✕ 关闭'],
-'zh-TW'=>['sheetTitle'=>'田字格字帖產生器','defaultHeader'=>'田字格字帖產生器','htmlLang'=>'zh-TW','classLabel'=>'班級','nameLabel'=>'姓名','dateLabel'=>'日期','printBtn'=>'🖨️ 列印','closeBtn'=>'✕ 關閉'],
-'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en','classLabel'=>'Class','nameLabel'=>'Name','dateLabel'=>'Date','printBtn'=>'🖨️ Print','closeBtn'=>'✕ Close'],
+'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN','classLabel'=>'班级','nameLabel'=>'姓名','dateLabel'=>'日期','printBtn'=>'🖨️ 打印','saveBtn'=>'💾 保存图片','closeBtn'=>'✕ 关闭','saveFail'=>'保存失败，请截屏保存'],
+'zh-TW'=>['sheetTitle'=>'田字格字帖產生器','defaultHeader'=>'田字格字帖產生器','htmlLang'=>'zh-TW','classLabel'=>'班級','nameLabel'=>'姓名','dateLabel'=>'日期','printBtn'=>'🖨️ 列印','saveBtn'=>'💾 保存圖片','closeBtn'=>'✕ 關閉','saveFail'=>'保存失敗，請截圖保存'],
+'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en','classLabel'=>'Class','nameLabel'=>'Name','dateLabel'=>'Date','printBtn'=>'🖨️ Print','saveBtn'=>'💾 Save Image','closeBtn'=>'✕ Close','saveFail'=>'Save failed, please take a screenshot'],
 ];
 
 if(trim($title)===''){ $title=$T[$lang]['defaultHeader']; }
@@ -119,6 +119,7 @@ li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Ar
 .print-tools{position:fixed;top:14px;left:0;right:0;width:auto;margin:0;padding:0;display:flex;justify-content:center;gap:8px;z-index:999;}
 .print-tools button{padding:8px 20px;font-size:14px;border:none;border-radius:20px;cursor:pointer;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
 .print-tools .btn-print{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
+.print-tools .btn-save{background:#27ae60;}
 .print-tools .btn-close{background:#999;}
 @media print{body{padding-top:0;}.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}.print-tools{display: none;}}
 @page {size: auto;margin: 5mm 16mm 5mm 16mm;}
@@ -127,6 +128,7 @@ li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Ar
 <body>
 <div class="print-tools">
 <button type="button" class="btn-print" onclick="window.print()"><?=$T[$lang]['printBtn'];?></button>
+<button type="button" class="btn-save" onclick="saveAsImage()"><?=$T[$lang]['saveBtn'];?></button>
 <button type="button" class="btn-close" onclick="window.close()"><?=$T[$lang]['closeBtn'];?></button>
 </div>
 <div>
@@ -248,10 +250,28 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
 </div>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script type="text/javascript">
     $('body').prepend($('#page-head-box').html());
     $('.afterpage').prepend($('#page-head-box').html());
     window.onload = function(){
         setTimeout(function(){window.print(); }, 1000);
+    }
+    // 手机端不支持 window.print()，提供整页保存为图片
+    function saveAsImage(){
+        var tools=document.querySelector('.print-tools');
+        tools.style.display='none';
+        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2}).then(function(canvas){
+            tools.style.display='';
+            var a=document.createElement('a');
+            a.download='zitie-'+Date.now()+'.png';
+            a.href=canvas.toDataURL('image/png');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }).catch(function(){
+            tools.style.display='';
+            alert('<?=$T[$lang]['saveFail'];?>');
+        });
     }
 </script>
