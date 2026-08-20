@@ -33,9 +33,9 @@ li{display: inline-block; width:80px; height:80px; font-family:{$kaiti}; font-si
 li.f{color:#000;margin-left:-0px}
 li.svg{line-height:84px;}
 li svg{ magin:8px; vertical-align:middle;}
-li.t{display:inline-flex;align-items:center;justify-content:center;line-height:normal;}
-li.py{ height:48px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
-	display:inline-flex;align-items:center;justify-content:center;line-height:normal;
+li.t{display:inline-block;height:69px;padding-top:11px;line-height:normal;}/*用 padding 居中，html2canvas 截图不偏移*/
+li.py{ height:35px; padding-top:13px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
+	line-height:normal;
 	-webkit-print-color-adjust:exact; print-color-adjust:exact;
 	background-image:
 	 linear-gradient(#999,#999),
@@ -50,6 +50,7 @@ li.py{ height:48px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neu
 .page-info{height: 40px;line-height: 40px; font-size: 16px;text-align: center;color: #666666}
 .print-tools{position:fixed;top:14px;left:0;right:0;width:auto;margin:0;padding:0;display:flex;justify-content:center;gap:8px;z-index:999;}
 .print-tools button{padding:8px 20px;font-size:14px;border:none;border-radius:20px;cursor:pointer;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.print-tools button:disabled{opacity:0.6;cursor:default;}
 .print-tools .btn-print{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);}
 .print-tools .btn-save{background:#27ae60;}
 .print-tools .btn-close{background:#999;}
@@ -194,12 +195,14 @@ function xx_auto_print($title,$info=''){
             setTimeout(function(){window.print(); }, 1000);
         }
     }
-    // 手机端整页保存为图片
+    // 手机端整页保存为图片（按钮保持显示但禁用，通过 ignoreElements 排除在图片外）
     function saveAsImage(){
-        var tools=document.querySelector('.print-tools');
-        tools.style.display='none';
-        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2}).then(function(canvas){
-            tools.style.display='';
+        var btns=document.querySelectorAll('.print-tools button');
+        btns.forEach(function(b){ b.disabled=true; });
+        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,ignoreElements:function(el){
+            return el.classList && el.classList.contains('print-tools');
+        }}).then(function(canvas){
+            btns.forEach(function(b){ b.disabled=false; });
             var a=document.createElement('a');
             a.download='zitie-'+Date.now()+'.png';
             a.href=canvas.toDataURL('image/png');
@@ -207,7 +210,7 @@ function xx_auto_print($title,$info=''){
             a.click();
             document.body.removeChild(a);
         }).catch(function(){
-            tools.style.display='';
+            btns.forEach(function(b){ b.disabled=false; });
             alert('保存失败，请截屏保存');
         });
     }
