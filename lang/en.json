@@ -15,6 +15,7 @@
   "desc.p2": "Generate Tian Zi Ge and Mi Zi Ge practice sheets online, <strong>completely free</strong>. Tian Zi Ge is the simplest practice grid and is used in elementary Chinese textbooks to present new characters.",
   "desc.p3": "Elementary school — especially the early grades — is the critical period for learning to write Chinese characters. Generate practice sheets here to help children write characters correctly, build proper stroke-order habits, and lay a solid foundation for future Chinese learning.",
   "desc.link": "<strong>📚 <a href=\"scb.html\" target=\"_blank\" title=\"Common Chinese characters by grade (Grades 1-6)\">Appendix: Common Chinese characters by grade (2,513 characters, Chinese)</a></strong>",
+  "desc.xxlink": "<strong>🎒 <a href=\"xiaoxue/\" target=\"_blank\" title=\"Elementary Practice Zone\">Elementary Practice Zone: Word Sheets, Poem Tracing, Math Drills & English Practice (Chinese)</a></strong>",
 
   "form.aria": "Practice sheet generator form",
   "form.words.label": "Enter the Chinese characters to practice",
@@ -23,7 +24,10 @@
   "form.words.default": "锄禾日当午，汗滴禾下土。\n谁知盘中餐，粒粒皆辛苦。",
   "form.title.label": "Custom Page Header",
   "form.title.aria": "Custom page header text",
-  "form.title.default": "Chinese Practice Sheet · zt.luomor.com",
+  "form.class.label": "Class",
+  "form.name.label": "Name",
+  "form.optional": "Optional",
+  "form.title.default": "Chinese Practice Sheet · zzzt.luomor.com",
   "form.submit": "Generate Now",
 
   "options.types.title": "Grid Type",

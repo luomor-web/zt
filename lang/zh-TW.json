@@ -15,6 +15,7 @@
   "desc.p2": "本系統可以線上產生田字格、米字格字帖，<strong>完全免費</strong>。田字格是最精簡的練習格，被小學低年級語文課本作為生字詞的展示方式。",
   "desc.p3": "小學時期，特別是低年級階段，是學習漢字書寫的關鍵時期。使用本站產生田字格字帖，讓孩子逐漸將漢字寫規範，養成正確的漢字筆順書寫習慣，給以後的語文學習和漢字書寫打下堅實的基礎。",
   "desc.link": "<strong>📚 <a href=\"scb.html\" target=\"_blank\" title=\"小學一年級至六年級常用漢字生字表\">附：小學生常用漢字分年級生字表（共計 2513 個漢字）</a></strong>",
+  "desc.xxlink": "<strong>🎒 <a href=\"xiaoxue/\" target=\"_blank\" title=\"小學練習專區：組詞字帖、古詩描紅、數學口算、英語練習\">小學練習專區：組詞字帖、古詩描紅、數學口算、英語練習</a></strong>",
 
   "form.aria": "字帖產生表單",
   "form.words.label": "輸入想要產生的漢字",
@@ -23,6 +24,9 @@
   "form.words.default": "鋤禾日當午，汗滴禾下土。\n誰知盤中餐，粒粒皆辛苦。",
   "form.title.label": "自訂頁首",
   "form.title.aria": "自訂頁首文字",
+  "form.class.label": "班級",
+  "form.name.label": "姓名",
+  "form.optional": "選填",
   "form.title.default": "田字格字帖產生器 網址：zzzt.luomor.com",
   "form.submit": "立即產生",
 

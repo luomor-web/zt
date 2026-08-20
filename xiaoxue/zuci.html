@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>✏️ 组词字帖练习 - 小学练习专区 - 烙馍网</title>
+<link rel="stylesheet" href="form.css">
+</head>
+<body>
+<div class="container">
+<header class="header">
+    <a class="back-link" href="index.html">← 返回专区</a>
+    <h1>✏️ 组词字帖练习</h1>
+    <p class="subtitle">输入生字，自动生成带组词的描红字帖</p>
+</header>
+<div class="card">
+<form action="zuci.php" method="post" target="_blank">
+    <label class="form-label" for="words">输入要练习的生字</label>
+    <textarea id="words" name="words" placeholder="请输入汉字，例如：山水花鸟鱼虫">山水花鸟鱼虫</textarea>
+
+    <div class="options-grid">
+        <div class="option-group">
+            <div class="option-group-title">每字组词数</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="zcnum" value="1"><span>1 个</span></label>
+                <label class="radio-label"><input type="radio" name="zcnum" value="2" checked><span>2 个</span></label>
+                <label class="radio-label"><input type="radio" name="zcnum" value="3"><span>3 个</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">格子类型</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="types" value="tzg" checked><span>田字格</span></label>
+                <label class="radio-label"><input type="radio" name="types" value="mzg"><span>米字格</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">格子颜色</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="bgcolor" value="green"><span>绿色</span></label>
+                <label class="radio-label"><input type="radio" name="bgcolor" value="black" checked><span>黑色</span></label>
+                <label class="radio-label"><input type="radio" name="bgcolor" value="red"><span>红色</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">文字颜色</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="zcolor" value="green"><span>绿色</span></label>
+                <label class="radio-label"><input type="radio" name="zcolor" value="black" checked><span>黑色</span></label>
+                <label class="radio-label"><input type="radio" name="zcolor" value="red"><span>红色</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">描红深浅</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="fcolor" value="1"><span>非常深</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="2"><span>深</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="3"><span>较深</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="4"><span>略浅</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="5" checked><span>适中</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="6"><span>非常浅</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">笔顺填充</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="bs" value="1"><span>是</span></label>
+                <label class="radio-label"><input type="radio" name="bs" value="0" checked><span>否</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">显示拼音</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="py" value="1" checked><span>是</span></label>
+                <label class="radio-label"><input type="radio" name="py" value="0"><span>否</span></label>
+            </div>
+        </div>
+    </div>
+
+        <div class="name-row">
+        <div class="field">
+            <label for="class">班级</label>
+            <input type="text" id="class" name="class" placeholder="选填">
+        </div>
+        <div class="field">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="选填">
+        </div>
+    </div>
+
+    <div class="btn-row">
+        <button type="submit" class="submit-btn">立即生成</button>
+    </div>
+</form>
+</div>
+</div>
+</body>
+</html>

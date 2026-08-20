@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔢 数学题练习 - 小学练习专区 - 烙馍网</title>
+<link rel="stylesheet" href="form.css">
+</head>
+<body>
+<div class="container">
+<header class="header">
+    <a class="back-link" href="index.html">← 返回专区</a>
+    <h1>🔢 数学题练习</h1>
+    <p class="subtitle">加减乘除、比大小，10 / 20 / 100 以内，随机出题</p>
+</header>
+<div class="card">
+<form action="math.php" method="post" target="_blank">
+    <div class="options-grid">
+        <div class="option-group">
+            <div class="option-group-title">运算类型</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="op" value="add" checked><span>加法</span></label>
+                <label class="radio-label"><input type="radio" name="op" value="sub"><span>减法</span></label>
+                <label class="radio-label"><input type="radio" name="op" value="mul"><span>乘法</span></label>
+                <label class="radio-label"><input type="radio" name="op" value="div"><span>除法</span></label>
+                <label class="radio-label"><input type="radio" name="op" value="cmp"><span>比大小</span></label>
+                <label class="radio-label"><input type="radio" name="op" value="mix"><span>混合</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">数值范围</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="range" value="10" checked><span>10 以内</span></label>
+                <label class="radio-label"><input type="radio" name="range" value="20"><span>20 以内</span></label>
+                <label class="radio-label"><input type="radio" name="range" value="100"><span>100 以内</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">题目数量</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="count" value="20"><span>20 题</span></label>
+                <label class="radio-label"><input type="radio" name="count" value="40" checked><span>40 题</span></label>
+                <label class="radio-label"><input type="radio" name="count" value="60"><span>60 题</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">每行题数</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="cols" value="3"><span>3 题</span></label>
+                <label class="radio-label"><input type="radio" name="cols" value="4" checked><span>4 题</span></label>
+                <label class="radio-label"><input type="radio" name="cols" value="5"><span>5 题</span></label>
+            </div>
+        </div>
+    </div>
+
+        <div class="name-row">
+        <div class="field">
+            <label for="class">班级</label>
+            <input type="text" id="class" name="class" placeholder="选填">
+        </div>
+        <div class="field">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="选填">
+        </div>
+    </div>
+
+    <div class="btn-row">
+        <button type="submit" class="submit-btn">立即生成</button>
+    </div>
+</form>
+<p class="form-tip">提示：每次点击生成都会随机出一份新题；减法不出现负数，除法保证整除；比大小在 ○ 中填写 &gt;、&lt; 或 =。</p>
+</div>
+</div>
+</body>
+</html>

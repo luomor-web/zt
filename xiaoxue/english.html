@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🔤 英语练习 - 小学练习专区 - 烙馍网</title>
+<link rel="stylesheet" href="form.css">
+</head>
+<body>
+<div class="container">
+<header class="header">
+    <a class="back-link" href="index.html">← 返回专区</a>
+    <h1>🔤 英语练习</h1>
+    <p class="subtitle">字母、单词、句子四线三格描红练习</p>
+</header>
+<div class="card">
+<form action="english.php" method="post" target="_blank">
+    <div class="options-grid">
+        <div class="option-group">
+            <div class="option-group-title">练习模式</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="mode" value="letter" checked><span>字母</span></label>
+                <label class="radio-label"><input type="radio" name="mode" value="word"><span>单词</span></label>
+                <label class="radio-label"><input type="radio" name="mode" value="sentence"><span>句子</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">单词范围（仅单词模式）</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="grade" value="0" checked><span>全部</span></label>
+                <label class="radio-label"><input type="radio" name="grade" value="1"><span>一年级及以下</span></label>
+                <label class="radio-label"><input type="radio" name="grade" value="2"><span>二年级及以下</span></label>
+                <label class="radio-label"><input type="radio" name="grade" value="3"><span>三年级及以下</span></label>
+                <label class="radio-label"><input type="radio" name="grade" value="4"><span>四年级及以下</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">数量（单词/句子模式）</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="num" value="10" checked><span>10 个</span></label>
+                <label class="radio-label"><input type="radio" name="num" value="20"><span>20 个</span></label>
+                <label class="radio-label"><input type="radio" name="num" value="30"><span>30 个</span></label>
+            </div>
+        </div>
+    </div>
+
+        <div class="name-row">
+        <div class="field">
+            <label for="class">班级</label>
+            <input type="text" id="class" name="class" placeholder="选填">
+        </div>
+        <div class="field">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="选填">
+        </div>
+    </div>
+
+    <div class="btn-row">
+        <button type="submit" class="submit-btn">立即生成</button>
+    </div>
+</form>
+<p class="form-tip">提示：字母模式固定生成 Aa–Zz 全表；单词/句子模式每次随机抽取，可重复生成获得不同练习。</p>
+</div>
+</div>
+</body>
+</html>

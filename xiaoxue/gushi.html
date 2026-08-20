@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>📜 小学必备古诗练习 - 小学练习专区 - 烙馍网</title>
+<link rel="stylesheet" href="form.css">
+</head>
+<body>
+<div class="container">
+<header class="header">
+    <a class="back-link" href="index.html">← 返回专区</a>
+    <h1>📜 小学必备古诗练习</h1>
+    <p class="subtitle">课标必背古诗 75 首，描红 + 默写练习</p>
+</header>
+<div class="card">
+<form action="gushi.php" method="post" target="_blank">
+    <label class="form-label">选择要练习的古诗（可多选）</label>
+    <div style="margin-bottom:10px;">
+        <button type="button" class="mini-btn" id="btn-all">全选</button>
+        <button type="button" class="mini-btn" id="btn-none">全不选</button>
+    </div>
+    <div class="check-list" id="poem-list">
+        <p style="color:#999;font-size:14px;">古诗列表加载中…</p>
+    </div>
+
+    <div class="options-grid">
+        <div class="option-group">
+            <div class="option-group-title">格子类型</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="types" value="tzg" checked><span>田字格</span></label>
+                <label class="radio-label"><input type="radio" name="types" value="mzg"><span>米字格</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">格子颜色</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="bgcolor" value="green"><span>绿色</span></label>
+                <label class="radio-label"><input type="radio" name="bgcolor" value="black" checked><span>黑色</span></label>
+                <label class="radio-label"><input type="radio" name="bgcolor" value="red"><span>红色</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">每句描红行数</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="tr" value="1" checked><span>1 行</span></label>
+                <label class="radio-label"><input type="radio" name="tr" value="2"><span>2 行</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">默写空白行</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="mx" value="1" checked><span>是</span></label>
+                <label class="radio-label"><input type="radio" name="mx" value="0"><span>否</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">显示拼音</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="py" value="1"><span>是</span></label>
+                <label class="radio-label"><input type="radio" name="py" value="0" checked><span>否</span></label>
+            </div>
+        </div>
+    </div>
+
+        <div class="name-row">
+        <div class="field">
+            <label for="class">班级</label>
+            <input type="text" id="class" name="class" placeholder="选填">
+        </div>
+        <div class="field">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="选填">
+        </div>
+    </div>
+
+    <div class="btn-row">
+        <button type="submit" class="submit-btn">立即生成</button>
+    </div>
+</form>
+</div>
+</div>
+<script>
+// 诗单数据从 data/gushi.json 加载，页面本身保持静态
+fetch('../data/gushi.json')
+    .then(function (r) { return r.json(); })
+    .then(function (list) {
+        var box = document.getElementById('poem-list');
+        box.innerHTML = '';
+        list.forEach(function (p, i) {
+            var label = document.createElement('label');
+            var cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.name = 'poems[]';
+            cb.value = i;
+            if (i < 3) cb.checked = true;
+            var span = document.createElement('span');
+            span.textContent = p.title + '（' + p.dynasty + '·' + p.author + '）';
+            label.appendChild(cb);
+            label.appendChild(span);
+            box.appendChild(label);
+        });
+    })
+    .catch(function () {
+        document.getElementById('poem-list').innerHTML = '<p style="color:#e74c3c;font-size:14px;">古诗列表加载失败，请刷新重试。</p>';
+    });
+
+function setAll(v) {
+    document.querySelectorAll('#poem-list input').forEach(function (c) { c.checked = v; });
+}
+document.getElementById('btn-all').addEventListener('click', function () { setAll(true); });
+document.getElementById('btn-none').addEventListener('click', function () { setAll(false); });
+</script>
+</body>
+</html>

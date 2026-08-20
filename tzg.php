@@ -22,12 +22,21 @@ if(!in_array($lang,['zh','zh-TW','en'],true)){ $lang='zh'; }
 
 /*界面文案翻译（新增语言时在此追加）*/
 $T=[
-'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN'],
-'zh-TW'=>['sheetTitle'=>'田字格字帖產生器','defaultHeader'=>'田字格字帖產生器','htmlLang'=>'zh-TW'],
-'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en'],
+'zh'=>['sheetTitle'=>'田字格字帖生成器','defaultHeader'=>'田字格字帖生成器','htmlLang'=>'zh-CN','classLabel'=>'班级','nameLabel'=>'姓名','dateLabel'=>'日期'],
+'zh-TW'=>['sheetTitle'=>'田字格字帖產生器','defaultHeader'=>'田字格字帖產生器','htmlLang'=>'zh-TW','classLabel'=>'班級','nameLabel'=>'姓名','dateLabel'=>'日期'],
+'en'=>['sheetTitle'=>'Chinese Character Practice Sheet','defaultHeader'=>'Chinese Practice Sheet','htmlLang'=>'en','classLabel'=>'Class','nameLabel'=>'Name','dateLabel'=>'Date'],
 ];
 
 if(trim($title)===''){ $title=$T[$lang]['defaultHeader']; }
+
+/*班级、姓名、日期（打印页头信息行，留空显示下划线供手写）*/
+$class=trim($_POST['class']??'');
+$name=trim($_POST['name']??'');
+$colon=$lang==='en'?': ':'：';
+$blank=$lang==='en'?'________':'＿＿＿＿';
+$info=$T[$lang]['classLabel'].$colon.($class!==''?htmlspecialchars($class,ENT_QUOTES,'UTF-8'):$blank)
+	.'　'.$T[$lang]['nameLabel'].$colon.($name!==''?htmlspecialchars($name,ENT_QUOTES,'UTF-8'):$blank)
+	.'　'.$T[$lang]['dateLabel'].$colon.$blank;
 
 /*过滤掉非中文*/
 preg_match_all('/[\x{4e00}-\x{9fff}]+/u', $words, $words);
@@ -88,14 +97,25 @@ if($f_color=='10'){
 <style>
 body,div,p,ul,li{ padding:0; margin:0; list-style:none;}
 div{ width:938px; margin:0 auto;padding-left:2px; }
-li{display: inline-block; width:80px; height:80px; font-family:"楷体","楷体_gb2312", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, DFKai-SB, "TW\-Kai"; font-size:58px; text-align:center; line-height:85px; background:url(img/<?=$bglx;?>.svg); margin:5px 0px 5px -2px; color:#b8b8b8; }
+li{display: inline-block; width:80px; height:80px; font-family:"楷体","楷体_gb2312", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, DFKai-SB, "TW\-Kai"; font-size:58px; text-align:center; line-height:85px; background:url(img/<?=$bglx;?>.svg); background-size:80px 80px; -webkit-print-color-adjust:exact; print-color-adjust:exact; margin:5px 0px 5px -2px; color:#b8b8b8; }
 li.f{color:#000;margin-left:-0px}
 li.svg{line-height:84px;}
 li svg{ magin:8px; vertical-align:middle;}
+li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
+	-webkit-print-color-adjust:exact; print-color-adjust:exact;
+	background-image:
+	 linear-gradient(#999,#999),
+	 repeating-linear-gradient(to right,#bbb 0,#bbb 5px,transparent 5px,transparent 10px),
+	 repeating-linear-gradient(to right,#bbb 0,#bbb 5px,transparent 5px,transparent 10px),
+	 linear-gradient(#999,#999);
+	background-size:100% 1px,100% 1px,100% 1px,100% 2px;
+	background-position:0 0,0 15px,0 31px,0 46px;
+	background-repeat:no-repeat; }
 .afterpage{ page-break-before:always;}
 .afterpage{ page-break-before:always;}
-.page-head{height: 116px;line-height: 136px; font-size: 32px;text-align: center;display: none;color: #666666}
-@media print{.afterpage{ page-break-before:always;}.page-head{display: block;}}
+.page-head{height: 76px;line-height: 96px; font-size: 32px;text-align: center;display: none;color: #666666}
+.page-info{height: 40px;line-height: 40px; font-size: 16px;text-align: center;display: none;color: #666666}
+@media print{.afterpage{ page-break-before:always;}.page-head{display: block;}.page-info{display: block;}}
 @page {size: auto;margin: 5mm 16mm 5mm 16mm;}
 </style>
 </head>
@@ -121,18 +141,17 @@ for($ihz=0;$ihz<count($hz['0']);$ihz++){
 	$data=json_decode($data,1);
 	$count=count($data['strokes']);//统计共有多少画
 	
-	/*显示完整字符和拼音*/
-	
+	/*拼音独占一行（四线三格拼音格）*/
 	if($py)
 	{
-		//print_r($hz['0'][$ihz]);
 		$py_str=Pinyin::getPinyin($hz['0'][$ihz]);
-		echo '<li class="svg" style="positon: relative;"><span style="font:13px bolder;display:block;position:absolute;width:80px;color:rgb('.$color.')">'.$py_str.'</span><svg width="54" height="54" style="margin-top: -11px;"><g transform="translate(-2.9,48) scale(0.058, -0.0572)">';
+		echo '<li class="py">'.htmlspecialchars($py_str,ENT_QUOTES,'UTF-8').'</li>';
+		for($pi=1;$pi<12;$pi++){ echo '<li class="py">&nbsp;</li>'; }
 	}
-	else
-	{
-		echo '<li class="svg"><svg width="54" height="54" style="margin-top: -11px;"><g transform="translate(-2.9,48) scale(0.058, -0.0572)">';
-	}
+
+	/*显示完整字符*/
+	echo '<li class="svg"><svg width="54" height="54" style="margin-top: -11px;"><g transform="translate(-2.9,48) scale(0.058, -0.0572)">';
+
 	foreach ($data['strokes'] as $v){
 		echo '<path d="'.$v.'"style="fill:rgb('.$color.');stroke:rgb('.$color.');" stroke-width = "0"></path>';
 	}
@@ -188,9 +207,9 @@ for($ihz=0;$ihz<count($hz['0']);$ihz++){
 		
 	}
 
-	/*分页显示标题头部*/
-	
-	$tzg_hs[]= ceil($tzg12);//占用行数
+	/*分页显示标题头部（拼音格行也计入行数）*/
+
+	$tzg_hs[]= ceil($tzg12)+($py?1:0);//占用行数
 	$arraytzg=intval(array_sum($tzg_hs));
 	$arraytzg=$arraytzg/15;
 	if(is_int($arraytzg)){
@@ -216,6 +235,7 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
 </div>
 <div id="page-head-box" style="display: none;">
 <div class="page-head"><?=$title;?></div>
+<div class="page-info"><?=$info;?></div>
 </div>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.1.min.js"></script>

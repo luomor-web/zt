@@ -33,6 +33,19 @@
 │   ├── tzg.svg, tzggreen.svg, tzgred.svg    # 田字格
 │   ├── mzg.svg, mzggreen.svg, mzgred.svg    # 米字格
 │   └── print.png, xg*.png, zt1.jpg          # 截图
+├── xiaoxue/        # 小学练习专区（仅中文，不接入 i18n）
+│   ├── index.html  # 入口导航页（4 个功能卡片，纯静态）
+│   ├── form.css    # 表单页公共样式
+│   ├── lib.php     # 共享函数：打印 CSS、笔顺格渲染、四线三格
+│   ├── zuci.html/.php   # 组词字帖（.html 静态表单 → POST .php 生成）
+│   ├── gushi.html/.php  # 古诗练习（诗单由 JS fetch ../data/gushi.json 渲染）
+│   ├── math.html/.php   # 数学题（无数据文件，随机出题）
+│   └── english.html/.php # 英语练习（字母/单词/句子）
+├── data/           # 练习数据（手工整理的权威内容，可整体替换刷新）
+│   ├── zuci.json              # 组词：{"一":["一个","一天","第一"],...} 约 600 字
+│   ├── gushi.json             # 课标必背古诗 75 首：[{title,author,dynasty,content:[行]}]
+│   ├── english_words.json     # 小学课标单词约 220 个：[{en,zh,grade:1-4}]
+│   └── english_sentences.json # 常见句型约 63 句：[{en,zh}]
 └── bishun_data/    # 约 47MB 的笔顺数据 JSON 文件
     ├── 一.json, 二.json, ... (单字文件)
     └── ⺀.json, ⺈.json, ... (部首文件)
@@ -70,7 +83,7 @@
 4. 处理分页（每页 15 行，每行 12 格）
 
 ### Pinyin.php
-包含静态方法 `Pinyin::getPinyin($char)` 返回拼音字符串。含多音字映射（如 秘→mi, 迫→po）。
+包含静态方法 `Pinyin::getPinyin($char)` 返回**带声调符号**的拼音（如 `hàn`，轻声不标调）。字典数据来自 mozillazg/pinyin-data，已按本站原有多音字取舍匹配（如 秘→mì, 迫→pò）。
 
 ## 开发说明
 
@@ -107,6 +120,18 @@
 - **传给后端**：表单隐藏字段 `name="lang"`（JS 填充），cookie `tzg_lang` 兜底；`tzg.php` 用内嵌 `$T` 数组翻译 `<title>` / `<html lang>` / 空页头默认值
 - **兜底**：HTML 中硬编码的中文即兜底内容，语言包加载失败页面仍完整可用
 - **新增语言**：新建 `lang/<code>.json` → `i18n.js` 的 `SUPPORTED` 加语言码 → 切换器加按钮 → `tzg.php` 的 `$T` 加一项
+
+## 小学练习专区 (xiaoxue/)
+
+- **模式**：与主站一致——`.html` 纯静态表单页（target=_blank POST）→ `.php` 生成打印页并自动 `window.print()`；PHP 仅在需要动态数据时使用
+- **共享函数**（`xiaoxue/lib.php`）：
+  - `xx_sheet_head()/xx_sheet_css()` — 打印页骨架（格子背景相对路径 `../img/`）
+  - `xx_render_hanzi_row()` — 单字笔顺描红整行（复刻 tzg.php 逻辑，补满 12 格）
+  - `xx_trace_text_row()/xx_blank_row()` — 描红文字行 / 空白格行
+  - `xx_page_break()` — 每 15 行分页
+  - `xx_eng_css()` — 英语四线三格（linear-gradient 背景）
+- **数据**：`data/*.json` 为手工整理内容；gushi.html 诗单由前端 fetch JSON 渲染，数据变更无需改代码
+- **注意**：子目录引用 `bishun_data/` 与 `img/` 需 `../` 前缀（lib.php 已处理）
 
 ## 外部依赖
 
