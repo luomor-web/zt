@@ -19,7 +19,7 @@ $title='英语练习（'.$mode_names[$mode].'）';
 
 $css=xx_eng_css()
 	.'.eng-wrap{width:938px;margin:0 auto;}'
-	.'.eng-item{margin-bottom:18px;}'
+	.'.eng-item{margin-bottom:28px;}'
 	.'.eng-word-head{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px 4px;}'
 	.'.eng-word-zh{font-size:18px;color:#666;}';
 echo xx_sheet_head($title,$css,'tzg');

@@ -212,18 +212,18 @@ function xx_filter_hanzi($words){
 	return implode('',$m[0]);
 }
 
-/* 英语四线三格 CSS（用边框画线，打印不依赖背景图形设置；第三线加粗为书写基线，行间留白） */
+/* 英语四线三格 CSS（用边框画线，打印不依赖背景图形设置） */
 function xx_eng_css(){
 	return <<<CSS
 .eng-line{ width:938px; margin:0 auto; }
 .eng-grid{ position:relative; height:96px; border-top:2px solid #999; border-bottom:2px solid #999;
 	-webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.eng-grid + .eng-grid{ margin-top:10px; }/*相邻格行的间距*/
 .eng-grid::before{ content:""; position:absolute; left:0; right:0; top:30px; border-top:1px dashed #bbb; }
-.eng-grid::after{ content:""; position:absolute; left:0; right:0; top:62px; border-top:2px solid #999; }
-.eng-grid + .eng-grid, .eng-zh + .eng-grid{ margin-top:16px; }
+.eng-grid::after{ content:""; position:absolute; left:0; right:0; top:63px; border-top:1px dashed #bbb; }
 .eng-text{ font-family:"Times New Roman",Georgia,serif; font-size:52px; color:#c8c8c8; padding-left:30px; line-height:96px; letter-spacing:2px; }
 .eng-zh{ font-family:sans-serif; font-size:20px; color:#888; padding:2px 0 10px 30px; }
-.eng-blank{ }
+.eng-blank{ margin-bottom:14px; }
 CSS;
 }
 
