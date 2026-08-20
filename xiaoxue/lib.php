@@ -182,15 +182,26 @@ function xx_auto_print($title,$info=''){
 <script type="text/javascript">
     $('body').prepend($('#page-head-box').html());
     $('.afterpage').prepend($('#page-head-box').html());
-    window.onload = function(){
-        setTimeout(function(){window.print(); }, 1000);
+    // 移动设备不支持 window.print()：隐藏打印按钮且不再自动唤起打印
+    var isMobile=/Android|webOS|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    if(isMobile){
+        var pb=document.querySelector('.btn-print');
+        if(pb) pb.style.display='none';
+    }else{
+        window.onload = function(){
+            setTimeout(function(){window.print(); }, 1000);
+        }
     }
-    // 手机端不支持 window.print()，提供整页保存为图片
+    // 手机端整页保存为图片
     function saveAsImage(){
         var tools=document.querySelector('.print-tools');
         tools.style.display='none';
+        // 页头标题和班级/姓名/日期仅打印时显示，截图前临时显示
+        var heads=document.querySelectorAll('.page-head,.page-info');
+        heads.forEach(function(el){ el.style.display='block'; });
         html2canvas(document.body,{backgroundColor:'#ffffff',scale:2}).then(function(canvas){
             tools.style.display='';
+            heads.forEach(function(el){ el.style.display=''; });
             var a=document.createElement('a');
             a.download='zitie-'+Date.now()+'.png';
             a.href=canvas.toDataURL('image/png');
@@ -199,6 +210,7 @@ function xx_auto_print($title,$info=''){
             document.body.removeChild(a);
         }).catch(function(){
             tools.style.display='';
+            heads.forEach(function(el){ el.style.display=''; });
             alert('保存失败，请截屏保存');
         });
     }
