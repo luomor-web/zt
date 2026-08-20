@@ -102,8 +102,7 @@ li{display: inline-block; width:80px; height:80px; font-family:"楷体","楷体_
 li.f{color:#000;margin-left:-0px}
 li.svg{line-height:84px;}
 li svg{ magin:8px; vertical-align:middle;}
-li.py{ height:35px; padding-top:13px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
-	line-height:normal;
+li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
 	-webkit-print-color-adjust:exact; print-color-adjust:exact;
 	background-image:
 	 linear-gradient(#999,#999),
@@ -266,13 +265,13 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
             setTimeout(function(){window.print(); }, 1000);
         }
     }
-    // 手机端整页保存为图片（按钮保持显示但禁用，通过 ignoreElements 排除在图片外）
+    // 手机端整页保存为图片（截图时按钮禁用置灰，并从图像中排除按钮组）
     function saveAsImage(){
         var btns=document.querySelectorAll('.print-tools button');
         btns.forEach(function(b){ b.disabled=true; });
-        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,ignoreElements:function(el){
-            return el.classList && el.classList.contains('print-tools');
-        }}).then(function(canvas){
+        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,
+            ignoreElements:function(el){ return el.classList && el.classList.contains('print-tools'); }
+        }).then(function(canvas){
             btns.forEach(function(b){ b.disabled=false; });
             var a=document.createElement('a');
             a.download='zitie-'+Date.now()+'.png';

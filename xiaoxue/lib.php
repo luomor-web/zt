@@ -33,9 +33,7 @@ li{display: inline-block; width:80px; height:80px; font-family:{$kaiti}; font-si
 li.f{color:#000;margin-left:-0px}
 li.svg{line-height:84px;}
 li svg{ magin:8px; vertical-align:middle;}
-li.t{display:inline-block;height:69px;padding-top:11px;line-height:normal;}/*用 padding 居中，html2canvas 截图不偏移*/
-li.py{ height:35px; padding-top:13px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
-	line-height:normal;
+li.py{ height:48px; line-height:54px; font-size:22px; color:#555; font-family:Arial,"Helvetica Neue",sans-serif;
 	-webkit-print-color-adjust:exact; print-color-adjust:exact;
 	background-image:
 	 linear-gradient(#999,#999),
@@ -146,13 +144,13 @@ function xx_render_hanzi_row($hz,$color,$fcolor,$bs){
 	return ['html'=>$out,'cells'=>$count+1+(int)$kg];
 }
 
-/* 描红文字行：一串汉字以浅灰显示在格子上（组词/古诗用），补齐到 12 的整数倍；li.t 用 flex 居中，保证截图不偏移 */
+/* 描红文字行：一串汉字以浅灰显示在格子上（组词/古诗用），补齐到 12 的整数倍 */
 function xx_trace_text_row($text,$bglx_color='#c8c8c8'){
 	preg_match_all('/./u',$text,$m);
 	$chars=$m[0];
 	$out='';
 	foreach($chars as $c){
-		$out.='<li class="t" style="color:'.$bglx_color.'">'.htmlspecialchars($c,ENT_QUOTES,'UTF-8').'</li>';
+		$out.='<li style="color:'.$bglx_color.'">'.htmlspecialchars($c,ENT_QUOTES,'UTF-8').'</li>';
 	}
 	$n=count($chars);
 	$pad=(12-($n%12))%12;
@@ -195,13 +193,13 @@ function xx_auto_print($title,$info=''){
             setTimeout(function(){window.print(); }, 1000);
         }
     }
-    // 手机端整页保存为图片（按钮保持显示但禁用，通过 ignoreElements 排除在图片外）
+    // 手机端整页保存为图片（截图时按钮禁用置灰，并从图像中排除按钮组）
     function saveAsImage(){
         var btns=document.querySelectorAll('.print-tools button');
         btns.forEach(function(b){ b.disabled=true; });
-        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,ignoreElements:function(el){
-            return el.classList && el.classList.contains('print-tools');
-        }}).then(function(canvas){
+        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,
+            ignoreElements:function(el){ return el.classList && el.classList.contains('print-tools'); }
+        }).then(function(canvas){
             btns.forEach(function(b){ b.disabled=false; });
             var a=document.createElement('a');
             a.download='zitie-'+Date.now()+'.png';
