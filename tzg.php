@@ -273,7 +273,12 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
         var svgs=document.querySelectorAll('li svg');
         var oldMargins=[];
         svgs.forEach(function(s,i){ oldMargins[i]=s.style.marginTop; s.style.marginTop='-1px'; });
-        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,
+        // iPhone 画布有约 1600 万像素上限，超长页面超出会报 SecurityError，按需降低清晰度
+        var w=document.body.scrollWidth||document.documentElement.scrollWidth;
+        var h=document.body.scrollHeight||document.documentElement.scrollHeight;
+        var scale=Math.min(2,Math.sqrt(16000000/(w*h))||1);
+        if(scale<1){ scale=1; }
+        html2canvas(document.body,{backgroundColor:'#ffffff',scale:scale,useCORS:true,logging:false,
             ignoreElements:function(el){ return el.classList && el.classList.contains('print-tools'); }
         }).then(function(canvas){
             btns.forEach(function(b){ b.disabled=false; });
