@@ -212,9 +212,10 @@ function xx_auto_print($title,$info=''){
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-        }).catch(function(){
+        }).catch(function(error){
             btns.forEach(function(b){ b.disabled=false; });
             svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
+			console.log(error);
             alert('保存失败，请截屏保存');
         });
     }
