@@ -27,6 +27,8 @@ textarea:focus{ outline:none; border-color:#667eea; }
 .mini-btn{ padding:4px 14px; font-size:13px; border:1px solid #667eea; border-radius:16px; background:#fff; color:#667eea; cursor:pointer; margin-right:8px; }
 .mini-btn:hover{ background:#667eea; color:#fff; }
 .form-tip{ margin-top:18px; font-size:13px; color:#999; }
+.term-filter{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+.term-filter .mini-btn.active{ background:#667eea; color:#fff; }
 .seo-intro{ font-size:14px; color:#666; line-height:1.8; margin-bottom:20px; padding:12px 16px; background:#f8f9fa; border-radius:8px; }
 .name-row{ display:flex; gap:14px; margin-top:22px; }
 .name-row .field{ flex:1; }

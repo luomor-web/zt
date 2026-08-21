@@ -2,16 +2,26 @@
 /* 数学题练习 - 生成端（表单见 math.html）：加减乘除、比大小，10/20/100 以内 */
 include_once dirname(__FILE__).'/lib.php';
 
-/* 生成一道题，返回算式字符串（不含答案） */
-function xx_math_item($type,$max){
+/* 生成一道题，返回算式字符串（不含答案）；$carry: any=随机 carry=进位/退位 none=不进位/不退位 */
+function xx_math_item($type,$max,$carry='any'){
 	switch($type){
-	case 'add':// 加法，和不超过 $max
-		$a=mt_rand(1,$max-1);
-		$b=mt_rand(1,$max-$a);
+	case 'add':// 加法，和不超过 $max；carry 控制个位是否进位
+		for($try=0;$try<60;$try++){
+			$a=mt_rand(1,$max-1);
+			$b=mt_rand(1,$max-$a);
+			if($max<=10 || $carry==='any'){ break; }// 10 以内无进位概念
+			$has_carry=(($a%10)+($b%10))>=10;
+			if(($carry==='carry')===$has_carry){ break; }
+		}
 		return "$a + $b =";
-	case 'sub':// 减法，结果非负
-		$a=mt_rand(1,$max);
-		$b=mt_rand(0,$a);
+	case 'sub':// 减法，结果非负；carry 控制个位是否退位
+		for($try=0;$try<60;$try++){
+			$a=mt_rand(1,$max);
+			$b=mt_rand(0,$a);
+			if($max<=10 || $carry==='any'){ break; }
+			$has_borrow=($a%10)<($b%10);
+			if(($carry==='carry')===$has_borrow){ break; }
+		}
 		return "$a - $b =";
 	case 'mul':// 乘法
 		if($max<=10){ $a=mt_rand(1,5); $b=mt_rand(1,2); }
@@ -39,6 +49,8 @@ if($_SERVER['REQUEST_METHOD']!=='POST'){
 
 $type=$_POST['op']??'add';
 if(!in_array($type,['add','sub','mul','div','cmp','mix'])){ $type='add'; }
+$carry=$_POST['carry']??'any';//进位/退位（仅加减法）
+if(!in_array($carry,['any','carry','none'])){ $carry='any'; }
 $max=intval($_POST['range']??'10');
 if(!in_array($max,[10,20,100])){ $max=10; }
 $count=intval($_POST['count']??'40');
@@ -59,7 +71,7 @@ $types=$type==='mix' ? ['add','sub','mul','div'] : [$type];
 for($i=0;$i<$count;$i++){
 	if($i%$cols===0){ echo '<tr>'; }
 	$t=$types[array_rand($types)];
-	echo '<td>'.xx_math_item($t,$max).'</td>';
+	echo '<td>'.xx_math_item($t,$max,$carry).'</td>';
 	if($i%$cols===$cols-1){ echo '</tr>'; }
 }
 // 补齐最后一行

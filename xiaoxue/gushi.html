@@ -7,24 +7,24 @@
 <meta name="keywords" content="古诗字帖，必背古诗75首，古诗描红，古诗默写，小学古诗，课标古诗，古诗练习，烙馍网">
 <meta name="description" content="课标必背古诗75首描红字帖，可选描红行数、默写空白行和拼音标注，田字格/米字格排版，免费在线生成打印。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/xiaoxue/gushi.html">
+<link rel="canonical" href="https://zzzt.luomor.com/xiaoxue/gushi.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://zt.luomor.com/xiaoxue/gushi.html">
+<meta property="og:url" content="https://zzzt.luomor.com/xiaoxue/gushi.html">
 <meta property="og:title" content="小学必背古诗75首描红字帖 - 古诗默写练习在线打印">
 <meta property="og:description" content="课标必背古诗75首描红字帖，可选描红行数、默写空白行和拼音标注，免费打印。">
-<meta property="og:image" content="https://zt.luomor.com/img/xg4.png">
+<meta property="og:image" content="https://zzzt.luomor.com/img/xg4.png">
 <meta property="og:site_name" content="烙馍网">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="小学必背古诗75首描红字帖 - 古诗默写练习在线打印">
 <meta name="twitter:description" content="课标必背古诗75首描红字帖，可选描红行数、默写空白行和拼音标注，免费打印。">
-<meta name="twitter:image" content="https://zt.luomor.com/img/xg4.png">
+<meta name="twitter:image" content="https://zzzt.luomor.com/img/xg4.png">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "小学必背古诗描红字帖",
-    "url": "https://zt.luomor.com/xiaoxue/gushi.html",
+    "url": "https://zzzt.luomor.com/xiaoxue/gushi.html",
     "description": "课标必背古诗75首描红字帖，可选描红行数、默写空白行和拼音标注，免费打印。",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Any",
@@ -114,6 +114,21 @@ var _hmt = _hmt || [];
 <p class="seo-intro">收录课标小学生必背古诗 75 首，任选一首或多首即可生成描红字帖。每句可选 1-2 行描红和默写空白行，支持拼音标注、田字格/米字格，适合古诗背诵与书写双重练习。</p>
 <form action="gushi.php" method="post" target="_blank">
     <label class="form-label">选择要练习的古诗（可多选）</label>
+    <div class="term-filter" id="term-filter">
+        <button type="button" class="mini-btn active" data-term="">全部</button>
+        <button type="button" class="mini-btn" data-term="1上">一年级上</button>
+        <button type="button" class="mini-btn" data-term="1下">一年级下</button>
+        <button type="button" class="mini-btn" data-term="2上">二年级上</button>
+        <button type="button" class="mini-btn" data-term="2下">二年级下</button>
+        <button type="button" class="mini-btn" data-term="3上">三年级上</button>
+        <button type="button" class="mini-btn" data-term="3下">三年级下</button>
+        <button type="button" class="mini-btn" data-term="4上">四年级上</button>
+        <button type="button" class="mini-btn" data-term="4下">四年级下</button>
+        <button type="button" class="mini-btn" data-term="5上">五年级上</button>
+        <button type="button" class="mini-btn" data-term="5下">五年级下</button>
+        <button type="button" class="mini-btn" data-term="6上">六年级上</button>
+        <button type="button" class="mini-btn" data-term="6下">六年级下</button>
+    </div>
     <div style="margin-bottom:10px;">
         <button type="button" class="mini-btn" id="btn-all">全选</button>
         <button type="button" class="mini-btn" id="btn-none">全不选</button>
@@ -187,6 +202,7 @@ fetch('../data/gushi.json')
         box.innerHTML = '';
         list.forEach(function (p, i) {
             var label = document.createElement('label');
+            label.dataset.term = p.term || '';
             var cb = document.createElement('input');
             cb.type = 'checkbox';
             cb.name = 'poems[]';
@@ -203,8 +219,23 @@ fetch('../data/gushi.json')
         document.getElementById('poem-list').innerHTML = '<p style="color:#e74c3c;font-size:14px;">古诗列表加载失败，请刷新重试。</p>';
     });
 
+// 年级学期筛选：只显示所选学期的古诗
+document.querySelectorAll('#term-filter .mini-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        document.querySelectorAll('#term-filter .mini-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var term = btn.dataset.term;
+        document.querySelectorAll('#poem-list label').forEach(function (label) {
+            label.style.display = (term === '' || label.dataset.term === term) ? '' : 'none';
+        });
+    });
+});
+
+// 全选/全不选只作用于当前可见（已筛选）的古诗
 function setAll(v) {
-    document.querySelectorAll('#poem-list input').forEach(function (c) { c.checked = v; });
+    document.querySelectorAll('#poem-list input').forEach(function (c) {
+        if (c.closest('label').style.display !== 'none') c.checked = v;
+    });
 }
 document.getElementById('btn-all').addEventListener('click', function () { setAll(true); });
 document.getElementById('btn-none').addEventListener('click', function () { setAll(false); });
