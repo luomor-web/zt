@@ -1,256 +1,1637 @@
 [
-{"en":"apple","zh":"苹果","grade":1},
-{"en":"banana","zh":"香蕉","grade":1},
-{"en":"orange","zh":"橙子","grade":1},
-{"en":"pear","zh":"梨","grade":1},
-{"en":"peach","zh":"桃子","grade":1},
-{"en":"grape","zh":"葡萄","grade":1},
-{"en":"watermelon","zh":"西瓜","grade":1},
-{"en":"strawberry","zh":"草莓","grade":1},
-{"en":"milk","zh":"牛奶","grade":1},
-{"en":"water","zh":"水","grade":1},
-{"en":"juice","zh":"果汁","grade":1},
-{"en":"bread","zh":"面包","grade":1},
-{"en":"egg","zh":"鸡蛋","grade":1},
-{"en":"rice","zh":"米饭","grade":1},
-{"en":"noodles","zh":"面条","grade":1},
-{"en":"cake","zh":"蛋糕","grade":1},
-{"en":"cat","zh":"猫","grade":1},
-{"en":"dog","zh":"狗","grade":1},
-{"en":"bird","zh":"鸟","grade":1},
-{"en":"fish","zh":"鱼","grade":1},
-{"en":"duck","zh":"鸭子","grade":1},
-{"en":"pig","zh":"猪","grade":1},
-{"en":"cow","zh":"奶牛","grade":1},
-{"en":"horse","zh":"马","grade":1},
-{"en":"sheep","zh":"绵羊","grade":1},
-{"en":"rabbit","zh":"兔子","grade":1},
-{"en":"monkey","zh":"猴子","grade":1},
-{"en":"panda","zh":"熊猫","grade":1},
-{"en":"tiger","zh":"老虎","grade":1},
-{"en":"lion","zh":"狮子","grade":1},
-{"en":"elephant","zh":"大象","grade":1},
-{"en":"bear","zh":"熊","grade":1},
-{"en":"red","zh":"红色","grade":1},
-{"en":"yellow","zh":"黄色","grade":1},
-{"en":"blue","zh":"蓝色","grade":1},
-{"en":"green","zh":"绿色","grade":1},
-{"en":"black","zh":"黑色","grade":1},
-{"en":"white","zh":"白色","grade":1},
-{"en":"pink","zh":"粉色","grade":1},
-{"en":"purple","zh":"紫色","grade":1},
-{"en":"brown","zh":"棕色","grade":1},
-{"en":"one","zh":"一","grade":1},
-{"en":"two","zh":"二","grade":1},
-{"en":"three","zh":"三","grade":1},
-{"en":"four","zh":"四","grade":1},
-{"en":"five","zh":"五","grade":1},
-{"en":"six","zh":"六","grade":1},
-{"en":"seven","zh":"七","grade":1},
-{"en":"eight","zh":"八","grade":1},
-{"en":"nine","zh":"九","grade":1},
-{"en":"ten","zh":"十","grade":1},
-{"en":"book","zh":"书","grade":1},
-{"en":"pen","zh":"钢笔","grade":1},
-{"en":"pencil","zh":"铅笔","grade":1},
-{"en":"ruler","zh":"尺子","grade":1},
-{"en":"eraser","zh":"橡皮","grade":1},
-{"en":"bag","zh":"书包","grade":1},
-{"en":"desk","zh":"课桌","grade":1},
-{"en":"chair","zh":"椅子","grade":1},
-{"en":"school","zh":"学校","grade":1},
-{"en":"classroom","zh":"教室","grade":1},
-{"en":"teacher","zh":"老师","grade":1},
-{"en":"student","zh":"学生","grade":1},
-{"en":"eye","zh":"眼睛","grade":1},
-{"en":"ear","zh":"耳朵","grade":1},
-{"en":"nose","zh":"鼻子","grade":1},
-{"en":"mouth","zh":"嘴","grade":1},
-{"en":"face","zh":"脸","grade":1},
-{"en":"hand","zh":"手","grade":1},
-{"en":"foot","zh":"脚","grade":1},
-{"en":"head","zh":"头","grade":1},
-{"en":"hair","zh":"头发","grade":1},
-{"en":"leg","zh":"腿","grade":1},
-{"en":"arm","zh":"手臂","grade":1},
-{"en":"father","zh":"爸爸","grade":2},
-{"en":"mother","zh":"妈妈","grade":2},
-{"en":"brother","zh":"兄弟","grade":2},
-{"en":"sister","zh":"姐妹","grade":2},
-{"en":"grandpa","zh":"爷爷/外公","grade":2},
-{"en":"grandma","zh":"奶奶/外婆","grade":2},
-{"en":"family","zh":"家庭","grade":2},
-{"en":"friend","zh":"朋友","grade":2},
-{"en":"boy","zh":"男孩","grade":2},
-{"en":"girl","zh":"女孩","grade":2},
-{"en":"man","zh":"男人","grade":2},
-{"en":"woman","zh":"女人","grade":2},
-{"en":"baby","zh":"婴儿","grade":2},
-{"en":"sun","zh":"太阳","grade":2},
-{"en":"moon","zh":"月亮","grade":2},
-{"en":"star","zh":"星星","grade":2},
-{"en":"sky","zh":"天空","grade":2},
-{"en":"cloud","zh":"云","grade":2},
-{"en":"rain","zh":"雨","grade":2},
-{"en":"snow","zh":"雪","grade":2},
-{"en":"wind","zh":"风","grade":2},
-{"en":"tree","zh":"树","grade":2},
-{"en":"flower","zh":"花","grade":2},
-{"en":"grass","zh":"草","grade":2},
-{"en":"leaf","zh":"叶子","grade":2},
-{"en":"river","zh":"河","grade":2},
-{"en":"lake","zh":"湖","grade":2},
-{"en":"sea","zh":"海","grade":2},
-{"en":"mountain","zh":"山","grade":2},
-{"en":"spring","zh":"春天","grade":2},
-{"en":"summer","zh":"夏天","grade":2},
-{"en":"autumn","zh":"秋天","grade":2},
-{"en":"winter","zh":"冬天","grade":2},
-{"en":"hot","zh":"热的","grade":2},
-{"en":"cold","zh":"冷的","grade":2},
-{"en":"warm","zh":"温暖的","grade":2},
-{"en":"cool","zh":"凉爽的","grade":2},
-{"en":"sunny","zh":"晴朗的","grade":2},
-{"en":"rainy","zh":"下雨的","grade":2},
-{"en":"snowy","zh":"下雪的","grade":2},
-{"en":"windy","zh":"有风的","grade":2},
-{"en":"cloudy","zh":"多云的","grade":2},
-{"en":"run","zh":"跑","grade":2},
-{"en":"jump","zh":"跳","grade":2},
-{"en":"swim","zh":"游泳","grade":2},
-{"en":"walk","zh":"走路","grade":2},
-{"en":"fly","zh":"飞","grade":2},
-{"en":"sing","zh":"唱歌","grade":2},
-{"en":"dance","zh":"跳舞","grade":2},
-{"en":"read","zh":"读","grade":2},
-{"en":"write","zh":"写","grade":2},
-{"en":"draw","zh":"画画","grade":2},
-{"en":"play","zh":"玩","grade":2},
-{"en":"eat","zh":"吃","grade":2},
-{"en":"drink","zh":"喝","grade":2},
-{"en":"sleep","zh":"睡觉","grade":2},
-{"en":"big","zh":"大的","grade":2},
-{"en":"small","zh":"小的","grade":2},
-{"en":"long","zh":"长的","grade":2},
-{"en":"short","zh":"短的","grade":2},
-{"en":"tall","zh":"高的","grade":2},
-{"en":"fat","zh":"胖的","grade":2},
-{"en":"thin","zh":"瘦的","grade":2},
-{"en":"new","zh":"新的","grade":2},
-{"en":"old","zh":"旧的","grade":2},
-{"en":"happy","zh":"高兴的","grade":2},
-{"en":"sad","zh":"难过的","grade":2},
-{"en":"bus","zh":"公交车","grade":3},
-{"en":"car","zh":"小汽车","grade":3},
-{"en":"bike","zh":"自行车","grade":3},
-{"en":"train","zh":"火车","grade":3},
-{"en":"plane","zh":"飞机","grade":3},
-{"en":"ship","zh":"轮船","grade":3},
-{"en":"boat","zh":"小船","grade":3},
-{"en":"taxi","zh":"出租车","grade":3},
-{"en":"hospital","zh":"医院","grade":3},
-{"en":"doctor","zh":"医生","grade":3},
-{"en":"nurse","zh":"护士","grade":3},
-{"en":"farmer","zh":"农民","grade":3},
-{"en":"worker","zh":"工人","grade":3},
-{"en":"driver","zh":"司机","grade":3},
-{"en":"cook","zh":"厨师","grade":3},
-{"en":"policeman","zh":"警察","grade":3},
-{"en":"park","zh":"公园","grade":3},
-{"en":"zoo","zh":"动物园","grade":3},
-{"en":"library","zh":"图书馆","grade":3},
-{"en":"shop","zh":"商店","grade":3},
-{"en":"supermarket","zh":"超市","grade":3},
-{"en":"cinema","zh":"电影院","grade":3},
-{"en":"museum","zh":"博物馆","grade":3},
-{"en":"home","zh":"家","grade":3},
-{"en":"house","zh":"房子","grade":3},
-{"en":"room","zh":"房间","grade":3},
-{"en":"bedroom","zh":"卧室","grade":3},
-{"en":"kitchen","zh":"厨房","grade":3},
-{"en":"bathroom","zh":"浴室","grade":3},
-{"en":"door","zh":"门","grade":3},
-{"en":"window","zh":"窗户","grade":3},
-{"en":"table","zh":"桌子","grade":3},
-{"en":"bed","zh":"床","grade":3},
-{"en":"sofa","zh":"沙发","grade":3},
-{"en":"TV","zh":"电视","grade":3},
-{"en":"computer","zh":"电脑","grade":3},
-{"en":"phone","zh":"电话","grade":3},
-{"en":"clock","zh":"时钟","grade":3},
-{"en":"watch","zh":"手表","grade":3},
-{"en":"shirt","zh":"衬衫","grade":3},
-{"en":"T-shirt","zh":"T恤衫","grade":3},
-{"en":"coat","zh":"外套","grade":3},
-{"en":"dress","zh":"连衣裙","grade":3},
-{"en":"skirt","zh":"短裙","grade":3},
-{"en":"pants","zh":"裤子","grade":3},
-{"en":"shoes","zh":"鞋子","grade":3},
-{"en":"socks","zh":"袜子","grade":3},
-{"en":"hat","zh":"帽子","grade":3},
-{"en":"cap","zh":"便帽","grade":3},
-{"en":"glasses","zh":"眼镜","grade":3},
-{"en":"morning","zh":"早晨","grade":3},
-{"en":"afternoon","zh":"下午","grade":3},
-{"en":"evening","zh":"傍晚","grade":3},
-{"en":"night","zh":"夜晚","grade":3},
-{"en":"today","zh":"今天","grade":3},
-{"en":"tomorrow","zh":"明天","grade":3},
-{"en":"yesterday","zh":"昨天","grade":3},
-{"en":"Monday","zh":"星期一","grade":3},
-{"en":"Tuesday","zh":"星期二","grade":3},
-{"en":"Wednesday","zh":"星期三","grade":3},
-{"en":"Thursday","zh":"星期四","grade":3},
-{"en":"Friday","zh":"星期五","grade":3},
-{"en":"Saturday","zh":"星期六","grade":3},
-{"en":"Sunday","zh":"星期日","grade":3},
-{"en":"week","zh":"星期","grade":3},
-{"en":"month","zh":"月","grade":3},
-{"en":"year","zh":"年","grade":3},
-{"en":"football","zh":"足球","grade":4},
-{"en":"basketball","zh":"篮球","grade":4},
-{"en":"ping-pong","zh":"乒乓球","grade":4},
-{"en":"swimming","zh":"游泳","grade":4},
-{"en":"music","zh":"音乐","grade":4},
-{"en":"art","zh":"美术","grade":4},
-{"en":"science","zh":"科学","grade":4},
-{"en":"maths","zh":"数学","grade":4},
-{"en":"Chinese","zh":"语文","grade":4},
-{"en":"English","zh":"英语","grade":4},
-{"en":"PE","zh":"体育","grade":4},
-{"en":"breakfast","zh":"早餐","grade":4},
-{"en":"lunch","zh":"午餐","grade":4},
-{"en":"dinner","zh":"晚餐","grade":4},
-{"en":"hamburger","zh":"汉堡包","grade":4},
-{"en":"sandwich","zh":"三明治","grade":4},
-{"en":"salad","zh":"沙拉","grade":4},
-{"en":"ice cream","zh":"冰淇淋","grade":4},
-{"en":"chocolate","zh":"巧克力","grade":4},
-{"en":"candy","zh":"糖果","grade":4},
-{"en":"vegetable","zh":"蔬菜","grade":4},
-{"en":"tomato","zh":"西红柿","grade":4},
-{"en":"potato","zh":"土豆","grade":4},
-{"en":"carrot","zh":"胡萝卜","grade":4},
-{"en":"eleven","zh":"十一","grade":4},
-{"en":"twelve","zh":"十二","grade":4},
-{"en":"thirteen","zh":"十三","grade":4},
-{"en":"fourteen","zh":"十四","grade":4},
-{"en":"fifteen","zh":"十五","grade":4},
-{"en":"twenty","zh":"二十","grade":4},
-{"en":"thirty","zh":"三十","grade":4},
-{"en":"forty","zh":"四十","grade":4},
-{"en":"fifty","zh":"五十","grade":4},
-{"en":"hundred","zh":"一百","grade":4},
-{"en":"beautiful","zh":"美丽的","grade":4},
-{"en":"pretty","zh":"漂亮的","grade":4},
-{"en":"clever","zh":"聪明的","grade":4},
-{"en":"funny","zh":"有趣的","grade":4},
-{"en":"friendly","zh":"友好的","grade":4},
-{"en":"kind","zh":"友善的","grade":4},
-{"en":"helpful","zh":"乐于助人的","grade":4},
-{"en":"quiet","zh":"安静的","grade":4},
-{"en":"active","zh":"活跃的","grade":4},
-{"en":"strong","zh":"强壮的","grade":4},
-{"en":"clean","zh":"干净的","grade":4},
-{"en":"dirty","zh":"脏的","grade":4}
+    {
+        "en": "apple",
+        "zh": "苹果",
+        "grade": 1
+    },
+    {
+        "en": "banana",
+        "zh": "香蕉",
+        "grade": 1
+    },
+    {
+        "en": "orange",
+        "zh": "橙子",
+        "grade": 1
+    },
+    {
+        "en": "pear",
+        "zh": "梨",
+        "grade": 1
+    },
+    {
+        "en": "peach",
+        "zh": "桃子",
+        "grade": 1
+    },
+    {
+        "en": "grape",
+        "zh": "葡萄",
+        "grade": 1
+    },
+    {
+        "en": "watermelon",
+        "zh": "西瓜",
+        "grade": 1
+    },
+    {
+        "en": "strawberry",
+        "zh": "草莓",
+        "grade": 1
+    },
+    {
+        "en": "milk",
+        "zh": "牛奶",
+        "grade": 1
+    },
+    {
+        "en": "water",
+        "zh": "水",
+        "grade": 1
+    },
+    {
+        "en": "juice",
+        "zh": "果汁",
+        "grade": 1
+    },
+    {
+        "en": "bread",
+        "zh": "面包",
+        "grade": 1
+    },
+    {
+        "en": "egg",
+        "zh": "鸡蛋",
+        "grade": 1
+    },
+    {
+        "en": "rice",
+        "zh": "米饭",
+        "grade": 1
+    },
+    {
+        "en": "noodles",
+        "zh": "面条",
+        "grade": 1
+    },
+    {
+        "en": "cake",
+        "zh": "蛋糕",
+        "grade": 1
+    },
+    {
+        "en": "cat",
+        "zh": "猫",
+        "grade": 1
+    },
+    {
+        "en": "dog",
+        "zh": "狗",
+        "grade": 1
+    },
+    {
+        "en": "bird",
+        "zh": "鸟",
+        "grade": 1
+    },
+    {
+        "en": "fish",
+        "zh": "鱼",
+        "grade": 1
+    },
+    {
+        "en": "duck",
+        "zh": "鸭子",
+        "grade": 1
+    },
+    {
+        "en": "pig",
+        "zh": "猪",
+        "grade": 1
+    },
+    {
+        "en": "cow",
+        "zh": "奶牛",
+        "grade": 1
+    },
+    {
+        "en": "horse",
+        "zh": "马",
+        "grade": 1
+    },
+    {
+        "en": "sheep",
+        "zh": "绵羊",
+        "grade": 1
+    },
+    {
+        "en": "rabbit",
+        "zh": "兔子",
+        "grade": 1
+    },
+    {
+        "en": "monkey",
+        "zh": "猴子",
+        "grade": 1
+    },
+    {
+        "en": "panda",
+        "zh": "熊猫",
+        "grade": 1
+    },
+    {
+        "en": "tiger",
+        "zh": "老虎",
+        "grade": 1
+    },
+    {
+        "en": "lion",
+        "zh": "狮子",
+        "grade": 1
+    },
+    {
+        "en": "elephant",
+        "zh": "大象",
+        "grade": 1
+    },
+    {
+        "en": "bear",
+        "zh": "熊",
+        "grade": 1
+    },
+    {
+        "en": "red",
+        "zh": "红色",
+        "grade": 1
+    },
+    {
+        "en": "yellow",
+        "zh": "黄色",
+        "grade": 1
+    },
+    {
+        "en": "blue",
+        "zh": "蓝色",
+        "grade": 1
+    },
+    {
+        "en": "green",
+        "zh": "绿色",
+        "grade": 1
+    },
+    {
+        "en": "black",
+        "zh": "黑色",
+        "grade": 1
+    },
+    {
+        "en": "white",
+        "zh": "白色",
+        "grade": 1
+    },
+    {
+        "en": "pink",
+        "zh": "粉色",
+        "grade": 1
+    },
+    {
+        "en": "purple",
+        "zh": "紫色",
+        "grade": 1
+    },
+    {
+        "en": "brown",
+        "zh": "棕色",
+        "grade": 1
+    },
+    {
+        "en": "one",
+        "zh": "一",
+        "grade": 1
+    },
+    {
+        "en": "two",
+        "zh": "二",
+        "grade": 1
+    },
+    {
+        "en": "three",
+        "zh": "三",
+        "grade": 1
+    },
+    {
+        "en": "four",
+        "zh": "四",
+        "grade": 1
+    },
+    {
+        "en": "five",
+        "zh": "五",
+        "grade": 1
+    },
+    {
+        "en": "six",
+        "zh": "六",
+        "grade": 1
+    },
+    {
+        "en": "seven",
+        "zh": "七",
+        "grade": 1
+    },
+    {
+        "en": "eight",
+        "zh": "八",
+        "grade": 1
+    },
+    {
+        "en": "nine",
+        "zh": "九",
+        "grade": 1
+    },
+    {
+        "en": "ten",
+        "zh": "十",
+        "grade": 1
+    },
+    {
+        "en": "book",
+        "zh": "书",
+        "grade": 1
+    },
+    {
+        "en": "pen",
+        "zh": "钢笔",
+        "grade": 1
+    },
+    {
+        "en": "pencil",
+        "zh": "铅笔",
+        "grade": 1
+    },
+    {
+        "en": "ruler",
+        "zh": "尺子",
+        "grade": 1
+    },
+    {
+        "en": "eraser",
+        "zh": "橡皮",
+        "grade": 1
+    },
+    {
+        "en": "bag",
+        "zh": "书包",
+        "grade": 1
+    },
+    {
+        "en": "desk",
+        "zh": "课桌",
+        "grade": 1
+    },
+    {
+        "en": "chair",
+        "zh": "椅子",
+        "grade": 1
+    },
+    {
+        "en": "school",
+        "zh": "学校",
+        "grade": 1
+    },
+    {
+        "en": "classroom",
+        "zh": "教室",
+        "grade": 1
+    },
+    {
+        "en": "teacher",
+        "zh": "老师",
+        "grade": 1
+    },
+    {
+        "en": "student",
+        "zh": "学生",
+        "grade": 1
+    },
+    {
+        "en": "eye",
+        "zh": "眼睛",
+        "grade": 1
+    },
+    {
+        "en": "ear",
+        "zh": "耳朵",
+        "grade": 1
+    },
+    {
+        "en": "nose",
+        "zh": "鼻子",
+        "grade": 1
+    },
+    {
+        "en": "mouth",
+        "zh": "嘴",
+        "grade": 1
+    },
+    {
+        "en": "face",
+        "zh": "脸",
+        "grade": 1
+    },
+    {
+        "en": "hand",
+        "zh": "手",
+        "grade": 1
+    },
+    {
+        "en": "foot",
+        "zh": "脚",
+        "grade": 1
+    },
+    {
+        "en": "head",
+        "zh": "头",
+        "grade": 1
+    },
+    {
+        "en": "hair",
+        "zh": "头发",
+        "grade": 1
+    },
+    {
+        "en": "leg",
+        "zh": "腿",
+        "grade": 1
+    },
+    {
+        "en": "arm",
+        "zh": "手臂",
+        "grade": 1
+    },
+    {
+        "en": "father",
+        "zh": "爸爸",
+        "grade": 2
+    },
+    {
+        "en": "mother",
+        "zh": "妈妈",
+        "grade": 2
+    },
+    {
+        "en": "brother",
+        "zh": "兄弟",
+        "grade": 2
+    },
+    {
+        "en": "sister",
+        "zh": "姐妹",
+        "grade": 2
+    },
+    {
+        "en": "grandpa",
+        "zh": "爷爷\/外公",
+        "grade": 2
+    },
+    {
+        "en": "grandma",
+        "zh": "奶奶\/外婆",
+        "grade": 2
+    },
+    {
+        "en": "family",
+        "zh": "家庭",
+        "grade": 2
+    },
+    {
+        "en": "friend",
+        "zh": "朋友",
+        "grade": 2
+    },
+    {
+        "en": "boy",
+        "zh": "男孩",
+        "grade": 2
+    },
+    {
+        "en": "girl",
+        "zh": "女孩",
+        "grade": 2
+    },
+    {
+        "en": "man",
+        "zh": "男人",
+        "grade": 2
+    },
+    {
+        "en": "woman",
+        "zh": "女人",
+        "grade": 2
+    },
+    {
+        "en": "baby",
+        "zh": "婴儿",
+        "grade": 2
+    },
+    {
+        "en": "sun",
+        "zh": "太阳",
+        "grade": 2
+    },
+    {
+        "en": "moon",
+        "zh": "月亮",
+        "grade": 2
+    },
+    {
+        "en": "star",
+        "zh": "星星",
+        "grade": 2
+    },
+    {
+        "en": "sky",
+        "zh": "天空",
+        "grade": 2
+    },
+    {
+        "en": "cloud",
+        "zh": "云",
+        "grade": 2
+    },
+    {
+        "en": "rain",
+        "zh": "雨",
+        "grade": 2
+    },
+    {
+        "en": "snow",
+        "zh": "雪",
+        "grade": 2
+    },
+    {
+        "en": "wind",
+        "zh": "风",
+        "grade": 2
+    },
+    {
+        "en": "tree",
+        "zh": "树",
+        "grade": 2
+    },
+    {
+        "en": "flower",
+        "zh": "花",
+        "grade": 2
+    },
+    {
+        "en": "grass",
+        "zh": "草",
+        "grade": 2
+    },
+    {
+        "en": "leaf",
+        "zh": "叶子",
+        "grade": 2
+    },
+    {
+        "en": "river",
+        "zh": "河",
+        "grade": 2
+    },
+    {
+        "en": "lake",
+        "zh": "湖",
+        "grade": 2
+    },
+    {
+        "en": "sea",
+        "zh": "海",
+        "grade": 2
+    },
+    {
+        "en": "mountain",
+        "zh": "山",
+        "grade": 2
+    },
+    {
+        "en": "spring",
+        "zh": "春天",
+        "grade": 2
+    },
+    {
+        "en": "summer",
+        "zh": "夏天",
+        "grade": 2
+    },
+    {
+        "en": "autumn",
+        "zh": "秋天",
+        "grade": 2
+    },
+    {
+        "en": "winter",
+        "zh": "冬天",
+        "grade": 2
+    },
+    {
+        "en": "hot",
+        "zh": "热的",
+        "grade": 2
+    },
+    {
+        "en": "cold",
+        "zh": "冷的",
+        "grade": 2
+    },
+    {
+        "en": "warm",
+        "zh": "温暖的",
+        "grade": 2
+    },
+    {
+        "en": "cool",
+        "zh": "凉爽的",
+        "grade": 2
+    },
+    {
+        "en": "sunny",
+        "zh": "晴朗的",
+        "grade": 2
+    },
+    {
+        "en": "rainy",
+        "zh": "下雨的",
+        "grade": 2
+    },
+    {
+        "en": "snowy",
+        "zh": "下雪的",
+        "grade": 2
+    },
+    {
+        "en": "windy",
+        "zh": "有风的",
+        "grade": 2
+    },
+    {
+        "en": "cloudy",
+        "zh": "多云的",
+        "grade": 2
+    },
+    {
+        "en": "run",
+        "zh": "跑",
+        "grade": 2
+    },
+    {
+        "en": "jump",
+        "zh": "跳",
+        "grade": 2
+    },
+    {
+        "en": "swim",
+        "zh": "游泳",
+        "grade": 2
+    },
+    {
+        "en": "walk",
+        "zh": "走路",
+        "grade": 2
+    },
+    {
+        "en": "fly",
+        "zh": "飞",
+        "grade": 2
+    },
+    {
+        "en": "sing",
+        "zh": "唱歌",
+        "grade": 2
+    },
+    {
+        "en": "dance",
+        "zh": "跳舞",
+        "grade": 2
+    },
+    {
+        "en": "read",
+        "zh": "读",
+        "grade": 2
+    },
+    {
+        "en": "write",
+        "zh": "写",
+        "grade": 2
+    },
+    {
+        "en": "draw",
+        "zh": "画画",
+        "grade": 2
+    },
+    {
+        "en": "play",
+        "zh": "玩",
+        "grade": 2
+    },
+    {
+        "en": "eat",
+        "zh": "吃",
+        "grade": 2
+    },
+    {
+        "en": "drink",
+        "zh": "喝",
+        "grade": 2
+    },
+    {
+        "en": "sleep",
+        "zh": "睡觉",
+        "grade": 2
+    },
+    {
+        "en": "big",
+        "zh": "大的",
+        "grade": 2
+    },
+    {
+        "en": "small",
+        "zh": "小的",
+        "grade": 2
+    },
+    {
+        "en": "long",
+        "zh": "长的",
+        "grade": 2
+    },
+    {
+        "en": "short",
+        "zh": "短的",
+        "grade": 2
+    },
+    {
+        "en": "tall",
+        "zh": "高的",
+        "grade": 2
+    },
+    {
+        "en": "fat",
+        "zh": "胖的",
+        "grade": 2
+    },
+    {
+        "en": "thin",
+        "zh": "瘦的",
+        "grade": 2
+    },
+    {
+        "en": "new",
+        "zh": "新的",
+        "grade": 2
+    },
+    {
+        "en": "old",
+        "zh": "旧的",
+        "grade": 2
+    },
+    {
+        "en": "happy",
+        "zh": "高兴的",
+        "grade": 2
+    },
+    {
+        "en": "sad",
+        "zh": "难过的",
+        "grade": 2
+    },
+    {
+        "en": "bus",
+        "zh": "公交车",
+        "grade": 3
+    },
+    {
+        "en": "car",
+        "zh": "小汽车",
+        "grade": 3
+    },
+    {
+        "en": "bike",
+        "zh": "自行车",
+        "grade": 3
+    },
+    {
+        "en": "train",
+        "zh": "火车",
+        "grade": 3
+    },
+    {
+        "en": "plane",
+        "zh": "飞机",
+        "grade": 3
+    },
+    {
+        "en": "ship",
+        "zh": "轮船",
+        "grade": 3
+    },
+    {
+        "en": "boat",
+        "zh": "小船",
+        "grade": 3
+    },
+    {
+        "en": "taxi",
+        "zh": "出租车",
+        "grade": 3
+    },
+    {
+        "en": "hospital",
+        "zh": "医院",
+        "grade": 3
+    },
+    {
+        "en": "doctor",
+        "zh": "医生",
+        "grade": 3
+    },
+    {
+        "en": "nurse",
+        "zh": "护士",
+        "grade": 3
+    },
+    {
+        "en": "farmer",
+        "zh": "农民",
+        "grade": 3
+    },
+    {
+        "en": "worker",
+        "zh": "工人",
+        "grade": 3
+    },
+    {
+        "en": "driver",
+        "zh": "司机",
+        "grade": 3
+    },
+    {
+        "en": "cook",
+        "zh": "厨师",
+        "grade": 3
+    },
+    {
+        "en": "policeman",
+        "zh": "警察",
+        "grade": 3
+    },
+    {
+        "en": "park",
+        "zh": "公园",
+        "grade": 3
+    },
+    {
+        "en": "zoo",
+        "zh": "动物园",
+        "grade": 3
+    },
+    {
+        "en": "library",
+        "zh": "图书馆",
+        "grade": 3
+    },
+    {
+        "en": "shop",
+        "zh": "商店",
+        "grade": 3
+    },
+    {
+        "en": "supermarket",
+        "zh": "超市",
+        "grade": 3
+    },
+    {
+        "en": "cinema",
+        "zh": "电影院",
+        "grade": 3
+    },
+    {
+        "en": "museum",
+        "zh": "博物馆",
+        "grade": 3
+    },
+    {
+        "en": "home",
+        "zh": "家",
+        "grade": 3
+    },
+    {
+        "en": "house",
+        "zh": "房子",
+        "grade": 3
+    },
+    {
+        "en": "room",
+        "zh": "房间",
+        "grade": 3
+    },
+    {
+        "en": "bedroom",
+        "zh": "卧室",
+        "grade": 3
+    },
+    {
+        "en": "kitchen",
+        "zh": "厨房",
+        "grade": 3
+    },
+    {
+        "en": "bathroom",
+        "zh": "浴室",
+        "grade": 3
+    },
+    {
+        "en": "door",
+        "zh": "门",
+        "grade": 3
+    },
+    {
+        "en": "window",
+        "zh": "窗户",
+        "grade": 3
+    },
+    {
+        "en": "table",
+        "zh": "桌子",
+        "grade": 3
+    },
+    {
+        "en": "bed",
+        "zh": "床",
+        "grade": 3
+    },
+    {
+        "en": "sofa",
+        "zh": "沙发",
+        "grade": 3
+    },
+    {
+        "en": "TV",
+        "zh": "电视",
+        "grade": 3
+    },
+    {
+        "en": "computer",
+        "zh": "电脑",
+        "grade": 3
+    },
+    {
+        "en": "phone",
+        "zh": "电话",
+        "grade": 3
+    },
+    {
+        "en": "clock",
+        "zh": "时钟",
+        "grade": 3
+    },
+    {
+        "en": "watch",
+        "zh": "手表",
+        "grade": 3
+    },
+    {
+        "en": "shirt",
+        "zh": "衬衫",
+        "grade": 3
+    },
+    {
+        "en": "T-shirt",
+        "zh": "T恤衫",
+        "grade": 3
+    },
+    {
+        "en": "coat",
+        "zh": "外套",
+        "grade": 3
+    },
+    {
+        "en": "dress",
+        "zh": "连衣裙",
+        "grade": 3
+    },
+    {
+        "en": "skirt",
+        "zh": "短裙",
+        "grade": 3
+    },
+    {
+        "en": "pants",
+        "zh": "裤子",
+        "grade": 3
+    },
+    {
+        "en": "shoes",
+        "zh": "鞋子",
+        "grade": 3
+    },
+    {
+        "en": "socks",
+        "zh": "袜子",
+        "grade": 3
+    },
+    {
+        "en": "hat",
+        "zh": "帽子",
+        "grade": 3
+    },
+    {
+        "en": "cap",
+        "zh": "便帽",
+        "grade": 3
+    },
+    {
+        "en": "glasses",
+        "zh": "眼镜",
+        "grade": 3
+    },
+    {
+        "en": "morning",
+        "zh": "早晨",
+        "grade": 3
+    },
+    {
+        "en": "afternoon",
+        "zh": "下午",
+        "grade": 3
+    },
+    {
+        "en": "evening",
+        "zh": "傍晚",
+        "grade": 3
+    },
+    {
+        "en": "night",
+        "zh": "夜晚",
+        "grade": 3
+    },
+    {
+        "en": "today",
+        "zh": "今天",
+        "grade": 3
+    },
+    {
+        "en": "tomorrow",
+        "zh": "明天",
+        "grade": 3
+    },
+    {
+        "en": "yesterday",
+        "zh": "昨天",
+        "grade": 3
+    },
+    {
+        "en": "Monday",
+        "zh": "星期一",
+        "grade": 3
+    },
+    {
+        "en": "Tuesday",
+        "zh": "星期二",
+        "grade": 3
+    },
+    {
+        "en": "Wednesday",
+        "zh": "星期三",
+        "grade": 3
+    },
+    {
+        "en": "Thursday",
+        "zh": "星期四",
+        "grade": 3
+    },
+    {
+        "en": "Friday",
+        "zh": "星期五",
+        "grade": 3
+    },
+    {
+        "en": "Saturday",
+        "zh": "星期六",
+        "grade": 3
+    },
+    {
+        "en": "Sunday",
+        "zh": "星期日",
+        "grade": 3
+    },
+    {
+        "en": "week",
+        "zh": "星期",
+        "grade": 3
+    },
+    {
+        "en": "month",
+        "zh": "月",
+        "grade": 3
+    },
+    {
+        "en": "year",
+        "zh": "年",
+        "grade": 3
+    },
+    {
+        "en": "football",
+        "zh": "足球",
+        "grade": 4
+    },
+    {
+        "en": "basketball",
+        "zh": "篮球",
+        "grade": 4
+    },
+    {
+        "en": "ping-pong",
+        "zh": "乒乓球",
+        "grade": 4
+    },
+    {
+        "en": "swimming",
+        "zh": "游泳",
+        "grade": 4
+    },
+    {
+        "en": "music",
+        "zh": "音乐",
+        "grade": 4
+    },
+    {
+        "en": "art",
+        "zh": "美术",
+        "grade": 4
+    },
+    {
+        "en": "science",
+        "zh": "科学",
+        "grade": 4
+    },
+    {
+        "en": "maths",
+        "zh": "数学",
+        "grade": 4
+    },
+    {
+        "en": "Chinese",
+        "zh": "语文",
+        "grade": 4
+    },
+    {
+        "en": "English",
+        "zh": "英语",
+        "grade": 4
+    },
+    {
+        "en": "PE",
+        "zh": "体育",
+        "grade": 4
+    },
+    {
+        "en": "breakfast",
+        "zh": "早餐",
+        "grade": 4
+    },
+    {
+        "en": "lunch",
+        "zh": "午餐",
+        "grade": 4
+    },
+    {
+        "en": "dinner",
+        "zh": "晚餐",
+        "grade": 4
+    },
+    {
+        "en": "hamburger",
+        "zh": "汉堡包",
+        "grade": 4
+    },
+    {
+        "en": "sandwich",
+        "zh": "三明治",
+        "grade": 4
+    },
+    {
+        "en": "salad",
+        "zh": "沙拉",
+        "grade": 4
+    },
+    {
+        "en": "ice cream",
+        "zh": "冰淇淋",
+        "grade": 4
+    },
+    {
+        "en": "chocolate",
+        "zh": "巧克力",
+        "grade": 4
+    },
+    {
+        "en": "candy",
+        "zh": "糖果",
+        "grade": 4
+    },
+    {
+        "en": "vegetable",
+        "zh": "蔬菜",
+        "grade": 4
+    },
+    {
+        "en": "tomato",
+        "zh": "西红柿",
+        "grade": 4
+    },
+    {
+        "en": "potato",
+        "zh": "土豆",
+        "grade": 4
+    },
+    {
+        "en": "carrot",
+        "zh": "胡萝卜",
+        "grade": 4
+    },
+    {
+        "en": "eleven",
+        "zh": "十一",
+        "grade": 4
+    },
+    {
+        "en": "twelve",
+        "zh": "十二",
+        "grade": 4
+    },
+    {
+        "en": "thirteen",
+        "zh": "十三",
+        "grade": 4
+    },
+    {
+        "en": "fourteen",
+        "zh": "十四",
+        "grade": 4
+    },
+    {
+        "en": "fifteen",
+        "zh": "十五",
+        "grade": 4
+    },
+    {
+        "en": "twenty",
+        "zh": "二十",
+        "grade": 4
+    },
+    {
+        "en": "thirty",
+        "zh": "三十",
+        "grade": 4
+    },
+    {
+        "en": "forty",
+        "zh": "四十",
+        "grade": 4
+    },
+    {
+        "en": "fifty",
+        "zh": "五十",
+        "grade": 4
+    },
+    {
+        "en": "hundred",
+        "zh": "一百",
+        "grade": 4
+    },
+    {
+        "en": "beautiful",
+        "zh": "美丽的",
+        "grade": 4
+    },
+    {
+        "en": "pretty",
+        "zh": "漂亮的",
+        "grade": 4
+    },
+    {
+        "en": "clever",
+        "zh": "聪明的",
+        "grade": 4
+    },
+    {
+        "en": "funny",
+        "zh": "有趣的",
+        "grade": 4
+    },
+    {
+        "en": "friendly",
+        "zh": "友好的",
+        "grade": 4
+    },
+    {
+        "en": "kind",
+        "zh": "友善的",
+        "grade": 4
+    },
+    {
+        "en": "helpful",
+        "zh": "乐于助人的",
+        "grade": 4
+    },
+    {
+        "en": "quiet",
+        "zh": "安静的",
+        "grade": 4
+    },
+    {
+        "en": "active",
+        "zh": "活跃的",
+        "grade": 4
+    },
+    {
+        "en": "strong",
+        "zh": "强壮的",
+        "grade": 4
+    },
+    {
+        "en": "clean",
+        "zh": "干净的",
+        "grade": 4
+    },
+    {
+        "en": "dirty",
+        "zh": "脏的",
+        "grade": 4
+    },
+    {
+        "en": "robot",
+        "zh": "机器人",
+        "grade": 5
+    },
+    {
+        "en": "speak",
+        "zh": "说话",
+        "grade": 5
+    },
+    {
+        "en": "strict",
+        "zh": "严厉的",
+        "grade": 5
+    },
+    {
+        "en": "polite",
+        "zh": "有礼貌的",
+        "grade": 5
+    },
+    {
+        "en": "shy",
+        "zh": "害羞的",
+        "grade": 5
+    },
+    {
+        "en": "hard-working",
+        "zh": "勤奋的",
+        "grade": 5
+    },
+    {
+        "en": "wonderful",
+        "zh": "精彩的",
+        "grade": 5
+    },
+    {
+        "en": "cartoon",
+        "zh": "卡通",
+        "grade": 5
+    },
+    {
+        "en": "kung fu",
+        "zh": "功夫",
+        "grade": 5
+    },
+    {
+        "en": "song",
+        "zh": "歌曲",
+        "grade": 5
+    },
+    {
+        "en": "forest",
+        "zh": "森林",
+        "grade": 5
+    },
+    {
+        "en": "hill",
+        "zh": "小山",
+        "grade": 5
+    },
+    {
+        "en": "bridge",
+        "zh": "桥",
+        "grade": 5
+    },
+    {
+        "en": "building",
+        "zh": "建筑物",
+        "grade": 5
+    },
+    {
+        "en": "village",
+        "zh": "村庄",
+        "grade": 5
+    },
+    {
+        "en": "tea",
+        "zh": "茶",
+        "grade": 5
+    },
+    {
+        "en": "fresh",
+        "zh": "新鲜的",
+        "grade": 5
+    },
+    {
+        "en": "healthy",
+        "zh": "健康的",
+        "grade": 5
+    },
+    {
+        "en": "delicious",
+        "zh": "美味的",
+        "grade": 5
+    },
+    {
+        "en": "sweet",
+        "zh": "甜的",
+        "grade": 5
+    },
+    {
+        "en": "thirsty",
+        "zh": "口渴的",
+        "grade": 5
+    },
+    {
+        "en": "hungry",
+        "zh": "饥饿的",
+        "grade": 5
+    },
+    {
+        "en": "favourite",
+        "zh": "最喜欢的",
+        "grade": 5
+    },
+    {
+        "en": "weekend",
+        "zh": "周末",
+        "grade": 5
+    },
+    {
+        "en": "often",
+        "zh": "经常",
+        "grade": 5
+    },
+    {
+        "en": "sometimes",
+        "zh": "有时",
+        "grade": 5
+    },
+    {
+        "en": "always",
+        "zh": "总是",
+        "grade": 5
+    },
+    {
+        "en": "usually",
+        "zh": "通常",
+        "grade": 5
+    },
+    {
+        "en": "never",
+        "zh": "从不",
+        "grade": 5
+    },
+    {
+        "en": "subject",
+        "zh": "科目",
+        "grade": 5
+    },
+    {
+        "en": "hobby",
+        "zh": "爱好",
+        "grade": 5
+    },
+    {
+        "en": "puzzle",
+        "zh": "谜",
+        "grade": 5
+    },
+    {
+        "en": "letter",
+        "zh": "信",
+        "grade": 5
+    },
+    {
+        "en": "email",
+        "zh": "电子邮件",
+        "grade": 5
+    },
+    {
+        "en": "card",
+        "zh": "卡片",
+        "grade": 5
+    },
+    {
+        "en": "bookstore",
+        "zh": "书店",
+        "grade": 6
+    },
+    {
+        "en": "post office",
+        "zh": "邮局",
+        "grade": 6
+    },
+    {
+        "en": "crossing",
+        "zh": "十字路口",
+        "grade": 6
+    },
+    {
+        "en": "straight",
+        "zh": "笔直地",
+        "grade": 6
+    },
+    {
+        "en": "turn",
+        "zh": "转弯",
+        "grade": 6
+    },
+    {
+        "en": "subway",
+        "zh": "地铁",
+        "grade": 6
+    },
+    {
+        "en": "ferry",
+        "zh": "渡轮",
+        "grade": 6
+    },
+    {
+        "en": "tonight",
+        "zh": "今晚",
+        "grade": 6
+    },
+    {
+        "en": "dictionary",
+        "zh": "词典",
+        "grade": 6
+    },
+    {
+        "en": "postcard",
+        "zh": "明信片",
+        "grade": 6
+    },
+    {
+        "en": "comic book",
+        "zh": "漫画书",
+        "grade": 6
+    },
+    {
+        "en": "visit",
+        "zh": "拜访",
+        "grade": 6
+    },
+    {
+        "en": "trip",
+        "zh": "旅行",
+        "grade": 6
+    },
+    {
+        "en": "angry",
+        "zh": "生气的",
+        "grade": 6
+    },
+    {
+        "en": "afraid",
+        "zh": "害怕的",
+        "grade": 6
+    },
+    {
+        "en": "worried",
+        "zh": "担心的",
+        "grade": 6
+    },
+    {
+        "en": "ill",
+        "zh": "生病的",
+        "grade": 6
+    },
+    {
+        "en": "wear",
+        "zh": "穿",
+        "grade": 6
+    },
+    {
+        "en": "taller",
+        "zh": "更高的",
+        "grade": 6
+    },
+    {
+        "en": "shorter",
+        "zh": "更矮的",
+        "grade": 6
+    },
+    {
+        "en": "older",
+        "zh": "更年长的",
+        "grade": 6
+    },
+    {
+        "en": "younger",
+        "zh": "更年轻的",
+        "grade": 6
+    },
+    {
+        "en": "bigger",
+        "zh": "更大的",
+        "grade": 6
+    },
+    {
+        "en": "smaller",
+        "zh": "更小的",
+        "grade": 6
+    },
+    {
+        "en": "heavier",
+        "zh": "更重的",
+        "grade": 6
+    },
+    {
+        "en": "thinner",
+        "zh": "更瘦的",
+        "grade": 6
+    },
+    {
+        "en": "longer",
+        "zh": "更长的",
+        "grade": 6
+    },
+    {
+        "en": "beach",
+        "zh": "海滩",
+        "grade": 6
+    },
+    {
+        "en": "basket",
+        "zh": "篮子",
+        "grade": 6
+    },
+    {
+        "en": "gift",
+        "zh": "礼物",
+        "grade": 6
+    },
+    {
+        "en": "hurt",
+        "zh": "受伤",
+        "grade": 6
+    },
+    {
+        "en": "went",
+        "zh": "去（过去式）",
+        "grade": 6
+    },
+    {
+        "en": "took",
+        "zh": "带走（过去式）",
+        "grade": 6
+    },
+    {
+        "en": "bought",
+        "zh": "买（过去式）",
+        "grade": 6
+    },
+    {
+        "en": "slept",
+        "zh": "睡觉（过去式）",
+        "grade": 6
+    },
+    {
+        "en": "cleaned",
+        "zh": "打扫（过去式）",
+        "grade": 6
+    },
+    {
+        "en": "watched",
+        "zh": "观看（过去式）",
+        "grade": 6
+    },
+    {
+        "en": "washed",
+        "zh": "洗（过去式）",
+        "grade": 6
+    }
 ]
