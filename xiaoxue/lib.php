@@ -201,28 +201,144 @@ function xx_auto_print($title,$info=''){
         var svgs=document.querySelectorAll('li svg');
         var oldMargins=[];
         svgs.forEach(function(s,i){ oldMargins[i]=s.style.marginTop; s.style.marginTop='-1px'; });
-        // iPhone 画布有约 1600 万像素上限，超长页面超出会报 SecurityError，按需降低清晰度
-        var w=document.body.scrollWidth||document.documentElement.scrollWidth;
-        var h=document.body.scrollHeight||document.documentElement.scrollHeight;
-        var scale=Math.min(2,Math.sqrt(16000000/(w*h))||1);
-        if(scale<1){ scale=1; }
-        html2canvas(document.body,{backgroundColor:'#ffffff',scale:scale,useCORS:true,logging:false,
-            ignoreElements:function(el){ return el.classList && el.classList.contains('print-tools'); }
-        }).then(function(canvas){
-            btns.forEach(function(b){ b.disabled=false; });
-            svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
+        function restore(){ btns.forEach(function(b){ b.disabled=false; }); svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; }); }
+        function done(canvas){
+            restore();
             var a=document.createElement('a');
             a.download='zitie-'+Date.now()+'.png';
             a.href=canvas.toDataURL('image/png');
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-        }).catch(function(error){
-            btns.forEach(function(b){ b.disabled=false; });
-            svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
-			console.log(error);
-            alert('保存失败，请截屏保存');
+        }
+        function fail(){ restore(); alert('保存失败，请截屏保存'); }
+        if(isMobile){
+            // 移动端直接用自绘渲染器（html2canvas 在部分 iOS 上因 SVG 污染 canvas 无法导出）
+            try{ done(renderSheetToCanvas()); }catch(e){ fail(); }
+            return;
+        }
+        var w=document.body.scrollWidth||document.documentElement.scrollWidth;
+        var h=document.body.scrollHeight||document.documentElement.scrollHeight;
+        var scale=Math.min(2,Math.sqrt(16000000/(w*h))||1);
+        if(scale<1){ scale=1; }
+        html2canvas(document.body,{backgroundColor:'#ffffff',scale:scale,useCORS:true,logging:false,
+            ignoreElements:function(el){ return el.classList && el.classList.contains('print-tools'); }
+        }).then(done).catch(function(){
+            // html2canvas 失败（如 SVG 污染）时兜底用自绘渲染器
+            try{ done(renderSheetToCanvas()); }catch(e){ fail(); }
         });
+    }
+    /*
+     * 自绘渲染器：用 canvas 原生 API（线条/文字/Path2D 回放笔顺路径）重绘整页。
+     * 不向画布绘制任何 SVG 图像，画布零污染，toDataURL 在 iOS Safari 也可导出。
+     */
+    function renderSheetToCanvas(){
+        var scale=2;
+        var W=Math.max(document.body.scrollWidth,document.documentElement.scrollWidth,940);
+        var H=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+        while(W*scale*(H*scale)>16000000 && scale>1){ scale-=0.25; }// iOS 画布上限保护
+        if(scale<1){ scale=1; }
+        var canvas=document.createElement('canvas');
+        canvas.width=Math.round(W*scale);
+        canvas.height=Math.round(H*scale);
+        var ctx=canvas.getContext('2d');
+        ctx.fillStyle='#ffffff';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.scale(scale,scale);
+        ctx.textAlign='center';
+        ctx.textBaseline='middle';
+
+        function rectOf(el){ var r=el.getBoundingClientRect(); return {x:r.left+window.scrollX,y:r.top+window.scrollY,w:r.width,h:r.height}; }
+        function line(x1,y1,x2,y2,color,width,dash){
+            ctx.save();
+            ctx.strokeStyle=color; ctx.lineWidth=width||1; ctx.setLineDash(dash||[]);
+            ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+            ctx.restore();
+        }
+        var GRID={'':{b:'#111',d:'#666'},'green':{b:'#00b050',d:'#70d39d'},'red':{b:'#980f29',d:'#bb3442'}};
+        function drawGrid(r,type,colorKey){
+            var c=GRID[colorKey]||GRID[''];
+            if(type==='mzg'){
+                line(r.x,r.y,r.x+r.w,r.y+r.h,c.d,1,[4,4]);
+                line(r.x,r.y+r.h,r.x+r.w,r.y,c.d,1,[4,4]);
+            }
+            line(r.x,r.y+r.h/2,r.x+r.w,r.y+r.h/2,c.d,1,[4,4]);
+            line(r.x+r.w/2,r.y,r.x+r.w/2,r.y+r.h,c.d,1,[4,4]);
+            ctx.save(); ctx.strokeStyle=c.b; ctx.lineWidth=2; ctx.setLineDash([]);
+            ctx.strokeRect(r.x+1,r.y+1,r.w-2,r.h-2); ctx.restore();
+        }
+        function drawText(text,r,font,color,dy){
+            if(!text){ return; }
+            ctx.save(); ctx.font=font; ctx.fillStyle=color;
+            ctx.fillText(text,r.x+r.w/2,r.y+r.h/2+(dy||0));
+            ctx.restore();
+        }
+
+        // 页头标题与班级/姓名/日期
+        document.querySelectorAll('.page-head').forEach(function(el){ drawText(el.textContent,rectOf(el),'32px "楷体","Kaiti SC",KaiTi,serif','#666',12); });
+        document.querySelectorAll('.page-info').forEach(function(el){ drawText(el.textContent,rectOf(el),'16px sans-serif','#666',0); });
+
+        // 古诗标题/作者
+        document.querySelectorAll('.gs-title').forEach(function(el){ drawText(el.textContent,rectOf(el),'bold 34px "楷体","Kaiti SC",KaiTi,serif','#333',0); });
+        document.querySelectorAll('.gs-author').forEach(function(el){ drawText(el.textContent,rectOf(el),'20px "楷体","Kaiti SC",KaiTi,serif','#666',0); });
+
+        // 字格与拼音格
+        document.querySelectorAll('li').forEach(function(li){
+            var r=rectOf(li);
+            if(li.classList.contains('py')){
+                line(r.x,r.y,r.x+r.w,r.y,'#999',1);
+                line(r.x,r.y+r.h,r.x+r.w,r.y+r.h,'#999',2);
+                line(r.x,r.y+15,r.x+r.w,r.y+15,'#bbb',1,[5,5]);
+                line(r.x,r.y+31,r.x+r.w,r.y+31,'#bbb',1,[5,5]);
+                drawText(li.textContent.replace(/ /g,'').trim(),r,'22px Arial,sans-serif','#555',4);
+                return;
+            }
+            var bg=(getComputedStyle(li).backgroundImage||'');
+            var m=bg.match(/(tzg|mzg)(green|red)?\.svg/);
+            if(m){ drawGrid(r,m[1],m[2]||''); }
+            var svg=li.querySelector('svg');
+            if(svg){
+                // 回放笔顺路径（与页面 g transform 一致：translate(-2.9,48) scale(0.058,-0.0572)）
+                var sr=rectOf(svg);
+                ctx.save();
+                ctx.translate(sr.x,sr.y);
+                ctx.translate(-2.9,48);
+                ctx.scale(0.058,-0.0572);
+                svg.querySelectorAll('path').forEach(function(p){
+                    ctx.fillStyle=p.style.fill||'#000';
+                    ctx.fill(new Path2D(p.getAttribute('d')));
+                });
+                ctx.restore();
+            }else{
+                drawText(li.textContent.replace(/ /g,'').trim(),r,'58px "楷体","Kaiti SC",KaiTi,serif',getComputedStyle(li).color,0);
+            }
+        });
+
+        // 数学题
+        document.querySelectorAll('.math-table td').forEach(function(td){
+            drawText(td.textContent.trim(),rectOf(td),'30px "Times New Roman",Arial,sans-serif','#333',0);
+        });
+
+        // 英语四线三格
+        document.querySelectorAll('.eng-grid').forEach(function(g){
+            var r=rectOf(g);
+            line(r.x,r.y,r.x+r.w,r.y,'#999',2);
+            line(r.x,r.y+r.h,r.x+r.w,r.y+r.h,'#999',2);
+            line(r.x,r.y+30,r.x+r.w,r.y+30,'#bbb',1,[5,5]);
+            line(r.x,r.y+63,r.x+r.w,r.y+63,'#bbb',1,[5,5]);
+        });
+        document.querySelectorAll('.eng-text').forEach(function(el){
+            var r=rectOf(el); ctx.save(); ctx.font='52px "Times New Roman",serif'; ctx.fillStyle='#c8c8c8'; ctx.textAlign='left';
+            ctx.fillText(el.textContent,r.x,r.y+r.h/2); ctx.restore();
+        });
+        document.querySelectorAll('.eng-word-zh').forEach(function(el){
+            var r=rectOf(el); ctx.save(); ctx.font='18px sans-serif'; ctx.fillStyle='#666'; ctx.textAlign='left'; ctx.fillText(el.textContent,r.x,r.y+r.h/2); ctx.restore();
+        });
+        document.querySelectorAll('.eng-zh').forEach(function(el){
+            var r=rectOf(el); ctx.save(); ctx.font='20px sans-serif'; ctx.fillStyle='#888'; ctx.textAlign='left'; ctx.fillText(el.textContent,r.x,r.y+r.h/2+4); ctx.restore();
+        });
+
+        return canvas;
     }
 </script>
 HTML;
