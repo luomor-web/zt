@@ -35,11 +35,11 @@ function xx_math_item($type,$max,$carry='any'){
 		else{ $b=mt_rand(1,9); $q=mt_rand(1,9); }
 		$a=$b*$q;
 		return "$a ÷ $b =";
-	case 'cmp':// 比大小
+	case 'cmp':// 比大小（用大号圆圈，便于填写 > < =）
 	default:
 		$a=mt_rand(0,$max);
 		$b=mt_rand(0,$max);
-		return "$a ○ $b";
+		return "$a ◯ $b";
 	}
 }
 
