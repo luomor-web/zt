@@ -341,6 +341,7 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
         }
         function drawText(text,r,font,color,dy){
             if(!text){ return; }
+            if(r.w<=0||r.h<=0){ return; }// 隐藏元素（如 #page-head-box 模板）矩形为 0，跳过
             ctx.save(); ctx.font=font; ctx.fillStyle=color;
             ctx.fillText(text,r.x+r.w/2,r.y+r.h/2+(dy||0));
             ctx.restore();
