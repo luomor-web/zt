@@ -7,24 +7,24 @@
 <meta name="keywords" content="组词字帖，组词练习，生字组词，描红字帖，笔顺字帖，拼音字帖，田字格组词，小学语文，烙馍网">
 <meta name="description" content="输入生字自动生成带组词的描红字帖，每字附常用组词，支持笔顺演示、拼音标注、田字格/米字格，免费在线生成打印。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/xiaoxue/zuci.html">
+<link rel="canonical" href="https://zzzt.luomor.com/xiaoxue/zuci.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://zt.luomor.com/xiaoxue/zuci.html">
+<meta property="og:url" content="https://zzzt.luomor.com/xiaoxue/zuci.html">
 <meta property="og:title" content="组词字帖生成器 - 生字组词描红字帖在线打印">
 <meta property="og:description" content="输入生字自动生成带组词的描红字帖，支持笔顺、拼音、田字格/米字格，免费打印。">
-<meta property="og:image" content="https://zt.luomor.com/img/xg4.png">
+<meta property="og:image" content="https://zzzt.luomor.com/img/xg4.png">
 <meta property="og:site_name" content="烙馍网">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="组词字帖生成器 - 生字组词描红字帖在线打印">
 <meta name="twitter:description" content="输入生字自动生成带组词的描红字帖，支持笔顺、拼音、田字格/米字格，免费打印。">
-<meta name="twitter:image" content="https://zt.luomor.com/img/xg4.png">
+<meta name="twitter:image" content="https://zzzt.luomor.com/img/xg4.png">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "组词字帖生成器",
-    "url": "https://zt.luomor.com/xiaoxue/zuci.html",
+    "url": "https://zzzt.luomor.com/xiaoxue/zuci.html",
     "description": "输入生字自动生成带组词的描红字帖，支持笔顺、拼音、田字格/米字格，免费打印。",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Any",
@@ -113,11 +113,28 @@ var _hmt = _hmt || [];
 <div class="card">
 <p class="seo-intro">输入想要练习的生字，自动为每个字生成笔顺描红格，并附上 1-3 个常用组词描红行，支持田字格/米字格、拼音标注和描红深浅调节，生成后自动打开打印窗口。</p>
 <form action="zuci.php" method="post" target="_blank">
-    <label class="form-label" for="words">输入要练习的生字</label>
-    <textarea id="words" name="words" placeholder="请输入汉字，例如：山水花鸟鱼虫">山水花鸟鱼虫</textarea>
+    <div class="options-grid" style="margin-top:0;margin-bottom:18px;">
+        <div class="option-group">
+            <div class="option-group-title">组词方式</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="mode" value="auto" checked><span>自动组词（按生字匹配常用词）</span></label>
+                <label class="radio-label"><input type="radio" name="mode" value="custom"><span>自定义组词（自己输入词语）</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div id="auto-box">
+        <label class="form-label" for="words">输入要练习的生字</label>
+        <textarea id="words" name="words" placeholder="请输入汉字，例如：山水花鸟鱼虫">山水花鸟鱼虫</textarea>
+    </div>
+
+    <div id="custom-box" style="display:none;">
+        <label class="form-label" for="custom">输入要练习的词语</label>
+        <textarea id="custom" name="custom" placeholder="请输入词语，用空格或换行分隔，例如：&#10;大山 山水 小鸟 飞鱼">大山 山水 小鸟 飞鱼</textarea>
+    </div>
 
     <div class="options-grid">
-        <div class="option-group">
+        <div class="option-group" id="zcnum-group">
             <div class="option-group-title">每字组词数</div>
             <div class="radio-group">
                 <label class="radio-label"><input type="radio" name="zcnum" value="1"><span>1 个</span></label>
@@ -192,5 +209,16 @@ var _hmt = _hmt || [];
 </form>
 </div>
 </div>
+<script>
+// 组词方式切换：自动组词显示生字输入，自定义组词显示词语输入
+document.querySelectorAll('input[name="mode"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+        var isCustom = document.querySelector('input[name="mode"][value="custom"]').checked;
+        document.getElementById('auto-box').style.display = isCustom ? 'none' : '';
+        document.getElementById('custom-box').style.display = isCustom ? '' : 'none';
+        document.getElementById('zcnum-group').style.display = isCustom ? 'none' : '';
+    });
+});
+</script>
 </body>
 </html>

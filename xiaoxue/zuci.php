@@ -1,9 +1,22 @@
 <?php
-/* 组词字帖练习 - 生成端（表单见 zuci.html） */
+/* 组词字帖练习 - 生成端（表单见 zuci.html）
+ * mode=auto：输入生字，按 data/zuci.json 自动匹配组词
+ * mode=custom：用户自己输入词语（空格/换行/标点分隔），逐词描红 */
 include_once dirname(__FILE__).'/lib.php';
 
+$mode=$_POST['mode']??'auto';
+if(!in_array($mode,['auto','custom'])){ $mode='auto'; }
+
 $words=xx_filter_hanzi($_POST['words']??'');
-if(!$words){
+// 自定义组词：把输入切成词语列表（按非中文字符分隔）
+$custom_words=[];
+if($mode==='custom'){
+	preg_match_all('/[\x{4e00}-\x{9fff}]+/u',$_POST['custom']??'',$cm);
+	$custom_words=$cm[0];
+}
+if($mode==='auto' && !$words){
+	header("Location: zuci.html");
+}elseif($mode==='custom' && !$custom_words){
 	header("Location: zuci.html");
 }else{
 
@@ -23,12 +36,28 @@ $fcolor=$fz[($_POST['zcolor']??'black').($_POST['fcolor']??'5')]??$fz['black5'];
 
 $zuci=json_decode(file_get_contents(dirname(__FILE__).'/../data/zuci.json'),true);
 
-$title='组词字帖练习';
+$title=$mode==='custom'?'自定义组词练习':'组词字帖练习';
 echo xx_sheet_head($title,'.zc-label{font-size:22px;color:#666;padding:10px 0 0 4px;font-family:'.xx_kaiti().';}',$bglx);
 echo '<div><ul>';
 
 preg_match_all('/./u',$words,$hz);
 $used=0;
+
+if($mode==='custom'){
+	// 自定义组词：每个词语一行拼音格（可选）+ 一行描红
+	foreach($custom_words as $w){
+		if($py){
+			$pr=xx_pinyin_row($w);
+			echo $pr['html'];
+			$used+=$pr['cells'];
+			echo xx_page_break($used);
+		}
+		$r=xx_trace_text_row($w);
+		echo $r['html'];
+		$used+=$r['cells'];
+		echo xx_page_break($used);
+	}
+}else{
 foreach($hz[0] as $char){
 	// 拼音格行（独占一行）
 	if($py){
@@ -60,6 +89,7 @@ foreach($hz[0] as $char){
 			echo xx_page_break($used);
 		}
 	}
+}
 }
 
 // 堆满整页
