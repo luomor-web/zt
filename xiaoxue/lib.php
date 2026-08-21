@@ -201,32 +201,21 @@ function xx_auto_print($title,$info=''){
         var svgs=document.querySelectorAll('li svg');
         var oldMargins=[];
         svgs.forEach(function(s,i){ oldMargins[i]=s.style.marginTop; s.style.marginTop='-1px'; });
-        // iOS 的 canvas 有内存上限，长图用 1 倍清晰度；其余设备 2 倍
-        var isIOS=/iPhone|iPad|iPod/i.test(navigator.userAgent);
-        var fail='保存失败，请截屏保存';
-        function restore(){
-            btns.forEach(function(b){ b.disabled=false; });
-            svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
-        }
-        html2canvas(document.body,{backgroundColor:'#ffffff',scale:isIOS?1:2,
+        html2canvas(document.body,{backgroundColor:'#ffffff',scale:2,
             ignoreElements:function(el){ return el.classList && el.classList.contains('print-tools'); }
         }).then(function(canvas){
-            restore();
-            // toBlob 比 toDataURL 省内存，配合 Blob URL 下载
-            canvas.toBlob(function(blob){
-                if(!blob){ alert(fail); return; }
-                var url=URL.createObjectURL(blob);
-                var a=document.createElement('a');
-                a.download='zitie-'+Date.now()+'.png';
-                a.href=url;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                setTimeout(function(){ URL.revokeObjectURL(url); },60000);
-            },'image/png');
+            btns.forEach(function(b){ b.disabled=false; });
+            svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
+            var a=document.createElement('a');
+            a.download='zitie-'+Date.now()+'.png';
+            a.href=canvas.toDataURL('image/png');
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }).catch(function(){
-            restore();
-            alert(fail);
+            btns.forEach(function(b){ b.disabled=false; });
+            svgs.forEach(function(s,i){ s.style.marginTop=oldMargins[i]; });
+            alert('保存失败，请截屏保存');
         });
     }
 </script>
