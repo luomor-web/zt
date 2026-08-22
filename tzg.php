@@ -277,7 +277,7 @@ $zhengye=($tzgzys*15-$tzg_hs)*12;
         function done(canvas){
             restore();
             var a=document.createElement('a');
-            a.download='zitie-'+Date.now()+'.png';
+            a.download='luomor-zitie-'+Date.now()+'.png';
             a.href=canvas.toDataURL('image/png');
             document.body.appendChild(a);
             a.click();
