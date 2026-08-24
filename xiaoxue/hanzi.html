@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>汉字练习字帖 - 按年级学期生字笔顺描红在线打印 - 小学练习专区 - 烙馍网</title>
+<meta name="keywords" content="汉字练习，生字表，年级生字，笔顺字帖，描红字帖，一年级生字，二年级生字，烙馍网">
+<meta name="description" content="免费在线生成汉字练习字帖：按年级学期选择生字，笔顺描红加拼音标注，田字格/米字格，打印即用。">
+<meta name="author" content="烙馍网">
+<link rel="canonical" href="https://zzzt.luomor.com/xiaoxue/hanzi.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zzzt.luomor.com/xiaoxue/hanzi.html">
+<meta property="og:title" content="汉字练习字帖 - 按年级学期生字笔顺描红在线打印">
+<meta property="og:description" content="免费在线生成汉字练习字帖：按年级学期选择生字，笔顺描红加拼音标注，打印即用。">
+<meta property="og:image" content="https://zzzt.luomor.com/img/xg4.png">
+<meta property="og:site_name" content="烙馍网">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "汉字练习字帖",
+    "url": "https://zzzt.luomor.com/xiaoxue/hanzi.html",
+    "description": "免费在线生成汉字练习字帖：按年级学期选择生字，笔顺描红加拼音标注。",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "inLanguage": "zh-CN",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+}
+</script>
+<link rel="stylesheet" href="form.css">
+<style>
+.char-list{ display:grid; grid-template-columns:repeat(auto-fill,minmax(52px,1fr)); gap:6px; max-height:340px; overflow-y:auto; border:2px solid var(--border-color); border-radius:var(--radius); padding:14px; }
+.char-list label{ display:flex; align-items:center; justify-content:center; gap:2px; font-size:18px; cursor:pointer; padding:4px 2px; border-radius:6px; }
+.char-list label:hover{ background:#f5f7fa; }
+.char-count{ font-size:13px; color:#999; margin-bottom:10px; }
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+    <div class="back-links">
+        <a class="back-link" href="index.html">← 小学专区</a>
+        <a class="back-link" href="../">← 首页</a>
+    </div>
+    <h1>🈶 汉字练习</h1>
+    <p class="subtitle">按年级学期选生字 · 笔顺描红 · 拼音标注</p>
+</header>
+
+<nav class="nav-bar" aria-label="主导航">
+        <a href="../">首页</a>
+        <div class="nav-dropdown">
+            <a href="index.html">小学专区</a>
+            <div class="nav-sub">
+                <a href="zuci.html">组词练习</a>
+                <a href="kanxie.html">看拼音写词语</a>
+                <a href="bihua.html">笔画练习</a>
+                <a href="pinyin.html">拼音练习</a>
+                <a href="hanzi.html">汉字练习</a>
+                <a href="gushi.html">古诗练习</a>
+                <a href="math.html">数学练习</a>
+                <a href="english.html">英语练习</a>
+            </div>
+        </div>
+</nav>
+
+<div class="card">
+<p class="seo-intro">按年级学期选择要练习的生字（数据与<a href="../scb.html">小学生常用汉字生字表</a>一致，每学期约半册），生成带笔顺的描红字帖，可标注拼音。</p>
+<form action="hanzi.php" method="post" target="_blank">
+    <input type="hidden" name="term" id="term" value="">
+    <label class="form-label">选择年级学期</label>
+    <div class="term-filter" id="term-filter">
+        <button type="button" class="mini-btn active" data-term="">全部</button>
+        <button type="button" class="mini-btn" data-term="1上">一年级上</button>
+        <button type="button" class="mini-btn" data-term="1下">一年级下</button>
+        <button type="button" class="mini-btn" data-term="2上">二年级上</button>
+        <button type="button" class="mini-btn" data-term="2下">二年级下</button>
+        <button type="button" class="mini-btn" data-term="3上">三年级上</button>
+        <button type="button" class="mini-btn" data-term="3下">三年级下</button>
+        <button type="button" class="mini-btn" data-term="4上">四年级上</button>
+        <button type="button" class="mini-btn" data-term="4下">四年级下</button>
+        <button type="button" class="mini-btn" data-term="5上">五年级上</button>
+        <button type="button" class="mini-btn" data-term="5下">五年级下</button>
+        <button type="button" class="mini-btn" data-term="6上">六年级上</button>
+        <button type="button" class="mini-btn" data-term="6下">六年级下</button>
+    </div>
+
+    <label class="form-label" style="margin-top:16px;">选择要练习的汉字</label>
+    <div class="char-count" id="char-count">生字列表加载中…</div>
+    <div style="margin-bottom:10px;">
+        <button type="button" class="mini-btn" id="btn-all">全选</button>
+        <button type="button" class="mini-btn" id="btn-none">全不选</button>
+        <button type="button" class="mini-btn" id="btn-first10">选前 10 个</button>
+    </div>
+    <div class="char-list" id="char-list"></div>
+
+    <div class="options-grid">
+        <div class="option-group">
+            <div class="option-group-title">格子类型</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="types" value="tzg" checked><span>田字格</span></label>
+                <label class="radio-label"><input type="radio" name="types" value="mzg"><span>米字格</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">格子颜色</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="bgcolor" value="green"><span>绿色</span></label>
+                <label class="radio-label"><input type="radio" name="bgcolor" value="black" checked><span>黑色</span></label>
+                <label class="radio-label"><input type="radio" name="bgcolor" value="red"><span>红色</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">文字颜色</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="zcolor" value="green"><span>绿色</span></label>
+                <label class="radio-label"><input type="radio" name="zcolor" value="black" checked><span>黑色</span></label>
+                <label class="radio-label"><input type="radio" name="zcolor" value="red"><span>红色</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">描红深浅</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="fcolor" value="1"><span>非常深</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="3"><span>较深</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="5" checked><span>适中</span></label>
+                <label class="radio-label"><input type="radio" name="fcolor" value="6"><span>非常浅</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">笔顺填充</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="bs" value="1"><span>是</span></label>
+                <label class="radio-label"><input type="radio" name="bs" value="0" checked><span>否</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">显示拼音</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="py" value="1" checked><span>是</span></label>
+                <label class="radio-label"><input type="radio" name="py" value="0"><span>否</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="name-row">
+        <div class="field">
+            <label for="class">班级</label>
+            <input type="text" id="class" name="class" placeholder="选填">
+        </div>
+        <div class="field">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="选填">
+        </div>
+    </div>
+
+    <div class="btn-row">
+        <button type="submit" class="submit-btn">立即生成</button>
+    </div>
+</form>
+    <div class="tutorial">
+        <h3>使用教程</h3>
+        <ol>
+            <li>点击<strong>年级学期</strong>按钮（如"一年级上"），生字列表只显示该学期的汉字</li>
+            <li>勾选要练习的生字，或用"全选 / 全不选 / 选前 10 个"快速选择</li>
+            <li>设置格子、颜色、拼音等选项后，点击 <strong>立即生成</strong></li>
+            <li>电脑端点 <strong>打印</strong>（勾选"背景图形"），手机端点 <strong>保存图片</strong></li>
+        </ol>
+        <div class="tip"><strong>💡 提示：</strong>打印前请确保已勾选"背景图形"选项，否则格子可能无法显示；手机端建议使用"保存图片"功能。</div>
+    </div>
+</div>
+</div>
+<script src="../js/nav.js" defer></script>
+<script>
+// 生字数据从 data/hanzi.json 加载（与 scb.html 生字表一致，按学期对半分组）
+fetch('../data/hanzi.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+        var box = document.getElementById('char-list');
+        var countEl = document.getElementById('char-count');
+        var total = 0;
+        Object.keys(data).forEach(function (term) {
+            data[term].forEach(function (ch, i) {
+                total++;
+                var label = document.createElement('label');
+                label.dataset.term = term;
+                var cb = document.createElement('input');
+                cb.type = 'checkbox';
+                cb.name = 'hz[]';
+                cb.value = ch;
+                if (i < 10) cb.checked = true; // 每学期默认选前 10 个
+                var span = document.createElement('span');
+                span.textContent = ch;
+                label.appendChild(cb);
+                label.appendChild(span);
+                box.appendChild(label);
+            });
+        });
+        countEl.textContent = '共 ' + total + ' 个生字';
+    })
+    .catch(function () {
+        document.getElementById('char-count').textContent = '生字列表加载失败，请刷新重试。';
+    });
+
+// 学期筛选
+var termInput = document.getElementById('term');
+document.querySelectorAll('#term-filter .mini-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        document.querySelectorAll('#term-filter .mini-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var term = btn.dataset.term;
+        termInput.value = term; // 传给后端用于页头标题
+        document.querySelectorAll('#char-list label').forEach(function (label) {
+            label.style.display = (term === '' || label.dataset.term === term) ? '' : 'none';
+        });
+    });
+});
+
+// 快速选择（只作用于当前可见生字）
+function visibleBoxes() {
+    return Array.prototype.filter.call(document.querySelectorAll('#char-list input'), function (c) {
+        return c.closest('label').style.display !== 'none';
+    });
+}
+document.getElementById('btn-all').addEventListener('click', function () {
+    visibleBoxes().forEach(function (c) { c.checked = true; });
+});
+document.getElementById('btn-none').addEventListener('click', function () {
+    visibleBoxes().forEach(function (c) { c.checked = false; });
+});
+document.getElementById('btn-first10').addEventListener('click', function () {
+    visibleBoxes().forEach(function (c, i) { c.checked = i < 10; });
+});
+</script>
+</body>
+</html>
