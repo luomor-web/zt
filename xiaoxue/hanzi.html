@@ -162,7 +162,7 @@
         <h3>使用教程</h3>
         <ol>
             <li>点击<strong>年级学期</strong>按钮（如"一年级上"），生字列表只显示该学期的汉字</li>
-            <li>勾选要练习的生字，或用"全选 / 全不选 / 选前 10 个"快速选择</li>
+            <li>勾选要练习的生字：单击选择，或<strong>按住鼠标（手指）滑过生字连续选择</strong>，也可用"全选 / 全不选 / 选前 10 个"快速选择</li>
             <li>设置格子、颜色、拼音等选项后，点击 <strong>立即生成</strong></li>
             <li>电脑端点 <strong>打印</strong>（勾选"背景图形"），手机端点 <strong>保存图片</strong></li>
         </ol>
@@ -248,6 +248,61 @@ document.getElementById('btn-first10').addEventListener('click', function () {
     visibleBoxes().forEach(function (c, i) { c.checked = i < 10; });
     updateCount();
 });
+
+// 滑动选择：按住鼠标左键（或手指）滑过生字即可连续勾选/取消
+// 规则：起点未选中则本次拖动为"选中"，起点已选中则为"取消"
+(function () {
+    var list = document.getElementById('char-list');
+    var dragging = false;
+    var dragTarget = true;
+
+    function pick(label) {
+        if (!label || label.style.display === 'none') return;
+        var cb = label.querySelector('input');
+        if (cb.checked !== dragTarget) {
+            cb.checked = dragTarget;
+            updateCount();
+        }
+    }
+    function labelFromEvent(e) {
+        return e.target.closest ? e.target.closest('label') : null;
+    }
+    function labelFromPoint(x, y) {
+        var el = document.elementFromPoint(x, y);
+        return el && el.closest ? el.closest('label') : null;
+    }
+
+    // 鼠标
+    list.addEventListener('mousedown', function (e) {
+        var label = labelFromEvent(e);
+        if (!label) return;
+        e.preventDefault(); // 防止拖动时选中文字
+        dragging = true;
+        dragTarget = !label.querySelector('input').checked;
+        pick(label);
+    });
+    list.addEventListener('mouseover', function (e) {
+        if (dragging) pick(labelFromEvent(e));
+    });
+    document.addEventListener('mouseup', function () { dragging = false; });
+
+    // 触屏
+    list.addEventListener('touchstart', function (e) {
+        var t = e.touches[0];
+        var label = labelFromPoint(t.clientX, t.clientY);
+        if (!label || !list.contains(label)) return;
+        dragging = true;
+        dragTarget = !label.querySelector('input').checked;
+        pick(label);
+    }, { passive: true });
+    list.addEventListener('touchmove', function (e) {
+        if (!dragging) return;
+        e.preventDefault(); // 拖动选择时阻止页面滚动
+        var t = e.touches[0];
+        pick(labelFromPoint(t.clientX, t.clientY));
+    }, { passive: false });
+    document.addEventListener('touchend', function () { dragging = false; });
+})();
 </script>
 </body>
 </html>
