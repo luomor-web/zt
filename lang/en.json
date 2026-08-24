@@ -27,7 +27,7 @@
   "form.class.label": "Class",
   "form.name.label": "Name",
   "form.optional": "Optional",
-  "form.title.default": "Chinese Practice Sheet · zt.luomor.com",
+  "form.title.default": "Chinese Practice Sheet · zzzt.luomor.com",
   "form.submit": "Generate Now",
 
   "options.types.title": "Grid Type",
@@ -73,6 +73,12 @@
   "friendlinks.title": "🔗 Friendly Links",
 
   "switcher.aria": "Switch language",
+
+  "nav.home": "Home",
+  "nav.zuci": "Word Practice",
+  "nav.gushi": "Poem Practice",
+  "nav.math": "Math Practice",
+  "nav.english": "English Practice",
 
   "sheet.title": "Chinese Character Practice Sheet"
 }

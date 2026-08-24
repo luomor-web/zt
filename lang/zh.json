@@ -27,7 +27,7 @@
   "form.class.label": "班级",
   "form.name.label": "姓名",
   "form.optional": "选填",
-  "form.title.default": "田字格字帖生成器 网址：zt.luomor.com",
+  "form.title.default": "田字格字帖生成器 网址：zzzt.luomor.com",
   "form.submit": "立即生成",
 
   "options.types.title": "田格类型",
@@ -73,6 +73,12 @@
   "friendlinks.title": "🔗 友情链接",
 
   "switcher.aria": "语言切换",
+
+  "nav.home": "首页",
+  "nav.zuci": "组词练习",
+  "nav.gushi": "古诗练习",
+  "nav.math": "数学练习",
+  "nav.english": "英语练习",
 
   "sheet.title": "田字格字帖生成器"
 }

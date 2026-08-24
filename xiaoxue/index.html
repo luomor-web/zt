@@ -7,24 +7,24 @@
 <meta name="keywords" content="小学练习，组词字帖，古诗描红，必背古诗75首，数学口算，10以内加减法，英语四线三格，小学生字帖，打印练习，烙馍网">
 <meta name="description" content="烙馍网小学练习专区：在线生成组词字帖、必背古诗描红、数学口算题、英语四线三格练习，免费打印。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/xiaoxue/">
+<link rel="canonical" href="https://zzzt.luomor.com/xiaoxue/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://zt.luomor.com/xiaoxue/">
+<meta property="og:url" content="https://zzzt.luomor.com/xiaoxue/">
 <meta property="og:title" content="小学练习专区 - 组词/古诗/数学/英语练习在线生成">
 <meta property="og:description" content="免费在线生成打印：组词字帖、必背古诗描红、数学口算题、英语四线三格练习。">
-<meta property="og:image" content="https://zt.luomor.com/img/xg4.png">
+<meta property="og:image" content="https://zzzt.luomor.com/img/xg4.png">
 <meta property="og:site_name" content="烙馍网">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="小学练习专区 - 组词/古诗/数学/英语练习在线生成">
 <meta name="twitter:description" content="免费在线生成打印：组词字帖、必背古诗描红、数学口算题、英语四线三格练习。">
-<meta name="twitter:image" content="https://zt.luomor.com/img/xg4.png">
+<meta name="twitter:image" content="https://zzzt.luomor.com/img/xg4.png">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "小学练习专区",
-    "url": "https://zt.luomor.com/xiaoxue/",
+    "url": "https://zzzt.luomor.com/xiaoxue/",
     "description": "免费在线生成打印小学习题：组词字帖、必背古诗描红、数学口算题、英语四线三格练习。",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Any",
@@ -52,6 +52,10 @@ body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 .header .subtitle{ font-size:14px; color:rgba(255,255,255,0.9); margin-top:8px; }
 .back-link{ position:absolute; top:12px; left:16px; color:rgba(255,255,255,0.85); text-decoration:none; font-size:14px; }
 .back-link:hover{ color:#fff; text-decoration:underline; }
+.nav-bar{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:25px; }
+.nav-bar a{ padding:8px 20px; border-radius:20px; background:#fff; color:var(--text-color); text-decoration:none; font-size:15px; font-weight:600; box-shadow:var(--shadow); transition:all .2s; }
+.nav-bar a:hover{ transform:translateY(-2px); }
+.nav-bar a.active{ background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; }
 .cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
 .card-link{ text-decoration:none; color:inherit; }
 .card{ background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:28px; transition:all .3s ease; height:100%; }
@@ -127,10 +131,17 @@ var _hmt = _hmt || [];
 <body>
 <div class="container">
     <header class="header">
-        <a class="back-link" href="../">← 返回字帖生成器</a>
         <h1>🎒 烙馍网小学练习专区</h1>
         <p class="subtitle">组词字帖 · 古诗描红 · 数学口算 · 英语练习 · 完全免费</p>
     </header>
+
+    <nav class="nav-bar" aria-label="主导航">
+        <a href="../">首页</a>
+        <a href="zuci.html">组词练习</a>
+        <a href="gushi.html">古诗练习</a>
+        <a href="math.html">数学练习</a>
+        <a href="english.html">英语练习</a>
+    </nav>
 
     <div class="cards">
         <a class="card-link" href="zuci.html">
