@@ -197,6 +197,9 @@ fetch('../data/hanzi.json')
             });
         });
         countEl.textContent = '共 ' + total + ' 个生字';
+        updateCount();
+        // 勾选变化时同步已选数量
+        box.addEventListener('change', updateCount);
     })
     .catch(function () {
         document.getElementById('char-count').textContent = '生字列表加载失败，请刷新重试。';
@@ -204,6 +207,16 @@ fetch('../data/hanzi.json')
 
 // 学期筛选
 var termInput = document.getElementById('term');
+function updateCount() {
+    var visible = 0, checked = 0;
+    document.querySelectorAll('#char-list label').forEach(function (label) {
+        if (label.style.display !== 'none') {
+            visible++;
+            if (label.querySelector('input').checked) checked++;
+        }
+    });
+    document.getElementById('char-count').textContent = '当前显示 ' + visible + ' 个生字，已选 ' + checked + ' 个';
+}
 document.querySelectorAll('#term-filter .mini-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
         document.querySelectorAll('#term-filter .mini-btn').forEach(function (b) { b.classList.remove('active'); });
@@ -213,6 +226,7 @@ document.querySelectorAll('#term-filter .mini-btn').forEach(function (btn) {
         document.querySelectorAll('#char-list label').forEach(function (label) {
             label.style.display = (term === '' || label.dataset.term === term) ? '' : 'none';
         });
+        updateCount();
     });
 });
 
@@ -224,12 +238,15 @@ function visibleBoxes() {
 }
 document.getElementById('btn-all').addEventListener('click', function () {
     visibleBoxes().forEach(function (c) { c.checked = true; });
+    updateCount();
 });
 document.getElementById('btn-none').addEventListener('click', function () {
     visibleBoxes().forEach(function (c) { c.checked = false; });
+    updateCount();
 });
 document.getElementById('btn-first10').addEventListener('click', function () {
     visibleBoxes().forEach(function (c, i) { c.checked = i < 10; });
+    updateCount();
 });
 </script>
 </body>
