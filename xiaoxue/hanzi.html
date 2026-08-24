@@ -243,79 +243,59 @@ document.getElementById('btn-first10').addEventListener('click', function () {
     updateCount();
 });
 
-// 滑动选择：按住鼠标左键（或手指）拖动形成矩形区域，区域内字块被选中/取消
-// 规则：起点未选中则本次拖动为"选中"，起点已选中则为"取消"；支持跨行框选
+// 滑动选择：按住鼠标左键（或手指）滑过字块即可连续选中/取消
+// 规则：起点未选中则本次拖动为"选中"，起点已选中则为"取消"
 (function () {
     var list = document.getElementById('char-list');
     var dragging = false;
     var dragTarget = true;
-    var startX = 0, startY = 0;
-    var affected = new Map(); // 本次拖动中被改动过的字块 → 原始选中状态（用于矩形缩小时还原）
 
-    function applyRect(x, y) {
-        var minX = Math.min(startX, x), maxX = Math.max(startX, x);
-        var minY = Math.min(startY, y), maxY = Math.max(startY, y);
-        var changed = false;
-        visibleTiles().forEach(function (t) {
-            var r = t.getBoundingClientRect();
-            var cx = r.left + window.scrollX + r.width / 2;
-            var cy = r.top + window.scrollY + r.height / 2;
-            var inside = cx >= minX && cx <= maxX && cy >= minY && cy <= maxY;
-            if (inside) {
-                if (!affected.has(t)) affected.set(t, t.classList.contains('selected'));
-                if (t.classList.contains('selected') !== dragTarget) {
-                    t.classList.toggle('selected', dragTarget);
-                    changed = true;
-                }
-            } else if (affected.has(t)) {
-                // 拖出矩形范围的字块还原为拖动前状态
-                t.classList.toggle('selected', affected.get(t));
-                affected.delete(t);
-                changed = true;
-            }
-        });
-        if (changed) updateCount();
+    function pick(tile) {
+        if (!tile || tile.style.display === 'none') return;
+        var has = tile.classList.contains('selected');
+        if (has !== dragTarget) {
+            tile.classList.toggle('selected', dragTarget);
+            updateCount();
+        }
     }
-
-    function startDrag(x, y, tile) {
-        dragging = true;
-        dragTarget = tile ? !tile.classList.contains('selected') : true;
-        startX = x; startY = y;
-        affected.clear();
-        applyRect(x, y);
+    function tileFromEvent(e) {
+        return e.target.closest ? e.target.closest('.char-tile') : null;
     }
-    function endDrag() {
-        dragging = false;
-        affected.clear();
+    function tileFromPoint(x, y) {
+        var el = document.elementFromPoint(x, y);
+        return el && el.closest ? el.closest('.char-tile') : null;
     }
 
     // 鼠标
     list.addEventListener('mousedown', function (e) {
-        var tile = e.target.closest ? e.target.closest('.char-tile') : null;
+        var tile = tileFromEvent(e);
         if (!tile) return;
         e.preventDefault(); // 防止拖动时选中文字
-        startDrag(e.pageX, e.pageY, tile);
+        dragging = true;
+        dragTarget = !tile.classList.contains('selected');
+        pick(tile);
     });
-    document.addEventListener('mousemove', function (e) {
-        if (dragging) applyRect(e.pageX, e.pageY);
+    list.addEventListener('mouseover', function (e) {
+        if (dragging) pick(tileFromEvent(e));
     });
-    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('mouseup', function () { dragging = false; });
 
     // 触屏
     list.addEventListener('touchstart', function (e) {
         var t = e.touches[0];
-        var el = document.elementFromPoint(t.clientX, t.clientY);
-        var tile = el && el.closest ? el.closest('.char-tile') : null;
+        var tile = tileFromPoint(t.clientX, t.clientY);
         if (!tile || !list.contains(tile)) return;
-        startDrag(t.pageX, t.pageY, tile);
+        dragging = true;
+        dragTarget = !tile.classList.contains('selected');
+        pick(tile);
     }, { passive: true });
     list.addEventListener('touchmove', function (e) {
         if (!dragging) return;
         e.preventDefault(); // 拖动选择时阻止页面滚动
         var t = e.touches[0];
-        applyRect(t.pageX, t.pageY);
+        pick(tileFromPoint(t.clientX, t.clientY));
     }, { passive: false });
-    document.addEventListener('touchend', endDrag);
+    document.addEventListener('touchend', function () { dragging = false; });
 })();
 
 // 提交前把选中的字块收集为 hz[] 隐藏字段
