@@ -173,12 +173,27 @@
 
         /* Header */
         .header {
+            position: relative;
             text-align: center;
             padding: 40px 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: var(--radius);
             margin-bottom: 30px;
             box-shadow: var(--shadow);
+        }
+
+        .back-link {
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: #fff;
+            text-decoration: underline;
         }
 
         .header h1 {
@@ -463,6 +478,7 @@ var _hmt = _hmt || [];
         </nav>
 
         <header class="header">
+            <a class="back-link" href="/">← 返回首页</a>
             <h1>📚 小学常用汉字生字表</h1>
             <p class="subtitle">配合 <a href="index.html" title="田字格字帖生成器">田字格字帖生成器</a> 使用，学习效果更佳</p>
         </header>
