@@ -35,6 +35,20 @@ function xx_math_item($type,$max,$carry='any'){
 		else{ $b=mt_rand(1,9); $q=mt_rand(1,9); }
 		$a=$b*$q;
 		return "$a ÷ $b =";
+	case 'pic':// 看图列式：emoji 分组，看图写算式（仅加减法）
+		$emojis=['🍎','🍐','🍊','🍋','🍉','🍇','🍓','🍒','🐥','🐰','🐟','🌸','🌻','⭐','🎈','🚀'];
+		$e=$emojis[array_rand($emojis)];
+		$cap=$max<=10?5:9;// 单侧最多个数，避免图画过宽
+		if(mt_rand(0,1)){ // 加法
+			$a=mt_rand(1,$cap);
+			$b=mt_rand(1,$cap);
+			if($a+$b>$max){ $b=$max-$a>0?$max-$a:1; $a=$max-$b; }
+			return str_repeat($e,$a).' + '.str_repeat($e,$b).' =';
+		}else{ // 减法
+			$a=mt_rand(2,$cap+2);
+			$b=mt_rand(1,$a-1);
+			return str_repeat($e,$a).' - '.str_repeat($e,$b).' =';
+		}
 	case 'cmp':// 比大小（用大号圆圈，便于填写 > < =）
 	default:
 		$a=mt_rand(0,$max);
@@ -48,7 +62,7 @@ if($_SERVER['REQUEST_METHOD']!=='POST'){
 }else{
 
 $type=$_POST['op']??'add';
-if(!in_array($type,['add','sub','mul','div','cmp','mix'])){ $type='add'; }
+if(!in_array($type,['add','sub','mul','div','cmp','pic','mix'])){ $type='add'; }
 $carry=$_POST['carry']??'any';//进位/退位（仅加减法）
 if(!in_array($carry,['any','carry','none'])){ $carry='any'; }
 $max=intval($_POST['range']??'10');
@@ -58,12 +72,16 @@ if(!in_array($count,[20,40,60])){ $count=40; }
 $cols=intval($_POST['cols']??'4');
 if(!in_array($cols,[3,4,5])){ $cols=4; }
 
-$op_names=['add'=>'加法','sub'=>'减法','mul'=>'乘法','div'=>'除法','cmp'=>'比大小','mix'=>'混合运算'];
+$op_names=['add'=>'加法','sub'=>'减法','mul'=>'乘法','div'=>'除法','cmp'=>'比大小','pic'=>'看图列式','mix'=>'混合运算'];
 $title='数学练习（'.$op_names[$type].' '.$max.' 以内）';
 
 $css='.math-wrap{width:938px;margin:0 auto;font-family:"Times New Roman",Arial,sans-serif;}'
 	.'.math-table{width:100%;border-collapse:collapse;}'
 	.'.math-table td{font-size:30px;padding:26px 10px;color:#333;white-space:nowrap;}';
+if($type==='pic'){
+	// 看图列式：图画较宽，字号缩小
+	$css.='.math-table td{font-size:18px;padding:20px 6px;}';
+}
 echo xx_sheet_head($title,$css);
 echo '<div class="math-wrap"><table class="math-table">';
 

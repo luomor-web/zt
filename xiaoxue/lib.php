@@ -317,7 +317,7 @@ function xx_auto_print($title,$info=''){
 
         // 数学题
         document.querySelectorAll('.math-table td').forEach(function(td){
-            drawText(td.textContent.trim(),rectOf(td),'30px "Times New Roman",Arial,sans-serif','#333',0);
+            drawText(td.textContent.trim(),rectOf(td),getComputedStyle(td).fontSize+' "Times New Roman",Arial,sans-serif','#333',0);
         });
 
         // 英语四线三格
