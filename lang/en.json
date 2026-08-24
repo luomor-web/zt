@@ -66,5 +66,9 @@
     "switcher.aria": "Switch language",
     "nav.home": "Home",
     "sheet.title": "Chinese Character Practice Sheet",
-    "nav.xx": "Elementary Zone"
+    "nav.xx": "Elementary Zone",
+    "nav.zuci": "Word Practice",
+    "nav.gushi": "Poem Practice",
+    "nav.math": "Math Practice",
+    "nav.english": "English Practice"
 }

@@ -66,5 +66,9 @@
     "switcher.aria": "语言切换",
     "nav.home": "首页",
     "sheet.title": "田字格字帖生成器",
-    "nav.xx": "小学专区"
+    "nav.xx": "小学专区",
+    "nav.zuci": "组词练习",
+    "nav.gushi": "古诗练习",
+    "nav.math": "数学练习",
+    "nav.english": "英语练习"
 }

@@ -66,5 +66,9 @@
     "switcher.aria": "語言切換",
     "nav.home": "首頁",
     "sheet.title": "田字格字帖產生器",
-    "nav.xx": "小學專區"
+    "nav.xx": "小學專區",
+    "nav.zuci": "組詞練習",
+    "nav.gushi": "古詩練習",
+    "nav.math": "數學練習",
+    "nav.english": "英語練習"
 }

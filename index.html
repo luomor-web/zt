@@ -175,6 +175,34 @@
             color: #fff;
         }
 
+        /* 悬停子菜单 */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-sub {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 8px;
+            z-index: 100;
+            min-width: 130px;
+        }
+
+        .nav-dropdown:hover .nav-sub,
+        .nav-dropdown:focus-within .nav-sub {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-sub a {
+            white-space: nowrap;
+            text-align: center;
+        }
+
         /* Main Card */
         .main-card {
             background: #fff;
@@ -661,7 +689,15 @@ var _hmt = _hmt || [];
 
         <nav class="nav-bar" aria-label="主导航">
             <a href="/" class="active" data-i18n="nav.home">首页</a>
-            <a href="xiaoxue/" data-i18n="nav.xx">小学专区</a>
+            <div class="nav-dropdown">
+                <a href="xiaoxue/" data-i18n="nav.xx">小学专区</a>
+                <div class="nav-sub">
+                    <a href="xiaoxue/zuci.html" data-i18n="nav.zuci">组词练习</a>
+                    <a href="xiaoxue/gushi.html" data-i18n="nav.gushi">古诗练习</a>
+                    <a href="xiaoxue/math.html" data-i18n="nav.math">数学练习</a>
+                    <a href="xiaoxue/english.html" data-i18n="nav.english">英语练习</a>
+                </div>
+            </div>
         </nav>
 
         <main class="main-card">
