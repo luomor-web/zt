@@ -7,20 +7,20 @@
 <meta name="keywords" content="汉字练习，生字表，年级生字，笔顺字帖，描红字帖，一年级生字，二年级生字，烙馍网">
 <meta name="description" content="免费在线生成汉字练习字帖：按年级学期选择生字，笔顺描红加拼音标注，田字格/米字格，打印即用。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/xiaoxue/hanzi.html">
+<link rel="canonical" href="https://zzzt.luomor.com/xiaoxue/hanzi.html">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://zt.luomor.com/xiaoxue/hanzi.html">
+<meta property="og:url" content="https://zzzt.luomor.com/xiaoxue/hanzi.html">
 <meta property="og:title" content="汉字练习字帖 - 按年级学期生字笔顺描红在线打印">
 <meta property="og:description" content="免费在线生成汉字练习字帖：按年级学期选择生字，笔顺描红加拼音标注，打印即用。">
-<meta property="og:image" content="https://zt.luomor.com/img/xg4.png">
+<meta property="og:image" content="https://zzzt.luomor.com/img/xg4.png">
 <meta property="og:site_name" content="烙馍网">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "汉字练习字帖",
-    "url": "https://zt.luomor.com/xiaoxue/hanzi.html",
+    "url": "https://zzzt.luomor.com/xiaoxue/hanzi.html",
     "description": "免费在线生成汉字练习字帖：按年级学期选择生字，笔顺描红加拼音标注。",
     "applicationCategory": "EducationalApplication",
     "operatingSystem": "Any",
@@ -35,6 +35,10 @@
 .char-tile:hover{ border-color:#667eea; }
 .char-tile.selected{ background:#667eea; color:#fff; border-color:#667eea; }
 .char-count{ font-size:13px; color:#999; margin-bottom:10px; }
+.quick-btns{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:10px; }
+.quick-btns .mini-btn{ margin-right:0; }
+.rand-label{ font-size:13px; color:#666; display:flex; align-items:center; gap:6px; }
+.rand-label input{ width:64px; padding:4px 8px; font-size:13px; border:1px solid #667eea; border-radius:16px; text-align:center; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -165,11 +169,11 @@ var _hmt = _hmt || [];
 
     <label class="form-label" style="margin-top:16px;">选择要练习的汉字</label>
     <div class="char-count" id="char-count">生字列表加载中…</div>
-    <div style="margin-bottom:10px;">
+    <div class="quick-btns">
         <button type="button" class="mini-btn" id="btn-all">全选</button>
         <button type="button" class="mini-btn" id="btn-none">全不选</button>
         <button type="button" class="mini-btn" id="btn-random">🎲 随机选择</button>
-        <input type="number" id="rand-num" value="10" min="1" max="100" style="width:64px;padding:4px 8px;font-size:13px;border:1px solid #667eea;border-radius:16px;text-align:center;">
+        <label class="rand-label">随机数量<input type="number" id="rand-num" value="10" min="1" max="100"></label>
         <button type="button" class="mini-btn" id="btn-quick">⌨️ 快速输入</button>
     </div>
     <div id="quick-box" style="display:none;margin-bottom:10px;">
