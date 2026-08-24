@@ -182,18 +182,26 @@
             box-shadow: var(--shadow);
         }
 
-        .back-link {
+        /* 页头返回首页按钮（作用域限定在 .header 内，不影响下方"返回字帖生成器"按钮） */
+        .header .back-link {
             position: absolute;
             top: 12px;
             left: 16px;
+            padding: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0;
             color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
             font-size: 14px;
+            font-weight: normal;
+            text-decoration: none;
         }
 
-        .back-link:hover {
+        .header .back-link:hover {
             color: #fff;
             text-decoration: underline;
+            transform: none;
+            box-shadow: none;
         }
 
         .header h1 {
