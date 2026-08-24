@@ -7,14 +7,14 @@ if($_SERVER['REQUEST_METHOD']!=='POST'){
 }else{
 
 $mode=$_POST['mode']??'letter';
-if(!in_array($mode,['letter','word','sentence'])){ $mode='letter'; }
+if(!in_array($mode,['letter','word','sentence','write'])){ $mode='letter'; }
 $grade=intval($_POST['grade']??'0');//0=全部年级
 $num=intval($_POST['num']??'10');
 $blank=intval($_POST['blank']??'2');//空白练习行数
 if(!in_array($blank,[1,2,3])){ $blank=2; }
 $blank_html=str_repeat('<div class="eng-grid eng-blank"></div>',$blank);
 
-$mode_names=['letter'=>'字母','word'=>'单词','sentence'=>'句子'];
+$mode_names=['letter'=>'字母','word'=>'单词','sentence'=>'句子','write'=>'单词默写'];
 $title='英语练习（'.$mode_names[$mode].'）';
 
 $css=xx_eng_css()
@@ -36,7 +36,7 @@ if($mode==='letter'){
 		echo $blank_html;
 		echo '</div>';
 	}
-}elseif($mode==='word'){
+}elseif($mode==='word' || $mode==='write'){
 	$words=json_decode(file_get_contents(dirname(__FILE__).'/../data/english_words.json'),true);
 	if($grade>=1 && $grade<=6){
 		$words=array_values(array_filter($words,function($w)use($grade){ return intval($w['grade'])<=$grade; }));
@@ -48,7 +48,10 @@ if($mode==='letter'){
 		$zh=htmlspecialchars($w['zh'],ENT_QUOTES,'UTF-8');
 		echo '<div class="eng-item">';
 		echo '<div class="eng-word-head"><span class="eng-word-zh">'.$zh.'</span></div>';
-		echo '<div class="eng-grid"><div class="eng-text">'.$en.' '.$en.' '.$en.'</div></div>';
+		if($mode==='word'){
+			echo '<div class="eng-grid"><div class="eng-text">'.$en.' '.$en.' '.$en.'</div></div>';
+		}
+		// write 模式只显示中文释义，英文留空默写
 		echo $blank_html;
 		echo '</div>';
 	}
