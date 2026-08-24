@@ -91,7 +91,12 @@
     <div style="margin-bottom:10px;">
         <button type="button" class="mini-btn" id="btn-all">全选</button>
         <button type="button" class="mini-btn" id="btn-none">全不选</button>
-        <button type="button" class="mini-btn" id="btn-first10">选前 10 个</button>
+        <button type="button" class="mini-btn" id="btn-random">🎲 随机选择</button>
+        <input type="number" id="rand-num" value="10" min="1" max="100" style="width:64px;padding:4px 8px;font-size:13px;border:1px solid #667eea;border-radius:16px;text-align:center;">
+        <button type="button" class="mini-btn" id="btn-quick">⌨️ 快速输入</button>
+    </div>
+    <div id="quick-box" style="display:none;margin-bottom:10px;">
+        <textarea id="quick-input" placeholder="直接输入或粘贴汉字，例如：山水花鸟鱼虫&#10;输入后自动选中对应的生字" style="height:80px;"></textarea>
     </div>
     <div class="char-list" id="char-list"></div>
 
@@ -163,7 +168,7 @@
         <h3>使用教程</h3>
         <ol>
             <li>点击<strong>年级学期</strong>按钮（如"一年级上"），生字列表只显示该学期的汉字</li>
-            <li>勾选要练习的生字：单击选择，或<strong>按住鼠标（手指）滑过生字连续选择</strong>，也可用"全选 / 全不选 / 选前 10 个"快速选择</li>
+            <li>选择生字：单击或<strong>按住滑动</strong>连续选择；也可用 全选 / 🎲随机选择（数量可调）/ ⌨️快速输入（直接打字选中）</li>
             <li>设置格子、颜色、拼音等选项后，点击 <strong>立即生成</strong></li>
             <li>电脑端点 <strong>打印</strong>（勾选"背景图形"），手机端点 <strong>保存图片</strong></li>
         </ol>
@@ -238,8 +243,37 @@ document.getElementById('btn-none').addEventListener('click', function () {
     visibleTiles().forEach(function (t) { t.classList.remove('selected'); });
     updateCount();
 });
-document.getElementById('btn-first10').addEventListener('click', function () {
-    visibleTiles().forEach(function (t, i) { t.classList.toggle('selected', i < 10); });
+
+// 随机选择：从当前可见生字中随机选 N 个（数量可调，默认 10）
+document.getElementById('btn-random').addEventListener('click', function () {
+    var n = parseInt(document.getElementById('rand-num').value, 10) || 10;
+    if (n < 1) n = 1;
+    if (n > 100) n = 100;
+    var tiles = visibleTiles();
+    // 先清空可见项的选中状态
+    tiles.forEach(function (t) { t.classList.remove('selected'); });
+    // 洗牌后取前 N 个
+    for (var i = tiles.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = tiles[i]; tiles[i] = tiles[j]; tiles[j] = tmp;
+    }
+    tiles.slice(0, n).forEach(function (t) { t.classList.add('selected'); });
+    updateCount();
+});
+
+// 快速输入：点击展开 textarea，输入/粘贴汉字后自动选中对应字块
+document.getElementById('btn-quick').addEventListener('click', function () {
+    var box = document.getElementById('quick-box');
+    var show = box.style.display === 'none';
+    box.style.display = show ? '' : 'none';
+    if (show) document.getElementById('quick-input').focus();
+});
+document.getElementById('quick-input').addEventListener('input', function () {
+    var chars = {};
+    (this.value.match(/[一-鿿]/g) || []).forEach(function (c) { chars[c] = true; });
+    document.querySelectorAll('#char-list .char-tile').forEach(function (t) {
+        t.classList.toggle('selected', !!chars[t.dataset.char]);
+    });
     updateCount();
 });
 
