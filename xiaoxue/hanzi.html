@@ -69,6 +69,23 @@
 <p class="seo-intro">按年级学期选择要练习的生字（数据与<a href="../scb.html">小学生常用汉字生字表</a>一致，每学期约半册），生成带笔顺的描红字帖，可标注拼音。</p>
 <form action="hanzi.php" method="post" target="_blank">
     <input type="hidden" name="term" id="term" value="">
+    <div class="options-grid" style="margin-top:0;margin-bottom:18px;">
+        <div class="option-group">
+            <div class="option-group-title">选择方式</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="mode" value="book" checked><span>课本汉字（按年级学期选择）</span></label>
+                <label class="radio-label"><input type="radio" name="mode" value="custom"><span>自定义汉字（自己输入）</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-box" style="display:none;">
+        <label class="form-label" for="custom">输入要练习的汉字</label>
+        <textarea id="custom" name="custom" placeholder="请输入汉字，例如：锄禾日当午，汗滴禾下土&#10;谁知盘中餐，粒粒皆辛苦。" style="height:120px;">锄禾日当午，汗滴禾下土。
+谁知盘中餐，粒粒皆辛苦。</textarea>
+    </div>
+
+    <div id="book-box">
     <label class="form-label">选择年级学期</label>
     <div class="term-filter" id="term-filter">
         <button type="button" class="mini-btn active" data-term="">全部</button>
@@ -99,6 +116,7 @@
         <textarea id="quick-input" placeholder="直接输入或粘贴汉字，例如：山水花鸟鱼虫&#10;输入后自动选中对应的生字" style="height:80px;"></textarea>
     </div>
     <div class="char-list" id="char-list"></div>
+    </div>
 
     <div class="options-grid">
         <div class="option-group">
@@ -178,6 +196,15 @@
 </div>
 <script src="../js/nav.js" defer></script>
 <script>
+// 选择方式切换：课本汉字 / 自定义汉字
+document.querySelectorAll('input[name="mode"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+        var isCustom = document.querySelector('input[name="mode"][value="custom"]').checked;
+        document.getElementById('book-box').style.display = isCustom ? 'none' : '';
+        document.getElementById('custom-box').style.display = isCustom ? '' : 'none';
+    });
+});
+
 // 生字数据从 data/hanzi.json 加载（与 scb.html 生字表一致，按学期对半分组）
 // 字块无多选框：.char-tile 用 selected 类标记选中，提交时收集为 hz[] 隐藏字段
 fetch('../data/hanzi.json')

@@ -2,9 +2,15 @@
 /* 汉字练习 - 生成端（表单见 hanzi.html）：按年级学期选择生字，笔顺描红 */
 include_once dirname(__FILE__).'/lib.php';
 
-$hz=$_POST['hz']??[];
-if(!is_array($hz)){ $hz=[$hz]; }
-$words=xx_filter_hanzi(implode('',$hz));
+$mode=$_POST['mode']??'book';
+if($mode==='custom'){
+	// 自定义汉字：直接取用户输入
+	$words=xx_filter_hanzi($_POST['custom']??'');
+}else{
+	$hz=$_POST['hz']??[];
+	if(!is_array($hz)){ $hz=[$hz]; }
+	$words=xx_filter_hanzi(implode('',$hz));
+}
 if(!$words){
 	header("Location: hanzi.html");
 }else{
