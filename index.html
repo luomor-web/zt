@@ -174,7 +174,9 @@
             transition: all 0.2s;
         }
 
-        .nav-bar a:hover {
+        /* 悬停变色仅作用于顶层菜单项，子菜单项保持白底 */
+        .nav-bar > a:hover,
+        .nav-dropdown > a:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
         }
