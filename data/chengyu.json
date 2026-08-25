@@ -1,0 +1,592 @@
+[
+    {
+        "word": "画蛇添足",
+        "py": "huà shé tiān zú",
+        "meaning": "比喻做了多余的事，反而坏了事"
+    },
+    {
+        "word": "守株待兔",
+        "py": "shǒu zhū dài tù",
+        "meaning": "比喻不主动努力，只想侥幸得到收获"
+    },
+    {
+        "word": "亡羊补牢",
+        "py": "wáng yáng bǔ láo",
+        "meaning": "出了问题后及时补救，还不算晚"
+    },
+    {
+        "word": "掩耳盗铃",
+        "py": "yǎn ěr dào líng",
+        "meaning": "比喻自己欺骗自己"
+    },
+    {
+        "word": "刻舟求剑",
+        "py": "kè zhōu qiú jiàn",
+        "meaning": "比喻不懂事物已经变化，仍按老办法办事"
+    },
+    {
+        "word": "揠苗助长",
+        "py": "yà miáo zhù zhǎng",
+        "meaning": "比喻急于求成，反而把事情弄坏"
+    },
+    {
+        "word": "狐假虎威",
+        "py": "hú jiǎ hǔ wēi",
+        "meaning": "比喻依仗别人的势力吓唬人"
+    },
+    {
+        "word": "井底之蛙",
+        "py": "jǐng dǐ zhī wā",
+        "meaning": "比喻见识狭小的人"
+    },
+    {
+        "word": "杯弓蛇影",
+        "py": "bēi gōng shé yǐng",
+        "meaning": "比喻疑神疑鬼，自相惊扰"
+    },
+    {
+        "word": "自相矛盾",
+        "py": "zì xiāng máo dùn",
+        "meaning": "比喻说话做事前后抵触"
+    },
+    {
+        "word": "滥竽充数",
+        "py": "làn yú chōng shù",
+        "meaning": "比喻没有真才实学的人混在行家里面充数"
+    },
+    {
+        "word": "画龙点睛",
+        "py": "huà lóng diǎn jīng",
+        "meaning": "比喻在关键处加上一笔，使内容更加生动传神"
+    },
+    {
+        "word": "叶公好龙",
+        "py": "yè gōng hào lóng",
+        "meaning": "比喻表面喜欢，实际上并不真爱"
+    },
+    {
+        "word": "愚公移山",
+        "py": "yú gōng yí shān",
+        "meaning": "比喻做事有毅力，不怕困难"
+    },
+    {
+        "word": "精卫填海",
+        "py": "jīng wèi tián hǎi",
+        "meaning": "比喻意志坚决，不畏艰难"
+    },
+    {
+        "word": "夸父追日",
+        "py": "kuā fù zhuī rì",
+        "meaning": "比喻有宏大的志向和不屈的精神"
+    },
+    {
+        "word": "卧薪尝胆",
+        "py": "wò xīn cháng dǎn",
+        "meaning": "形容人刻苦自励，发奋图强"
+    },
+    {
+        "word": "闻鸡起舞",
+        "py": "wén jī qǐ wǔ",
+        "meaning": "比喻有志之士及时奋发努力"
+    },
+    {
+        "word": "凿壁偷光",
+        "py": "záo bì tōu guāng",
+        "meaning": "形容家境贫寒仍刻苦读书"
+    },
+    {
+        "word": "悬梁刺股",
+        "py": "xuán liáng cì gǔ",
+        "meaning": "形容刻苦学习"
+    },
+    {
+        "word": "囊萤映雪",
+        "py": "náng yíng yìng xuě",
+        "meaning": "形容在艰苦环境中勤奋读书"
+    },
+    {
+        "word": "程门立雪",
+        "py": "chéng mén lì xuě",
+        "meaning": "形容尊师重道，诚心求教"
+    },
+    {
+        "word": "手不释卷",
+        "py": "shǒu bù shì juàn",
+        "meaning": "形容勤奋好学，书本不离手"
+    },
+    {
+        "word": "废寝忘食",
+        "py": "fèi qǐn wàng shí",
+        "meaning": "顾不得睡觉和吃饭，形容非常专心努力"
+    },
+    {
+        "word": "专心致志",
+        "py": "zhuān xīn zhì zhì",
+        "meaning": "形容一心一意，精神高度集中"
+    },
+    {
+        "word": "全神贯注",
+        "py": "quán shén guàn zhù",
+        "meaning": "全部精神集中在一点上"
+    },
+    {
+        "word": "聚精会神",
+        "py": "jù jīng huì shén",
+        "meaning": "形容精神高度集中"
+    },
+    {
+        "word": "孜孜不倦",
+        "py": "zī zī bù juàn",
+        "meaning": "形容勤奋努力，不知疲倦"
+    },
+    {
+        "word": "举一反三",
+        "py": "jǔ yī fǎn sān",
+        "meaning": "比喻从一件事情类推而知道其他许多事情"
+    },
+    {
+        "word": "温故知新",
+        "py": "wēn gù zhī xīn",
+        "meaning": "温习旧的知识，得到新的理解和体会"
+    },
+    {
+        "word": "学而不厌",
+        "py": "xué ér bù yàn",
+        "meaning": "学习总感到不满足，形容好学"
+    },
+    {
+        "word": "诲人不倦",
+        "py": "huì rén bù juàn",
+        "meaning": "教导别人而不知疲倦"
+    },
+    {
+        "word": "不耻下问",
+        "py": "bù chǐ xià wèn",
+        "meaning": "不以向不如自己的人请教为耻"
+    },
+    {
+        "word": "循序渐进",
+        "py": "xún xù jiàn jìn",
+        "meaning": "按照一定的步骤逐渐深入或提高"
+    },
+    {
+        "word": "熟能生巧",
+        "py": "shú néng shēng qiǎo",
+        "meaning": "熟练了就能产生巧办法"
+    },
+    {
+        "word": "勤能补拙",
+        "py": "qín néng bǔ zhuō",
+        "meaning": "勤奋能够弥补不足"
+    },
+    {
+        "word": "半途而废",
+        "py": "bàn tú ér fèi",
+        "meaning": "做事情没有完成就停止，不能坚持到底"
+    },
+    {
+        "word": "坚持不懈",
+        "py": "jiān chí bù xiè",
+        "meaning": "坚持到底，毫不松懈"
+    },
+    {
+        "word": "水滴石穿",
+        "py": "shuǐ dī shí chuān",
+        "meaning": "比喻只要有恒心，不断努力，事情一定能成功"
+    },
+    {
+        "word": "铁杵成针",
+        "py": "tiě chǔ chéng zhēn",
+        "meaning": "比喻只要有毅力，肯下苦功，事情就能成功"
+    },
+    {
+        "word": "百折不挠",
+        "py": "bǎi zhé bù náo",
+        "meaning": "无论受多少挫折都不退缩"
+    },
+    {
+        "word": "勇往直前",
+        "py": "yǒng wǎng zhí qián",
+        "meaning": "勇敢地一直向前进"
+    },
+    {
+        "word": "大义凛然",
+        "py": "dà yì lǐn rán",
+        "meaning": "为了正义而显出庄严不可侵犯的样子"
+    },
+    {
+        "word": "舍己为人",
+        "py": "shě jǐ wèi rén",
+        "meaning": "舍弃自己的利益去帮助别人"
+    },
+    {
+        "word": "助人为乐",
+        "py": "zhù rén wéi lè",
+        "meaning": "以帮助他人为快乐"
+    },
+    {
+        "word": "拾金不昧",
+        "py": "shí jīn bù mèi",
+        "meaning": "捡到财物不隐藏起来据为己有"
+    },
+    {
+        "word": "诚实守信",
+        "py": "chéng shí shǒu xìn",
+        "meaning": "忠诚老实，遵守信用"
+    },
+    {
+        "word": "言而有信",
+        "py": "yán ér yǒu xìn",
+        "meaning": "说话靠得住，有信用"
+    },
+    {
+        "word": "一诺千金",
+        "py": "yī nuò qiān jīn",
+        "meaning": "许下的一个诺言有千金的价值，比喻说话算数"
+    },
+    {
+        "word": "大公无私",
+        "py": "dà gōng wú sī",
+        "meaning": "完全为公众利益着想，没有私心"
+    },
+    {
+        "word": "克己奉公",
+        "py": "kè jǐ fèng gōng",
+        "meaning": "约束自己的私欲，以公事为重"
+    },
+    {
+        "word": "谦虚谨慎",
+        "py": "qiān xū jǐn shèn",
+        "meaning": "虚心礼让，小心谨慎"
+    },
+    {
+        "word": "不骄不躁",
+        "py": "bù jiāo bù zào",
+        "meaning": "不骄傲，不急躁"
+    },
+    {
+        "word": "见多识广",
+        "py": "jiàn duō shí guǎng",
+        "meaning": "见过的多，知道的广，形容阅历深，经验多"
+    },
+    {
+        "word": "博学多才",
+        "py": "bó xué duō cái",
+        "meaning": "学问广博，有多方面的才能"
+    },
+    {
+        "word": "才高八斗",
+        "py": "cái gāo bā dǒu",
+        "meaning": "形容人的文才极高"
+    },
+    {
+        "word": "出口成章",
+        "py": "chū kǒu chéng zhāng",
+        "meaning": "说出话来就成文章，形容文思敏捷"
+    },
+    {
+        "word": "妙笔生花",
+        "py": "miào bǐ shēng huā",
+        "meaning": "比喻杰出的写作才能"
+    },
+    {
+        "word": "栩栩如生",
+        "py": "xǔ xǔ rú shēng",
+        "meaning": "形容艺术形象非常生动逼真，像活的一样"
+    },
+    {
+        "word": "活灵活现",
+        "py": "huó líng huó xiàn",
+        "meaning": "形容描写或模仿得非常逼真"
+    },
+    {
+        "word": "有声有色",
+        "py": "yǒu shēng yǒu sè",
+        "meaning": "形容说话或表演精彩生动"
+    },
+    {
+        "word": "绘声绘色",
+        "py": "huì shēng huì sè",
+        "meaning": "形容叙述或描写生动逼真"
+    },
+    {
+        "word": "开门见山",
+        "py": "kāi mén jiàn shān",
+        "meaning": "比喻说话或写文章直截了当谈本题"
+    },
+    {
+        "word": "一针见血",
+        "py": "yī zhēn jiàn xiě",
+        "meaning": "比喻说话直截了当，切中要害"
+    },
+    {
+        "word": "一语中的",
+        "py": "yī yǔ zhòng dì",
+        "meaning": "一句话就说中要害"
+    },
+    {
+        "word": "胸有成竹",
+        "py": "xiōng yǒu chéng zhú",
+        "meaning": "比喻做事之前已有完整的谋划和把握"
+    },
+    {
+        "word": "胸无点墨",
+        "py": "xiōng wú diǎn mò",
+        "meaning": "形容人没有文化"
+    },
+    {
+        "word": "三心二意",
+        "py": "sān xīn èr yì",
+        "meaning": "又想这样又想那样，犹豫不定，常指不安心，不专一"
+    },
+    {
+        "word": "一心一意",
+        "py": "yī xīn yī yì",
+        "meaning": "只有一个心眼儿，没有别的考虑"
+    },
+    {
+        "word": "马马虎虎",
+        "py": "mǎ mǎ hǔ hǔ",
+        "meaning": "形容做事不认真，不仔细"
+    },
+    {
+        "word": "认认真真",
+        "py": "rèn rèn zhēn zhēn",
+        "meaning": "形容做一件事非常的认真，不马虎"
+    },
+    {
+        "word": "五颜六色",
+        "py": "wǔ yán liù sè",
+        "meaning": "形容色彩复杂或花样繁多"
+    },
+    {
+        "word": "五彩缤纷",
+        "py": "wǔ cǎi bīn fēn",
+        "meaning": "指颜色繁多，非常好看"
+    },
+    {
+        "word": "万紫千红",
+        "py": "wàn zǐ qiān hóng",
+        "meaning": "形容百花齐放，色彩艳丽"
+    },
+    {
+        "word": "花红柳绿",
+        "py": "huā hóng liǔ lǜ",
+        "meaning": "形容春天花木繁茂艳丽的景色"
+    },
+    {
+        "word": "鸟语花香",
+        "py": "niǎo yǔ huā xiāng",
+        "meaning": "鸟叫得好听，花开得喷香，形容春天的美好景象"
+    },
+    {
+        "word": "山清水秀",
+        "py": "shān qīng shuǐ xiù",
+        "meaning": "形容风景优美"
+    },
+    {
+        "word": "湖光山色",
+        "py": "hú guāng shān sè",
+        "meaning": "湖的风光，山的景色，指有山有水，风景秀丽"
+    },
+    {
+        "word": "风和日丽",
+        "py": "fēng hé rì lì",
+        "meaning": "和风习习，阳光灿烂，形容晴朗暖和的天气"
+    },
+    {
+        "word": "秋高气爽",
+        "py": "qiū gāo qì shuǎng",
+        "meaning": "形容秋季晴空万里，天气清爽"
+    },
+    {
+        "word": "冰天雪地",
+        "py": "bīng tiān xuě dì",
+        "meaning": "形容冰雪漫天盖地"
+    },
+    {
+        "word": "春暖花开",
+        "py": "chūn nuǎn huā kāi",
+        "meaning": "春天气候温暖，百花盛开，景色优美"
+    },
+    {
+        "word": "百花齐放",
+        "py": "bǎi huā qí fàng",
+        "meaning": "形容百花盛开，丰富多彩"
+    },
+    {
+        "word": "繁花似锦",
+        "py": "fán huā sì jǐn",
+        "meaning": "许多色彩纷繁的鲜花，好像富丽多彩的锦缎"
+    },
+    {
+        "word": "绿草如茵",
+        "py": "lǜ cǎo rú yīn",
+        "meaning": "绿油油的草好像地上铺的褥子"
+    },
+    {
+        "word": "郁郁葱葱",
+        "py": "yù yù cōng cōng",
+        "meaning": "形容草木苍翠茂盛"
+    },
+    {
+        "word": "生机勃勃",
+        "py": "shēng jī bó bó",
+        "meaning": "形容自然界充满生命力"
+    },
+    {
+        "word": "万象更新",
+        "py": "wàn xiàng gēng xīn",
+        "meaning": "一切事物或景象变得焕然一新"
+    },
+    {
+        "word": "日新月异",
+        "py": "rì xīn yuè yì",
+        "meaning": "每天都在更新，每月都有变化"
+    },
+    {
+        "word": "焕然一新",
+        "py": "huàn rán yī xīn",
+        "meaning": "改变旧面貌，出现崭新的气象"
+    },
+    {
+        "word": "耳目一新",
+        "py": "ěr mù yī xīn",
+        "meaning": "听到的、看到的跟以前完全不同，使人感到新鲜"
+    },
+    {
+        "word": "井井有条",
+        "py": "jǐng jǐng yǒu tiáo",
+        "meaning": "形容说话办事有条有理"
+    },
+    {
+        "word": "有条不紊",
+        "py": "yǒu tiáo bù wěn",
+        "meaning": "形容做事有条理，不慌乱"
+    },
+    {
+        "word": "一丝不苟",
+        "py": "yī sī bù gǒu",
+        "meaning": "形容做事十分认真、细致，一点儿也不马虎"
+    },
+    {
+        "word": "小心翼翼",
+        "py": "xiǎo xīn yì yì",
+        "meaning": "形容举动十分谨慎，丝毫不敢疏忽"
+    },
+    {
+        "word": "粗心大意",
+        "py": "cū xīn dà yì",
+        "meaning": "做事马虎，不细心"
+    },
+    {
+        "word": "兢兢业业",
+        "py": "jīng jīng yè yè",
+        "meaning": "形容做事谨慎、勤恳"
+    },
+    {
+        "word": "任劳任怨",
+        "py": "rèn láo rèn yuàn",
+        "meaning": "不怕吃苦，也不怕招怨"
+    },
+    {
+        "word": "脚踏实地",
+        "py": "jiǎo tà shí dì",
+        "meaning": "比喻做事踏实，认真"
+    },
+    {
+        "word": "实事求是",
+        "py": "shí shì qiú shì",
+        "meaning": "从实际情况出发，正确地对待和处理问题"
+    },
+    {
+        "word": "安居乐业",
+        "py": "ān jū lè yè",
+        "meaning": "安定地生活，愉快地工作"
+    },
+    {
+        "word": "丰衣足食",
+        "py": "fēng yī zú shí",
+        "meaning": "穿的吃的都很丰富充足，形容生活富裕"
+    },
+    {
+        "word": "国泰民安",
+        "py": "guó tài mín ān",
+        "meaning": "国家太平，人民安乐"
+    },
+    {
+        "word": "政通人和",
+        "py": "zhèng tōng rén hé",
+        "meaning": "政事通达，人心和顺，形容国家稳定，人民安乐"
+    },
+    {
+        "word": "众志成城",
+        "py": "zhòng zhì chéng chéng",
+        "meaning": "万众一心，像坚固的城墙一样不可摧毁"
+    },
+    {
+        "word": "齐心协力",
+        "py": "qí xīn xié lì",
+        "meaning": "形容认识一致，共同努力"
+    },
+    {
+        "word": "同舟共济",
+        "py": "tóng zhōu gòng jì",
+        "meaning": "坐一条船，共同渡河，比喻团结互助，同心协力"
+    },
+    {
+        "word": "患难与共",
+        "py": "huàn nàn yǔ gòng",
+        "meaning": "共同承担危险和困难，形容关系密切"
+    },
+    {
+        "word": "风雨同舟",
+        "py": "fēng yǔ tóng zhōu",
+        "meaning": "在狂风暴雨中同乘一条船，一起与风雨搏斗"
+    },
+    {
+        "word": "守望相助",
+        "py": "shǒu wàng xiāng zhù",
+        "meaning": "为了对付来犯的敌人或意外的灾祸，邻近各村落互相警戒，互相援助"
+    },
+    {
+        "word": "和睦相处",
+        "py": "hé mù xiāng chǔ",
+        "meaning": "彼此和好地相处"
+    },
+    {
+        "word": "亲密无间",
+        "py": "qīn mì wú jiàn",
+        "meaning": "关系亲密，没有隔阂"
+    },
+    {
+        "word": "形影不离",
+        "py": "xíng yǐng bù lí",
+        "meaning": "像形体和它的影子那样分不开，形容彼此关系亲密"
+    },
+    {
+        "word": "情同手足",
+        "py": "qíng tóng shǒu zú",
+        "meaning": "交情很深，如同兄弟一样"
+    },
+    {
+        "word": "良师益友",
+        "py": "liáng shī yì yǒu",
+        "meaning": "使人得到教益和帮助的好老师和好朋友"
+    },
+    {
+        "word": "教学相长",
+        "py": "jiào xué xiāng zhǎng",
+        "meaning": "教和学两方面互相影响和促进，都得到提高"
+    },
+    {
+        "word": "尊师重道",
+        "py": "zūn shī zhòng dào",
+        "meaning": "尊敬师长，重视老师的教导"
+    },
+    {
+        "word": "青出于蓝",
+        "py": "qīng chū yú lán",
+        "meaning": "比喻学生超过老师或后人胜过前人"
+    }
+]
