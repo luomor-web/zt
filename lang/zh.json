@@ -24,7 +24,7 @@
     "form.class.label": "班级",
     "form.name.label": "姓名",
     "form.optional": "选填",
-    "form.title.default": "田字格字帖生成器 网址：zt.luomor.com",
+    "form.title.default": "田字格字帖生成器 网址：zzzt.luomor.com",
     "form.submit": "立即生成",
     "options.types.title": "田格类型",
     "options.types.aria": "田格类型选择",
@@ -74,5 +74,14 @@
     "nav.kanxie": "看拼音写词语",
     "nav.bihua": "笔画练习",
     "nav.pinyin": "拼音练习",
-    "nav.hanzi": "汉字练习"
+    "nav.hanzi": "汉字练习",
+    "nav.wy": "外语专区",
+    "nav.ko": "韩语",
+    "nav.ja": "日语",
+    "nav.vi": "越南语",
+    "nav.ru": "俄语",
+    "nav.es": "西班牙语",
+    "nav.fr": "法语",
+    "nav.de": "德语",
+    "nav.en": "英语"
 }

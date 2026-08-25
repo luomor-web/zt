@@ -13,7 +13,7 @@
 
     var current = norm(window.location.pathname);
     var matched = false;
-    var xxLink = null;
+    var sectionLinks = []; // 专区入口链接（路径为一级目录，如 /xiaoxue、/waiyu）
 
     Array.prototype.forEach.call(document.querySelectorAll('.nav-bar a'), function (a) {
         a.classList.remove('active');
@@ -25,16 +25,21 @@
         } catch (e) {
             return;
         }
-        if (linkPath === '/xiaoxue') xxLink = a;
+        if (/^\/[a-z]+$/.test(linkPath)) sectionLinks.push({ el: a, path: linkPath });
         if (linkPath === current) {
             a.classList.add('active');
             matched = true;
         }
     });
 
-    // 专区子页面：无精确匹配时高亮"小学专区"
-    if (!matched && current.indexOf('/xiaoxue') === 0 && xxLink) {
-        xxLink.classList.add('active');
+    // 专区子页面：无精确匹配时，高亮路径前缀匹配的专区入口
+    if (!matched) {
+        for (var i = 0; i < sectionLinks.length; i++) {
+            if (current.indexOf(sectionLinks[i].path + '/') === 0) {
+                sectionLinks[i].el.classList.add('active');
+                break;
+            }
+        }
     }
 
     /* ============ 移动端抽屉菜单 ============ */

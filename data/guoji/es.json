@@ -1,0 +1,1326 @@
+{
+    "name": "西班牙语",
+    "letters": [
+        "Aa",
+        "Bb",
+        "Cc",
+        "Dd",
+        "Ee",
+        "Ff",
+        "Gg",
+        "Hh",
+        "Ii",
+        "Jj",
+        "Kk",
+        "Ll",
+        "Ll ll",
+        "Mm",
+        "Nn",
+        "Ññ",
+        "Oo",
+        "Pp",
+        "Qq",
+        "Rr",
+        "Rr rr",
+        "Ss",
+        "Tt",
+        "Uu",
+        "Vv",
+        "Ww",
+        "Xx",
+        "Yy",
+        "Zz"
+    ],
+    "words": [
+        {
+            "w": "manzana",
+            "zh": "苹果"
+        },
+        {
+            "w": "plátano",
+            "zh": "香蕉"
+        },
+        {
+            "w": "naranja",
+            "zh": "橙子"
+        },
+        {
+            "w": "pera",
+            "zh": "梨"
+        },
+        {
+            "w": "melocotón",
+            "zh": "桃子"
+        },
+        {
+            "w": "uva",
+            "zh": "葡萄"
+        },
+        {
+            "w": "sandía",
+            "zh": "西瓜"
+        },
+        {
+            "w": "fresa",
+            "zh": "草莓"
+        },
+        {
+            "w": "limón",
+            "zh": "柠檬"
+        },
+        {
+            "w": "mango",
+            "zh": "芒果"
+        },
+        {
+            "w": "leche",
+            "zh": "牛奶"
+        },
+        {
+            "w": "agua",
+            "zh": "水"
+        },
+        {
+            "w": "zumo",
+            "zh": "果汁"
+        },
+        {
+            "w": "pan",
+            "zh": "面包"
+        },
+        {
+            "w": "huevo",
+            "zh": "鸡蛋"
+        },
+        {
+            "w": "arroz",
+            "zh": "米饭"
+        },
+        {
+            "w": "fideos",
+            "zh": "面条"
+        },
+        {
+            "w": "pastel",
+            "zh": "蛋糕"
+        },
+        {
+            "w": "carne",
+            "zh": "肉"
+        },
+        {
+            "w": "pescado",
+            "zh": "鱼"
+        },
+        {
+            "w": "gato",
+            "zh": "猫"
+        },
+        {
+            "w": "perro",
+            "zh": "狗"
+        },
+        {
+            "w": "pájaro",
+            "zh": "鸟"
+        },
+        {
+            "w": "pato",
+            "zh": "鸭子"
+        },
+        {
+            "w": "cerdo",
+            "zh": "猪"
+        },
+        {
+            "w": "vaca",
+            "zh": "牛"
+        },
+        {
+            "w": "caballo",
+            "zh": "马"
+        },
+        {
+            "w": "oveja",
+            "zh": "羊"
+        },
+        {
+            "w": "conejo",
+            "zh": "兔子"
+        },
+        {
+            "w": "mono",
+            "zh": "猴子"
+        },
+        {
+            "w": "panda",
+            "zh": "熊猫"
+        },
+        {
+            "w": "tigre",
+            "zh": "老虎"
+        },
+        {
+            "w": "león",
+            "zh": "狮子"
+        },
+        {
+            "w": "elefante",
+            "zh": "大象"
+        },
+        {
+            "w": "oso",
+            "zh": "熊"
+        },
+        {
+            "w": "jirafa",
+            "zh": "长颈鹿"
+        },
+        {
+            "w": "cebra",
+            "zh": "斑马"
+        },
+        {
+            "w": "serpiente",
+            "zh": "蛇"
+        },
+        {
+            "w": "rana",
+            "zh": "青蛙"
+        },
+        {
+            "w": "abeja",
+            "zh": "蜜蜂"
+        },
+        {
+            "w": "rojo",
+            "zh": "红色"
+        },
+        {
+            "w": "amarillo",
+            "zh": "黄色"
+        },
+        {
+            "w": "azul",
+            "zh": "蓝色"
+        },
+        {
+            "w": "verde",
+            "zh": "绿色"
+        },
+        {
+            "w": "negro",
+            "zh": "黑色"
+        },
+        {
+            "w": "blanco",
+            "zh": "白色"
+        },
+        {
+            "w": "rosa",
+            "zh": "粉色"
+        },
+        {
+            "w": "morado",
+            "zh": "紫色"
+        },
+        {
+            "w": "marrón",
+            "zh": "棕色"
+        },
+        {
+            "w": "naranja（颜色）",
+            "zh": "橙色"
+        },
+        {
+            "w": "uno",
+            "zh": "一"
+        },
+        {
+            "w": "dos",
+            "zh": "二"
+        },
+        {
+            "w": "tres",
+            "zh": "三"
+        },
+        {
+            "w": "cuatro",
+            "zh": "四"
+        },
+        {
+            "w": "cinco",
+            "zh": "五"
+        },
+        {
+            "w": "seis",
+            "zh": "六"
+        },
+        {
+            "w": "siete",
+            "zh": "七"
+        },
+        {
+            "w": "ocho",
+            "zh": "八"
+        },
+        {
+            "w": "nueve",
+            "zh": "九"
+        },
+        {
+            "w": "diez",
+            "zh": "十"
+        },
+        {
+            "w": "libro",
+            "zh": "书"
+        },
+        {
+            "w": "bolígrafo",
+            "zh": "钢笔"
+        },
+        {
+            "w": "lápiz",
+            "zh": "铅笔"
+        },
+        {
+            "w": "regla",
+            "zh": "尺子"
+        },
+        {
+            "w": "borrador",
+            "zh": "橡皮"
+        },
+        {
+            "w": "mochila",
+            "zh": "书包"
+        },
+        {
+            "w": "escritorio",
+            "zh": "课桌"
+        },
+        {
+            "w": "silla",
+            "zh": "椅子"
+        },
+        {
+            "w": "escuela",
+            "zh": "学校"
+        },
+        {
+            "w": "aula",
+            "zh": "教室"
+        },
+        {
+            "w": "maestro",
+            "zh": "老师"
+        },
+        {
+            "w": "estudiante",
+            "zh": "学生"
+        },
+        {
+            "w": "ojo",
+            "zh": "眼睛"
+        },
+        {
+            "w": "oreja",
+            "zh": "耳朵"
+        },
+        {
+            "w": "nariz",
+            "zh": "鼻子"
+        },
+        {
+            "w": "boca",
+            "zh": "嘴"
+        },
+        {
+            "w": "cara",
+            "zh": "脸"
+        },
+        {
+            "w": "mano",
+            "zh": "手"
+        },
+        {
+            "w": "pie",
+            "zh": "脚"
+        },
+        {
+            "w": "cabeza",
+            "zh": "头"
+        },
+        {
+            "w": "pelo",
+            "zh": "头发"
+        },
+        {
+            "w": "papá",
+            "zh": "爸爸"
+        },
+        {
+            "w": "mamá",
+            "zh": "妈妈"
+        },
+        {
+            "w": "hermano",
+            "zh": "兄弟"
+        },
+        {
+            "w": "hermana",
+            "zh": "姐妹"
+        },
+        {
+            "w": "abuelo",
+            "zh": "爷爷"
+        },
+        {
+            "w": "abuela",
+            "zh": "奶奶"
+        },
+        {
+            "w": "familia",
+            "zh": "家庭"
+        },
+        {
+            "w": "amigo",
+            "zh": "朋友"
+        },
+        {
+            "w": "niño",
+            "zh": "男孩"
+        },
+        {
+            "w": "niña",
+            "zh": "女孩"
+        },
+        {
+            "w": "hombre",
+            "zh": "男人"
+        },
+        {
+            "w": "mujer",
+            "zh": "女人"
+        },
+        {
+            "w": "bebé",
+            "zh": "婴儿"
+        },
+        {
+            "w": "sol",
+            "zh": "太阳"
+        },
+        {
+            "w": "luna",
+            "zh": "月亮"
+        },
+        {
+            "w": "estrella",
+            "zh": "星星"
+        },
+        {
+            "w": "cielo",
+            "zh": "天空"
+        },
+        {
+            "w": "nube",
+            "zh": "云"
+        },
+        {
+            "w": "lluvia",
+            "zh": "雨"
+        },
+        {
+            "w": "nieve",
+            "zh": "雪"
+        },
+        {
+            "w": "viento",
+            "zh": "风"
+        },
+        {
+            "w": "árbol",
+            "zh": "树"
+        },
+        {
+            "w": "flor",
+            "zh": "花"
+        },
+        {
+            "w": "hierba",
+            "zh": "草"
+        },
+        {
+            "w": "hoja",
+            "zh": "叶子"
+        },
+        {
+            "w": "río",
+            "zh": "河"
+        },
+        {
+            "w": "lago",
+            "zh": "湖"
+        },
+        {
+            "w": "mar",
+            "zh": "海"
+        },
+        {
+            "w": "montaña",
+            "zh": "山"
+        },
+        {
+            "w": "primavera",
+            "zh": "春天"
+        },
+        {
+            "w": "verano",
+            "zh": "夏天"
+        },
+        {
+            "w": "otoño",
+            "zh": "秋天"
+        },
+        {
+            "w": "invierno",
+            "zh": "冬天"
+        },
+        {
+            "w": "caliente",
+            "zh": "热的"
+        },
+        {
+            "w": "frío",
+            "zh": "冷的"
+        },
+        {
+            "w": "cálido",
+            "zh": "温暖的"
+        },
+        {
+            "w": "fresco",
+            "zh": "凉爽的"
+        },
+        {
+            "w": "soleado",
+            "zh": "晴朗的"
+        },
+        {
+            "w": "lluvioso",
+            "zh": "下雨的"
+        },
+        {
+            "w": "correr",
+            "zh": "跑"
+        },
+        {
+            "w": "saltar",
+            "zh": "跳"
+        },
+        {
+            "w": "nadar",
+            "zh": "游泳"
+        },
+        {
+            "w": "caminar",
+            "zh": "走路"
+        },
+        {
+            "w": "volar",
+            "zh": "飞"
+        },
+        {
+            "w": "cantar",
+            "zh": "唱歌"
+        },
+        {
+            "w": "bailar",
+            "zh": "跳舞"
+        },
+        {
+            "w": "leer",
+            "zh": "读"
+        },
+        {
+            "w": "escribir",
+            "zh": "写"
+        },
+        {
+            "w": "dibujar",
+            "zh": "画画"
+        },
+        {
+            "w": "jugar",
+            "zh": "玩"
+        },
+        {
+            "w": "comer",
+            "zh": "吃"
+        },
+        {
+            "w": "beber",
+            "zh": "喝"
+        },
+        {
+            "w": "dormir",
+            "zh": "睡觉"
+        },
+        {
+            "w": "grande",
+            "zh": "大的"
+        },
+        {
+            "w": "pequeño",
+            "zh": "小的"
+        },
+        {
+            "w": "largo",
+            "zh": "长的"
+        },
+        {
+            "w": "corto",
+            "zh": "短的"
+        },
+        {
+            "w": "alto",
+            "zh": "高的"
+        },
+        {
+            "w": "nuevo",
+            "zh": "新的"
+        },
+        {
+            "w": "viejo",
+            "zh": "旧的"
+        },
+        {
+            "w": "feliz",
+            "zh": "高兴的"
+        },
+        {
+            "w": "triste",
+            "zh": "难过的"
+        },
+        {
+            "w": "autobús",
+            "zh": "公交车"
+        },
+        {
+            "w": "coche",
+            "zh": "汽车"
+        },
+        {
+            "w": "bicicleta",
+            "zh": "自行车"
+        },
+        {
+            "w": "tren",
+            "zh": "火车"
+        },
+        {
+            "w": "avión",
+            "zh": "飞机"
+        },
+        {
+            "w": "barco",
+            "zh": "轮船"
+        },
+        {
+            "w": "taxi",
+            "zh": "出租车"
+        },
+        {
+            "w": "hospital",
+            "zh": "医院"
+        },
+        {
+            "w": "médico",
+            "zh": "医生"
+        },
+        {
+            "w": "enfermera",
+            "zh": "护士"
+        },
+        {
+            "w": "granjero",
+            "zh": "农民"
+        },
+        {
+            "w": "trabajador",
+            "zh": "工人"
+        },
+        {
+            "w": "conductor",
+            "zh": "司机"
+        },
+        {
+            "w": "cocinero",
+            "zh": "厨师"
+        },
+        {
+            "w": "policía",
+            "zh": "警察"
+        },
+        {
+            "w": "parque",
+            "zh": "公园"
+        },
+        {
+            "w": "zoológico",
+            "zh": "动物园"
+        },
+        {
+            "w": "biblioteca",
+            "zh": "图书馆"
+        },
+        {
+            "w": "tienda",
+            "zh": "商店"
+        },
+        {
+            "w": "supermercado",
+            "zh": "超市"
+        },
+        {
+            "w": "cine",
+            "zh": "电影院"
+        },
+        {
+            "w": "museo",
+            "zh": "博物馆"
+        },
+        {
+            "w": "casa",
+            "zh": "家"
+        },
+        {
+            "w": "habitación",
+            "zh": "房间"
+        },
+        {
+            "w": "dormitorio",
+            "zh": "卧室"
+        },
+        {
+            "w": "cocina",
+            "zh": "厨房"
+        },
+        {
+            "w": "baño",
+            "zh": "浴室"
+        },
+        {
+            "w": "puerta",
+            "zh": "门"
+        },
+        {
+            "w": "ventana",
+            "zh": "窗户"
+        },
+        {
+            "w": "mesa",
+            "zh": "桌子"
+        },
+        {
+            "w": "cama",
+            "zh": "床"
+        },
+        {
+            "w": "sofá",
+            "zh": "沙发"
+        },
+        {
+            "w": "televisión",
+            "zh": "电视"
+        },
+        {
+            "w": "ordenador",
+            "zh": "电脑"
+        },
+        {
+            "w": "teléfono",
+            "zh": "电话"
+        },
+        {
+            "w": "reloj",
+            "zh": "时钟"
+        },
+        {
+            "w": "camisa",
+            "zh": "衬衫"
+        },
+        {
+            "w": "abrigo",
+            "zh": "外套"
+        },
+        {
+            "w": "vestido",
+            "zh": "连衣裙"
+        },
+        {
+            "w": "falda",
+            "zh": "短裙"
+        },
+        {
+            "w": "pantalón",
+            "zh": "裤子"
+        },
+        {
+            "w": "zapatos",
+            "zh": "鞋子"
+        },
+        {
+            "w": "calcetines",
+            "zh": "袜子"
+        },
+        {
+            "w": "sombrero",
+            "zh": "帽子"
+        },
+        {
+            "w": "gafas",
+            "zh": "眼镜"
+        },
+        {
+            "w": "mañana",
+            "zh": "早晨"
+        },
+        {
+            "w": "tarde",
+            "zh": "下午"
+        },
+        {
+            "w": "noche",
+            "zh": "夜晚"
+        },
+        {
+            "w": "hoy",
+            "zh": "今天"
+        },
+        {
+            "w": "mañana（明天）",
+            "zh": "明天"
+        },
+        {
+            "w": "ayer",
+            "zh": "昨天"
+        },
+        {
+            "w": "lunes",
+            "zh": "星期一"
+        },
+        {
+            "w": "martes",
+            "zh": "星期二"
+        },
+        {
+            "w": "miércoles",
+            "zh": "星期三"
+        },
+        {
+            "w": "jueves",
+            "zh": "星期四"
+        },
+        {
+            "w": "viernes",
+            "zh": "星期五"
+        },
+        {
+            "w": "sábado",
+            "zh": "星期六"
+        },
+        {
+            "w": "domingo",
+            "zh": "星期日"
+        },
+        {
+            "w": "semana",
+            "zh": "星期"
+        },
+        {
+            "w": "mes",
+            "zh": "月"
+        },
+        {
+            "w": "año",
+            "zh": "年"
+        },
+        {
+            "w": "fútbol",
+            "zh": "足球"
+        },
+        {
+            "w": "baloncesto",
+            "zh": "篮球"
+        },
+        {
+            "w": "música",
+            "zh": "音乐"
+        },
+        {
+            "w": "arte",
+            "zh": "美术"
+        },
+        {
+            "w": "ciencia",
+            "zh": "科学"
+        },
+        {
+            "w": "matemáticas",
+            "zh": "数学"
+        },
+        {
+            "w": "desayuno",
+            "zh": "早餐"
+        },
+        {
+            "w": "almuerzo",
+            "zh": "午餐"
+        },
+        {
+            "w": "cena",
+            "zh": "晚餐"
+        },
+        {
+            "w": "hamburguesa",
+            "zh": "汉堡包"
+        },
+        {
+            "w": "sándwich",
+            "zh": "三明治"
+        },
+        {
+            "w": "ensalada",
+            "zh": "沙拉"
+        },
+        {
+            "w": "chocolate",
+            "zh": "巧克力"
+        },
+        {
+            "w": "caramelo",
+            "zh": "糖果"
+        },
+        {
+            "w": "verdura",
+            "zh": "蔬菜"
+        },
+        {
+            "w": "tomate",
+            "zh": "西红柿"
+        },
+        {
+            "w": "patata",
+            "zh": "土豆"
+        },
+        {
+            "w": "zanahoria",
+            "zh": "胡萝卜"
+        },
+        {
+            "w": "hermoso",
+            "zh": "美丽的"
+        },
+        {
+            "w": "bonito",
+            "zh": "漂亮的"
+        },
+        {
+            "w": "inteligente",
+            "zh": "聪明的"
+        },
+        {
+            "w": "divertido",
+            "zh": "有趣的"
+        },
+        {
+            "w": "amable",
+            "zh": "友好的"
+        },
+        {
+            "w": "tranquilo",
+            "zh": "安静的"
+        },
+        {
+            "w": "activo",
+            "zh": "活跃的"
+        },
+        {
+            "w": "fuerte",
+            "zh": "强壮的"
+        },
+        {
+            "w": "limpio",
+            "zh": "干净的"
+        },
+        {
+            "w": "sucio",
+            "zh": "脏的"
+        },
+        {
+            "w": "robot",
+            "zh": "机器人"
+        },
+        {
+            "w": "hablar",
+            "zh": "说话"
+        },
+        {
+            "w": "estricto",
+            "zh": "严厉的"
+        },
+        {
+            "w": "educado",
+            "zh": "有礼貌的"
+        },
+        {
+            "w": "tímido",
+            "zh": "害羞的"
+        },
+        {
+            "w": "trabajador（勤奋的）",
+            "zh": "勤奋的"
+        },
+        {
+            "w": "canción",
+            "zh": "歌曲"
+        },
+        {
+            "w": "bosque",
+            "zh": "森林"
+        },
+        {
+            "w": "colina",
+            "zh": "小山"
+        },
+        {
+            "w": "puente",
+            "zh": "桥"
+        },
+        {
+            "w": "edificio",
+            "zh": "建筑物"
+        },
+        {
+            "w": "pueblo",
+            "zh": "村庄"
+        },
+        {
+            "w": "té",
+            "zh": "茶"
+        },
+        {
+            "w": "fresco（新鲜）",
+            "zh": "新鲜的"
+        },
+        {
+            "w": "saludable",
+            "zh": "健康的"
+        },
+        {
+            "w": "delicioso",
+            "zh": "美味的"
+        },
+        {
+            "w": "dulce",
+            "zh": "甜的"
+        },
+        {
+            "w": "sed",
+            "zh": "口渴"
+        },
+        {
+            "w": "hambre",
+            "zh": "饥饿"
+        },
+        {
+            "w": "favorito",
+            "zh": "最喜欢的"
+        },
+        {
+            "w": "fin de semana",
+            "zh": "周末"
+        },
+        {
+            "w": "a menudo",
+            "zh": "经常"
+        },
+        {
+            "w": "a veces",
+            "zh": "有时"
+        },
+        {
+            "w": "siempre",
+            "zh": "总是"
+        },
+        {
+            "w": "normalmente",
+            "zh": "通常"
+        },
+        {
+            "w": "nunca",
+            "zh": "从不"
+        },
+        {
+            "w": "asignatura",
+            "zh": "科目"
+        },
+        {
+            "w": "afición",
+            "zh": "爱好"
+        },
+        {
+            "w": "carta",
+            "zh": "信"
+        },
+        {
+            "w": "correo",
+            "zh": "电子邮件"
+        },
+        {
+            "w": "tarjeta",
+            "zh": "卡片"
+        },
+        {
+            "w": "librería",
+            "zh": "书店"
+        },
+        {
+            "w": "recto",
+            "zh": "笔直"
+        },
+        {
+            "w": "girar",
+            "zh": "转弯"
+        },
+        {
+            "w": "metro",
+            "zh": "地铁"
+        },
+        {
+            "w": "esta noche",
+            "zh": "今晚"
+        },
+        {
+            "w": "diccionario",
+            "zh": "词典"
+        },
+        {
+            "w": "postal",
+            "zh": "明信片"
+        },
+        {
+            "w": "visitar",
+            "zh": "拜访"
+        },
+        {
+            "w": "viaje",
+            "zh": "旅行"
+        },
+        {
+            "w": "enfadado",
+            "zh": "生气的"
+        },
+        {
+            "w": "miedo",
+            "zh": "害怕"
+        },
+        {
+            "w": "preocupado",
+            "zh": "担心"
+        },
+        {
+            "w": "enfermo",
+            "zh": "生病"
+        },
+        {
+            "w": "llevar",
+            "zh": "穿"
+        },
+        {
+            "w": "playa",
+            "zh": "海滩"
+        },
+        {
+            "w": "cesta",
+            "zh": "篮子"
+        },
+        {
+            "w": "regalo",
+            "zh": "礼物"
+        },
+        {
+            "w": "ciudad",
+            "zh": "城市"
+        },
+        {
+            "w": "país",
+            "zh": "国家"
+        },
+        {
+            "w": "calle",
+            "zh": "街道"
+        },
+        {
+            "w": "iglesia",
+            "zh": "教堂"
+        },
+        {
+            "w": "mercado",
+            "zh": "市场"
+        },
+        {
+            "w": "universidad",
+            "zh": "大学"
+        },
+        {
+            "w": "empresa",
+            "zh": "公司"
+        },
+        {
+            "w": "banco",
+            "zh": "银行"
+        },
+        {
+            "w": "restaurante",
+            "zh": "餐厅"
+        },
+        {
+            "w": "hotel",
+            "zh": "酒店"
+        },
+        {
+            "w": "pelota",
+            "zh": "球"
+        },
+        {
+            "w": "cometa",
+            "zh": "风筝"
+        },
+        {
+            "w": "muñeca",
+            "zh": "玩偶"
+        },
+        {
+            "w": "juego",
+            "zh": "游戏"
+        },
+        {
+            "w": "dibujo",
+            "zh": "图画"
+        },
+        {
+            "w": "cuento",
+            "zh": "故事"
+        },
+        {
+            "w": "cuento de hadas",
+            "zh": "童话"
+        },
+        {
+            "w": "arcoíris",
+            "zh": "彩虹"
+        },
+        {
+            "w": "luz",
+            "zh": "光"
+        },
+        {
+            "w": "sombra",
+            "zh": "影子"
+        },
+        {
+            "w": "sonrisa",
+            "zh": "微笑"
+        },
+        {
+            "w": "sueño",
+            "zh": "梦"
+        }
+    ],
+    "sentences": [
+        {
+            "t": "¡Hola!",
+            "zh": "你好！"
+        },
+        {
+            "t": "Buenos días.",
+            "zh": "早上好。"
+        },
+        {
+            "t": "Buenas tardes.",
+            "zh": "下午好。"
+        },
+        {
+            "t": "Buenas noches.",
+            "zh": "晚上好\/晚安。"
+        },
+        {
+            "t": "¿Cómo estás?",
+            "zh": "你好吗？"
+        },
+        {
+            "t": "Estoy bien, gracias.",
+            "zh": "我很好，谢谢。"
+        },
+        {
+            "t": "¿Cómo te llamas?",
+            "zh": "你叫什么名字？"
+        },
+        {
+            "t": "Me llamo Li Ming.",
+            "zh": "我叫李明。"
+        },
+        {
+            "t": "Mucho gusto.",
+            "zh": "很高兴见到你。"
+        },
+        {
+            "t": "¿Cuántos años tienes?",
+            "zh": "你几岁了？"
+        },
+        {
+            "t": "Tengo siete años.",
+            "zh": "我七岁。"
+        },
+        {
+            "t": "¡Adiós!",
+            "zh": "再见！"
+        },
+        {
+            "t": "Hasta mañana.",
+            "zh": "明天见。"
+        },
+        {
+            "t": "Muchas gracias.",
+            "zh": "非常感谢。"
+        },
+        {
+            "t": "De nada.",
+            "zh": "不客气。"
+        },
+        {
+            "t": "Lo siento.",
+            "zh": "对不起。"
+        },
+        {
+            "t": "No pasa nada.",
+            "zh": "没关系。"
+        },
+        {
+            "t": "¿Qué hora es?",
+            "zh": "现在几点了？"
+        },
+        {
+            "t": "Quiero a mi familia.",
+            "zh": "我爱我的家。"
+        },
+        {
+            "t": "¡Buena suerte!",
+            "zh": "祝你好运！"
+        }
+    ]
+}
