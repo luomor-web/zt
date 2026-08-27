@@ -40,8 +40,8 @@ function kongbi_path($type){
 	return $d;
 }
 
-$css='.kb-row{width:938px;margin:0 auto 30px;height:100px;}'
-	.'.kb-row svg{display:block;}';
+$css='.kb-row{width:938px;margin:0 auto 30px;height:100px;background:url(../img/tzg.svg);background-size:80px 80px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}'
+	.'.kb-row svg{display:block;margin:0 auto;}';
 echo xx_sheet_head($title,$css);
 echo '<div>';
 

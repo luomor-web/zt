@@ -2,7 +2,8 @@
 /* 姓名字帖 - 生成端（表单见 xingming.html）：姓名笔顺描红 */
 include_once dirname(__FILE__).'/../xiaoxue/lib.php';
 
-$name=xx_filter_hanzi($_POST['name']??'');
+// 字段名用 xm，避免与班级姓名行的 name 字段冲突
+$name=xx_filter_hanzi($_POST['xm']??'');
 if(!$name){
 	header("Location: xingming.html");
 }else{

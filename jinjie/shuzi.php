@@ -1,5 +1,5 @@
 <?php
-/* 数字字帖 - 生成端（表单见 shuzi.html）：0-9 四线三格描红 */
+/* 数字字帖 - 生成端（表单见 shuzi.html）：0-9 田字格描红 */
 include_once dirname(__FILE__).'/../xiaoxue/lib.php';
 
 if($_SERVER['REQUEST_METHOD']!=='POST'){
@@ -12,15 +12,15 @@ $num=intval($_POST['num']??'10');
 if(!in_array($num,[10,20])){ $num=10; }
 $blank=intval($_POST['blank']??'2');
 if(!in_array($blank,[1,2,3])){ $blank=2; }
-$blank_html=str_repeat('<div class="eng-grid eng-blank"></div>',$blank);
+
+$bglx=$_POST['types']??'tzg';
+if(!in_array($bglx,['tzg','mzg'])){ $bglx='tzg'; }
+$bgcolor=$_POST['bgcolor']??'black';
+if($bgcolor!=='black'){ $bglx.=$bgcolor; }
 
 $title='数字字帖（'.($mode==='order'?'0-9 顺序':'随机').'）';
-
-$css=xx_eng_css()
-	.'.eng-wrap{width:938px;margin:0 auto;}'
-	.'.eng-item{margin-bottom:18px;}';
-echo xx_sheet_head($title,$css,'tzg');
-echo '<div class="eng-wrap">';
+echo xx_sheet_head($title,'',$bglx);
+echo '<div><ul>';
 
 if($mode==='order'){
 	$digits=range(0,9);
@@ -29,15 +29,29 @@ if($mode==='order'){
 	for($i=0;$i<$num;$i++){ $digits[]=mt_rand(0,9); }
 }
 
+$used=0;
 foreach($digits as $d){
-	$text="$d $d $d $d $d";
-	echo '<div class="eng-item">';
-	echo '<div class="eng-grid"><div class="eng-text">'.$text.'</div></div>';
-	echo $blank_html;
-	echo '</div>';
+	// 田字格描红行：数字重复 6 个
+	$r=xx_trace_text_row(str_repeat($d,6));
+	echo $r['html'];
+	$used+=$r['cells'];
+	echo xx_page_break($used);
+	// 空白行
+	for($b=0;$b<$blank;$b++){
+		$r=xx_blank_row(1);
+		echo $r['html'];
+		$used+=$r['cells'];
+		echo xx_page_break($used);
+	}
 }
 
-echo '</div>';
+// 堆满整页
+$rows=ceil($used/12);
+$total_pages=max(1,ceil($rows/15));
+$rest=$total_pages*15*12-$used;
+for($i=0;$i<$rest;$i++){ echo '<li>&nbsp;</li>'; }
+
+echo '</ul></div>';
 echo xx_auto_print($title,xx_student_info());
 echo '</body></html>';
 
