@@ -25,7 +25,8 @@ echo xx_sheet_head($title,$css,$bglx);
 echo '<div><ul>';
 
 if($mode==='order'){
-	$digits=range(0,9);
+	// 从 1 开始，0 收尾（数字 1 位于第一行第一列）
+	$digits=[1,2,3,4,5,6,7,8,9,0];
 }else{
 	$digits=[];
 	for($i=0;$i<$num;$i++){ $digits[]=mt_rand(0,9); }
@@ -33,8 +34,8 @@ if($mode==='order'){
 
 $used=0;
 foreach($digits as $d){
-	// 田字格描红行：每个数字独占一整行（12 格全是该数字）
-	$r=xx_trace_text_row(str_repeat($d,12));
+	// 田字格描红行：数字重复 6 个
+	$r=xx_trace_text_row(str_repeat($d,6));
 	echo $r['html'];
 	$used+=$r['cells'];
 	echo xx_page_break($used);
