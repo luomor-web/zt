@@ -24,7 +24,7 @@
     "form.class.label": "Class",
     "form.name.label": "Name",
     "form.optional": "Optional",
-    "form.title.default": "Chinese Practice Sheet · zt.luomor.com",
+    "form.title.default": "Chinese Practice Sheet · zzzt.luomor.com",
     "form.submit": "Generate Now",
     "options.types.title": "Grid Type",
     "options.types.aria": "Grid type",
@@ -94,5 +94,13 @@
     "nav.shuzi": "Number Practice",
     "nav.xiepinyin": "Write Pinyin",
     "nav.coushi": "Make-Ten Method",
-    "nav.kongxin": "Outline Practice"
+    "nav.kongxin": "Outline Practice",
+    "nav.mb": "Templates",
+    "nav.dianzhen": "Dot Grid",
+    "nav.cornell": "Cornell Notes",
+    "nav.shizhi": "Poem Paper",
+    "nav.kechengbiao": "Class Schedule",
+    "nav.jihua": "Daily Planner",
+    "nav.wuxianpu": "Staff Paper",
+    "nav.daka": "Habit Tracker"
 }

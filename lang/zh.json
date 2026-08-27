@@ -24,7 +24,7 @@
     "form.class.label": "班级",
     "form.name.label": "姓名",
     "form.optional": "选填",
-    "form.title.default": "田字格字帖生成器 网址：zt.luomor.com",
+    "form.title.default": "田字格字帖生成器 网址：zzzt.luomor.com",
     "form.submit": "立即生成",
     "options.types.title": "田格类型",
     "options.types.aria": "田格类型选择",
@@ -94,5 +94,13 @@
     "nav.shuzi": "数字字帖",
     "nav.xiepinyin": "看汉字写拼音",
     "nav.coushi": "凑十法破十法",
-    "nav.kongxin": "空心字帖"
+    "nav.kongxin": "空心字帖",
+    "nav.mb": "模板专区",
+    "nav.dianzhen": "点阵纸",
+    "nav.cornell": "康奈尔笔记",
+    "nav.shizhi": "五言七言诗纸",
+    "nav.kechengbiao": "课程表",
+    "nav.jihua": "日计划表",
+    "nav.wuxianpu": "五线谱纸",
+    "nav.daka": "打卡表"
 }
