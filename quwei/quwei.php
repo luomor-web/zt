@@ -1,5 +1,5 @@
 <?php
-/* 趣味主题字帖 - 生成端（表单见 quwei.html）：可爱主题装饰的字词描红 */
+/* 趣味主题字帖 - 生成端（表单见 quwei.html）：动物图片作田字格背景 */
 include_once dirname(__FILE__).'/../xiaoxue/lib.php';
 
 $words=xx_filter_hanzi($_POST['words']??'');
@@ -7,16 +7,8 @@ if(!$words){
 	header("Location: quwei.html");
 }else{
 
-$theme=$_POST['theme']??'animal';
-if(!in_array($theme,['animal','fruit','space','ocean'])){ $theme='animal'; }
-
-$themes=[
-'animal'=>['name'=>'动物乐园','emojis'=>['🐶','🐱','🐰','🐤','🐯','🦁'],'color'=>'#ff8c42'],
-'fruit'=>['name'=>'水果派对','emojis'=>['🍎','🍓','🍇','🍉','🍊','🍑'],'color'=>'#e75480'],
-'space'=>['name'=>'太空探险','emojis'=>['🚀','⭐','🌙','☀️','🪐','🌟'],'color'=>'#5b7fd4'],
-'ocean'=>['name'=>'海洋世界','emojis'=>['🐟','🐬','🐳','🐢','🦀','🐠'],'color'=>'#2ea6a4'],
-];
-$t=$themes[$theme];
+$animal=$_POST['animal']??'random';//动物编号 001-070 或 random
+if($animal!=='random' && !preg_match('/^0[0-7][0-9]$/',$animal)){ $animal='random'; }
 
 $bglx=$_POST['types']??'tzg';
 if(!in_array($bglx,['tzg','mzg'])){ $bglx='tzg'; }
@@ -24,36 +16,38 @@ $bgcolor=$_POST['bgcolor']??'black';
 if($bgcolor!=='black'){ $bglx.=$bgcolor; }
 $py=($_POST['py']??'1')==='1';
 
-$title='趣味字帖（'.$t['name'].'）';
-$css='.qw-banner{text-align:center;font-size:30px;padding:16px 0 6px;letter-spacing:8px;}'
-	.'.qw-title{text-align:center;font-size:24px;font-weight:bold;color:'.$t['color'].';padding-bottom:14px;}'
-	.'.qw-deco{height:24px;border-bottom:4px dotted '.$t['color'].';margin-bottom:16px;}';
+$title='趣味主题字帖';
+$css='li.pic{position:relative;}'
+	.'li.pic img{position:absolute;left:6px;top:6px;width:68px;height:68px;object-fit:contain;}';
 echo xx_sheet_head($title,$css,$bglx);
-
-// 主题横幅
-echo '<div class="qw-banner">'.implode(' ',$t['emojis']).'</div>';
-echo '<div class="qw-title">'.$t['name'].' · 快乐练字</div>';
-echo '<div class="qw-deco"></div>';
 echo '<div><ul>';
+
+/* 输出一个图片格 */
+function pic_cell($animal){
+	if($animal==='random'){ $animal=sprintf('%03d',mt_rand(1,70)); }
+	return '<li class="pic"><img src="img/animals/'.$animal.'.png" alt=""></li>';
+}
 
 preg_match_all('/./u',$words,$chars);
 $used=0;
-$ei=0;
 foreach($chars[0] as $char){
-	// 拼音格行（可选，首格放主题 emoji）
+	// 拼音格行（可选，首格放动物图片）
 	if($py){
-		echo '<li class="py" style="background:none;font-size:26px;line-height:48px;">'.$t['emojis'][$ei%count($t['emojis'])].'</li>';
+		echo pic_cell($animal);
 		echo '<li class="py">'.htmlspecialchars(Pinyin::getPinyin($char),ENT_QUOTES,'UTF-8').'</li>';
 		for($i=2;$i<12;$i++){ echo '<li class="py">&nbsp;</li>'; }
 		$used+=12;
 		echo xx_page_break($used);
 	}
-	// 描红行
+	// 描红行（首格放动物图片，后面接文字格和空格）
+	echo pic_cell($animal);
 	$r=xx_trace_text_row($char);
-	echo $r['html'];
+	$cells=explode('<li',$r['html']);
+	array_shift($cells);//去掉第一个空段，保留文字格和空格
+	array_pop($cells);//图片格占 1 格，去掉最后一个空格保持 12 格
+	echo '<li'.implode('<li',$cells);
 	$used+=$r['cells'];
 	echo xx_page_break($used);
-	$ei++;
 }
 
 // 堆满整页
