@@ -1,5 +1,5 @@
 <?php
-/* 数字字帖 - 生成端（表单见 shuzi.html）：0-9 田字格描红 */
+/* 数字字帖 - 生成端（表单见 shuzi.html）：0-9 方格描红（div 行布局） */
 include_once dirname(__FILE__).'/../xiaoxue/lib.php';
 
 if($_SERVER['REQUEST_METHOD']!=='POST'){
@@ -13,48 +13,53 @@ if(!in_array($num,[10,20])){ $num=10; }
 $blank=intval($_POST['blank']??'2');
 if(!in_array($blank,[1,2,3])){ $blank=2; }
 
-$bglx=$_POST['types']??'tzg';
-if(!in_array($bglx,['tzg','mzg'])){ $bglx='tzg'; }
-$bgcolor=$_POST['bgcolor']??'black';
-if($bgcolor!=='black'){ $bglx.=$bgcolor; }
-
 $title='数字字帖（'.($mode==='order'?'0-9 顺序':'随机').'）';
-// 方格样式
-$css='li{border:1px solid #999;background:none;}';
-echo xx_sheet_head($title,$css,$bglx);
-echo '<div><ul>';
+
+$kaiti=xx_kaiti();
+$css='.sz-row{display:flex;width:938px;margin:0 auto;padding-left:0;}'
+	.'.sz-cell{width:80px;height:80px;margin:5px 0 5px -1px;padding-left:0;'
+	.'border:1px solid #999;background:none;font-family:'.$kaiti.';'
+	.'font-size:58px;text-align:center;line-height:80px;color:#c8c8c8;'
+	.'-webkit-print-color-adjust:exact;print-color-adjust:exact;}';
+echo xx_sheet_head($title,$css);
+echo '<div>';
+
+/* 输出一行（12 格）：$texts 为每格文字，不足补空 */
+function sz_row($texts){
+	$out='<div class="sz-row">';
+	for($i=0;$i<12;$i++){
+		$t=$texts[$i]??'&nbsp;';
+		$out.='<div class="sz-cell">'.$t.'</div>';
+	}
+	return $out.'</div>';
+}
 
 if($mode==='order'){
-	// 从 1 开始，0 收尾（数字 1 位于第一行第一列）
-	$digits=[1,2,3,4,5,6,7,8,9,0];
+	$digits=range(0,9);
 }else{
 	$digits=[];
 	for($i=0;$i<$num;$i++){ $digits[]=mt_rand(0,9); }
 }
 
-$used=0;
+$rowno=0;
 foreach($digits as $d){
-	// 田字格描红行：数字重复 6 个
-	$r=xx_trace_text_row(str_repeat($d,6));
-	echo $r['html'];
-	$used+=$r['cells'];
-	echo xx_page_break($used);
+	// 描红行：数字重复 6 格 + 6 空格
+	echo sz_row(array_fill(0,6,$d));
+	if(++$rowno%15===0){ echo "</div><div class='afterpage'>"; }
 	// 空白行
 	for($b=0;$b<$blank;$b++){
-		$r=xx_blank_row(1);
-		echo $r['html'];
-		$used+=$r['cells'];
-		echo xx_page_break($used);
+		echo sz_row([]);
+		if(++$rowno%15===0){ echo "</div><div class='afterpage'>"; }
 	}
 }
 
 // 堆满整页
-$rows=ceil($used/12);
-$total_pages=max(1,ceil($rows/15));
-$rest=$total_pages*15*12-$used;
-for($i=0;$i<$rest;$i++){ echo '<li>&nbsp;</li>'; }
+$total_pages=max(1,ceil($rowno/15));
+for($i=$rowno;$i<$total_pages*15;$i++){
+	echo sz_row([]);
+}
 
-echo '</ul></div>';
+echo '</div>';
 echo xx_auto_print($title,xx_student_info());
 echo '</body></html>';
 
