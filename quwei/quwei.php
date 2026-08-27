@@ -1,5 +1,5 @@
 <?php
-/* 趣味主题字帖 - 生成端（表单见 quwei.html）：动物图片作田字格背景 */
+/* 趣味主题字帖 - 生成端（表单见 quwei.html）：动物田字格图直接渲染汉字 */
 include_once dirname(__FILE__).'/../xiaoxue/lib.php';
 
 $words=xx_filter_hanzi($_POST['words']??'');
@@ -17,36 +17,42 @@ if($bgcolor!=='black'){ $bglx.=$bgcolor; }
 $py=($_POST['py']??'1')==='1';
 
 $title='趣味主题字帖';
-$css='li.pic{position:relative;}'
-	.'li.pic img{position:absolute;left:6px;top:6px;width:68px;height:68px;object-fit:contain;}';
+$css='li.picchar{position:relative;background-size:cover !important;background-position:center !important;}'
+	.'li.picchar span{position:absolute;left:0;bottom:6px;width:100%;text-align:center;font-size:34px;line-height:1;color:#c8c8c8;}';
 echo xx_sheet_head($title,$css,$bglx);
 echo '<div><ul>';
 
-/* 输出一个图片格 */
-function pic_cell($animal){
+/* 输出动物编号（random 时随机一只） */
+function pick_animal($animal){
 	if($animal==='random'){ $animal=sprintf('%03d',mt_rand(1,70)); }
-	return '<li class="pic"><img src="img/animals/'.$animal.'.png" alt=""></li>';
+	return $animal;
+}
+/* 输出一个图片格（仅动物图，无文字） */
+function pic_cell($a){
+	return '<li class="picchar" style="background:url(img/animals/'.$a.'.png);"><span>&nbsp;</span></li>';
+}
+/* 输出一个带汉字的动物田字格格 */
+function pic_char_cell($a,$char){
+	return '<li class="picchar" style="background:url(img/animals/'.$a.'.png);"><span>'.$char.'</span></li>';
 }
 
 preg_match_all('/./u',$words,$chars);
 $used=0;
 foreach($chars[0] as $char){
+	$a=pick_animal($animal);
 	// 拼音格行（可选，首格放动物图片）
 	if($py){
-		echo pic_cell($animal);
+		echo pic_cell($a);
 		echo '<li class="py">'.htmlspecialchars(Pinyin::getPinyin($char),ENT_QUOTES,'UTF-8').'</li>';
 		for($i=2;$i<12;$i++){ echo '<li class="py">&nbsp;</li>'; }
 		$used+=12;
 		echo xx_page_break($used);
 	}
-	// 描红行（首格放动物图片，后面接文字格和空格）
-	echo pic_cell($animal);
-	$r=xx_trace_text_row($char);
-	$cells=explode('<li',$r['html']);
-	array_shift($cells);//去掉第一个空段，保留文字格和空格
-	array_pop($cells);//图片格占 1 格，去掉最后一个空格保持 12 格
-	echo '<li'.implode('<li',$cells);
-	$used+=$r['cells'];
+	// 描红行：首格为动物田字格图直接渲染汉字，其后 3 个普通描红格 + 8 空格，共 12 格
+	echo pic_char_cell($a,$char);
+	for($i=0;$i<3;$i++){ echo '<li style="color:#c8c8c8">'.$char.'</li>'; }
+	for($i=0;$i<8;$i++){ echo '<li>&nbsp;</li>'; }
+	$used+=12;
 	echo xx_page_break($used);
 }
 

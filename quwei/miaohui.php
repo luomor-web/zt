@@ -26,9 +26,10 @@ if(!$sel){ $sel=array_keys($pictures); }//默认全部
 
 $title='描绘画';
 $css='.mh-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:30px;width:938px;margin:0 auto;padding:10px;}'
-	.'.mh-item{margin:0;padding-left:0;}'
-	.'.mh-name{text-align:center;font-size:22px;font-weight:bold;color:#666;padding:8px 0;}'
-	.'.mh-box{border:2px solid #bbb;border-radius:8px;padding:10px;background:#fff;}'
+	.'/* 覆盖全局 div{width:938px} 规则，mh-item 应占网格列的 50% */'
+	.'.mh-item{width:auto;margin:0;padding-left:0;}'
+	.'.mh-name{text-align:center;font-size:22px;font-weight:bold;color:#666;padding:8px 0;width:auto;margin:0;padding-left:0;}'
+	.'.mh-box{border:2px solid #bbb;border-radius:8px;padding:10px;background:#fff;width:auto;margin:0;}'
 	.'.mh-box svg{display:block;width:100%;height:auto;}';
 echo xx_sheet_head($title,$css);
 echo '<div class="mh-grid">';
