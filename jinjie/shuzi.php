@@ -33,8 +33,8 @@ if($mode==='order'){
 
 $used=0;
 foreach($digits as $d){
-	// 田字格描红行：数字重复 6 个
-	$r=xx_trace_text_row(str_repeat($d,6));
+	// 田字格描红行：每个数字独占一整行（12 格全是该数字）
+	$r=xx_trace_text_row(str_repeat($d,12));
 	echo $r['html'];
 	$used+=$r['cells'];
 	echo xx_page_break($used);
