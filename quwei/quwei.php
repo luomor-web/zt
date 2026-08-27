@@ -18,10 +18,7 @@ $py=($_POST['py']??'1')==='1';
 
 $title='趣味主题字帖';
 $css='li.picchar{position:relative;background-size:cover !important;background-position:center !important;}'
-	.'li.picchar span{position:absolute;left:0;bottom:6px;width:100%;text-align:center;font-size:34px;line-height:1;color:#c8c8c8;}'
-	.'/* 拼音行用小号图片格，与 li.py(48px) 对齐 */'
-	.'li.picchar.sm{height:48px;background-size:contain !important;background-repeat:no-repeat;background-color:#fff;}'
-	.'li.picchar.sm span{display:none;}';
+	.'li.picchar span{position:absolute;left:0;bottom:6px;width:100%;text-align:center;font-size:34px;line-height:1;color:#c8c8c8;}';
 echo xx_sheet_head($title,$css,$bglx);
 echo '<div><ul>';
 
@@ -30,10 +27,9 @@ function pick_animal($animal){
 	if($animal==='random'){ $animal=sprintf('%03d',mt_rand(1,70)); }
 	return $animal;
 }
-/* 输出一个图片格（仅动物图，无文字；sm 用于拼音行与 48px 拼音格对齐） */
-function pic_cell($a,$sm=false){
-	$cls=$sm?'picchar sm':'picchar';
-	return '<li class="'.$cls.'" style="background:url(img/animals/'.$a.'.png);"><span>&nbsp;</span></li>';
+/* 输出一个图片格（仅动物图，无文字） */
+function pic_cell($a){
+	return '<li class="picchar" style="background:url(img/animals/'.$a.'.png);"><span>&nbsp;</span></li>';
 }
 /* 输出一个带汉字的动物田字格格 */
 function pic_char_cell($a,$char){
@@ -44,9 +40,9 @@ preg_match_all('/./u',$words,$chars);
 $used=0;
 foreach($chars[0] as $char){
 	$a=pick_animal($animal);
-	// 拼音格行（可选，首格放动物图片，与 48px 拼音格对齐）
+	// 拼音格行（可选，首格放动物图片）
 	if($py){
-		echo pic_cell($a,true);
+		echo pic_cell($a);
 		echo '<li class="py">'.htmlspecialchars(Pinyin::getPinyin($char),ENT_QUOTES,'UTF-8').'</li>';
 		for($i=2;$i<12;$i++){ echo '<li class="py">&nbsp;</li>'; }
 		$used+=12;
