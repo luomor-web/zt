@@ -22,8 +22,9 @@ $title='竖式计算（'.$op_names[$op].' '.$wei.' 位数）';
 $css='.ss-wrap{width:938px;margin:0 auto;font-family:"Courier New",monospace;}'
 	.'.ss-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 20px;padding:20px 10px;}'
 	.'.ss-item{font-size:30px;line-height:1.5;width:130px;margin:0 auto;}'
-	.'.ss-item .row{text-align:right;letter-spacing:2px;}'
-	.'.ss-item .op{display:inline-block;margin-right:12px;}'
+	.'.ss-item .row{display:flex;justify-content:flex-end;letter-spacing:2px;}'
+	.'.ss-item .row .op{margin-right:auto;}'
+	.'.ss-item .row .num{text-align:right;}'
 	.'.ss-item .line{border-top:2px solid #333;margin-top:4px;height:34px;}';
 echo xx_sheet_head($title,$css);
 echo '<div class="ss-wrap"><div class="ss-grid">';
@@ -45,8 +46,8 @@ for($i=0;$i<$count;$i++){
 		break;
 	}
 	echo '<div class="ss-item">';
-	echo '<div class="row">'.$a.'</div>';
-	echo '<div class="row"><span class="op">'.$op_signs[$op].'</span>'.$b.'</div>';
+	echo '<div class="row"><span class="num">'.$a.'</span></div>';
+	echo '<div class="row"><span class="op">'.$op_signs[$op].'</span><span class="num">'.$b.'</span></div>';
 	echo '<div class="line"></div>';
 	echo '</div>';
 }

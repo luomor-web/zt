@@ -19,7 +19,9 @@ $bgcolor=$_POST['bgcolor']??'black';
 if($bgcolor!=='black'){ $bglx.=$bgcolor; }
 
 $title='数字字帖（'.($mode==='order'?'0-9 顺序':'随机').'）';
-echo xx_sheet_head($title,'',$bglx);
+// 方格样式
+$css='li{border:1px solid #999;background:none;}';
+echo xx_sheet_head($title,$css,$bglx);
 echo '<div><ul>';
 
 if($mode==='order'){
