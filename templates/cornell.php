@@ -10,14 +10,14 @@ $titlebar=($_POST['titlebar']??'1')==='1';//顶部标题栏
 $title='康奈尔笔记纸';
 
 $css='.cn-wrap{width:938px;margin:0 auto;}'
-	.'.cn-title{border:2px solid #999;border-bottom:none;height:70px;line-height:70px;padding-left:20px;font-size:20px;color:#aaa;}'
-	.'.cn-main{display:flex;border:2px solid #999;}'
+	.'/* 覆盖全局 div{width:938px} 规则，否则内部行被撑宽错位 */'
+	.'.cn-title{border:2px solid #999;border-bottom:none;height:70px;line-height:70px;padding-left:20px;font-size:20px;color:#aaa;width:auto;margin:0;}'
+	.'.cn-main{display:flex;border:2px solid #999;width:auto;margin:0;padding-left:0;}'
 	.'.cn-cue{width:250px;border-right:2px solid #999;}'
 	.'.cn-notes{flex:1;}'
-	.'.cn-line{height:56px;border-bottom:1px solid #ccc;margin:0;padding-left:0;}'
-	.'.cn-cue .cn-line:nth-child(even){background:none;}'
-	.'.cn-summary{border:2px solid #999;border-top:none;height:150px;padding:10px 16px;color:#aaa;font-size:16px;}'
-	.'.cn-label{color:#bbb;font-size:14px;padding:6px 10px;margin:0;}';
+	.'.cn-line{height:56px;border-bottom:1px solid #ccc;margin:0;padding-left:0;width:auto;}'
+	.'.cn-summary{border:2px solid #999;border-top:none;height:150px;padding:10px 16px;color:#aaa;font-size:16px;width:auto;margin:0;}'
+	.'.cn-label{color:#bbb;font-size:14px;padding:6px 10px;margin:0;width:auto;}';
 echo xx_sheet_head($title,$css);
 echo '<div class="cn-wrap">';
 

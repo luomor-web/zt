@@ -17,8 +17,8 @@ $css='.kc-wrap{width:938px;margin:0 auto;font-family:Arial,sans-serif;}'
 echo xx_sheet_head($title,$css);
 echo '<div class="kc-wrap"><table class="kc-table">';
 
-$days=['时间','星期一','星期二','星期三','星期四','星期五'];
-echo '<tr>';
+$days=['星期一','星期二','星期三','星期四','星期五'];
+echo '<tr><th colspan="2">时间</th>';
 foreach($days as $d){ echo '<th>'.$d.'</th>'; }
 echo '</tr>';
 
