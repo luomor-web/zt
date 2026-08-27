@@ -25,15 +25,16 @@ function cs_vertical($a,$sign,$b){
 
 $css='.cs-wrap{width:938px;margin:0 auto;font-family:Arial,sans-serif;}'
 	.'.cs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 30px;}'
-	.'.cs-item{font-family:"Courier New",monospace;}'
-	.'.cs-exp{font-size:30px;color:#333;font-weight:bold;}'
-	.'.cs-hint{font-size:18px;color:#888;margin:6px 0 10px;font-family:Arial,sans-serif;}'
-	.'.cs-v{display:flex;gap:50px;}'
+	/* 覆盖全局 div{width:938px} 规则，否则网格子项被撑宽 */
+	.'.cs-item{font-family:"Courier New",monospace;width:auto;margin:0;padding-left:0;}'
+	.'.cs-exp{font-size:30px;color:#333;font-weight:bold;width:auto;margin:0;padding-left:0;}'
+	.'.cs-hint{font-size:18px;color:#888;margin:6px 0 10px;font-family:Arial,sans-serif;width:auto;padding-left:0;}'
+	.'.cs-v{display:flex;gap:50px;width:auto;margin:0;padding-left:0;}'
 	.'.ss-item{font-size:26px;line-height:1.5;width:110px;}'
-	.'.ss-item .row{display:flex;justify-content:flex-end;letter-spacing:2px;}'
+	.'.ss-item .row{display:flex;justify-content:flex-end;letter-spacing:2px;width:auto;margin:0;padding-left:0;}'
 	.'.ss-item .row .op{margin-right:auto;}'
 	.'.ss-item .row .num{text-align:right;}'
-	.'.ss-item .line{border-top:2px solid #333;margin-top:4px;height:30px;}';
+	.'.ss-item .line{border-top:2px solid #333;margin-top:4px;height:30px;width:auto;padding-left:0;}';
 echo xx_sheet_head($title,$css);
 echo '<div class="cs-wrap"><div class="cs-grid">';
 

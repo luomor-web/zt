@@ -22,10 +22,11 @@ $title='竖式计算（'.$op_names[$op].' '.$wei.' 位数）';
 $css='.ss-wrap{width:938px;margin:0 auto;font-family:"Courier New",monospace;}'
 	.'.ss-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 20px;padding:20px 10px;}'
 	.'.ss-item{font-size:30px;line-height:1.5;width:130px;margin:0 auto;}'
-	.'.ss-item .row{display:flex;justify-content:flex-end;letter-spacing:2px;}'
+	/* 覆盖全局 div{width:938px} 规则，否则行被撑宽导致数字错位 */
+	.'.ss-item .row{display:flex;justify-content:flex-end;letter-spacing:2px;width:auto;margin:0;padding-left:0;}'
 	.'.ss-item .row .op{margin-right:auto;}'
 	.'.ss-item .row .num{text-align:right;}'
-	.'.ss-item .line{border-top:2px solid #333;margin-top:4px;height:34px;}';
+	.'.ss-item .line{border-top:2px solid #333;margin-top:4px;height:34px;width:auto;padding-left:0;}';
 echo xx_sheet_head($title,$css);
 echo '<div class="ss-wrap"><div class="ss-grid">';
 
