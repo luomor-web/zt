@@ -17,7 +17,7 @@ if($bgcolor!=='black'){ $bglx.=$bgcolor; }
 $py=($_POST['py']??'1')==='1';
 
 $title='趣味主题字帖';
-$css='li.picchar{position:relative;background-size:cover !important;background-position:center !important;}'
+$css='li.picchar{position:relative;background-size:cover !important;background-position:center !important;top: 20px;}'
 	.'li.picchar span{position:absolute;left:0;bottom:6px;width:100%;text-align:center;font-size:34px;line-height:1;color:#c8c8c8;}';
 echo xx_sheet_head($title,$css,$bglx);
 echo '<div><ul>';
