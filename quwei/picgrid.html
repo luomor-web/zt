@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>趣味田字格模板字帖 - 图片田字格按行列打印 - 趣味专区 - 烙馍网</title>
+<meta name="keywords" content="田字格模板，图片字帖，趣味字帖，动物田字格，打印模板，烙馍网">
+<meta name="description" content="免费在线生成趣味田字格模板字帖：选择一张可爱动物图片作为田字格，自定义行数和列数，打印即用。">
+<meta name="author" content="烙馍网">
+<link rel="canonical" href="https://zzzt.luomor.com/quwei/picgrid.html">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="../xiaoxue/form.css">
+<style>
+.animal-picker{ display:grid; grid-template-columns:repeat(auto-fill,minmax(64px,1fr)); gap:6px; max-height:300px; overflow-y:auto; border:2px solid var(--border-color); border-radius:var(--radius); padding:12px; }
+.animal-pick{ display:flex; align-items:center; justify-content:center; cursor:pointer; border:2px solid transparent; border-radius:8px; padding:2px; }
+.animal-pick img{ width:56px; height:56px; object-fit:contain; display:block; }
+.animal-pick input{ display:none; }
+.animal-pick:has(input:checked){ border-color:#667eea; background:#eef0ff; }
+</style>
+</head>
+<body>
+<div class="container">
+<header class="header">
+    <div class="back-links">
+        <a class="back-link" href="index.html">← 趣味专区</a>
+        <a class="back-link" href="../">← 首页</a>
+    </div>
+    <h1>🖼️ 趣味田字格模板字帖</h1>
+    <p class="subtitle">选一张图 · 定几行几列 · 打印空白图片田字格</p>
+</header>
+
+<nav class="nav-bar" aria-label="主导航">
+        <a href="../">首页</a>
+        <div class="nav-dropdown">
+            <a href="../xiaoxue/">小学专区</a>
+            <div class="nav-sub">
+                <a href="../xiaoxue/zuci.html">组词练习</a>
+                <a href="../xiaoxue/kanxie.html">看拼音写词语</a>
+                <a href="../xiaoxue/bihua.html">笔画练习</a>
+                <a href="../xiaoxue/pinyin.html">拼音练习</a>
+                <a href="../xiaoxue/hanzi.html">汉字练习</a>
+                <a href="../xiaoxue/chengyu.html">成语练习</a>
+                <a href="../xiaoxue/xiehouyu.html">歇后语练习</a>
+                <a href="../xiaoxue/gushi.html">古诗练习</a>
+                <a href="../xiaoxue/math.html">数学练习</a>
+                <a href="../xiaoxue/english.html">英语练习</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="../waiyu/">外语专区</a>
+            <div class="nav-sub">
+                <a href="../waiyu/lianxi.html?lang=ko">韩语</a>
+                <a href="../waiyu/lianxi.html?lang=ja">日语</a>
+                <a href="../waiyu/lianxi.html?lang=vi">越南语</a>
+                <a href="../waiyu/lianxi.html?lang=ru">俄语</a>
+                <a href="../waiyu/lianxi.html?lang=es">西班牙语</a>
+                <a href="../waiyu/lianxi.html?lang=fr">法语</a>
+                <a href="../waiyu/lianxi.html?lang=de">德语</a>
+                <a href="../waiyu/lianxi.html?lang=en">英语</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="../jinjie/">进阶专区</a>
+            <div class="nav-sub">
+                <a href="../jinjie/zhizhi.html">空白作业纸</a>
+                <a href="../jinjie/shushi.html">竖式计算</a>
+                <a href="../jinjie/kongbi.html">控笔练习</a>
+                <a href="../jinjie/xingming.html">姓名字帖</a>
+                <a href="../jinjie/shuzi.html">数字字帖</a>
+                <a href="../jinjie/xiepinyin.html">看汉字写拼音</a>
+                <a href="../jinjie/coushi.html">凑十法破十法</a>
+                <a href="../jinjie/kongxin.html">空心字帖</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="../templates/">模板专区</a>
+            <div class="nav-sub">
+                <a href="../templates/dianzhen.html">点阵纸</a>
+                <a href="../templates/cornell.html">康奈尔笔记</a>
+                <a href="../templates/shizhi.html">五言七言诗纸</a>
+                <a href="../templates/kechengbiao.html">课程表</a>
+                <a href="../templates/jihua.html">日计划表</a>
+                <a href="../templates/wuxianpu.html">五线谱纸</a>
+                <a href="../templates/daka.html">打卡表</a>
+            </div>
+        </div>
+        <div class="nav-dropdown">
+            <a href="index.html">趣味专区</a>
+            <div class="nav-sub">
+                <a href="quwei.html">趣味主题字帖</a>
+                <a href="emoji.html">emoji 主题字帖</a>
+                <a href="picgrid.html">趣味田字格模板</a>
+                <a href="miaohui.html">描绘画</a>
+                <a href="zixun.html">汉字信息汇</a>
+                <a href="qrcode.html">二维码生成</a>
+            </div>
+        </div>
+</nav>
+
+<div class="card">
+<p class="seo-intro">选择一张喜欢的动物图片（自带田字格），设置行数和列数，生成整页图片田字格模板，打印后孩子直接在格子里写字。</p>
+<form action="picgrid.php" method="post" target="_blank">
+    <div class="options-grid" style="margin-top:0;">
+        <div class="option-group">
+            <div class="option-group-title">行数</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="rows" value="5"><span>5 行</span></label>
+                <label class="radio-label"><input type="radio" name="rows" value="8"><span>8 行</span></label>
+                <label class="radio-label"><input type="radio" name="rows" value="10" checked><span>10 行</span></label>
+                <label class="radio-label"><input type="radio" name="rows" value="12"><span>12 行</span></label>
+                <label class="radio-label"><input type="radio" name="rows" value="15"><span>15 行</span></label>
+            </div>
+        </div>
+        <div class="option-group">
+            <div class="option-group-title">列数</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="cols" value="6"><span>6 列</span></label>
+                <label class="radio-label"><input type="radio" name="cols" value="8"><span>8 列</span></label>
+                <label class="radio-label"><input type="radio" name="cols" value="10" checked><span>10 列</span></label>
+                <label class="radio-label"><input type="radio" name="cols" value="12"><span>12 列</span></label>
+            </div>
+        </div>
+    </div>
+
+    <label class="form-label">选择图片</label>
+    <div style="margin-bottom:12px;">
+        <button type="button" class="mini-btn" id="btn-refresh">🔄 换一批</button>
+    </div>
+    <div class="animal-picker" id="animal-picker">
+    </div>
+
+    <div class="name-row">
+        <div class="field">
+            <label for="class">班级</label>
+            <input type="text" id="class" name="class" placeholder="选填">
+        </div>
+        <div class="field">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="选填">
+        </div>
+    </div>
+
+    <div class="btn-row">
+        <button type="submit" class="submit-btn">立即生成</button>
+    </div>
+</form>
+    <div class="tutorial">
+        <h3>使用教程</h3>
+        <ol>
+            <li>设置行数和列数（格子大小随列数自动调整）</li>
+            <li>选择一张图片，或点 <strong>🔄 换一批</strong> 重新随机 5 张</li>
+            <li>点击 <strong>立即生成</strong> 按钮，整页图片田字格打印后供孩子书写</li>
+            <li>电脑端点 <strong>打印</strong>（勾选"背景图形"），手机端点 <strong>保存图片</strong></li>
+        </ol>
+        <div class="tip"><strong>💡 提示：</strong>打印前请确保已勾选"背景图形"选项；图片田字格为彩色图案，建议彩色打印。</div>
+    </div>
+</div>
+</div>
+<script src="../js/nav.js" defer></script>
+<script>
+// 随机展示 5 张动物图片，点击"换一批"重新随机
+(function () {
+    var picker = document.getElementById('animal-picker');
+    function pick5() {
+        var nums = [];
+        while (nums.length < 5) {
+            var n = Math.floor(Math.random() * 70) + 1;
+            if (nums.indexOf(n) === -1) nums.push(n);
+        }
+        picker.innerHTML = '';
+        nums.forEach(function (n, i) {
+            var num = ('00' + n).slice(-3);
+            var label = document.createElement('label');
+            label.className = 'animal-pick';
+            var input = document.createElement('input');
+            input.type = 'radio';
+            input.name = 'animal';
+            input.value = num;
+            if (i === 0) {
+                // 默认不选中具体动物，保持"每行随机"
+            }
+            var img = document.createElement('img');
+            img.src = 'img/animals/' + num + '.png';
+            img.alt = '动物 ' + num;
+            label.appendChild(input);
+            label.appendChild(img);
+            picker.appendChild(label);
+        });
+    }
+    document.getElementById('btn-refresh').addEventListener('click', pick5);
+    pick5();
+})();
+</script>
+</body>
+</html>
