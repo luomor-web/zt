@@ -24,7 +24,7 @@
     "form.class.label": "班级",
     "form.name.label": "姓名",
     "form.optional": "选填",
-    "form.title.default": "田字格字帖生成器 网址：zt.luomor.com",
+    "form.title.default": "田字格字帖生成器 网址：zzzt.luomor.com",
     "form.submit": "立即生成",
     "options.types.title": "田格类型",
     "options.types.aria": "田格类型选择",
@@ -109,5 +109,6 @@
     "nav.zixun": "汉字信息汇",
     "nav.qr": "二维码生成",
     "nav.emoji": "emoji 主题字帖",
-    "nav.picgrid": "趣味田字格模板"
+    "nav.picgrid": "趣味田字格模板",
+    "nav.ketie": "语文课贴"
 }
