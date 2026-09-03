@@ -7,7 +7,7 @@
 <meta name="keywords" content="每日一练，每日一句，古诗，成语，歇后语，英语单词，汉字练习，烙馍网">
 <meta name="description" content="免费在线生成每日一练：每日一句古诗、一句成语、一句歇后语、一句英文、5 个英语单词、5 个汉字描红，按日期自动轮换，打印即用。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/jinjie/meiri.html">
+<link rel="canonical" href="https://zzzt.luomor.com/jinjie/meiri.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 </head>
@@ -96,6 +96,15 @@
 <p class="seo-intro">每天自动轮换一份综合练习：一句古诗、一句成语（带拼音释义）、一句歇后语、一句英文、5 个英语单词、5 个汉字描红。选择日期可生成任意一天的练习。</p>
 <form action="meiri.php" method="post" target="_blank">
     <div class="options-grid" style="margin-top:0;">
+        <div class="option-group" style="grid-column: 1 / -1;">
+            <div class="option-group-title">单词来源</div>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="src" value="xx" checked><span>小学词库</span></label>
+                <label class="radio-label"><input type="radio" name="src" value="cet4"><span>四级（7508 词）</span></label>
+                <label class="radio-label"><input type="radio" name="src" value="cet6"><span>六级（5651 词）</span></label>
+                <label class="radio-label"><input type="radio" name="src" value="ky"><span>考研（9602 词）</span></label>
+            </div>
+        </div>
         <div class="option-group">
             <div class="option-group-title">选择日期</div>
             <input type="date" name="date" id="date" style="padding:8px 14px;border:2px solid var(--border-color);border-radius:8px;font-size:15px;">

@@ -29,9 +29,18 @@ $gushi=json_decode(file_get_contents(dirname(__FILE__).'/../data/gushi.json'),tr
 $chengyu=json_decode(file_get_contents(dirname(__FILE__).'/../data/chengyu.json'),true);
 $xiehouyu=json_decode(file_get_contents(dirname(__FILE__).'/../data/xiehouyu.json'),true);
 $eng_sent=json_decode(file_get_contents(dirname(__FILE__).'/../data/english_sentences.json'),true);
-$eng_words=json_decode(file_get_contents(dirname(__FILE__).'/../data/english_words.json'),true);
-$zuci=json_decode(file_get_contents(dirname(__FILE__).'/../data/zuci.json'),true);
-$hanzi_keys=array_keys($zuci);
+
+// 单词来源：小学词库 / 四级 / 六级 / 考研
+$src=$_POST['src']??'xx';
+$src_files=['xx'=>'english_words.json','cet4'=>'cet4.json','cet6'=>'cet6.json','ky'=>'ky.json'];
+$src_names=['xx'=>'小学','cet4'=>'四级','cet6'=>'六级','ky'=>'考研'];
+if(!isset($src_files[$src])){ $src='xx'; }
+$eng_words=json_decode(file_get_contents(dirname(__FILE__).'/../data/'.$src_files[$src]),true);
+
+// 汉字池：hanzi.json 全量（2361 字，覆盖小学六个年级）
+$hanzi_all=json_decode(file_get_contents(dirname(__FILE__).'/../data/hanzi.json'),true);
+$hanzi_keys=[];
+foreach($hanzi_all as $chars){ $hanzi_keys=array_merge($hanzi_keys,$chars); }
 
 $poem=daily_pick($gushi,$daynum);
 $cy=daily_pick($chengyu,$daynum);
@@ -76,7 +85,7 @@ echo '<div class="mr-text" style="font-family:Arial,sans-serif;">'.htmlspecialch
 echo '<div class="mr-sub">'.htmlspecialchars($sent['zh'],ENT_QUOTES,'UTF-8').'</div></div>';
 
 // 每日 5 个英语单词
-echo '<div class="mr-sec"><span class="mr-label">📝 每日 5 个英语单词</span>';
+echo '<div class="mr-sec"><span class="mr-label">📝 每日 5 个英语单词（'.$src_names[$src].'）</span>';
 echo '<div class="mr-text" style="font-family:Arial,sans-serif;">';
 $ws=[];
 foreach($words5 as $w){ $ws[]=htmlspecialchars($w['en'],ENT_QUOTES,'UTF-8').' '.htmlspecialchars($w['zh'],ENT_QUOTES,'UTF-8'); }
