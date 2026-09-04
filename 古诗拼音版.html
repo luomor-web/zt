@@ -36,10 +36,23 @@ body{
   color:#9a9180;
   margin:0 0 48px;
 }
+/* 一行两列布局 */
+.poems{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  max-width:1200px;
+  margin:0 auto;
+}
+/* 奇数个时，最后一张卡片独占一行并居中 */
+.poem:nth-child(odd):last-child{
+  grid-column:1 / -1;
+  width:min(100%, 584px);
+  justify-self:center;
+}
 .poem{
-  max-width:720px;
-  margin:0 auto 48px;
-  padding:36px 48px 42px;
+  margin:0;
+  padding:32px 28px 36px;
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:6px;
@@ -98,15 +111,33 @@ rt{
   letter-spacing:0;
   user-select:none;
 }
+/* 窄屏回退为单列 */
+@media (max-width:860px){
+  .poems{grid-template-columns:1fr;}
+  .poem:nth-child(odd):last-child{width:100%;}
+}
+@page{size:A4;margin:10mm;}
 @media print{
   body{background:#fff;padding:0;}
-  .page-sub{margin-bottom:24px;}
+  .page-title{font-size:30px;}
+  .page-sub{margin-bottom:16px;}
+  /* 打印同样一行两列：收窄间距、字号和内边距以适配 A4 半栏 */
+  .poems{
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    max-width:none;
+  }
+  .poem:nth-child(odd):last-child{width:calc(50% - 7px);}
   .poem{
     box-shadow:none;
     border:1px solid #ddd;
     page-break-inside:avoid;
-    margin-bottom:24px;
+    padding:20px 12px 22px;
   }
+  .poem-title{font-size:24px;}
+  .author{font-size:14px;margin:6px 0 14px;}
+  .line{font-size:22px;margin:8px 0;}
+  ruby{width:1.8em;}
 }
 </style>
 </head>
@@ -115,6 +146,7 @@ rt{
 <h1 class="page-title">古诗拼音版</h1>
 <p class="page-sub">拼音居上 · 逐字对齐</p>
 
+<div class="poems">
 <div class="poem">
 <div class="poem-title">夜书所见</div>
 <div class="author">〔宋〕叶绍翁</div>
@@ -200,6 +232,7 @@ rt{
 </div>
 <div class="line">
 <ruby>孤<rt>gū</rt></ruby><ruby>帆<rt>fān</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>片<rt>piàn</rt></ruby><ruby>日<rt>rì</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>来<rt>lái</rt></ruby>。
+</div>
 </div>
 </div>
 
