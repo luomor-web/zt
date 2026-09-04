@@ -4,16 +4,118 @@
 <meta charset="UTF-8">
 <title>古诗带拼音（拼音居上对齐）</title>
 <style>
-body{font-size:28px;line-height:2.2;margin:30px;font-family:"SimSun",宋体;}
-ruby{ruby-position:over;}
-rt{font-size:18px;color:#222;}
-.poem-title{font-size:30px;font-weight:bold;margin-top:40px;margin-bottom:10px;}
-.author{font-size:24px;margin-bottom:15px;}
-.line{margin:8px 0;}
+:root{
+  --ink:#2b2b2b;
+  --paper:#fdfaf3;
+  --accent:#8c2f2f;
+  --line:#e3d9c2;
+  --py-color:#6b6353;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  padding:48px 24px 64px;
+  background:#f2ede1;
+  font-family:"Kaiti SC","STKaiti","KaiTi","SimSun",serif;
+  color:var(--ink);
+}
+.page-title{
+  text-align:center;
+  font-size:38px;
+  font-weight:bold;
+  letter-spacing:.3em;
+  text-indent:.3em;
+  color:var(--accent);
+  margin:0 0 6px;
+}
+.page-sub{
+  text-align:center;
+  font-size:15px;
+  letter-spacing:.4em;
+  text-indent:.4em;
+  color:#9a9180;
+  margin:0 0 48px;
+}
+.poem{
+  max-width:720px;
+  margin:0 auto 48px;
+  padding:36px 48px 42px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:6px;
+  box-shadow:0 2px 12px rgba(80,60,20,.08);
+  position:relative;
+}
+.poem::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:4px;
+  background:var(--accent);
+  border-radius:6px 6px 0 0;
+}
+.poem-title{
+  font-size:32px;
+  font-weight:bold;
+  letter-spacing:.15em;
+  text-indent:.15em;
+  text-align:center;
+  color:var(--accent);
+  margin:0;
+}
+.author{
+  text-align:center;
+  font-size:18px;
+  letter-spacing:.2em;
+  text-indent:.2em;
+  color:#8a8375;
+  margin:10px 0 26px;
+}
+.line{
+  font-size:30px;
+  line-height:1.6;
+  text-align:center;
+  margin:12px 0;
+  white-space:nowrap;
+}
+/* 每个 ruby 是一个固定宽度的纵向单元：
+   拼音（rt）在上居中，汉字在下居中，
+   字宽固定 → 拼音与汉字严格一一对齐 */
+ruby{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+  width:2em;
+  ruby-position:over;
+}
+rt{
+  order:-1;
+  font-size:.5em;
+  line-height:1.5;
+  font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  color:var(--py-color);
+  letter-spacing:0;
+  user-select:none;
+}
+@media print{
+  body{background:#fff;padding:0;}
+  .page-sub{margin-bottom:24px;}
+  .poem{
+    box-shadow:none;
+    border:1px solid #ddd;
+    page-break-inside:avoid;
+    margin-bottom:24px;
+  }
+}
 </style>
 </head>
 <body>
 
+<h1 class="page-title">古诗拼音版</h1>
+<p class="page-sub">拼音居上 · 逐字对齐</p>
+
+<div class="poem">
 <div class="poem-title">夜书所见</div>
 <div class="author">〔宋〕叶绍翁</div>
 <div class="line">
@@ -28,8 +130,9 @@ rt{font-size:18px;color:#222;}
 <div class="line">
 <ruby>夜<rt>yè</rt></ruby><ruby>深<rt>shēn</rt></ruby><ruby>篱<rt>lí</rt></ruby><ruby>落<rt>luò</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>灯<rt>dēng</rt></ruby><ruby>明<rt>míng</rt></ruby>。
 </div>
+</div>
 
-
+<div class="poem">
 <div class="poem-title">司马光</div>
 <div class="author">选自《宋史·司马光传》</div>
 <div class="line">
@@ -47,8 +150,9 @@ rt{font-size:18px;color:#222;}
 <div class="line">
 <ruby>水<rt>shuǐ</rt></ruby><ruby>迸<rt>bèng</rt></ruby>，<ruby>儿<rt>ér</rt></ruby><ruby>得<rt>dé</rt></ruby><ruby>活<rt>huó</rt></ruby>。
 </div>
+</div>
 
-
+<div class="poem">
 <div class="poem-title">望洞庭</div>
 <div class="author">〔唐〕刘禹锡</div>
 <div class="line">
@@ -63,8 +167,9 @@ rt{font-size:18px;color:#222;}
 <div class="line">
 <ruby>白<rt>bái</rt></ruby><ruby>银<rt>yín</rt></ruby><ruby>盘<rt>pán</rt></ruby><ruby>里<rt>lǐ</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>青<rt>qīng</rt></ruby><ruby>螺<rt>luó</rt></ruby>。
 </div>
+</div>
 
-
+<div class="poem">
 <div class="poem-title">饮湖上初晴后雨</div>
 <div class="author">〔宋〕苏轼</div>
 <div class="line">
@@ -79,8 +184,9 @@ rt{font-size:18px;color:#222;}
 <div class="line">
 <ruby>淡<rt>dàn</rt></ruby><ruby>妆<rt>zhuāng</rt></ruby><ruby>浓<rt>nóng</rt></ruby><ruby>抹<rt>mǒ</rt></ruby><ruby>总<rt>zǒng</rt></ruby><ruby>相<rt>xiāng</rt></ruby><ruby>宜<rt>yí</rt></ruby>。
 </div>
+</div>
 
-
+<div class="poem">
 <div class="poem-title">望天门山</div>
 <div class="author">〔唐〕李白</div>
 <div class="line">
@@ -94,6 +200,7 @@ rt{font-size:18px;color:#222;}
 </div>
 <div class="line">
 <ruby>孤<rt>gū</rt></ruby><ruby>帆<rt>fān</rt></ruby><ruby>一<rt>yī</rt></ruby><ruby>片<rt>piàn</rt></ruby><ruby>日<rt>rì</rt></ruby><ruby>边<rt>biān</rt></ruby><ruby>来<rt>lái</rt></ruby>。
+</div>
 </div>
 
 </body>
