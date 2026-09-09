@@ -1,21 +1,70 @@
+<?php
+/* 汉字字典 - 服务端查询（复用 lib.php 笔顺数据 / Pinyin.php / zuci.json / chengyu.json） */
+include_once dirname(__FILE__).'/../xiaoxue/lib.php';
+
+$q = trim((string)($_POST['q'] ?? $_GET['q'] ?? ''));
+$q = xx_filter_hanzi($q); // 仅保留汉字
+if (mb_strlen($q, 'UTF-8') > 10) $q = mb_substr($q, 0, 10, 'UTF-8');
+
+$zuci = json_decode(file_get_contents(dirname(__FILE__).'/../data/zuci.json'), true);
+$chengyu = json_decode(file_get_contents(dirname(__FILE__).'/../data/chengyu.json'), true);
+
+/* 成语精确匹配（2 字以上才查） */
+$cy = null;
+if (mb_strlen($q, 'UTF-8') >= 2) {
+    foreach ($chengyu as $c) {
+        if ($c['word'] === $q) { $cy = $c; break; }
+    }
+}
+
+/* 逐字信息 */
+$chars = [];
+if ($q !== '') {
+    preg_match_all('/./u', $q, $m);
+    foreach ($m[0] as $ch) {
+        $py = Pinyin::getPinyin($ch);
+        $chars[] = [
+            'ch'    => $ch,
+            'py'    => ($py !== $ch) ? $py : '',
+            'data'  => xx_load_bishun($ch),
+            'words' => isset($zuci[$ch]) ? array_slice($zuci[$ch], 0, 4) : [],
+        ];
+    }
+}
+
+function zd_svg($data) {
+    $p = '';
+    foreach ($data['strokes'] as $v) $p .= '<path d="'.$v.'"/>';
+    return '<svg width="110" height="110" viewBox="0 0 110 110"><g transform="translate(4,103) scale(0.1,-0.1)" fill="#2c3e50">'.$p.'</g></svg>';
+}
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>姓名字帖 - 进阶专区 - 烙馍网</title>
-<meta name="keywords" content="姓名字帖，名字字帖，定制字帖，姓名描红，宝宝练字，幼儿园名字，烙馍网">
-<meta name="description" content="免费在线生成姓名字帖：输入姓名自动生成专属字帖，带笔顺描红、拼音标注和姓名连写练习，幼儿园一年级必备。">
+<title>汉字字典查询结果 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="汉字字典，在线字典，查字典，汉字拼音，笔画数，笔顺，组词，成语查询，烙馍网">
+<meta name="description" content="免费在线汉字字典：输入汉字、词语或成语，查询拼音、笔画数、笔顺图、常用组词和成语释义。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/jinjie/xingming.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/zidian.html">
 <meta name="robots" content="index, follow">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zzzt.luomor.com/jinjie/xingming.html">
-<meta property="og:title" content="姓名字帖 - 进阶专区">
-<meta property="og:description" content="免费在线生成姓名字帖：输入姓名自动生成专属字帖，带笔顺描红、拼音标注和姓名连写练习，幼儿园一年级必备。">
-<meta property="og:image" content="https://zzzt.luomor.com/img/xg4.png">
-<meta property="og:site_name" content="烙馍网">
 <link rel="stylesheet" href="../xiaoxue/form.css">
+<style>
+.tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
+.tool-input:focus{ outline:none; border-color:#667eea; }
+.btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
+.zd-cy{ padding:16px 18px; background:#fff8e6; border-radius:8px; margin-bottom:8px; }
+.zd-cy-word{ font-size:26px; font-weight:700; color:#2c3e50; }
+.zd-cy-py{ color:#764ba2; margin-top:2px; }
+.zd-cy-meaning{ margin-top:6px; color:#555; font-size:15px; }
+.zd-item{ display:flex; gap:18px; padding:16px 0; border-bottom:1px dashed var(--border-color); align-items:center; }
+.zd-item:last-of-type{ border-bottom:none; }
+.zd-svg{ flex:0 0 110px; width:110px; height:110px; background:url(../img/tzg.svg) center/100% 100% no-repeat; }
+.zd-info{ font-size:16px; line-height:2; color:#444; }
+.zd-info b{ color:#764ba2; }
+.zd-none{ color:#999; font-size:14px; }
+</style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
     <script>(function(){'use strict';function aa(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}var ba=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};
@@ -72,7 +121,7 @@ var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?12a0d13963b589e9095ccecdd327f3fa";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
@@ -81,11 +130,11 @@ var _hmt = _hmt || [];
 <div class="container">
 <header class="header">
     <div class="back-links">
-        <a class="back-link" href="index.html">← 进阶专区</a>
+        <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>✍️ 姓名字帖</h1>
-    <p class="subtitle">输入姓名 · 笔顺描红 · 专属定制</p>
+    <h1>📖 汉字字典</h1>
+    <p class="subtitle">拼音 · 笔画 · 笔顺 · 组词 · 成语</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -120,18 +169,18 @@ var _hmt = _hmt || [];
             </div>
         </div>
         <div class="nav-dropdown">
-            <a href="index.html">进阶专区</a>
+            <a href="../jinjie/">进阶专区</a>
             <div class="nav-sub">
-                <a href="zhizhi.html">空白作业纸</a>
-                <a href="shushi.html">竖式计算</a>
-                <a href="kongbi.html">控笔练习</a>
-                <a href="xingming.html">姓名字帖</a>
-                <a href="shuzi.html">数字字帖</a>
-                <a href="xiepinyin.html">看汉字写拼音</a>
-                <a href="coushi.html">凑十法破十法</a>
-                <a href="kongxin.html">空心字帖</a>
-                <a href="meiri.html">每日一练</a>
-                <a href="suiji.html">随机一练</a>
+                <a href="../jinjie/zhizhi.html">空白作业纸</a>
+                <a href="../jinjie/shushi.html">竖式计算</a>
+                <a href="../jinjie/kongbi.html">控笔练习</a>
+                <a href="../jinjie/xingming.html">姓名字帖</a>
+                <a href="../jinjie/shuzi.html">数字字帖</a>
+                <a href="../jinjie/xiepinyin.html">看汉字写拼音</a>
+                <a href="../jinjie/coushi.html">凑十法破十法</a>
+                <a href="../jinjie/kongxin.html">空心字帖</a>
+                <a href="../jinjie/meiri.html">每日一练</a>
+                <a href="../jinjie/suiji.html">随机一练</a>
             </div>
         </div>
         <div class="nav-dropdown">
@@ -150,86 +199,80 @@ var _hmt = _hmt || [];
             <a href="../quwei/">趣味专区</a>
             <div class="nav-sub">
                 <a href="../quwei/quwei.html">趣味主题字帖</a>
-                    <a href="../quwei/emoji.html">emoji 主题字帖</a>
-                    <a href="../quwei/picgrid.html">趣味田字格模板</a>
+                <a href="../quwei/emoji.html">emoji 主题字帖</a>
+                <a href="../quwei/picgrid.html">趣味田字格模板</a>
                 <a href="../quwei/miaohui.html">描绘画</a>
                 <a href="../quwei/zixun.html">汉字信息汇</a>
                 <a href="../quwei/qrcode.html">二维码生成</a>
             </div>
         </div>
         <div class="nav-dropdown">
-            <a href="../gongju/">工具专区</a>
+            <a href="index.html">工具专区</a>
             <div class="nav-sub">
-                <a href="../gongju/timestamp.html">时间戳转换</a>
-                <a href="../gongju/json.html">JSON 格式化</a>
-                <a href="../gongju/codefmt.html">格式化代码</a>
-                <a href="../gongju/base64.html">Base64 编解码</a>
-                <a href="../gongju/aes.html">加密解密</a>
-                <a href="../gongju/password.html">密码生成器</a>
-                <a href="../gongju/jisuan.html">在线计算器</a>
-                <a href="../gongju/bmi.html">BMI 计算器</a>
-                <a href="../gongju/huobi.html">币种转换</a>
-                <a href="../gongju/fanyi.html">在线翻译</a>
-                <a href="../gongju/jianfan.html">简繁转换</a>
-                <a href="../gongju/pinyin.html">汉字转拼音</a>
-                <a href="../gongju/zidian.html">汉字字典</a>
-                <a href="../gongju/imgzip.html">图片压缩</a>
-                <a href="../gongju/imgconv.html">图片格式转换</a>
+                <a href="timestamp.html">时间戳转换</a>
+                <a href="json.html">JSON 格式化</a>
+                <a href="codefmt.html">格式化代码</a>
+                <a href="base64.html">Base64 编解码</a>
+                <a href="aes.html">加密解密</a>
+                <a href="password.html">密码生成器</a>
+                <a href="jisuan.html">在线计算器</a>
+                <a href="bmi.html">BMI 计算器</a>
+                <a href="huobi.html">币种转换</a>
+                <a href="fanyi.html">在线翻译</a>
+                <a href="jianfan.html">简繁转换</a>
+                <a href="pinyin.html">汉字转拼音</a>
+                <a href="zidian.html">汉字字典</a>
+                <a href="imgzip.html">图片压缩</a>
+                <a href="imgconv.html">图片格式转换</a>
             </div>
         </div>
 </nav>
 
 <div class="card">
-<p class="seo-intro">输入姓名（1-4 字），每个字带笔顺描红和拼音，最后整名连写两遍，专属于孩子的第一份字帖。</p>
-<form action="xingming.php" method="post" target="_blank">
-    <div class="options-grid" style="margin-top:0;">
-    <label class="form-label" for="xm">输入姓名（1-4 个汉字）</label>
-    <textarea id="xm" name="xm" placeholder="例如：张三" style="height:100px;">张三</textarea>        <div class="option-group">
-            <div class="option-group-title">格子类型</div>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="types" value="tzg" checked><span>田字格</span></label>
-                <label class="radio-label"><input type="radio" name="types" value="mzg"><span>米字格</span></label>
-            </div>
-        </div>        <div class="option-group">
-            <div class="option-group-title">格子颜色</div>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="bgcolor" value="green"><span>绿色</span></label>
-                <label class="radio-label"><input type="radio" name="bgcolor" value="black" checked><span>黑色</span></label>
-                <label class="radio-label"><input type="radio" name="bgcolor" value="red"><span>红色</span></label>
-            </div>
-        </div>        <div class="option-group">
-            <div class="option-group-title">显示拼音</div>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="py" value="1" checked><span>是</span></label>
-                <label class="radio-label"><input type="radio" name="py" value="0"><span>否</span></label>
-            </div>
+<?php if ($q !== ''): ?>
+    <?php if ($cy): ?>
+    <div class="zd-cy">
+        <div class="zd-cy-word"><?php echo htmlspecialchars($cy['word'], ENT_QUOTES, 'UTF-8'); ?></div>
+        <div class="zd-cy-py"><?php echo htmlspecialchars($cy['py'], ENT_QUOTES, 'UTF-8'); ?></div>
+        <div class="zd-cy-meaning">释义：<?php echo htmlspecialchars($cy['meaning'], ENT_QUOTES, 'UTF-8'); ?></div>
+    </div>
+    <?php endif; ?>
+    <?php foreach ($chars as $c): ?>
+    <div class="zd-item">
+        <div class="zd-svg"><?php if ($c['data']) { echo zd_svg($c['data']); } ?></div>
+        <div class="zd-info">
+            <div>汉字：<b style="font-size:22px;"><?php echo htmlspecialchars($c['ch'], ENT_QUOTES, 'UTF-8'); ?></b></div>
+            <?php if ($c['py'] !== ''): ?><div>拼音：<b><?php echo htmlspecialchars($c['py'], ENT_QUOTES, 'UTF-8'); ?></b></div><?php endif; ?>
+            <?php if ($c['data']): ?>
+            <div>笔画数：<b><?php echo count($c['data']['strokes']); ?> 画</b></div>
+            <?php else: ?>
+            <div class="zd-none">暂无笔顺数据</div>
+            <?php endif; ?>
+            <?php if ($c['words']): ?><div>组词：<b><?php echo htmlspecialchars(implode('、', $c['words']), ENT_QUOTES, 'UTF-8'); ?></b></div><?php endif; ?>
         </div>
     </div>
+    <?php endforeach; ?>
+<?php else: ?>
+<p class="seo-intro">输入汉字、词语或成语，查询拼音、笔画数、笔顺、组词和成语释义。</p>
+<?php endif; ?>
 
-    <div class="name-row">
-        <div class="field">
-            <label for="class">班级</label>
-            <input type="text" id="class" name="class" placeholder="选填">
-        </div>
-        <div class="field">
-            <label for="name">姓名</label>
-            <input type="text" id="name" name="name" placeholder="选填">
-        </div>
-    </div>
+<form method="post" action="zidian.php" style="margin-top:18px;">
+    <label class="form-label" for="q">输入汉字、词语或成语（最多 10 字）</label>
+    <textarea id="q" name="q" maxlength="10" style="height:80px;" placeholder="例如：龙 或 画蛇添足"><?php echo htmlspecialchars($q, ENT_QUOTES, 'UTF-8'); ?></textarea>
 
     <div class="btn-row">
-        <button type="submit" class="submit-btn">立即生成</button>
+        <button type="submit" class="submit-btn">立即查询</button>
     </div>
 </form>
+
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>输入孩子的姓名</li>
-            <li>设置格子类型和拼音开关</li>
-            <li>点击 <strong>立即生成</strong> 按钮</li>
-            <li>电脑端点 <strong>打印</strong>（勾选"背景图形"），手机端点 <strong>保存图片</strong></li>
+            <li>在输入框中输入汉字、词语或成语（最多 10 字）</li>
+            <li>点击 <strong>立即查询</strong> 查看每个字的拼音、笔画数、笔顺和组词</li>
+            <li>输入成语还会显示拼音和释义，结果页可继续查询</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>打印前请确保已勾选"背景图形"选项，否则格子可能无法显示；手机端建议使用"保存图片"功能。</div>
+        <div class="tip"><strong>💡 提示：</strong>笔顺数据来自本站字帖字库（9574 个常用汉字），组词约 600 字、成语 1000 条；查不到的字会标注「暂无笔顺数据」。</div>
     </div>
 </div>
 </div>

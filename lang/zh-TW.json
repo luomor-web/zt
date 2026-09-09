@@ -24,7 +24,7 @@
     "form.class.label": "班級",
     "form.name.label": "姓名",
     "form.optional": "選填",
-    "form.title.default": "田字格字帖產生器 網址：zt.luomor.com",
+    "form.title.default": "田字格字帖產生器 網址：zzzt.luomor.com",
     "form.submit": "立即產生",
     "options.types.title": "田格類型",
     "options.types.aria": "田格類型選擇",
@@ -121,5 +121,12 @@
     "nav.bmi": "BMI 計算器",
     "nav.jianfan": "簡繁轉換",
     "nav.hanzipinyin": "漢字轉拼音",
-    "nav.imgzip": "圖片壓縮"
+    "nav.imgzip": "圖片壓縮",
+    "nav.codefmt": "格式化程式碼",
+    "nav.aes": "加密解密",
+    "nav.jisuan": "線上計算器",
+    "nav.huobi": "幣別換算",
+    "nav.fanyi": "線上翻譯",
+    "nav.zidian": "漢字字典",
+    "nav.imgconv": "圖片格式轉換"
 }
