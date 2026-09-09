@@ -24,7 +24,7 @@
     "form.class.label": "Class",
     "form.name.label": "Name",
     "form.optional": "Optional",
-    "form.title.default": "Chinese Practice Sheet · zt.luomor.com",
+    "form.title.default": "Chinese Practice Sheet · zzzt.luomor.com",
     "form.submit": "Generate Now",
     "options.types.title": "Grid Type",
     "options.types.aria": "Grid type",
@@ -112,5 +112,14 @@
     "nav.picgrid": "Picture Grid Paper",
     "nav.ketie": "Semester Practice",
     "nav.meiri": "Daily Practice",
-    "nav.suiji": "Random Practice"
+    "nav.suiji": "Random Practice",
+    "nav.gj": "Tools",
+    "nav.timestamp": "Timestamp Converter",
+    "nav.jsonfmt": "JSON Formatter",
+    "nav.base64": "Base64 Encoder",
+    "nav.password": "Password Generator",
+    "nav.bmi": "BMI Calculator",
+    "nav.jianfan": "Chinese Conversion",
+    "nav.hanzipinyin": "Hanzi to Pinyin",
+    "nav.imgzip": "Image Compressor"
 }
