@@ -13,7 +13,10 @@
 
     var current = norm(window.location.pathname);
     var matched = false;
-    var sectionLinks = []; // 专区入口链接（路径为一级目录，如 /xiaoxue、/waiyu）
+    var sectionLinks = [];
+
+    // 当前语言（供抽屉切换按钮高亮）
+    try { window.__curLang = window.localStorage.getItem('tzg-lang') || 'zh'; } catch (e) { window.__curLang = 'zh'; } // 专区入口链接（路径为一级目录，如 /xiaoxue、/waiyu）
 
     Array.prototype.forEach.call(document.querySelectorAll('.nav-bar a'), function (a) {
         a.classList.remove('active');
@@ -63,10 +66,13 @@
         + '.menu-drawer a.has-sub::after{ content:"▾"; float:right; color:#999; }'
         + '.menu-drawer a.has-sub.open::after{ content:"▴"; }'
         + '.menu-drawer a.active{ background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; }'
-        + '.site-lang-switcher{ position:absolute; top:12px; right:12px; display:flex; gap:6px; z-index:10; }'
-        + '.site-lang-switcher button{ padding:4px 12px; font-size:13px; border:1px solid rgba(255,255,255,0.6);'
+        + '.site-lang-switcher{ display:flex; gap:6px; align-items:center; }'
+        + '.site-lang-btn{ padding:8px 14px; font-size:13px; font-weight:600; border:1px solid rgba(255,255,255,0.5);'
         + ' border-radius:20px; background:transparent; color:#fff; cursor:pointer; transition:all .2s; }'
-        + '.site-lang-switcher button.active, .site-lang-switcher button:hover{ background:#fff; color:#764ba2; }'
+        + '.site-lang-btn.active, .site-lang-btn:hover{ background:#fff; color:#764ba2; }'
+        + '.drawer-langs{ display:flex; gap:8px; margin-top:16px; padding-top:12px; border-top:1px solid #eee; }'
+        + '.drawer-langs .site-lang-btn{ border-color:#ccc; color:#555; }'
+        + '.drawer-langs .site-lang-btn.active{ background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-color:transparent; }'
         + '@media (max-width:768px){ .menu-btn{ display:flex; } .nav-bar{ display:none !important; } }';
     var style = document.createElement('style');
     style.textContent = css;
@@ -117,6 +123,29 @@
                 subs.forEach(function (c) { drawer.appendChild(c); });
             }
         });
+
+        // 抽屉底部：语言切换按钮（移动端）
+        var dlangs = document.createElement('div');
+        dlangs.className = 'drawer-langs';
+        [['zh', '简体'], ['zh-TW', '繁體'], ['en', 'EN']].forEach(function (l) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'site-lang-btn';
+            b.textContent = l[1];
+            if ((window.__curLang || 'zh') === l[0]) b.classList.add('active');
+            b.addEventListener('click', function () {
+                try {
+                    window.localStorage.setItem('tzg-lang', l[0]);
+                    document.cookie = 'tzg_lang=' + l[0] + ';path=/;max-age=31536000;SameSite=Lax';
+                } catch (e) {}
+                var url = new URL(window.location.href);
+                url.searchParams.set('lang', l[0]);
+                window.location.href = url.toString();
+            });
+            dlangs.appendChild(b);
+        });
+        drawer.appendChild(dlangs);
+
         drawer.classList.add('open');
         backdrop.classList.add('open');
     }
@@ -134,13 +163,13 @@
         if (a && !a.classList.contains('has-sub')) closeMenu();
     });
 
-    /* ============ 语言切换器（注入到 .header 右上角） ============ */
+    /* ============ 语言切换器（注入到 .nav-bar 中） ============ */
 
-    // 主站 index.html 自带切换器，不重复注入
-    var header = document.querySelector('.header');
-    if (header && !document.querySelector('.lang-switcher')) {
+    // 主站 index.html 自带 header 切换器，不重复注入
+    var navBar = document.querySelector('.nav-bar');
+    if (navBar && !document.querySelector('.lang-switcher')) {
         var switcher = document.createElement('div');
-        switcher.className = 'site-lang-switcher';
+        switcher.className = 'site-lang-switcher nav-dropdown';
         switcher.setAttribute('role', 'group');
         switcher.setAttribute('aria-label', '语言切换');
         var langs = [['zh', '简体'], ['zh-TW', '繁體'], ['en', 'EN']];
@@ -149,6 +178,7 @@
         langs.forEach(function (l) {
             var b = document.createElement('button');
             b.type = 'button';
+            b.className = 'site-lang-btn';
             b.textContent = l[1];
             b.setAttribute('data-lang', l[0]);
             if ((cur || 'zh') === l[0]) b.classList.add('active');
@@ -163,6 +193,6 @@
             });
             switcher.appendChild(b);
         });
-        header.appendChild(switcher);
+        navBar.appendChild(switcher);
     }
 })();
