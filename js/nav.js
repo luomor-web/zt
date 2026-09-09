@@ -63,6 +63,10 @@
         + '.menu-drawer a.has-sub::after{ content:"▾"; float:right; color:#999; }'
         + '.menu-drawer a.has-sub.open::after{ content:"▴"; }'
         + '.menu-drawer a.active{ background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; }'
+        + '.site-lang-switcher{ position:absolute; top:12px; right:12px; display:flex; gap:6px; z-index:10; }'
+        + '.site-lang-switcher button{ padding:4px 12px; font-size:13px; border:1px solid rgba(255,255,255,0.6);'
+        + ' border-radius:20px; background:transparent; color:#fff; cursor:pointer; transition:all .2s; }'
+        + '.site-lang-switcher button.active, .site-lang-switcher button:hover{ background:#fff; color:#764ba2; }'
         + '@media (max-width:768px){ .menu-btn{ display:flex; } .nav-bar{ display:none !important; } }';
     var style = document.createElement('style');
     style.textContent = css;
@@ -129,4 +133,36 @@
         // 专区标题用于展开子菜单，不关闭抽屉；普通链接点击后关闭
         if (a && !a.classList.contains('has-sub')) closeMenu();
     });
+
+    /* ============ 语言切换器（注入到 .header 右上角） ============ */
+
+    // 主站 index.html 自带切换器，不重复注入
+    var header = document.querySelector('.header');
+    if (header && !document.querySelector('.lang-switcher')) {
+        var switcher = document.createElement('div');
+        switcher.className = 'site-lang-switcher';
+        switcher.setAttribute('role', 'group');
+        switcher.setAttribute('aria-label', '语言切换');
+        var langs = [['zh', '简体'], ['zh-TW', '繁體'], ['en', 'EN']];
+        var cur = null;
+        try { cur = window.localStorage.getItem('tzg-lang'); } catch (e) {}
+        langs.forEach(function (l) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.textContent = l[1];
+            b.setAttribute('data-lang', l[0]);
+            if ((cur || 'zh') === l[0]) b.classList.add('active');
+            b.addEventListener('click', function () {
+                try {
+                    window.localStorage.setItem('tzg-lang', l[0]);
+                    document.cookie = 'tzg_lang=' + l[0] + ';path=/;max-age=31536000;SameSite=Lax';
+                } catch (e) {}
+                var url = new URL(window.location.href);
+                url.searchParams.set('lang', l[0]);
+                window.location.href = url.toString();
+            });
+            switcher.appendChild(b);
+        });
+        header.appendChild(switcher);
+    }
 })();
