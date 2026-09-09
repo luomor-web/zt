@@ -173,9 +173,8 @@
         window.location.href = url.toString();
     }
 
-    // 主站 index.html 自带 header 切换器，不重复注入
     var navBar = document.querySelector('.nav-bar');
-    if (navBar && !document.querySelector('.lang-switcher')) {
+    if (navBar && !document.querySelector('.site-lang-dd')) {
         var LANGS = [['zh', '简体'], ['zh-TW', '繁體'], ['en', 'EN']];
         var cur = window.__curLang || 'zh';
 
