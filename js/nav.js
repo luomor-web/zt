@@ -133,15 +133,7 @@
             b.className = 'site-lang-btn';
             b.textContent = l[1];
             if ((window.__curLang || 'zh') === l[0]) b.classList.add('active');
-            b.addEventListener('click', function () {
-                try {
-                    window.localStorage.setItem('tzg-lang', l[0]);
-                    document.cookie = 'tzg_lang=' + l[0] + ';path=/;max-age=31536000;SameSite=Lax';
-                } catch (e) {}
-                var url = new URL(window.location.href);
-                url.searchParams.set('lang', l[0]);
-                window.location.href = url.toString();
-            });
+            b.addEventListener('click', function () { switchLang(l[0]); });
             dlangs.appendChild(b);
         });
         drawer.appendChild(dlangs);
@@ -159,40 +151,58 @@
     backdrop.addEventListener('click', closeMenu);
     drawer.addEventListener('click', function (e) {
         var a = e.target.closest('a');
+        // 语言选项（含克隆来的）：切换语言
+        if (a && a.getAttribute('data-lang')) {
+            e.preventDefault();
+            switchLang(a.getAttribute('data-lang'));
+            return;
+        }
         // 专区标题用于展开子菜单，不关闭抽屉；普通链接点击后关闭
         if (a && !a.classList.contains('has-sub')) closeMenu();
     });
 
-    /* ============ 语言切换器（注入到 .nav-bar 中） ============ */
+    /* ============ 语言切换器（nav-bar 中的下拉菜单，样式同导航） ============ */
+
+    function switchLang(lang) {
+        try {
+            window.localStorage.setItem('tzg-lang', lang);
+            document.cookie = 'tzg_lang=' + lang + ';path=/;max-age=31536000;SameSite=Lax';
+        } catch (e) {}
+        var url = new URL(window.location.href);
+        url.searchParams.set('lang', lang);
+        window.location.href = url.toString();
+    }
 
     // 主站 index.html 自带 header 切换器，不重复注入
     var navBar = document.querySelector('.nav-bar');
     if (navBar && !document.querySelector('.lang-switcher')) {
-        var switcher = document.createElement('div');
-        switcher.className = 'site-lang-switcher nav-dropdown';
-        switcher.setAttribute('role', 'group');
-        switcher.setAttribute('aria-label', '语言切换');
-        var langs = [['zh', '简体'], ['zh-TW', '繁體'], ['en', 'EN']];
-        var cur = null;
-        try { cur = window.localStorage.getItem('tzg-lang'); } catch (e) {}
-        langs.forEach(function (l) {
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'site-lang-btn';
-            b.textContent = l[1];
-            b.setAttribute('data-lang', l[0]);
-            if ((cur || 'zh') === l[0]) b.classList.add('active');
-            b.addEventListener('click', function () {
-                try {
-                    window.localStorage.setItem('tzg-lang', l[0]);
-                    document.cookie = 'tzg_lang=' + l[0] + ';path=/;max-age=31536000;SameSite=Lax';
-                } catch (e) {}
-                var url = new URL(window.location.href);
-                url.searchParams.set('lang', l[0]);
-                window.location.href = url.toString();
-            });
-            switcher.appendChild(b);
+        var LANGS = [['zh', '简体'], ['zh-TW', '繁體'], ['en', 'EN']];
+        var cur = window.__curLang || 'zh';
+
+        var dd = document.createElement('div');
+        dd.className = 'nav-dropdown site-lang-dd';
+
+        // 父项：显示"语言切换"，并记录当前语言
+        var parent = document.createElement('a');
+        parent.href = 'javascript:void(0)';
+        parent.className = 'lang-parent';
+        var curName = LANGS.find(function (l) { return l[0] === cur; });
+        parent.textContent = '语言切换' + (curName ? '·' + curName[1] : '');
+        dd.appendChild(parent);
+
+        // 子菜单：简体/繁體/EN，当前语言加 active
+        var sub = document.createElement('div');
+        sub.className = 'nav-sub';
+        LANGS.forEach(function (l) {
+            var a = document.createElement('a');
+            a.href = 'javascript:void(0)';
+            a.textContent = l[1];
+            a.setAttribute('data-lang', l[0]);
+            if (cur === l[0]) a.classList.add('active');
+            a.addEventListener('click', function () { switchLang(l[0]); });
+            sub.appendChild(a);
         });
-        navBar.appendChild(switcher);
+        dd.appendChild(sub);
+        navBar.appendChild(dd);
     }
 })();
