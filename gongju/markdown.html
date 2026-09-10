@@ -3,25 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>加密解密 - 在线AES加密解密工具 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="在线加密，在线解密，AES加密，AES解密，文本加密工具，烙馍网">
-<meta name="description" content="免费在线 AES 加密解密工具：使用 AES-GCM 加密算法和 PBKDF2 密钥派生，设置密码加密/解密文本，全部在浏览器本地完成，安全可靠。">
+<title>Markdown编辑器 - 在线Markdown编辑实时预览 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="Markdown编辑器，在线Markdown，Markdown预览，Markdown实时预览，烙馍网">
+<meta name="description" content="免费在线 Markdown 编辑器：左侧编辑右侧实时预览，支持标题、列表、表格、代码块等语法，一键复制 HTML，本地运行不上传。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/aes.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/markdown.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
-.field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
-.field-row .field{ flex:1; min-width:180px; }
-.field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
-.check-group{ display:flex; flex-wrap:wrap; gap:8px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.result-box{ margin-top:18px; padding:14px 16px; background:#f8f9fa; border-radius:8px; font-size:15px; word-break:break-all; display:none; }
-.result-box.show{ display:block; }
-.result-box.error{ background:#fdecea; color:#c0392b; }
-.result-box pre{ white-space:pre-wrap; word-break:break-all; font-family:Menlo,Consolas,"Courier New",monospace; font-size:14px; }
+.edit-toolbar{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+.edit-toolbar .mini-btn{ margin-right:0; }
+.split-editor{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.split-editor textarea{ height:440px; font-family:Menlo,Consolas,"Courier New",monospace; font-size:14px; line-height:1.6; }
+.preview{ height:440px; border:2px solid var(--border-color); border-radius:12px; background:#fff; overflow:auto; padding:16px; box-sizing:border-box; }
+@media (max-width:768px){ .split-editor{ grid-template-columns:1fr; } .split-editor textarea, .preview{ height:320px; } }
+.md-preview h1,.md-preview h2{ border-bottom:1px solid var(--border-color); padding-bottom:6px; }
+.md-preview code{ background:#f0f1f5; padding:2px 6px; border-radius:4px; font-size:13px; font-family:Menlo,Consolas,monospace; }
+.md-preview pre{ background:#f0f1f5; padding:12px; border-radius:8px; overflow:auto; }
+.md-preview pre code{ background:none; padding:0; }
+.md-preview blockquote{ border-left:4px solid #667eea; margin:0; padding:4px 14px; color:#666; background:#f8f9fa; border-radius:0 6px 6px 0; }
+.md-preview table{ border-collapse:collapse; }
+.md-preview th,.md-preview td{ border:1px solid var(--border-color); padding:6px 12px; }
+.md-preview img{ max-width:100%; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -91,8 +97,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>🔐 加密解密</h1>
-    <p class="subtitle">AES-GCM 加密 · 密码本地处理 · 安全可靠</p>
+    <h1>📝 Markdown 编辑器</h1>
+    <p class="subtitle">左侧编辑 · 右侧实时预览</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -190,121 +196,69 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线文本加密解密工具：设置一个密码，用 AES-GCM 加密算法把文本加密成密文，或把密文解密还原。密钥由 PBKDF2（10 万次迭代）派生，所有运算在浏览器本地完成，密码和原文不会上传到服务器。</p>
-<div class="options-grid" style="margin-top:0;">
-    <div class="option-group">
-        <div class="option-group-title">模式</div>
-        <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="mode" value="enc" checked><span>加密</span></label>
-            <label class="radio-label"><input type="radio" name="mode" value="dec"><span>解密</span></label>
-        </div>
-    </div>
+<p class="seo-intro">在线 Markdown 编辑器：左侧输入 Markdown 文本，右侧实时渲染预览，支持标题、粗体斜体、列表、引用、表格、代码块等常用语法，工具栏可快速插入语法片段，渲染后的 HTML 可一键复制，全部在浏览器本地完成。</p>
+<div class="edit-toolbar">
+    <button type="button" class="mini-btn" data-md="**粗体**">粗体</button>
+    <button type="button" class="mini-btn" data-md="*斜体*">斜体</button>
+    <button type="button" class="mini-btn" data-md="# 标题">标题</button>
+    <button type="button" class="mini-btn" data-md="[链接文字](https://)">链接</button>
+    <button type="button" class="mini-btn" data-md="`代码`">代码</button>
+    <button type="button" class="mini-btn" data-md="- 列表项">列表</button>
+    <button type="button" class="mini-btn" data-md="> 引用">引用</button>
+    <button type="button" class="mini-btn" id="btn-sample">示例</button>
+    <button type="button" class="mini-btn" id="btn-copy">复制 HTML</button>
+    <button type="button" class="mini-btn" id="btn-clear">清空</button>
 </div>
-
-<div class="field-row">
-    <div class="field">
-        <label for="pwd">密码（加解密需使用同一密码）</label>
-        <input class="tool-input" type="text" id="pwd" placeholder="请输入密码" autocomplete="off">
-    </div>
+<div class="split-editor">
+    <textarea id="input" placeholder="在此输入 Markdown，右侧实时预览"></textarea>
+    <div class="preview md-preview" id="preview"></div>
 </div>
-
-<div style="margin-top:18px;">
-    <label class="form-label" for="input">输入文本（加密模式输入原文，解密模式输入密文）</label>
-    <textarea id="input" placeholder="输入要加密的文本，或要解密的密文"></textarea>
-</div>
-
-<div class="btn-row">
-    <button type="button" class="submit-btn" id="btn-go">立即执行</button>
-    <button type="button" class="submit-btn btn-sub" id="btn-copy">复制结果</button>
-    <button type="button" class="submit-btn btn-sub" id="btn-clear">清空</button>
-</div>
-
-<div class="result-box" id="result"><pre id="output"></pre></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>选择模式：<strong>加密</strong> 或 <strong>解密</strong></li>
-            <li>输入密码和文本（解密时粘贴密文），点击 <strong>立即执行</strong></li>
-            <li>点击 <strong>复制结果</strong> 保存密文或还原的原文</li>
+            <li>在左侧输入 Markdown 文本，右侧立即显示渲染效果</li>
+            <li>点上方工具栏可插入 <strong>粗体 / 标题 / 链接 / 代码</strong> 等语法片段</li>
+            <li>点 <strong>复制 HTML</strong> 把渲染结果粘贴到博客或网站中使用</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>采用 AES-GCM 加密 + PBKDF2（10 万次迭代）派生密钥，每次加密随机生成盐值和初始向量；全部运算在浏览器本地完成，请牢记密码，丢失无法找回数据。</div>
+        <div class="tip"><strong>💡 提示：</strong>渲染使用 marked + DOMPurify（CDN 加载），内容经过 XSS 过滤且不会上传到服务器。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 <script>
 var input=document.getElementById('input'),
-    result=document.getElementById('result'),
-    output=document.getElementById('output');
-function show(text,err){
-    result.className='result-box show'+(err?' error':'');
-    output.textContent=text;
+    preview=document.getElementById('preview'),
+    SAMPLE='# Markdown 示例\n\n**粗体** 和 *斜体*，还有 `行内代码`。\n\n## 列表\n\n- 第一项\n- 第二项\n\n## 引用\n\n> 学而不思则罔，思而不学则殆。\n\n## 代码块\n\n```js\nconsole.log("你好");\n```\n\n## 表格\n\n| 名称 | 价格 |\n| --- | --- |\n| 苹果 | 5 元 |\n| 香蕉 | 3 元 |\n';
+function render(){
+    var text=input.value;
+    if(typeof marked==='undefined'||typeof DOMPurify==='undefined'){
+        preview.textContent='渲染组件加载失败，请检查网络后刷新重试';
+        return;
+    }
+    preview.innerHTML=DOMPurify.sanitize(marked.parse(text,{breaks:true,gfm:true}));
 }
-function buf2b64(buf){
-    var bytes=new Uint8Array(buf), bin='', i;
-    for(i=0;i<bytes.length;i+=8192) bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));
-    return btoa(bin);
-}
-function b642buf(str){
-    var bin=atob(str.replace(/\s+/g,'')), bytes=new Uint8Array(bin.length), i;
-    for(i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
-    return bytes;
-}
-function getKey(pwd,salt){
-    return crypto.subtle.importKey('raw',new TextEncoder().encode(pwd),'PBKDF2',false,['deriveKey'])
-        .then(function(base){
-            return crypto.subtle.deriveKey(
-                {name:'PBKDF2',salt:salt,iterations:100000,hash:'SHA-256'},
-                base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
-        });
-}
-function doEncrypt(pwd,text){
-    var salt=crypto.getRandomValues(new Uint8Array(16)),
-        iv=crypto.getRandomValues(new Uint8Array(12));
-    return getKey(pwd,salt).then(function(key){
-        return crypto.subtle.encrypt({name:'AES-GCM',iv:iv},key,new TextEncoder().encode(text));
-    }).then(function(ct){
-        var out=new Uint8Array(16+12+ct.byteLength);
-        out.set(salt,0); out.set(iv,16); out.set(new Uint8Array(ct),28);
-        return buf2b64(out);
+input.addEventListener('input',render);
+document.querySelectorAll('[data-md]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+        var s=input.selectionStart||input.value.length;
+        input.value=input.value.slice(0,s)+btn.getAttribute('data-md')+input.value.slice(input.selectionEnd||s);
+        input.focus();
+        render();
     });
-}
-function doDecrypt(pwd,b64){
-    var data=b642buf(b64);
-    if(data.length<29) return Promise.reject(new Error('密文格式不正确'));
-    var salt=data.subarray(0,16), iv=data.subarray(16,28), ct=data.subarray(28);
-    return getKey(pwd,salt).then(function(key){
-        return crypto.subtle.decrypt({name:'AES-GCM',iv:iv},key,ct);
-    }).then(function(pt){
-        return new TextDecoder().decode(pt);
-    });
-}
-document.getElementById('btn-go').addEventListener('click',function(){
-    var pwd=document.getElementById('pwd').value,
-        text=input.value.trim(),
-        mode=document.querySelector('input[name="mode"]:checked').value,
-        btn=this;
-    if(!pwd){ show('请输入密码',true); return; }
-    if(!text){ show(mode==='enc'?'请输入要加密的文本':'请输入要解密的密文',true); return; }
-    if(!crypto.subtle){ show('当前浏览器不支持 Web Crypto（需 HTTPS 或 localhost 环境）',true); return; }
-    btn.disabled=true; btn.textContent='处理中…';
-    var job=mode==='enc'?doEncrypt(pwd,text):doDecrypt(pwd,text);
-    job.then(function(out){ show(out); })
-       .catch(function(){ show(mode==='enc'?'加密失败，请重试':'解密失败：密码错误或密文已损坏',true); })
-       .finally(function(){ btn.disabled=false; btn.textContent='立即执行'; });
 });
+document.getElementById('btn-sample').addEventListener('click',function(){ input.value=SAMPLE; render(); });
+document.getElementById('btn-clear').addEventListener('click',function(){ input.value=''; render(); });
 document.getElementById('btn-copy').addEventListener('click',function(){
-    var t=output.textContent, b=this;
-    if(!t){ show('没有可复制的结果',true); return; }
-    navigator.clipboard.writeText(t).then(function(){
+    var b=this;
+    navigator.clipboard.writeText(preview.innerHTML).then(function(){
         b.textContent='已复制';
-        setTimeout(function(){ b.textContent='复制结果'; },1200);
+        setTimeout(function(){ b.textContent='复制 HTML'; },1200);
     });
 });
-document.getElementById('btn-clear').addEventListener('click',function(){
-    input.value=''; output.textContent=''; result.className='result-box';
-});
+input.value=SAMPLE;
+render();
 </script>
 <script src="../js/site-i18n.js" defer></script>
 </body>
