@@ -7,20 +7,20 @@
 <meta name="keywords" content="在线工具，时间戳转换，JSON格式化，Base64编解码，密码生成器，BMI计算器，简繁转换，汉字转拼音，图片压缩，在线翻译，汉字字典，在线计算器，加密解密，币种转换，格式化代码，图片格式转换，烙馍网">
 <meta name="description" content="烙馍网工具专区：时间戳转换、JSON 格式化、Base64 编解码、密码生成器、BMI 计算器、简繁转换、汉字转拼音、图片压缩、在线翻译、汉字字典、在线计算器、加密解密、币种转换、格式化代码、图片格式转换，免费使用。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://zt.luomor.com/gongju/">
+<meta property="og:url" content="https://zzzt.luomor.com/gongju/">
 <meta property="og:title" content="工具专区 - 免费在线实用工具集">
 <meta property="og:description" content="时间戳转换、JSON 格式化、加密解密、在线翻译、汉字字典、计算器、币种转换、图片工具等 15 个免费在线工具。">
-<meta property="og:image" content="https://zt.luomor.com/img/xg4.png">
+<meta property="og:image" content="https://zzzt.luomor.com/img/xg4.png">
 <meta property="og:site_name" content="烙馍网">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "工具专区",
-    "url": "https://zt.luomor.com/gongju/",
+    "url": "https://zzzt.luomor.com/gongju/",
     "description": "时间戳转换、JSON 格式化、加密解密、在线翻译、汉字字典、计算器、币种转换、图片工具等 15 个免费在线工具。",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
@@ -48,6 +48,13 @@ body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica 
 .nav-dropdown{ position:relative; display:flex; align-items:center; }
 .nav-sub{ display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:8px; z-index:100; min-width:130px; }
 .nav-dropdown:hover .nav-sub, .nav-dropdown:focus-within .nav-sub{ display:flex; flex-direction:column; gap:6px; }
+.nav-sub.nav-grid{ min-width:0; }
+@media (min-width:769px){
+.nav-dropdown:hover .nav-sub.nav-grid, .nav-dropdown:focus-within .nav-sub.nav-grid{ display:grid; grid-template-columns:repeat(8,auto); gap:6px; left:auto; right:0; transform:none; }
+}
+@media (min-width:769px) and (max-width:1200px){
+.nav-dropdown:hover .nav-sub.nav-grid, .nav-dropdown:focus-within .nav-sub.nav-grid{ grid-template-columns:repeat(5,auto); }
+}
 .nav-sub a{ white-space:nowrap; text-align:center; }
 .cards{ columns:280px; column-gap:20px; }
 .card-link{ display:block; break-inside:avoid; margin-bottom:20px; text-decoration:none; color:inherit; }
@@ -206,7 +213,7 @@ var _hmt = _hmt || [];
         </div>
         <div class="nav-dropdown">
             <a href="index.html">工具专区</a>
-            <div class="nav-sub">
+            <div class="nav-sub nav-grid">
                 <a href="timestamp.html">时间戳转换</a>
                 <a href="json.html">JSON 格式化</a>
                 <a href="codefmt.html">格式化代码</a>
