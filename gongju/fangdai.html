@@ -3,26 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>图片压缩 - 在线图片压缩本地处理不上传 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="图片压缩，在线图片压缩，图片压缩工具，JPG压缩，PNG压缩，WebP转换，烙馍网">
-<meta name="description" content="免费在线图片压缩工具：浏览器本地压缩 JPG/PNG/WebP 图片，质量和最长边可调，实时对比压缩前后大小，文件不上传服务器。">
+<title>房贷计算 - 在线房贷计算器等额本息等额本金 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="房贷计算，房贷计算器，等额本息，等额本金，月供计算，贷款计算器，烙馍网">
+<meta name="description" content="免费在线房贷计算器：输入贷款金额、年限和利率，按等额本息或等额本金计算月供、总利息和还款总额，两种方式对比一目了然。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/imgzip.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/fangdai.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
 .field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
-.field-row .field{ flex:1; min-width:180px; }
+.field-row .field{ flex:1; min-width:150px; }
 .field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
-.check-group{ display:flex; flex-wrap:wrap; gap:8px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.result-box{ margin-top:18px; padding:14px 16px; background:#f8f9fa; border-radius:8px; font-size:15px; word-break:break-all; display:none; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
 .result-box.show{ display:block; }
 .result-box.error{ background:#fdecea; color:#c0392b; }
-.result-box pre{ white-space:pre-wrap; word-break:break-all; font-family:Menlo,Consolas,"Courier New",monospace; font-size:14px; }
-#preview{ max-width:100%; margin-top:12px; border-radius:8px; box-shadow:var(--shadow); }
+.fd-num{ font-size:28px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.fd-row{ display:flex; flex-wrap:wrap; gap:24px; margin-top:10px; }
+.fd-cell{ min-width:150px; }
+.fd-cell .t{ font-size:13px; color:#888; }
+.fd-cell .v{ font-size:18px; font-weight:600; color:#2c3e50; margin-top:2px; }
+.fd-compare{ margin-top:12px; padding-top:10px; border-top:1px dashed #ddd; font-size:13px; color:#888; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -92,8 +95,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>🖼️ 图片压缩</h1>
-    <p class="subtitle">本地压缩 · 质量尺寸可调 · 不上传</p>
+    <h1>🏠 房贷计算</h1>
+    <p class="subtitle">等额本息 · 等额本金 · 月供利息一目了然</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -192,109 +195,96 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线图片压缩工具：选择图片后设置输出格式（JPEG/PNG/WebP）、压缩质量和最长边限制，在浏览器本地完成压缩并下载，实时显示压缩前后的大小对比，图片不会上传到服务器。</p>
-<label class="form-label" for="file">选择图片</label>
-<input type="file" id="file" accept="image/*" class="tool-input" style="padding:8px;">
-
-<div class="options-grid">
-    <div class="option-group">
-        <div class="option-group-title">输出格式</div>
-        <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="fmt" value="image/jpeg" checked><span>JPEG</span></label>
-            <label class="radio-label"><input type="radio" name="fmt" value="image/png"><span>PNG</span></label>
-            <label class="radio-label"><input type="radio" name="fmt" value="image/webp"><span>WebP</span></label>
-        </div>
+<p class="seo-intro">在线房贷计算器：输入贷款金额（万元）、贷款年限和年利率，选择等额本息或等额本金还款方式，立即算出月供、每月递减额、总利息和还款总额，并给出另一种方式的对比参考，全部在浏览器本地计算。</p>
+<div class="field-row" style="margin-top:0;">
+    <div class="field">
+        <label for="amount">贷款金额（万元）</label>
+        <input class="tool-input" type="number" id="amount" min="1" max="10000" step="1" value="100">
     </div>
-    <div class="option-group">
-        <div class="option-group-title">最长边限制</div>
-        <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="maxside" value="0" checked><span>原始尺寸</span></label>
-            <label class="radio-label"><input type="radio" name="maxside" value="2560"><span>2560px</span></label>
-            <label class="radio-label"><input type="radio" name="maxside" value="1920"><span>1920px</span></label>
-            <label class="radio-label"><input type="radio" name="maxside" value="1280"><span>1280px</span></label>
-            <label class="radio-label"><input type="radio" name="maxside" value="800"><span>800px</span></label>
-        </div>
+    <div class="field">
+        <label for="years">贷款年限（年）</label>
+        <input class="tool-input" type="number" id="years" min="1" max="30" step="1" value="30">
+    </div>
+    <div class="field">
+        <label for="rate">年利率（%）</label>
+        <input class="tool-input" type="number" id="rate" min="0" max="20" step="0.01" value="3.6">
     </div>
 </div>
 
-<div class="field-row">
-    <div class="field">
-        <label for="quality">压缩质量：<b id="q-val">80</b>%（仅 JPEG / WebP 生效）</label>
-        <input type="range" id="quality" min="10" max="100" value="80" style="width:100%;accent-color:#764ba2;">
+<div class="options-grid">
+    <div class="option-group">
+        <div class="option-group-title">还款方式</div>
+        <div class="radio-group">
+            <label class="radio-label"><input type="radio" name="mode" value="bx" checked><span>等额本息（每月还款额固定）</span></label>
+            <label class="radio-label"><input type="radio" name="mode" value="bj"><span>等额本金（每月本金固定，逐月递减）</span></label>
+        </div>
     </div>
 </div>
 
 <div class="btn-row">
-    <button type="button" class="submit-btn" id="btn-go">开始压缩</button>
-    <a class="submit-btn btn-sub" id="btn-dl" style="display:none;text-decoration:none;" download="compressed.jpg">下载图片</a>
+    <button type="button" class="submit-btn" id="btn-calc">立即计算</button>
 </div>
 
-<div class="result-box" id="result">
-    <div id="info"></div>
-    <img id="preview" alt="压缩结果预览">
-</div>
+<div class="result-box" id="result"></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>点击 <strong>选择图片</strong> 上传一张 JPG/PNG/WebP 图片</li>
-            <li>设置输出格式、最长边和压缩质量，点 <strong>开始压缩</strong></li>
-            <li>确认压缩前后的大小对比，点 <strong>下载图片</strong> 保存结果</li>
+            <li>输入贷款金额（万元）、贷款年限（年）和年利率（%）</li>
+            <li>选择还款方式：<strong>等额本息</strong>（月供固定）或 <strong>等额本金</strong>（逐月递减）</li>
+            <li>点击 <strong>立即计算</strong> 查看月供、总利息和还款总额</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>所有处理在浏览器本地通过 Canvas 完成，图片不会上传到服务器；PNG 为无损格式，压缩照片类图片建议选 JPEG 或 WebP。</div>
+        <div class="tip"><strong>💡 提示：</strong>计算结果为理论值，未考虑利率调整、提前还款和公积金组合贷等情况，实际以贷款银行合同为准。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
-
 <script>
-var fileInput=document.getElementById('file'),
-    quality=document.getElementById('quality'),
-    qVal=document.getElementById('q-val'),
-    result=document.getElementById('result'),
-    info=document.getElementById('info'),
-    preview=document.getElementById('preview'),
-    dl=document.getElementById('btn-dl'),
-    curFile=null, curUrl=null;
-quality.addEventListener('input',function(){ qVal.textContent=this.value; });
-fileInput.addEventListener('change',function(){
-    curFile=this.files[0]||null;
-    result.className='result-box'; dl.style.display='none';
-});
-function kb(n){ return (n/1024).toFixed(1)+' KB'; }
-function showErr(msg){ result.className='result-box show error'; info.textContent=msg; preview.removeAttribute('src'); }
-document.getElementById('btn-go').addEventListener('click',function(){
-    if(!curFile){ showErr('请先选择一张图片'); return; }
-    if(!/^image\//.test(curFile.type)){ showErr('请选择图片文件'); return; }
-    var type=document.querySelector('input[name="fmt"]:checked').value,
-        maxside=parseInt(document.querySelector('input[name="maxside"]:checked').value,10),
-        q=parseInt(quality.value,10)/100;
-    var url=URL.createObjectURL(curFile), img=new Image();
-    img.onload=function(){
-        var w=img.naturalWidth, h=img.naturalHeight;
-        if(maxside>0 && Math.max(w,h)>maxside){
-            var k=maxside/Math.max(w,h);
-            w=Math.round(w*k); h=Math.round(h*k);
-        }
-        var cv=document.createElement('canvas');
-        cv.width=w; cv.height=h;
-        cv.getContext('2d').drawImage(img,0,0,w,h);
-        URL.revokeObjectURL(url);
-        cv.toBlob(function(blob){
-            if(!blob){ showErr('压缩失败，请换个格式重试'); return; }
-            if(curUrl) URL.revokeObjectURL(curUrl);
-            curUrl=URL.createObjectURL(blob);
-            var pct=curFile.size?Math.round((1-blob.size/curFile.size)*100):0;
-            result.className='result-box show';
-            info.innerHTML='原始：'+kb(curFile.size)+'（'+img.naturalWidth+'×'+img.naturalHeight+'）'
-                +' → 压缩后：<b style="color:#27ae60">'+kb(blob.size)+'</b>（'+w+'×'+h+'），'
-                +(pct>=0?'减小 '+pct+'%':'增大 '+(-pct)+'%');
-            preview.src=curUrl;
-            var ext=type==='image/png'?'.png':(type==='image/webp'?'.webp':'.jpg');
-            dl.href=curUrl; dl.download='compressed'+ext; dl.style.display='';
-        },type,q);
-    };
-    img.onerror=function(){ URL.revokeObjectURL(url); showErr('图片读取失败，请重试'); };
-    img.src=url;
+function wan(yuan){ return (yuan/10000).toFixed(2); }
+function yuan(v){ return v.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+document.getElementById('btn-calc').addEventListener('click',function(){
+    var r=document.getElementById('result');
+    function err(msg){ r.className='result-box show error'; r.textContent=msg; }
+    var amount=parseFloat(document.getElementById('amount').value),
+        years=parseInt(document.getElementById('years').value,10),
+        rate=parseFloat(document.getElementById('rate').value),
+        mode=document.querySelector('input[name="mode"]:checked').value;
+    if(!(amount>0&&amount<=10000)){ err('请输入正确的贷款金额（1-10000 万元）'); return; }
+    if(!(years>=1&&years<=30)){ err('请输入正确的贷款年限（1-30 年）'); return; }
+    if(!(rate>=0&&rate<=20)){ err('请输入正确的年利率（0-20%）'); return; }
+    var P=amount*10000, n=years*12, i=rate/100/12,
+        // 等额本息
+        bxMonthly=i>0?P*i*Math.pow(1+i,n)/(Math.pow(1+i,n)-1):P/n,
+        bxInterest=bxMonthly*n-P,
+        // 等额本金
+        bjPrincipal=P/n,
+        bjFirst=bjPrincipal+P*i,
+        bjDec=bjPrincipal*i,
+        bjLast=bjPrincipal+bjPrincipal*i,
+        bjInterest=P*i*(n+1)/2,
+        html='';
+    if(mode==='bx'){
+        html='<div class="t" style="font-size:13px;color:#888;">等额本息 · 月供</div>'
+            +'<div class="fd-num">'+yuan(bxMonthly)+' 元</div>'
+            +'<div class="fd-row">'
+            +'<div class="fd-cell"><div class="t">还款月数</div><div class="v">'+n+' 期</div></div>'
+            +'<div class="fd-cell"><div class="t">总利息</div><div class="v">'+wan(bxInterest)+' 万元</div></div>'
+            +'<div class="fd-cell"><div class="t">还款总额</div><div class="v">'+wan(P+bxInterest)+' 万元</div></div>'
+            +'</div>'
+            +'<div class="fd-compare">对比：等额本金总利息 '+wan(bjInterest)+' 万元，比等额本息少 '+(bxInterest>bjInterest?wan(bxInterest-bjInterest):'0.00')+' 万元（首月压力较大）。</div>';
+    }else{
+        html='<div class="t" style="font-size:13px;color:#888;">等额本金 · 首月月供</div>'
+            +'<div class="fd-num">'+yuan(bjFirst)+' 元</div>'
+            +'<div class="fd-row">'
+            +'<div class="fd-cell"><div class="t">每月递减</div><div class="v">'+yuan(bjDec)+' 元</div></div>'
+            +'<div class="fd-cell"><div class="t">末月月供</div><div class="v">'+yuan(bjLast)+' 元</div></div>'
+            +'<div class="fd-cell"><div class="t">还款月数</div><div class="v">'+n+' 期</div></div>'
+            +'<div class="fd-cell"><div class="t">总利息</div><div class="v">'+wan(bjInterest)+' 万元</div></div>'
+            +'<div class="fd-cell"><div class="t">还款总额</div><div class="v">'+wan(P+bjInterest)+' 万元</div></div>'
+            +'</div>'
+            +'<div class="fd-compare">对比：等额本息月供固定为 '+yuan(bxMonthly)+' 元，总利息 '+wan(bxInterest)+' 万元。</div>';
+    }
+    r.className='result-box show';
+    r.innerHTML=html;
 });
 </script>
 <script src="../js/site-i18n.js" defer></script>
