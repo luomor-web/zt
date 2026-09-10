@@ -161,6 +161,43 @@
         if (a && !a.classList.contains('has-sub')) closeMenu();
     });
 
+    /* ============ 网格子菜单（nav-grid）溢出修正 ============
+     * 默认以菜单按钮为中心左右对称显示（CSS left:50% + translateX(-50%)）；
+     * 悬停时测量面板宽度，仅当会溢出视口时才改为按视口边缘平移 */
+    Array.prototype.forEach.call(document.querySelectorAll('.nav-sub.nav-grid'), function (sub) {
+        var dd = sub.closest('.nav-dropdown');
+        if (!dd) return;
+        function place() {
+            // 临时不可见地展开以测量真实宽度
+            var prevVis = sub.style.visibility, prevDisp = sub.style.display;
+            sub.style.visibility = 'hidden';
+            sub.style.display = 'grid';
+            var w = sub.offsetWidth;
+            sub.style.visibility = prevVis;
+            sub.style.display = prevDisp;
+            if (!w) return;
+            var rect = dd.getBoundingClientRect();
+            var margin = 8;
+            // 面板理想位置：以按钮中心对称（viewport 坐标）
+            var left = rect.left + rect.width / 2 - w / 2;
+            var maxLeft = window.innerWidth - w - margin;
+            if (left > maxLeft) left = Math.max(margin, maxLeft); // 右侧不足：向左收
+            if (left < margin) left = margin;                     // 左侧不足：向右收
+            // 转为相对 dropdown（position:relative 父级）的偏移
+            var centered = rect.width / 2 - w / 2; // CSS 居中时的相对偏移
+            var delta = left - (rect.left + centered);
+            if (Math.abs(delta) < 1) {
+                sub.style.left = '';
+                sub.style.transform = '';
+            } else {
+                sub.style.left = (rect.width / 2 - w / 2 + delta) + 'px';
+                sub.style.transform = 'none';
+            }
+        }
+        dd.addEventListener('mouseenter', place);
+        dd.addEventListener('focusin', place);
+    });
+
     /* ============ 语言切换器（nav-bar 中的下拉菜单，样式同导航） ============ */
 
     function switchLang(lang) {
