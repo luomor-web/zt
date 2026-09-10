@@ -47,7 +47,7 @@ function zd_svg($data) {
 <meta name="keywords" content="汉字字典，在线字典，查字典，汉字拼音，笔画数，笔顺，组词，成语查询，烙馍网">
 <meta name="description" content="免费在线汉字字典：输入汉字、词语或成语，查询拼音、笔画数、笔顺图、常用组词和成语释义。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/zidian.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/zidian.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -219,6 +219,7 @@ var _hmt = _hmt || [];
                 <a href="password.html">密码生成器</a>
                 <a href="jisuan.html">在线计算器</a>
                 <a href="fangdai.html">房贷计算</a>
+                <a href="yanglao.html">养老金计算</a>
                 <a href="bmi.html">BMI 计算器</a>
                 <a href="huobi.html">币种转换</a>
                 <a href="shizhong.html">世界时钟</a>

@@ -3,33 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>世界时钟 - 在线全球城市时间查询 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="世界时钟，世界时间，全球时间，时区查询，在线时钟，烙馍网">
-<meta name="description" content="免费在线世界时钟：北京、东京、伦敦、纽约、洛杉矶、悉尼等全球主要城市当前时间实时显示，可自由添加删除城市，选择自动保存。">
+<title>养老金计算 - 在线退休金计算器 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="养老金计算，退休金计算器，养老保险，基础养老金，个人账户养老金，烙馍网">
+<meta name="description" content="免费在线养老金计算器：输入当地平均工资、缴费基数、缴费年限和退休年龄，估算城镇职工基础养老金和个人账户养老金，以及养老金替代率。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/shizhong.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/yanglao.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
 .field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
-.field-row .field{ flex:1; min-width:180px; }
+.field-row .field{ flex:1; min-width:150px; }
 .field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.result-box{ margin-top:18px; padding:14px 16px; background:#f8f9fa; border-radius:8px; font-size:15px; word-break:break-all; display:none; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
 .result-box.show{ display:block; }
 .result-box.error{ background:#fdecea; color:#c0392b; }
-.wc-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin-top:20px; }
-.wc-card{ border:2px solid var(--border-color); border-radius:10px; padding:16px; text-align:center; position:relative; }
-.wc-city{ font-size:16px; font-weight:600; color:#555; }
-.wc-del{ position:absolute; top:6px; right:10px; border:none; background:none; color:#ccc; font-size:18px; cursor:pointer; line-height:1; }
-.wc-del:hover{ color:#e74c3c; }
-.wc-time{ font-size:30px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; margin:8px 0 4px; }
-.wc-meta{ font-size:13px; color:#999; }
-.wc-add{ display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
-.wc-add select{ flex:1; min-width:200px; }
-
+.yl-num{ font-size:28px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.yl-row{ display:flex; flex-wrap:wrap; gap:24px; margin-top:10px; }
+.yl-cell{ min-width:150px; }
+.yl-cell .t{ font-size:13px; color:#888; }
+.yl-cell .v{ font-size:18px; font-weight:600; color:#2c3e50; margin-top:2px; }
+.yl-note{ margin-top:12px; padding-top:10px; border-top:1px dashed #ddd; font-size:13px; color:#888; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -99,8 +95,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>🌍 世界时钟</h1>
-    <p class="subtitle">全球城市时间 · 实时更新 · 自由添加</p>
+    <h1>👴 养老金计算</h1>
+    <p class="subtitle">基础养老金 · 个人账户养老金 · 替代率</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -200,99 +196,90 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线世界时钟：同时显示北京、东京、伦敦、纽约、洛杉矶、悉尼等全球主要城市的当前时间，每秒实时刷新，带日期、星期、时区偏移和昼夜标识；可从 21 个城市中自由添加或删除，选择会自动保存在浏览器中。</p>
+<p class="seo-intro">在线养老金计算器：输入当地上年度月平均工资、本人月缴费基数、缴费年限、退休年龄和个人账户记账利率，按城镇职工养老保险公式估算退休后每月可领的养老金（基础养老金 + 个人账户养老金），并给出缴费指数和替代率参考，全部在浏览器本地计算。</p>
 <div class="field-row" style="margin-top:0;">
     <div class="field">
-        <label for="city">添加城市</label>
-        <div class="wc-add" style="margin-top:0;">
-            <select class="tool-input" id="city"></select>
-            <button type="button" class="submit-btn" style="padding:10px 30px;font-size:15px;" id="btn-add">添加</button>
-            <button type="button" class="submit-btn btn-sub" style="margin:0;" id="btn-reset">恢复默认</button>
-        </div>
+        <label for="avg">当地上年度月平均工资（元）</label>
+        <input class="tool-input" type="number" id="avg" min="1000" max="100000" step="100" value="10000">
+    </div>
+    <div class="field">
+        <label for="base">本人月缴费基数（元）</label>
+        <input class="tool-input" type="number" id="base" min="1000" max="300000" step="100" value="8000">
+    </div>
+    <div class="field">
+        <label for="years">缴费年限（年）</label>
+        <input class="tool-input" type="number" id="years" min="15" max="45" step="1" value="35">
+    </div>
+    <div class="field">
+        <label for="age">退休年龄</label>
+        <select class="tool-input" id="age">
+            <option value="195">50 岁</option>
+            <option value="170">55 岁</option>
+            <option value="139" selected>60 岁</option>
+            <option value="101">65 岁</option>
+        </select>
+    </div>
+    <div class="field">
+        <label for="growth">个人账户记账年利率（%）</label>
+        <input class="tool-input" type="number" id="growth" min="0" max="10" step="0.1" value="3">
     </div>
 </div>
 
-<div class="wc-grid" id="grid"></div>
+<div class="btn-row">
+    <button type="button" class="submit-btn" id="btn-calc">立即计算</button>
+</div>
+
+<div class="result-box" id="result"></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>页面默认显示北京、东京、伦敦、纽约、洛杉矶、悉尼 6 个城市的时间</li>
-            <li>在下拉框中选择城市，点击 <strong>添加</strong> 加入时钟列表，点卡片右上角 <strong>×</strong> 删除</li>
-            <li>点击 <strong>恢复默认</strong> 可重置为初始 6 个城市</li>
+            <li>输入当地上年度月平均工资和本人的月缴费基数</li>
+            <li>填写缴费年限（需满 15 年）、退休年龄和记账年利率</li>
+            <li>点击 <strong>立即计算</strong> 查看每月养老金及构成明细</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>时间由浏览器按各城市时区实时计算（含夏令时），城市选择保存在浏览器本地，下次打开自动恢复。</div>
+        <div class="tip"><strong>💡 提示：</strong>本工具按城镇职工养老保险通用公式估算，未含过渡性养老金、视同缴费年限和历年工资增长等因素，结果仅供参考，实际待遇以当地社保部门核算为准。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
 <script>
-var CITIES=[
-    ['北京','Asia/Shanghai'],['东京','Asia/Tokyo'],['首尔','Asia/Seoul'],['新加坡','Asia/Singapore'],
-    ['迪拜','Asia/Dubai'],['曼谷','Asia/Bangkok'],['孟买','Asia/Kolkata'],['莫斯科','Europe/Moscow'],
-    ['伦敦','Europe/London'],['巴黎','Europe/Paris'],['柏林','Europe/Berlin'],['罗马','Europe/Rome'],
-    ['纽约','America/New_York'],['芝加哥','America/Chicago'],['洛杉矶','America/Los_Angeles'],
-    ['温哥华','America/Vancouver'],['墨西哥城','America/Mexico_City'],['圣保罗','America/Sao_Paulo'],
-    ['悉尼','Australia/Sydney'],['奥克兰','Pacific/Auckland'],['火奴鲁鲁','Pacific/Honolulu']
-];
-var DEFAULTS=['Asia/Shanghai','Asia/Tokyo','Europe/London','America/New_York','America/Los_Angeles','Australia/Sydney'];
-var STORE_KEY='world-clock-cities';
-var grid=document.getElementById('grid'), sel=document.getElementById('city');
-CITIES.forEach(function(c){ sel.add(new Option(c[0],c[1])); });
-function load(){
-    try{
-        var v=JSON.parse(localStorage.getItem(STORE_KEY));
-        if(Array.isArray(v)&&v.length) return v.filter(function(tz){ return CITIES.some(function(c){ return c[1]===tz; }); });
-    }catch(e){}
-    return DEFAULTS.slice();
-}
-function save(list){ try{ localStorage.setItem(STORE_KEY,JSON.stringify(list)); }catch(e){} }
-function nameOf(tz){ for(var i=0;i<CITIES.length;i++) if(CITIES[i][1]===tz) return CITIES[i][0]; return tz; }
-var fmtCache={};
-function fmt(tz){
-    if(!fmtCache[tz]){
-        fmtCache[tz]=new Intl.DateTimeFormat('zh-CN',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit',
-            weekday:'short',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZoneName:'shortOffset'});
-    }
-    return fmtCache[tz];
-}
-var list=load();
-function render(){
-    grid.innerHTML='';
-    list.forEach(function(tz){
-        var card=document.createElement('div');
-        card.className='wc-card';
-        card.innerHTML='<button type="button" class="wc-del" title="删除">×</button>'
-            +'<div class="wc-city"></div><div class="wc-time">--:--:--</div><div class="wc-meta"></div>';
-        card.querySelector('.wc-city').textContent=nameOf(tz);
-        card.querySelector('.wc-del').addEventListener('click',function(){
-            if(list.length<=1) return;
-            list=list.filter(function(t){ return t!==tz; });
-            save(list); render();
-        });
-        card.setAttribute('data-tz',tz);
-        grid.appendChild(card);
-    });
-    tick();
-}
-function tick(){
-    Array.prototype.forEach.call(grid.children,function(card){
-        var tz=card.getAttribute('data-tz'), p={};
-        fmt(tz).formatToParts(new Date()).forEach(function(x){ p[x.type]=x.value; });
-        var h=parseInt(p.hour,10)%24;
-        card.querySelector('.wc-time').textContent=(p.hour==='24'?'00':p.hour)+':'+p.minute+':'+p.second;
-        card.querySelector('.wc-meta').textContent=p.month+'月'+p.day+'日 '+p.weekday+' · '+(p.timeZoneName||'')+(h>=6&&h<18?' ☀️':' 🌙');
-    });
-}
-document.getElementById('btn-add').addEventListener('click',function(){
-    var tz=sel.value;
-    if(list.indexOf(tz)>-1) return;
-    list.push(tz); save(list); render();
+function yuan(v){ return v.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function wan(v){ return (v/10000).toFixed(2); }
+document.getElementById('btn-calc').addEventListener('click',function(){
+    var r=document.getElementById('result');
+    function err(msg){ r.className='result-box show error'; r.textContent=msg; }
+    var avg=parseFloat(document.getElementById('avg').value),
+        base=parseFloat(document.getElementById('base').value),
+        years=parseInt(document.getElementById('years').value,10),
+        months=parseInt(document.getElementById('age').value,10),
+        g=parseFloat(document.getElementById('growth').value)/100;
+    if(!(avg>=1000&&avg<=100000)){ err('请输入正确的当地月平均工资（1000-100000 元）'); return; }
+    if(!(base>=1000&&base<=300000)){ err('请输入正确的月缴费基数（1000-300000 元）'); return; }
+    if(!(years>=15&&years<=45)){ err('缴费年限需满 15 年（15-45 年）'); return; }
+    if(!(g>=0&&g<=0.1)){ err('请输入正确的记账年利率（0-10%）'); return; }
+    // 平均缴费指数（政策下限 0.6、上限 3）
+    var index=Math.min(Math.max(base/avg,0.6),3),
+        // 基础养老金 = 社平 × (1+指数)/2 × 年限 × 1%
+        basePension=avg*(1+index)/2*years*0.01,
+        // 个人账户累计：每月缴基数 8%，按年利率复利（年金终值）
+        yearly=base*0.08*12,
+        account=g>0?yearly*(Math.pow(1+g,years)-1)/g:yearly*years,
+        // 个人账户养老金 = 累计 ÷ 计发月数
+        personalPension=account/months,
+        total=basePension+personalPension,
+        replace=total/base*100;
+    r.className='result-box show';
+    r.innerHTML='<div style="font-size:13px;color:#888;">预计退休后每月可领养老金</div>'
+        +'<div class="yl-num">'+yuan(total)+' 元/月</div>'
+        +'<div class="yl-row">'
+        +'<div class="yl-cell"><div class="t">基础养老金</div><div class="v">'+yuan(basePension)+' 元/月</div></div>'
+        +'<div class="yl-cell"><div class="t">个人账户养老金</div><div class="v">'+yuan(personalPension)+' 元/月</div></div>'
+        +'<div class="yl-cell"><div class="t">个人账户累计</div><div class="v">'+wan(account)+' 万元</div></div>'
+        +'<div class="yl-cell"><div class="t">平均缴费指数</div><div class="v">'+index.toFixed(2)+'</div></div>'
+        +'<div class="yl-cell"><div class="t">养老金替代率</div><div class="v">'+replace.toFixed(1)+'%</div></div>'
+        +'</div>'
+        +'<div class="yl-note">月养老金 = 基础养老金 + 个人账户养老金；替代率 = 月养老金 ÷ 缴费基数。缴费指数按政策口径限制在 0.6 - 3.0 之间。</div>';
 });
-document.getElementById('btn-reset').addEventListener('click',function(){
-    list=DEFAULTS.slice(); save(list); render();
-});
-render();
-setInterval(tick,1000);
 </script>
 <script src="../js/site-i18n.js" defer></script>
 </body>
