@@ -24,7 +24,7 @@
     "form.class.label": "Class",
     "form.name.label": "Name",
     "form.optional": "Optional",
-    "form.title.default": "Chinese Practice Sheet · zt.luomor.com",
+    "form.title.default": "Chinese Practice Sheet · zzzt.luomor.com",
     "form.submit": "Generate Now",
     "options.types.title": "Grid Type",
     "options.types.aria": "Grid type",
@@ -134,5 +134,6 @@
     "nav.htmledit": "HTML Editor",
     "nav.fangdai": "Mortgage Calculator",
     "nav.yanglao": "Pension Calculator",
-    "nav.rili": "Perpetual Calendar"
+    "nav.rili": "Perpetual Calendar",
+    "nav.youbian": "Zip Code Lookup"
 }
