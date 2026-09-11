@@ -7,7 +7,7 @@
 <meta name="keywords" content="万年历，日历，农历查询，黄历，老黄历，节假日安排，节气，日程提醒，烙馍网">
 <meta name="description" content="免费在线万年历：公历农历对照，黄历宜忌、干支生肖、节气、中国传统节日和法定节假日安排；支持添加事件备忘（重复周期、地点、类型颜色标记、浏览器通知），数据保存在浏览器本地数据库。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/rili.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/rili.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -58,6 +58,8 @@
 .rl-custom{ display:none; align-items:center; gap:6px; color:#666; font-size:14px; }
 .rl-custom input{ width:70px; flex:none; }
 .rl-hint{ font-size:13px; color:#b08a3c; background:#fff8e6; padding:8px 12px; border-radius:8px; }
+.rl-import-msg{ padding:10px 14px; border-radius:8px; font-size:14px; background:#e8f7ee; color:#27ae60; }
+.rl-import-msg.err{ background:#fdecea; color:#c0392b; }
 .rl-submit{ padding:10px 26px; font-size:15px; }
 @media (max-width:768px){ .rl-day{ min-height:64px; padding:4px 4px 8px; } .rl-solar{ font-size:14px; } .rl-lunar{ font-size:10px; } }
 </style>
@@ -231,7 +233,7 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线万年历：公历农历对照显示，每日可查黄历宜忌、干支生肖、冲煞、节气和中西节日，法定节假日标注「休」「班」（含调休安排，数据来自国务院公告）。点击日期可添加事件备忘，支持时间范围（如 9:00-10:00）、每天/每周/每月/每年或自定义重复、地点和类型颜色标记，开启浏览器通知后打开页面即提醒当天事件，全部事件可一键导出为 iCalendar（.ics）文件；事件保存在浏览器本地数据库（IndexedDB）中，下次打开自动恢复。</p>
+<p class="seo-intro">在线万年历：公历农历对照显示，每日可查黄历宜忌、干支生肖、冲煞、节气和中西节日，法定节假日标注「休」「班」（含调休安排，数据来自国务院公告）。点击日期可添加事件备忘，支持时间范围（如 9:00-10:00）、每天/每周/每月/每年或自定义重复、地点和类型颜色标记，开启浏览器通知后打开页面即提醒当天事件，全部事件可一键导出为 iCalendar（.ics）文件，也可粘贴 .ics 链接导入事件；事件保存在浏览器本地数据库（IndexedDB）中，下次打开自动恢复。</p>
 <div class="rl-bar">
     <button type="button" class="rl-nav" id="btn-prev">◀ 上一月</button>
     <select class="tool-input" id="sel-year"></select>
@@ -299,6 +301,11 @@ var _hmt = _hmt || [];
                 <button type="button" class="submit-btn rl-submit" id="btn-event">添加</button>
             </div>
             <div class="rl-hint">📌 事件仅保存在本浏览器（IndexedDB），不会上传服务器；清理浏览器数据后事件会丢失，重要事项请另行备份。</div>
+            <div class="rl-form-row">
+                <input class="tool-input grow" type="url" id="ics-url" placeholder="粘贴 .ics 日历链接（URL）导入事件">
+                <button type="button" class="submit-btn btn-sub" style="margin:0;" id="btn-import">导入日历</button>
+            </div>
+            <div class="rl-import-msg" id="import-msg" style="display:none;"></div>
         </div>
     </div>
 </div>
@@ -309,7 +316,7 @@ var _hmt = _hmt || [];
             <li>点击任意日期查看农历、黄历宜忌、干支生肖和节假日信息</li>
             <li>在日期详情中添加事件：可设置时间范围（如 9:00-10:00）、重复周期（每天/每周/每月/每年/自定义）、类型（日常/工作/生活/重要）和地点，当天日期会出现对应颜色的圆点标记</li>
             <li>点 <strong>开启事件通知</strong> 授权后，每次打开页面会自动提醒当天的事件</li>
-            <li>点 <strong>导出日历</strong> 把全部事件下载为 .ics 日历文件，可导入手机或电脑的日历应用</li>
+            <li>点 <strong>导出日历</strong> 把全部事件下载为 .ics 日历文件；粘贴 .ics 链接点 <strong>导入日历</strong> 可把事件导入（访问带 ?ics= 参数的链接会自动导入）</li>
         </ol>
         <div class="tip"><strong>💡 提示：</strong>事件保存在浏览器本地数据库（IndexedDB），不会上传服务器，但清除浏览器数据会丢失；法定节假日数据覆盖 2025-2026 年，来自国务院放假安排公告。</div>
     </div>
@@ -549,7 +556,7 @@ document.getElementById('btn-export').addEventListener('click',function(){
         lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//luomor//gongju-rili//CN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
     eventsList.forEach(function(ev){
         lines.push('BEGIN:VEVENT');
-        lines.push('UID:rili-'+ev.id+'@zt.luomor.com');
+        lines.push('UID:rili-'+ev.id+'@zzzt.luomor.com');
         lines.push('DTSTAMP:'+stamp);
         var d0=ev.date.replace(/-/g,'');
         if(ev.startTime){
@@ -588,6 +595,134 @@ document.getElementById('btn-export').addEventListener('click',function(){
     a.click();
     setTimeout(function(){ URL.revokeObjectURL(a.href); },1000);
 });
+
+/* ---------- 通过 URL 导入 iCalendar ---------- */
+function icsUnesc(s){ return String(s).replace(/\\n/gi,'\n').replace(/\\,/g,',').replace(/\\;/g,';').replace(/\\\\/g,'\\'); }
+function parseIcsDate(v){
+    var m=String(v).match(/^(\d{4})(\d{2})(\d{2})(?:T(\d{2})(\d{2})(\d{2})?(Z)?)?/);
+    if(!m) return null;
+    var ds=m[1]+'-'+m[2]+'-'+m[3];
+    if(!m[4]) return {date:ds,time:null};
+    if(m[7]==='Z'){ // UTC → 本地时间
+        var dt=new Date(Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5],+(m[6]||0)));
+        return {date:dt.getFullYear()+'-'+pad(dt.getMonth()+1)+'-'+pad(dt.getDate()),
+                time:pad(dt.getHours())+':'+pad(dt.getMinutes())};
+    }
+    return {date:ds, time:m[4]+':'+m[5]};
+}
+function parseIcs(text){
+    var lines=String(text).replace(/\r?\n[ \t]/g,'').split(/\r?\n/), // 展开折行
+        evs=[], cur=null, i;
+    for(i=0;i<lines.length;i++){
+        var line=lines[i];
+        if(line==='BEGIN:VEVENT'){ cur={props:[]}; }
+        else if(line==='END:VEVENT'&&cur){ evs.push(cur.props); cur=null; }
+        else if(cur){
+            var ci=line.indexOf(':');
+            if(ci<0) continue;
+            var head=line.slice(0,ci), val=line.slice(ci+1),
+                name=head.split(';')[0].toUpperCase();
+            cur.props.push([name,head.slice(name.length),val]);
+        }
+    }
+    var out=[];
+    evs.forEach(function(props){
+        function get(n){ for(var i=0;i<props.length;i++) if(props[i][0]===n) return props[i]; return null; }
+        var p=get('DTSTART');
+        if(!p) return;
+        var st=parseIcsDate(p[2]);
+        if(!st) return;
+        var ev={date:st.date, text:'（未命名事件）', repeat:'none', type:'daily', location:''};
+        if(st.time) ev.startTime=st.time;
+        var s=get('SUMMARY');
+        if(s&&icsUnesc(s[2]).trim()) ev.text=icsUnesc(s[2]).trim();
+        var loc=get('LOCATION');
+        if(loc) ev.location=icsUnesc(loc[2]).trim();
+        var e=get('DTEND');
+        if(e&&st.time){
+            var et=parseIcsDate(e[2]);
+            if(et&&et.time&&et.date===st.date) ev.endTime=et.time;
+        }
+        var r=get('RRULE');
+        if(r){
+            var rr={};
+            r[2].split(';').forEach(function(kv){ var p2=kv.split('='); rr[p2[0]]=p2[1]; });
+            var F={DAILY:'day',WEEKLY:'week',MONTHLY:'month',YEARLY:'year'}, unit=F[rr.FREQ];
+            if(unit){
+                var n=parseInt(rr.INTERVAL||'1',10)||1;
+                if(n===1){ ev.repeat={day:'daily',week:'weekly',month:'monthly',year:'yearly'}[unit]; }
+                else{ ev.repeat='custom'; ev.customN=n; ev.customUnit=unit; }
+            }
+        }
+        var c=get('CATEGORIES');
+        if(c){
+            var cat=icsUnesc(c[2]).split(',')[0],
+                back={'日常':'daily','工作':'work','生活':'life','重要':'important'};
+            if(back[cat]) ev.type=back[cat];
+        }
+        var u=get('UID');
+        if(u) ev.uid=u[2];
+        out.push(ev);
+    });
+    return out;
+}
+function importEvents(evs){
+    var existing={};
+    eventsList.forEach(function(e){ if(e.uid) existing[e.uid]=1; });
+    var chain=Promise.resolve(), added=0;
+    evs.forEach(function(ev){
+        if(ev.uid&&existing[ev.uid]) return; // 已导入过的跳过
+        chain=chain.then(function(){
+            return idbAdd(ev).then(function(id){ ev.id=id; eventsList.push(ev); added++; });
+        });
+    });
+    return chain.then(function(){ return added; });
+}
+function importMsg(text,err){
+    var m=document.getElementById('import-msg');
+    m.style.display='block';
+    m.className='rl-import-msg'+(err?' err':'');
+    m.textContent=text;
+}
+function doImport(url){
+    if(!db){ importMsg('浏览器数据库不可用',true); return; }
+    var btn=document.getElementById('btn-import');
+    btn.disabled=true;
+    importMsg('导入中，请稍候…');
+    fetch('ics.php?url='+encodeURIComponent(url)).then(function(r){
+        if(!r.ok) throw new Error('拉取失败（HTTP '+r.status+'）');
+        return r.text();
+    }).then(function(text){
+        var evs=parseIcs(text);
+        if(!evs.length) throw new Error('链接中没有可导入的事件');
+        return importEvents(evs);
+    }).then(function(added){
+        importMsg('成功导入 '+added+' 个事件');
+        render();
+    }).catch(function(e){
+        importMsg('导入失败：'+e.message,true);
+    }).finally(function(){
+        btn.disabled=false;
+    });
+}
+document.getElementById('btn-import').addEventListener('click',function(){
+    var url=document.getElementById('ics-url').value.trim();
+    if(!url) return;
+    doImport(url);
+});
+// 支持 rili.html?ics=<url> 分享链接自动导入（导入后移除参数防止重复）
+(function(){
+    var u=new URLSearchParams(location.search).get('ics');
+    if(!u) return;
+    var t=setInterval(function(){
+        if(db){
+            clearInterval(t);
+            doImport(u);
+            history.replaceState(null,'',location.pathname);
+        }
+    },200);
+    setTimeout(function(){ clearInterval(t); },5000);
+})();
 
 /* ---------- 添加事件 ---------- */
 document.getElementById('event-repeat').addEventListener('change',function(){
