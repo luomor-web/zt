@@ -1254,5 +1254,9 @@
 "自定义…": "Custom…",
 "重要": "Important",
 "📌 事件仅保存在本浏览器（IndexedDB），不会上传服务器；清理浏览器数据后事件会丢失，重要事项请另行备份。": "📌 Events are stored only in this browser (IndexedDB) and never uploaded; clearing browser data will delete them — back up important items elsewhere.",
-"🔔 开启事件通知": "🔔 Enable event notifications"
+"🔔 开启事件通知": "🔔 Enable event notifications",
+"在日期详情中添加事件：可设置时间范围（如 9:00-10:00）、重复周期（每天/每周/每月/每年/自定义）、类型（日常/工作/生活/重要）和地点，当天日期会出现对应颜色的圆点标记": "Add events in the day detail: set a time range (e.g. 9:00-10:00), a recurrence (daily/weekly/monthly/yearly/custom), a type (Daily/Work/Life/Important) and a location — the date gets a dot in the type's color",
+"在线万年历：公历农历对照显示，每日可查黄历宜忌、干支生肖、冲煞、节气和中西节日，法定节假日标注「休」「班」（含调休安排，数据来自国务院公告）。点击日期可添加事件备忘，支持时间范围（如 9:00-10:00）、每天/每周/每月/每年或自定义重复、地点和类型颜色标记，开启浏览器通知后打开页面即提醒当天事件；事件保存在浏览器本地数据库（IndexedDB）中，下次打开自动恢复。": "Online perpetual calendar: Gregorian-lunar conversion; look up almanac dos & don'ts, Gan-Zhi, zodiac, clashes, solar terms and festivals for any day; statutory holidays marked 「休」/「班」 (including make-up workdays, from State Council announcements). Click a date to add event memos with a time range (e.g. 9:00-10:00), daily/weekly/monthly/yearly or custom recurrence, location and type color tags; enable browser notifications to be reminded of today's events when the page opens. Events are stored in the browser's local database (IndexedDB) and restored on your next visit.",
+"至": "to",
+"（留空为全天）": "(leave empty for all-day)"
 }
