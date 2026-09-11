@@ -233,7 +233,7 @@ var _hmt = _hmt || [];
             <li>输入时自动查询，精确匹配的三字码排在最前</li>
             <li>结果显示机场全称、所在城市和所属国家</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>数据来自 mwgg/Airports 开源数据库（IATA 三字码）；国内 261 个机场已按拼音匹配中文城市名，国外机场的中文城市/机场名通过内置别名表匹配（覆盖 100+ 中外主要城市），国家显示中文名。</div>
+        <div class="tip"><strong>💡 提示：</strong>数据来自 mwgg/Airports 开源数据库和 00cha.net 三字码库（IATA 三字码）；国内 261 个机场已匹配中文城市名，国外机场的中文名来自抓取的中文库和内置别名表（覆盖 100+ 中外主要城市），国家显示中文名。</div>
     </div>
 </div>
 </div>
@@ -302,17 +302,23 @@ function search(kw){
     });
     var terms=[kw].concat(extra), res=[], isCode=/^[a-z]{3}$/.test(kw);
     for(var i=0;i<AP.length;i++){
-        var r=AP[i], city=(r[2]||'').toLowerCase(), name=(r[1]||'').toLowerCase(), code=r[0].toLowerCase(), zh=r[4]||'', score=0;
+        var r=AP[i], city=(r[2]||'').toLowerCase(), name=(r[1]||'').toLowerCase(), code=r[0].toLowerCase(), zh=r[4]||'', zhName=r[5]||'', score=0;
         if(isCode&&code===kw) score=100;
         else{
-            if(zh&&zh.indexOf(kw)>-1) score=70; // 中文城市名直接匹配
+            var zhScore=0;
+            if(zhName&&zhName.indexOf(kw)>-1) zhScore=75; // 中文机场名
+            if(zh&&zh.indexOf(kw)>-1) zhScore=Math.max(zhScore,70); // 中文城市名
+            var byTerm={};
             for(var j=0;j<terms.length;j++){
-                var t=terms[j];
+                var t=terms[j], ts=0;
                 if(!t) continue;
-                if(code.indexOf(t)>-1){ score=Math.max(score,20); }
-                if(city.indexOf(t)>-1){ score=Math.max(score,city===t?60:40); }
-                if(name.indexOf(t)>-1){ score=Math.max(score,new RegExp('(^|[^a-z])'+t+'([^a-z]|$)').test(name)?45+t.length/100:(t.length>=4?25:10)); }
+                if(code.indexOf(t)>-1) ts=Math.max(ts,20);
+                if(city.indexOf(t)>-1) ts=Math.max(ts,city===t?60:40);
+                if(name.indexOf(t)>-1) ts=Math.max(ts,new RegExp('(^|[^a-z])'+t+'([^a-z]|$)').test(name)?45+t.length/100:(t.length>=4?25:10));
+                if(ts) byTerm[t]=ts;
             }
+            for(var k in byTerm) score+=byTerm[k];
+            score=Math.max(score,zhScore); // 中文与英文匹配取高者，不叠加
             // 国家中文名（如「中国」「日本」）
             if(!score&&CC[r[3]]&&CC[r[3]].indexOf(kw)>-1) score=5;
         }
@@ -327,7 +333,15 @@ function search(kw){
         div.className='q-item';
         div.innerHTML='<div class="code"></div><div class="main"></div>';
         div.querySelector('.code').textContent=r[0];
-        div.querySelector('.main').textContent=r[1]+' · '+(r[4]?r[4]+' ':'')+r[2]+' · '+(CC[r[3]]||r[3]);
+        var parts=[];
+        if(r[5]) parts.push(r[5]);           // 中文机场名
+        if(r[1]) parts.push(r[1]);           // 英文机场名
+        var loc=[];
+        if(r[4]) loc.push(r[4]);             // 中文城市
+        if(r[2]&&r[2]!==r[4]) loc.push(r[2]);// 英文城市
+        if(loc.length) parts.push(loc.join(' '));
+        parts.push(CC[r[3]]||r[3]);          // 国家中文名
+        div.querySelector('.main').textContent=parts.join(' · ');
         list.appendChild(div);
     });
 }

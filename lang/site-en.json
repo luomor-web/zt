@@ -1469,5 +1469,6 @@
 "机场三字码查询 - IATA机场代码在线查询支持中文 - 工具专区 - 烙馍网": "Airport Codes - IATA Lookup with Chinese Support - Tools - Luomor",
 "输入三字码、城市或机场名称（支持中文）": "Enter a 3-letter code, city or airport name (Chinese supported)",
 "输入三字码（如 PEK）、中英文城市名（如 北京）或机场名关键词": "Enter a 3-letter code (e.g. PEK), a city name in Chinese or English (e.g. 北京), or an airport name keyword",
-"数据来自 mwgg/Airports 开源数据库（IATA 三字码）；国内 261 个机场已按拼音匹配中文城市名，国外机场的中文城市/机场名通过内置别名表匹配（覆盖 100+ 中外主要城市），国家显示中文名。": "Data comes from the open-source mwgg/Airports database (IATA codes); all 261 Chinese airports are matched to Chinese city names via pinyin, and foreign airports' Chinese city/airport names are matched via a built-in alias table (100+ major cities); countries show Chinese names."
+"数据来自 mwgg/Airports 开源数据库（IATA 三字码）；国内 261 个机场已按拼音匹配中文城市名，国外机场的中文城市/机场名通过内置别名表匹配（覆盖 100+ 中外主要城市），国家显示中文名。": "Data comes from the open-source mwgg/Airports database (IATA codes); all 261 Chinese airports are matched to Chinese city names via pinyin, and foreign airports' Chinese city/airport names are matched via a built-in alias table (100+ major cities); countries show Chinese names.",
+"数据来自 mwgg/Airports 开源数据库和 00cha.net 三字码库（IATA 三字码）；国内 261 个机场已匹配中文城市名，国外机场的中文名来自抓取的中文库和内置别名表（覆盖 100+ 中外主要城市），国家显示中文名。": "Data comes from the open-source mwgg/Airports database and the 00cha.net code directory (IATA codes); all 261 Chinese airports are matched to Chinese city names, and foreign airports' Chinese names come from the scraped Chinese directory plus a built-in alias table (100+ major cities); countries show Chinese names."
 }
