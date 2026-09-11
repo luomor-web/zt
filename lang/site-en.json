@@ -1460,5 +1460,13 @@
 "🗺️ 地区编码查询": "🗺️ Region Code Lookup",
 "🛰️ 网络链路查询": "🛰️ Network Ping Check",
 "🧭 域名解析查询": "🧭 DNS Lookup",
-"🪪 身份证号解析": "🪪 ID Card Parser"
+"🪪 身份证号解析": "🪪 ID Card Parser",
+"例如：PEK / 北京 / Beijing / 首都": "e.g. PEK / 北京 / Beijing / 首都",
+"免费在线机场三字码查询：全球 7900 多个机场的 IATA 三字代码，输入代码、中英文城市或机场名称即查。": "Free online airport code lookup: IATA 3-letter codes for 7,900+ airports worldwide; search by code or city/airport name in Chinese or English.",
+"全球 7900+ 机场 IATA 三字代码，中英文城市/机场名即查。": "IATA 3-letter codes for 7,900+ airports; search by city/airport name in Chinese or English.",
+"在线机场三字码查询：收录全球 7900 多个机场的 IATA 三字代码，输入三字码（如 PEK）、中英文城市名（如 北京）或机场名即查，显示机场全称、所在城市和国家，全部在浏览器本地完成。": "Online airport code lookup: IATA 3-letter codes for 7,900+ airports; search by code (e.g. PEK) or city/airport name in Chinese (e.g. 北京) or English to see the full name, city and country — all done locally.",
+"数据来自 mwgg/Airports 开源数据库（IATA 三字码）；机场名称和城市为英文原名，中文城市/机场名通过内置别名表匹配（覆盖 100+ 中外主要城市），国家显示中文名。": "Data comes from the open-source mwgg/Airports database (IATA codes); airport and city names are in English, Chinese city/airport names are matched via a built-in alias table (100+ major cities), and countries show Chinese names.",
+"机场三字码查询 - IATA机场代码在线查询支持中文 - 工具专区 - 烙馍网": "Airport Codes - IATA Lookup with Chinese Support - Tools - Luomor",
+"输入三字码、城市或机场名称（支持中文）": "Enter a 3-letter code, city or airport name (Chinese supported)",
+"输入三字码（如 PEK）、中英文城市名（如 北京）或机场名关键词": "Enter a 3-letter code (e.g. PEK), a city name in Chinese or English (e.g. 北京), or an airport name keyword"
 }

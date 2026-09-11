@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>机场三字码查询 - IATA机场代码在线查询 - 工具专区 - 烙馍网</title>
+<title>机场三字码查询 - IATA机场代码在线查询支持中文 - 工具专区 - 烙馍网</title>
 <meta name="keywords" content="机场三字码，IATA代码，机场代码查询，三字代码，机场缩写，烙馍网">
-<meta name="description" content="免费在线机场三字码查询：全球 7900 多个机场的 IATA 三字代码，输入代码、城市或机场名称即查。">
+<meta name="description" content="免费在线机场三字码查询：全球 7900 多个机场的 IATA 三字代码，输入代码、中英文城市或机场名称即查。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/jichang.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/jichang.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -214,11 +214,11 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线机场三字码查询：收录全球 7900 多个机场的 IATA 三字代码，输入三字码（如 PEK）、城市名或机场英文名即查，显示机场全称、所在城市和国家，全部在浏览器本地完成。</p>
+<p class="seo-intro">在线机场三字码查询：收录全球 7900 多个机场的 IATA 三字代码，输入三字码（如 PEK）、中英文城市名（如 北京）或机场名即查，显示机场全称、所在城市和国家，全部在浏览器本地完成。</p>
 <div class="field-row" style="margin-top:0;">
     <div class="field">
-        <label for="kw">输入三字码、城市或机场名称（英文）</label>
-        <input class="tool-input" type="text" id="kw" placeholder="例如：PEK / Beijing / Capital" autocomplete="off">
+        <label for="kw">输入三字码、城市或机场名称（支持中文）</label>
+        <input class="tool-input" type="text" id="kw" placeholder="例如：PEK / 北京 / Beijing / 首都" autocomplete="off">
     </div>
     <div class="field" style="flex:0 0 110px;display:flex;align-items:flex-end;">
         <button type="button" class="submit-btn" style="padding:10px 26px;font-size:15px;" id="btn-search">查询</button>
@@ -229,18 +229,61 @@ var _hmt = _hmt || [];
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>输入三字码（如 PEK）、城市名（如 Beijing）或机场名关键词</li>
+            <li>输入三字码（如 PEK）、中英文城市名（如 北京）或机场名关键词</li>
             <li>输入时自动查询，精确匹配的三字码排在最前</li>
             <li>结果显示机场全称、所在城市和所属国家</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>数据来自 mwgg/Airports 开源数据库（IATA 三字码）；机场名称和城市为英文原名，国家显示中文名。</div>
+        <div class="tip"><strong>💡 提示：</strong>数据来自 mwgg/Airports 开源数据库（IATA 三字码）；机场名称和城市为英文原名，中文城市/机场名通过内置别名表匹配（覆盖 100+ 中外主要城市），国家显示中文名。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
 
 <script>
-var AP=null, CC=null, list=document.getElementById('list'), info=document.getElementById('q-info'), timer=null;
+var AP=null, CC=null, list=document.getElementById('list'), info=document.getElementById('q-info'), timer=null,
+    // 中文别名 → 英文关键词（城市/机场名），用于中文查询
+    ZH={'北京':['beijing','capital','daxing'],'上海':['shanghai','hongqiao','pudong'],'广州':['guangzhou','baiyun'],
+'深圳':['shenzhen'],'成都':['chengdu'],'重庆':['chongqing'],'杭州':['hangzhou'],'西安':['xian',"xi'an",'xianyang'],
+'昆明':['kunming'],'武汉':['wuhan'],'南京':['nanjing'],'青岛':['qingdao'],'大连':['dalian'],'厦门':['xiamen'],
+'三亚':['sanya'],'海口':['haikou'],'乌鲁木齐':['urumqi'],'拉萨':['lhasa'],'哈尔滨':['harbin'],'沈阳':['shenyang'],
+'长春':['changchun'],'天津':['tianjin'],'济南':['jinan'],'郑州':['zhengzhou'],'长沙':['changsha'],'贵阳':['guiyang'],
+'南宁':['nanning'],'福州':['fuzhou'],'合肥':['hefei'],'南昌':['nanchang'],'太原':['taiyuan'],'石家庄':['shijiazhuang'],
+'呼和浩特':['hohhot'],'兰州':['lanzhou'],'西宁':['xining'],'银川':['yinchuan'],'宁波':['ningbo'],'温州':['wenzhou'],
+'无锡':['wuxi'],'珠海':['zhuhai'],'桂林':['guilin'],'丽江':['lijiang'],'烟台':['yantai'],'泉州':['quanzhou'],
+'揭阳':['jieyang'],'佛山':['foshan'],'惠州':['huizhou'],'黄山':['huangshan'],'张家界':['zhangjiajie'],
+'九寨沟':['jiuzhaigou'],'延安':["yan'an",'yanan'],'榆林':['yulin'],'鄂尔多斯':['ordos'],'喀什':['kashgar','kashi'],
+'伊宁':['yining'],'库尔勒':['korla'],'克拉玛依':['karamay'],'香港':['hong kong'],'澳门':['macau'],
+'台北':['taipei'],'高雄':['kaohsiung'],'东京':['tokyo','haneda','narita'],'大阪':['osaka','kansai'],
+'名古屋':['nagoya'],'札幌':['sapporo'],'福冈':['fukuoka'],'那霸':['naha','okinawa'],'冲绳':['okinawa','naha'],
+'首尔':['seoul','incheon','gimpo'],'釜山':['busan'],'济州':['jeju'],'平壤':['pyongyang'],
+'新加坡':['singapore','changi'],'曼谷':['bangkok'],'吉隆坡':['kuala lumpur'],'雅加达':['jakarta'],
+'马尼拉':['manila'],'河内':['hanoi'],'胡志明':['ho chi minh'],'金边':['phnom penh'],'暹粒':['siem reap'],
+'仰光':['yangon'],'加德满都':['kathmandu'],'达卡':['dhaka'],'德里':['delhi'],'孟买':['mumbai'],
+'迪拜':['dubai'],'阿布扎比':['abu dhabi'],'多哈':['doha'],'伊斯坦布尔':['istanbul'],'莫斯科':['moscow'],
+'圣彼得堡':['petersburg'],'伦敦':['london','heathrow','gatwick'],'巴黎':['paris','gaulle'],'法兰克福':['frankfurt'],
+'慕尼黑':['munich'],'阿姆斯特丹':['amsterdam'],'苏黎世':['zurich'],'日内瓦':['geneva'],'马德里':['madrid'],
+'巴塞罗那':['barcelona'],'罗马':['rome'],'米兰':['milan'],'雅典':['athens'],'维也纳':['vienna'],
+'布拉格':['prague'],'赫尔辛基':['helsinki'],'斯德哥尔摩':['stockholm'],'哥本哈根':['copenhagen'],
+'奥斯陆':['oslo'],'都柏林':['dublin'],'里斯本':['lisbon'],'纽约':['new york','kennedy','newark','laguardia'],
+'洛杉矶':['los angeles'],'旧金山':['san francisco'],'芝加哥':['chicago'],'西雅图':['seattle'],
+'波士顿':['boston'],'华盛顿':['washington'],'迈阿密':['miami'],'拉斯维加斯':['las vegas'],
+'火奴鲁鲁':['honolulu'],'夏威夷':['honolulu'],'温哥华':['vancouver'],'多伦多':['toronto'],
+'蒙特利尔':['montreal'],'墨西哥城':['mexico city'],'圣保罗':['sao paulo'],'布宜诺斯艾利斯':['buenos aires'],
+'悉尼':['sydney'],'墨尔本':['melbourne'],'布里斯班':['brisbane'],'珀斯':['perth'],'奥克兰':['auckland'],
+'开罗':['cairo'],'约翰内斯堡':['johannesburg'],'内罗毕':['nairobi'],'亚的斯亚贝巴':['addis ababa'],
+// 机场名中文别名
+'首都':['beijing capital','capital'],'大兴':['daxing'],'虹桥':['hongqiao'],'浦东':['pudong'],'白云':['baiyun'],
+'宝安':["bao'an",'baoan'],'江北':['jiangbei'],'萧山':['xiaoshan'],'咸阳':['xianyang'],'长水':['changshui'],
+'天河':['tianhe'],'禄口':['lukou'],'胶东':['jiaodong'],'周水子':['zhoushuizi'],'高崎':['gaogi'],
+'凤凰':['fenghuang'],'美兰':['meilan'],'地窝堡':['diwopu'],'贡嘎':['gonggar'],'太平':['taiping'],
+'桃仙':['taoxian'],'龙嘉':['longjia'],'滨海':['binhai'],'遥墙':['yaoqiang'],'新郑':['xinzheng'],
+'黄花':['huanghua'],'龙洞堡':['longdongbao'],'吴圩':['wuxu'],'长乐':['changle'],'新桥':['xinqiao'],
+'昌北':['changbei'],'武宿':['wusu'],'正定':['zhengding'],'白塔':['baita'],'中川':['zhongchuan'],
+'曹家堡':['caojiabao'],'河东':['hedong'],'栎社':['lishe'],'龙湾':['longwan'],'苏南':['sunan'],
+'金湾':['jinwan'],'两江':['liangjiang'],'三义':['sanyi'],'蓬莱':['penglai'],'晋江':['jinjiang'],
+'潮汕':['chaoshan'],'羽田':['haneda'],'成田':['narita'],'关西':['kansai'],'仁川':['incheon'],
+'金浦':['gimpo'],'樟宜':['changi'],'希思罗':['heathrow'],'戴高乐':['gaulle'],'肯尼迪':['kennedy international','kennedy'],
+'纽瓦克':['newark'],'赤鱲角':['chek lap kok']};
 Promise.all([
     fetch('../data/airport.json').then(function(r){ return r.json(); }),
     fetch('../data/country.json').then(function(r){ return r.json(); })
@@ -252,13 +295,30 @@ Promise.all([
 function search(kw){
     kw=kw.trim().toLowerCase();
     if(!kw||!AP){ list.innerHTML=''; return; }
-    var isCode=/^[a-z]{3}$/.test(kw), res=[];
+    // 中文关键词 → 扩展英文关键词
+    var extra=[];
+    Object.keys(ZH).forEach(function(z){
+        if(z.indexOf(kw)>-1) extra=extra.concat(ZH[z]);
+    });
+    var terms=[kw].concat(extra), res=[], isCode=/^[a-z]{3}$/.test(kw);
     for(var i=0;i<AP.length;i++){
-        var r=AP[i];
-        if(isCode){ if(r[0].toLowerCase()===kw){ res.unshift(r); continue; } }
-        if(r[0].toLowerCase().indexOf(kw)>-1||(r[1]+' '+r[2]).toLowerCase().indexOf(kw)>-1) res.push(r);
-        if(res.length>=50) break;
+        var r=AP[i], city=(r[2]||'').toLowerCase(), name=(r[1]||'').toLowerCase(), code=r[0].toLowerCase(), score=0;
+        if(isCode&&code===kw) score=100;
+        else{
+            for(var j=0;j<terms.length;j++){
+                var t=terms[j];
+                if(!t) continue;
+                if(code.indexOf(t)>-1){ score=Math.max(score,20); }
+                if(city.indexOf(t)>-1){ score=Math.max(score,city===t?60:40); }
+                if(name.indexOf(t)>-1){ score=Math.max(score,new RegExp('(^|[^a-z])'+t+'([^a-z]|$)').test(name)?45+t.length/100:(t.length>=4?25:10)); }
+            }
+            // 国家中文名（如「中国」「日本」）
+            if(!score&&CC[r[3]]&&CC[r[3]].indexOf(kw)>-1) score=5;
+        }
+        if(score) res.push({r:r,score:score});
     }
+    res.sort(function(a,b){ return b.score-a.score; });
+    res=res.slice(0,50).map(function(x){ return x.r; });
     if(!res.length){ list.innerHTML='<div class="q-empty">未找到「'+kw.replace(/</g,'&lt;')+'」相关的机场</div>'; return; }
     list.innerHTML='';
     res.forEach(function(r){
