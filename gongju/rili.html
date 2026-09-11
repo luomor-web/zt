@@ -7,7 +7,7 @@
 <meta name="keywords" content="万年历，日历，农历查询，黄历，老黄历，节假日安排，节气，日程提醒，烙馍网">
 <meta name="description" content="免费在线万年历：公历农历对照，黄历宜忌、干支生肖、节气、中国传统节日和法定节假日安排；支持添加事件备忘（重复周期、地点、类型颜色标记、浏览器通知），数据保存在浏览器本地数据库。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/rili.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/rili.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线万年历：公历农历对照显示，每日可查黄历宜忌、干支生肖、冲煞、节气和中西节日，法定节假日标注「休」「班」（含调休安排，数据来自国务院公告）。点击日期可添加事件备忘，支持时间范围（如 9:00-10:00）、每天/每周/每月/每年或自定义重复、地点和类型颜色标记，开启浏览器通知后打开页面即提醒当天事件；事件保存在浏览器本地数据库（IndexedDB）中，下次打开自动恢复。</p>
+<p class="seo-intro">在线万年历：公历农历对照显示，每日可查黄历宜忌、干支生肖、冲煞、节气和中西节日，法定节假日标注「休」「班」（含调休安排，数据来自国务院公告）。点击日期可添加事件备忘，支持时间范围（如 9:00-10:00）、每天/每周/每月/每年或自定义重复、地点和类型颜色标记，开启浏览器通知后打开页面即提醒当天事件，全部事件可一键导出为 iCalendar（.ics）文件；事件保存在浏览器本地数据库（IndexedDB）中，下次打开自动恢复。</p>
 <div class="rl-bar">
     <button type="button" class="rl-nav" id="btn-prev">◀ 上一月</button>
     <select class="tool-input" id="sel-year"></select>
@@ -256,6 +256,7 @@ var _hmt = _hmt || [];
     <div class="rl-events" id="d-events">
         <div class="rl-line rl-events-head"><b>事件备忘</b>
             <button type="button" class="mini-btn" id="btn-notify">🔔 开启事件通知</button>
+            <button type="button" class="mini-btn" id="btn-export">📤 导出日历</button>
         </div>
         <div id="event-list"></div>
         <div class="rl-form">
@@ -271,10 +272,10 @@ var _hmt = _hmt || [];
             </div>
             <div class="rl-form-row">
                 <span style="color:#666;font-size:14px;">时间</span>
-                <input class="tool-input" type="time" id="event-start" style="width:auto;flex:none;">
+                <input class="tool-input" type="time" id="event-start" value="09:00" style="width:auto;flex:none;">
                 <span style="color:#888;">至</span>
-                <input class="tool-input" type="time" id="event-end" style="width:auto;flex:none;">
-                <span style="color:#999;font-size:13px;">（留空为全天）</span>
+                <input class="tool-input" type="time" id="event-end" value="10:00" style="width:auto;flex:none;">
+                <span style="color:#999;font-size:13px;">（默认 09:00-10:00，清空为全天）</span>
             </div>
             <div class="rl-form-row">
                 <select class="tool-input" id="event-repeat">
@@ -308,6 +309,7 @@ var _hmt = _hmt || [];
             <li>点击任意日期查看农历、黄历宜忌、干支生肖和节假日信息</li>
             <li>在日期详情中添加事件：可设置时间范围（如 9:00-10:00）、重复周期（每天/每周/每月/每年/自定义）、类型（日常/工作/生活/重要）和地点，当天日期会出现对应颜色的圆点标记</li>
             <li>点 <strong>开启事件通知</strong> 授权后，每次打开页面会自动提醒当天的事件</li>
+            <li>点 <strong>导出日历</strong> 把全部事件下载为 .ics 日历文件，可导入手机或电脑的日历应用</li>
         </ol>
         <div class="tip"><strong>💡 提示：</strong>事件保存在浏览器本地数据库（IndexedDB），不会上传服务器，但清除浏览器数据会丢失；法定节假日数据覆盖 2025-2026 年，来自国务院放假安排公告。</div>
     </div>
@@ -536,6 +538,56 @@ function notifyToday(force){
     var texts=evs.map(function(e){ return e.text; }).join('、');
     new Notification('万年历 · 今天有 '+evs.length+' 个事件',{body:texts});
 }
+
+/* ---------- 导出 iCalendar (.ics) ---------- */
+function icsEsc(s){ return String(s).replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n'); }
+document.getElementById('btn-export').addEventListener('click',function(){
+    if(!eventsList.length){ alert('暂无事件可导出'); return; }
+    var now=new Date(),
+        stamp=now.getUTCFullYear()+pad(now.getUTCMonth()+1)+pad(now.getUTCDate())
+            +'T'+pad(now.getUTCHours())+pad(now.getUTCMinutes())+pad(now.getUTCSeconds())+'Z',
+        lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//luomor//gongju-rili//CN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+    eventsList.forEach(function(ev){
+        lines.push('BEGIN:VEVENT');
+        lines.push('UID:rili-'+ev.id+'@zzzt.luomor.com');
+        lines.push('DTSTAMP:'+stamp);
+        var d0=ev.date.replace(/-/g,'');
+        if(ev.startTime){
+            lines.push('DTSTART:'+d0+'T'+ev.startTime.replace(':','')+'00');
+            var et;
+            if(ev.endTime){
+                et=d0+'T'+ev.endTime.replace(':','')+'00';
+            }else{ // 只填开始时间：默认 1 小时
+                var dt=parseDs(ev.date);
+                dt.setHours(parseInt(ev.startTime.slice(0,2),10)+1,parseInt(ev.startTime.slice(3,5),10),0,0);
+                et=dt.getFullYear()+pad(dt.getMonth()+1)+pad(dt.getDate())+'T'+pad(dt.getHours())+pad(dt.getMinutes())+'00';
+            }
+            lines.push('DTEND:'+et);
+        }else{
+            var nd=parseDs(ev.date);
+            nd.setDate(nd.getDate()+1);
+            lines.push('DTSTART;VALUE=DATE:'+d0);
+            lines.push('DTEND;VALUE=DATE:'+nd.getFullYear()+pad(nd.getMonth()+1)+pad(nd.getDate()));
+        }
+        var rep=ev.repeat||'none';
+        if(rep!=='none'){
+            var F={daily:'DAILY',weekly:'WEEKLY',monthly:'MONTHLY',yearly:'YEARLY'},
+                U={day:'DAILY',week:'WEEKLY',month:'MONTHLY',year:'YEARLY'};
+            lines.push('RRULE:FREQ='+(rep==='custom'?U[ev.customUnit||'day']+';INTERVAL='+(ev.customN||1):F[rep]));
+        }
+        lines.push('SUMMARY:'+icsEsc(ev.text));
+        if(ev.location) lines.push('LOCATION:'+icsEsc(ev.location));
+        lines.push('CATEGORIES:'+(TYPES[ev.type]||TYPES.daily)[0]);
+        lines.push('END:VEVENT');
+    });
+    lines.push('END:VCALENDAR');
+    var blob=new Blob([lines.join('\r\n')],{type:'text/calendar;charset=utf-8'}),
+        a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='rili-events.ics';
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); },1000);
+});
 
 /* ---------- 添加事件 ---------- */
 document.getElementById('event-repeat').addEventListener('change',function(){
