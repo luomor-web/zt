@@ -1268,5 +1268,6 @@
 "在线万年历：公历农历对照显示，每日可查黄历宜忌、干支生肖、冲煞、节气和中西节日，法定节假日标注「休」「班」（含调休安排，数据来自国务院公告）。点击日期可添加事件备忘，支持时间范围（如 9:00-10:00）、每天/每周/每月/每年或自定义重复、地点和类型颜色标记，开启浏览器通知后打开页面即提醒当天事件，全部事件可一键导出为 iCalendar（.ics）文件，也可粘贴 .ics 链接导入事件；事件保存在浏览器本地数据库（IndexedDB）中，下次打开自动恢复。": "Online perpetual calendar: Gregorian-lunar conversion; look up almanac dos & don'ts, Gan-Zhi, zodiac, clashes, solar terms and festivals for any day; statutory holidays marked 「休」/「班」 (including make-up workdays, from State Council announcements). Click a date to add event memos with a time range (e.g. 9:00-10:00), daily/weekly/monthly/yearly or custom recurrence, location and type color tags; enable browser notifications to be reminded of today's events when the page opens; all events can be exported as an iCalendar (.ics) file with one click, or imported by pasting an .ics link. Events are stored in the browser's local database (IndexedDB) and restored on your next visit.",
 "导入日历": "Import Calendar",
 "把全部事件下载为 .ics 日历文件；粘贴 .ics 链接点": "to download all events as an .ics calendar file; paste an .ics link and click",
-"粘贴 .ics 日历链接（URL）导入事件": "Paste an .ics calendar link (URL) to import events"
+"粘贴 .ics 日历链接（URL）导入事件": "Paste an .ics calendar link (URL) to import events",
+"🗑️ 清空事件": "🗑️ Clear All"
 }

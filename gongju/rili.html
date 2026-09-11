@@ -7,7 +7,7 @@
 <meta name="keywords" content="万年历，日历，农历查询，黄历，老黄历，节假日安排，节气，日程提醒，烙馍网">
 <meta name="description" content="免费在线万年历：公历农历对照，黄历宜忌、干支生肖、节气、中国传统节日和法定节假日安排；支持添加事件备忘（重复周期、地点、类型颜色标记、浏览器通知），数据保存在浏览器本地数据库。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/rili.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/rili.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -259,6 +259,7 @@ var _hmt = _hmt || [];
         <div class="rl-line rl-events-head"><b>事件备忘</b>
             <button type="button" class="mini-btn" id="btn-notify">🔔 开启事件通知</button>
             <button type="button" class="mini-btn" id="btn-export">📤 导出日历</button>
+            <button type="button" class="mini-btn" id="btn-clearall" style="border-color:#e74c3c;color:#e74c3c;">🗑️ 清空事件</button>
         </div>
         <div id="event-list"></div>
         <div class="rl-form">
@@ -277,6 +278,7 @@ var _hmt = _hmt || [];
                 <input class="tool-input" type="time" id="event-start" value="09:00" style="width:auto;flex:none;">
                 <span style="color:#888;">至</span>
                 <input class="tool-input" type="time" id="event-end" value="10:00" style="width:auto;flex:none;">
+                <button type="button" class="mini-btn" id="btn-timeclear" title="清空时间为全天" style="margin:0;padding:4px 10px;border-color:#ccc;color:#999;">✕</button>
                 <span style="color:#999;font-size:13px;">（默认 09:00-10:00，清空为全天）</span>
             </div>
             <div class="rl-form-row">
@@ -518,6 +520,20 @@ function idbDel(id){
         db.transaction('events','readwrite').objectStore('events').delete(id).onsuccess=function(){ res(); };
     });
 }
+function idbClear(){
+    return new Promise(function(res){
+        db.transaction('events','readwrite').objectStore('events').clear().onsuccess=function(){ res(); };
+    });
+}
+document.getElementById('btn-clearall').addEventListener('click',function(){
+    if(!db){ alert('浏览器数据库不可用'); return; }
+    if(!eventsList.length){ alert('暂无事件'); return; }
+    if(!confirm('确定要清空全部 '+eventsList.length+' 个事件吗？此操作不可恢复。')) return;
+    idbClear().then(function(){
+        eventsList=[];
+        render();
+    });
+});
 
 /* ---------- 浏览器通知 ---------- */
 function refreshNotifyBtn(){
@@ -556,7 +572,7 @@ document.getElementById('btn-export').addEventListener('click',function(){
         lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//luomor//gongju-rili//CN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
     eventsList.forEach(function(ev){
         lines.push('BEGIN:VEVENT');
-        lines.push('UID:rili-'+ev.id+'@zt.luomor.com');
+        lines.push('UID:rili-'+ev.id+'@zzzt.luomor.com');
         lines.push('DTSTAMP:'+stamp);
         var d0=ev.date.replace(/-/g,'');
         if(ev.startTime){
@@ -725,6 +741,10 @@ document.getElementById('btn-import').addEventListener('click',function(){
 })();
 
 /* ---------- 添加事件 ---------- */
+document.getElementById('btn-timeclear').addEventListener('click',function(){
+    document.getElementById('event-start').value='';
+    document.getElementById('event-end').value='';
+});
 document.getElementById('event-repeat').addEventListener('change',function(){
     document.getElementById('custom-row').style.display=this.value==='custom'?'inline-flex':'none';
 });
