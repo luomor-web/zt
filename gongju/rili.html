@@ -7,7 +7,7 @@
 <meta name="keywords" content="万年历，日历，农历查询，黄历，老黄历，节假日安排，节气，日程提醒，烙馍网">
 <meta name="description" content="免费在线万年历：公历农历对照，黄历宜忌、干支生肖、节气、中国传统节日和法定节假日安排；支持添加事件备忘（重复周期、地点、类型颜色标记、浏览器通知），数据保存在浏览器本地数据库。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/rili.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/rili.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -587,7 +587,7 @@ document.getElementById('btn-export').addEventListener('click',function(){
         lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//luomor//gongju-rili//CN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
     eventsList.forEach(function(ev){
         lines.push('BEGIN:VEVENT');
-        lines.push('UID:rili-'+ev.id+'@zt.luomor.com');
+        lines.push('UID:rili-'+ev.id+'@zzzt.luomor.com');
         lines.push('DTSTAMP:'+stamp);
         var d0=ev.date.replace(/-/g,'');
         if(ev.startTime){

@@ -7,7 +7,7 @@
 <meta name="keywords" content="机场三字码，IATA代码，机场代码查询，三字代码，机场缩写，烙馍网">
 <meta name="description" content="免费在线机场三字码查询：全球 7900 多个机场的 IATA 三字代码，输入代码、中英文城市或机场名称即查。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/jichang.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/jichang.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -233,7 +233,7 @@ var _hmt = _hmt || [];
             <li>输入时自动查询，精确匹配的三字码排在最前</li>
             <li>结果显示机场全称、所在城市和所属国家</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>数据来自 mwgg/Airports 开源数据库（IATA 三字码）；机场名称和城市为英文原名，中文城市/机场名通过内置别名表匹配（覆盖 100+ 中外主要城市），国家显示中文名。</div>
+        <div class="tip"><strong>💡 提示：</strong>数据来自 mwgg/Airports 开源数据库（IATA 三字码）；国内 261 个机场已按拼音匹配中文城市名，国外机场的中文城市/机场名通过内置别名表匹配（覆盖 100+ 中外主要城市），国家显示中文名。</div>
     </div>
 </div>
 </div>
@@ -251,7 +251,7 @@ var AP=null, CC=null, list=document.getElementById('list'), info=document.getEle
 '呼和浩特':['hohhot'],'兰州':['lanzhou'],'西宁':['xining'],'银川':['yinchuan'],'宁波':['ningbo'],'温州':['wenzhou'],
 '无锡':['wuxi'],'珠海':['zhuhai'],'桂林':['guilin'],'丽江':['lijiang'],'烟台':['yantai'],'泉州':['quanzhou'],
 '揭阳':['jieyang'],'佛山':['foshan'],'惠州':['huizhou'],'黄山':['huangshan'],'张家界':['zhangjiajie'],
-'九寨沟':['jiuzhaigou'],'延安':["yan'an",'yanan'],'榆林':['yulin'],'鄂尔多斯':['ordos'],'喀什':['kashgar','kashi'],
+'九寨沟':['jiuzhaigou'],'香格里拉':['shangri-la','diqing'],'延安':["yan'an",'yanan'],'榆林':['yulin'],'鄂尔多斯':['ordos'],'喀什':['kashgar','kashi'],
 '伊宁':['yining'],'库尔勒':['korla'],'克拉玛依':['karamay'],'香港':['hong kong'],'澳门':['macau'],
 '台北':['taipei'],'高雄':['kaohsiung'],'东京':['tokyo','haneda','narita'],'大阪':['osaka','kansai'],
 '名古屋':['nagoya'],'札幌':['sapporo'],'福冈':['fukuoka'],'那霸':['naha','okinawa'],'冲绳':['okinawa','naha'],
@@ -283,7 +283,7 @@ var AP=null, CC=null, list=document.getElementById('list'), info=document.getEle
 '金湾':['jinwan'],'两江':['liangjiang'],'三义':['sanyi'],'蓬莱':['penglai'],'晋江':['jinjiang'],
 '潮汕':['chaoshan'],'羽田':['haneda'],'成田':['narita'],'关西':['kansai'],'仁川':['incheon'],
 '金浦':['gimpo'],'樟宜':['changi'],'希思罗':['heathrow'],'戴高乐':['gaulle'],'肯尼迪':['kennedy international','kennedy'],
-'纽瓦克':['newark'],'赤鱲角':['chek lap kok']};
+'纽瓦克':['newark'],'赤鱲角':['chek lap kok'],'观音':['guanyin'],'观音机场':['guanyin']};
 Promise.all([
     fetch('../data/airport.json').then(function(r){ return r.json(); }),
     fetch('../data/country.json').then(function(r){ return r.json(); })
@@ -302,9 +302,10 @@ function search(kw){
     });
     var terms=[kw].concat(extra), res=[], isCode=/^[a-z]{3}$/.test(kw);
     for(var i=0;i<AP.length;i++){
-        var r=AP[i], city=(r[2]||'').toLowerCase(), name=(r[1]||'').toLowerCase(), code=r[0].toLowerCase(), score=0;
+        var r=AP[i], city=(r[2]||'').toLowerCase(), name=(r[1]||'').toLowerCase(), code=r[0].toLowerCase(), zh=r[4]||'', score=0;
         if(isCode&&code===kw) score=100;
         else{
+            if(zh&&zh.indexOf(kw)>-1) score=70; // 中文城市名直接匹配
             for(var j=0;j<terms.length;j++){
                 var t=terms[j];
                 if(!t) continue;
@@ -326,7 +327,7 @@ function search(kw){
         div.className='q-item';
         div.innerHTML='<div class="code"></div><div class="main"></div>';
         div.querySelector('.code').textContent=r[0];
-        div.querySelector('.main').textContent=r[1]+' · '+r[2]+' · '+(CC[r[3]]||r[3]);
+        div.querySelector('.main').textContent=r[1]+' · '+(r[4]?r[4]+' ':'')+r[2]+' · '+(CC[r[3]]||r[3]);
         list.appendChild(div);
     });
 }
