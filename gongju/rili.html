@@ -7,7 +7,7 @@
 <meta name="keywords" content="万年历，日历，农历查询，黄历，老黄历，节假日安排，节气，日程提醒，烙馍网">
 <meta name="description" content="免费在线万年历：公历农历对照，黄历宜忌、干支生肖、节气、中国传统节日和法定节假日安排；支持添加事件备忘（重复周期、地点、类型颜色标记、浏览器通知），数据保存在浏览器本地数据库。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/rili.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/rili.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -43,14 +43,16 @@
 .rl-ji{ color:#e74c3c; }
 .rl-events{ margin-top:14px; }
 .rl-events-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
-.rl-event{ display:flex; align-items:center; gap:8px; padding:8px 12px; background:#f8f9fa; border-radius:8px; margin-bottom:8px; font-size:15px; flex-wrap:wrap; }
-.rl-chip{ font-size:12px; color:#fff; padding:1px 8px; border-radius:8px; flex:none; }
-.rl-event .txt{ flex:1; min-width:120px; word-break:break-all; }
+.rl-event{ display:flex; align-items:center; gap:10px; padding:10px 14px; background:#fff; border:1px solid var(--border-color); border-left:4px solid #3498db; border-radius:10px; margin-bottom:8px; font-size:15px; flex-wrap:wrap; box-shadow:0 1px 4px rgba(0,0,0,.04); transition:all .2s; }
+.rl-event:hover{ box-shadow:0 3px 12px rgba(0,0,0,.08); transform:translateY(-1px); }
+.rl-chip{ font-size:12px; padding:2px 9px; border-radius:10px; flex:none; font-weight:600; }
+.rl-event .txt{ flex:1; min-width:120px; word-break:break-all; color:#2c3e50; }
 .rl-event .loc{ font-size:13px; color:#888; flex:none; }
-.rl-event .tm{ font-size:13px; color:#666; flex:none; font-family:Menlo,Consolas,monospace; }
-.rl-event .rep{ font-size:12px; color:#9b59b6; flex:none; }
-.rl-event-del{ border:none; background:none; color:#ccc; font-size:17px; cursor:pointer; flex:none; }
-.rl-event-del:hover{ color:#e74c3c; }
+.rl-event .tm{ font-size:12px; color:#764ba2; background:#f4f0fb; padding:3px 9px; border-radius:8px; flex:none; font-family:Menlo,Consolas,monospace; font-weight:600; }
+.rl-event .rep{ font-size:12px; color:#9b59b6; background:#f7f0fb; padding:3px 8px; border-radius:8px; flex:none; }
+.rl-event-del{ border:none; background:none; color:#ccc; font-size:17px; cursor:pointer; flex:none; width:26px; height:26px; border-radius:50%; line-height:1; }
+.rl-event-del:hover{ color:#e74c3c; background:#fdecea; }
+.rl-empty{ text-align:center; color:#bbb; font-size:14px; padding:18px 0; }
 .rl-form{ margin-top:10px; display:flex; flex-direction:column; gap:10px; }
 .rl-form-row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
 .rl-form-row select{ width:auto; flex:none; }
@@ -331,7 +333,7 @@ var grid=document.getElementById('grid'),
     selYear=document.getElementById('sel-year'),
     selMonth=document.getElementById('sel-month'),
     WEEK=['一','二','三','四','五','六','日'],
-    TYPES={daily:['日常','#3498db'],work:['工作','#9b59b6'],life:['生活','#27ae60'],important:['重要','#e74c3c']},
+    TYPES={daily:['日常','#3498db','#eaf3fb'],work:['工作','#9b59b6','#f4ecf7'],life:['生活','#27ae60','#e9f7ef'],important:['重要','#e74c3c','#fdedec']},
     REPEAT_LABEL={daily:'每天',weekly:'每周',monthly:'每月',yearly:'每年'},
     HOLIDAYS={}, eventsList=[], db=null,
     today=new Date(),
@@ -455,13 +457,14 @@ function renderEvents(){
     var wrap=document.getElementById('event-list');
     wrap.innerHTML='';
     var evs=eventsOn(selDate);
-    if(!evs.length){ wrap.innerHTML='<div style="color:#bbb;font-size:14px;padding:4px 0;">暂无事件</div>'; return; }
+    if(!evs.length){ wrap.innerHTML='<div class="rl-empty">📭 暂无事件，添加一个吧</div>'; return; }
     evs.forEach(function(ev){
         var t=TYPES[ev.type]||TYPES.daily, rep=repeatLabel(ev),
             tm=ev.startTime?(ev.startTime+(ev.endTime?'-'+ev.endTime:'')):null;
         var div=document.createElement('div');
         div.className='rl-event';
-        div.innerHTML='<span class="rl-chip" style="background:'+t[1]+'">'+t[0]+'</span>'
+        div.style.borderLeftColor=t[1];
+        div.innerHTML='<span class="rl-chip" style="color:'+t[1]+';background:'+t[2]+'">'+t[0]+'</span>'
             +(tm?'<span class="tm"></span>':'')
             +'<span class="txt"></span>'
             +(ev.location?'<span class="loc">📍</span>':'')
@@ -572,7 +575,7 @@ document.getElementById('btn-export').addEventListener('click',function(){
         lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//luomor//gongju-rili//CN','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
     eventsList.forEach(function(ev){
         lines.push('BEGIN:VEVENT');
-        lines.push('UID:rili-'+ev.id+'@zt.luomor.com');
+        lines.push('UID:rili-'+ev.id+'@zzzt.luomor.com');
         lines.push('DTSTAMP:'+stamp);
         var d0=ev.date.replace(/-/g,'');
         if(ev.startTime){
