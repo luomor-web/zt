@@ -24,7 +24,7 @@
     "form.class.label": "班級",
     "form.name.label": "姓名",
     "form.optional": "選填",
-    "form.title.default": "田字格字帖產生器 網址：zt.luomor.com",
+    "form.title.default": "田字格字帖產生器 網址：zzzt.luomor.com",
     "form.submit": "立即產生",
     "options.types.title": "田格類型",
     "options.types.aria": "田格類型選擇",
@@ -146,5 +146,9 @@
     "nav.dns": "域名解析查詢",
     "nav.myip": "本機IP查詢",
     "nav.ipcha": "IP 查詢",
-    "nav.lianlu": "網路鏈路查詢"
+    "nav.lianlu": "網路鏈路查詢",
+    "nav.geshui": "個稅計算",
+    "nav.qiyeshui": "企業所得稅",
+    "nav.zengzhishui": "增值稅計算",
+    "nav.shangpin": "商品稅計算"
 }

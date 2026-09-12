@@ -3,34 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>本机IP查询 - 查看我的IP地址和归属地 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="本机IP查询，我的IP，查看IP地址，IP归属地，公网IP，烙馍网">
-<meta name="description" content="免费在线本机 IP 查询：一键查看你的公网 IP 地址（支持 IPv4/IPv6）和大致归属地、运营商信息。">
+<title>企业所得税计算 - 在线企业所得税计算器 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="企业所得税计算，企业所得税计算器，小微企业税收优惠，高新技术企业税率，烙馍网">
+<meta name="description" content="免费在线企业所得税计算：输入年应纳税所得额，选择企业类型（小微企业 5%、高新技术企业 15%、一般企业 25%），立即算出应纳所得税额和税后利润。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/myip.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/qiyeshui.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
 .field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
-.field-row .field{ flex:1; min-width:180px; }
+.field-row .field{ flex:1; min-width:150px; }
 .field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.q-list{ margin-top:18px; }
-.q-item{ display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border-color); border-radius:10px; margin-bottom:8px; background:#fff; transition:all .2s; flex-wrap:wrap; }
-.q-item:hover{ box-shadow:0 3px 12px rgba(0,0,0,.08); }
-.q-item .main{ flex:1; min-width:150px; font-size:15px; color:#444; }
-.q-item .big{ font-size:20px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
-.q-empty{ text-align:center; color:#bbb; padding:20px 0; font-size:14px; }
-.q-info{ margin-top:12px; font-size:13px; color:#999; }
-.kv-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:15px; }
-.kv-table th,.kv-table td{ border:1px solid var(--border-color); padding:10px 14px; text-align:left; }
-.kv-table th{ background:#f8f9fa; color:#666; font-weight:600; width:140px; }
-.result-box{ margin-top:18px; padding:14px 16px; background:#f8f9fa; border-radius:8px; font-size:15px; word-break:break-all; display:none; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
 .result-box.show{ display:block; }
 .result-box.error{ background:#fdecea; color:#c0392b; }
-.myip-big{ font-size:32px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; word-break:break-all; margin:10px 0; }
+.tax-num{ font-size:28px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.tax-row{ display:flex; flex-wrap:wrap; gap:24px; margin-top:10px; }
+.tax-cell{ min-width:140px; }
+.tax-cell .t{ font-size:13px; color:#888; }
+.tax-cell .v{ font-size:18px; font-weight:600; color:#2c3e50; margin-top:2px; }
+.tax-note{ margin-top:12px; padding-top:10px; border-top:1px dashed #ddd; font-size:13px; color:#888; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -100,8 +95,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>🖥️ 本机 IP 查询</h1>
-    <p class="subtitle">公网 IP · 归属地 · 运营商</p>
+    <h1>🏢 企业所得税计算</h1>
+    <p class="subtitle">小微企业 5% · 高新 15% · 一般 25%</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -218,50 +213,67 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线本机 IP 查询：打开页面即显示你的公网 IP 地址（支持 IPv4/IPv6）、大致归属地和运营商信息，一键复制 IP。</p>
-<div style="text-align:center;padding:10px 0;">
-    <div style="font-size:14px;color:#888;">你的公网 IP 地址</div>
-    <div class="myip-big" id="ip">查询中…</div>
-    <button type="button" class="submit-btn btn-sub" id="btn-copy">复制 IP</button>
+<p class="seo-intro">在线企业所得税计算器：输入年应纳税所得额，按企业类型计算应纳所得税额——小型微利企业减按 5%、高新技术企业 15%、一般企业 25%，显示税后利润和实际税率，全部在浏览器本地计算。</p>
+<div class="field-row" style="margin-top:0;">
+    <div class="field">
+        <label for="profit">年应纳税所得额（万元）</label>
+        <input class="tool-input" type="number" id="profit" min="0" step="1" value="100">
+    </div>
+    <div class="field">
+        <label for="etype">企业类型</label>
+        <select class="tool-input" id="etype">
+            <option value="small" selected>小型微利企业（减按 5%）</option>
+            <option value="hightech">高新技术企业（15%）</option>
+            <option value="normal">一般企业（25%）</option>
+        </select>
+    </div>
 </div>
-<div id="out"></div>
+
+<div class="btn-row">
+    <button type="button" class="submit-btn" id="btn-calc">立即计算</button>
+</div>
+
+<div class="result-box" id="result"></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>打开页面自动查询你的公网 IP 地址</li>
-            <li>下方显示大致归属地、运营商和时区</li>
-            <li>点 <strong>复制 IP</strong> 一键取用</li>
+            <li>输入年应纳税所得额（利润总额经纳税调整后，万元）</li>
+            <li>选择企业类型：小型微利企业 / 高新技术企业 / 一般企业</li>
+            <li>点击 <strong>立即计算</strong> 查看应纳所得税额和税后利润</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>显示的是你的公网出口 IP（经过路由器/运营商 NAT 后的地址）；归属地基于 IP 库估算，精度到城市级。</div>
+        <div class="tip"><strong>💡 提示：</strong>现行政策（至 2027 年底）：小型微利企业年应纳税所得额不超过 300 万元的部分实际税负 5%；小微认定还有从业人数 ≤300 人、资产总额 ≤5000 万元的限制。实际申报以税务机关口径为准。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
-
 <script>
-var myip='';
-fetch('https://api64.ipify.org?format=json').then(function(r){ return r.json(); }).then(function(d){
-    myip=d.ip;
-    document.getElementById('ip').textContent=myip;
-    return fetch('https://ipwho.is/'+myip).then(function(r){ return r.json(); });
-}).then(function(j){
-    if(!j||!j.success) return;
-    var rows='';
-    function row(k,v){ if(v) rows+='<tr><th>'+k+'</th><td>'+v+'</td></tr>'; }
-    row('归属地',[j.country,j.region,j.city].filter(Boolean).join(' '));
-    row('运营商',j.connection?j.connection.isp:'');
-    row('时区',j.timezone?j.timezone.id:'');
-    if(rows) document.getElementById('out').innerHTML='<table class="kv-table">'+rows+'</table>';
-}).catch(function(){
-    document.getElementById('ip').textContent='查询失败，请检查网络后刷新';
-});
-document.getElementById('btn-copy').addEventListener('click',function(){
-    if(!myip) return;
-    var b=this;
-    navigator.clipboard.writeText(myip).then(function(){
-        b.textContent='已复制';
-        setTimeout(function(){ b.textContent='复制 IP'; },1200);
-    });
+function wan(v){ return v.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+document.getElementById('btn-calc').addEventListener('click',function(){
+    var r=document.getElementById('result');
+    var profit=parseFloat(document.getElementById('profit').value),
+        type=document.getElementById('etype').value;
+    if(!(profit>=0)){ r.className='result-box show error'; r.textContent='请输入正确的年应纳税所得额'; return; }
+    var rate, note;
+    if(type==='small'){
+        if(profit>300){
+            rate=0.25; note='应纳税所得额超过 300 万元，不符合小型微利企业标准，按 25% 计税';
+        }else{
+            rate=0.05; note='小型微利企业：减按 25% 计入应纳税所得额、按 20% 税率，实际税负 5%';
+        }
+    }else if(type==='hightech'){
+        rate=0.15; note='高新技术企业减按 15% 征收企业所得税';
+    }else{
+        rate=0.25; note='一般企业按 25% 法定税率征收企业所得税';
+    }
+    var tax=profit*rate, after=profit-tax;
+    r.className='result-box show';
+    r.innerHTML='<div style="font-size:13px;color:#888;">应纳企业所得税</div>'
+        +'<div class="tax-num">'+wan(tax)+' 万元</div>'
+        +'<div class="tax-row">'
+        +'<div class="tax-cell"><div class="t">适用实际税率</div><div class="v">'+(rate*100)+'%</div></div>'
+        +'<div class="tax-cell"><div class="t">税后利润</div><div class="v">'+wan(after)+' 万元</div></div>'
+        +'</div>'
+        +'<div class="tax-note">'+note+'。</div>';
 });
 </script>
 <script src="../js/site-i18n.js" defer></script>

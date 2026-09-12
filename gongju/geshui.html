@@ -3,34 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>本机IP查询 - 查看我的IP地址和归属地 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="本机IP查询，我的IP，查看IP地址，IP归属地，公网IP，烙馍网">
-<meta name="description" content="免费在线本机 IP 查询：一键查看你的公网 IP 地址（支持 IPv4/IPv6）和大致归属地、运营商信息。">
+<title>个税计算 - 在线个人所得税计算器累计预扣年终奖 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="个税计算，个人所得税计算器，工资个税，年终奖个税，累计预扣，五险一金，专项附加扣除，烙馍网">
+<meta name="description" content="免费在线个税计算器：输入月收入、五险一金和专项附加扣除，按累计预扣法计算每月个税和到手工资，支持年终奖单独计税，含全年明细表。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/myip.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/geshui.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
 .field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
-.field-row .field{ flex:1; min-width:180px; }
+.field-row .field{ flex:1; min-width:150px; }
 .field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.q-list{ margin-top:18px; }
-.q-item{ display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border-color); border-radius:10px; margin-bottom:8px; background:#fff; transition:all .2s; flex-wrap:wrap; }
-.q-item:hover{ box-shadow:0 3px 12px rgba(0,0,0,.08); }
-.q-item .main{ flex:1; min-width:150px; font-size:15px; color:#444; }
-.q-item .big{ font-size:20px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
-.q-empty{ text-align:center; color:#bbb; padding:20px 0; font-size:14px; }
-.q-info{ margin-top:12px; font-size:13px; color:#999; }
-.kv-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:15px; }
-.kv-table th,.kv-table td{ border:1px solid var(--border-color); padding:10px 14px; text-align:left; }
-.kv-table th{ background:#f8f9fa; color:#666; font-weight:600; width:140px; }
-.result-box{ margin-top:18px; padding:14px 16px; background:#f8f9fa; border-radius:8px; font-size:15px; word-break:break-all; display:none; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
 .result-box.show{ display:block; }
 .result-box.error{ background:#fdecea; color:#c0392b; }
-.myip-big{ font-size:32px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; word-break:break-all; margin:10px 0; }
+.gs-num{ font-size:28px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.gs-row{ display:flex; flex-wrap:wrap; gap:24px; margin-top:10px; }
+.gs-cell{ min-width:140px; }
+.gs-cell .t{ font-size:13px; color:#888; }
+.gs-cell .v{ font-size:18px; font-weight:600; color:#2c3e50; margin-top:2px; }
+.gs-table{ width:100%; border-collapse:collapse; margin-top:16px; font-size:14px; }
+.gs-table th,.gs-table td{ border:1px solid var(--border-color); padding:8px 10px; text-align:right; }
+.gs-table th{ background:#fff; color:#666; font-weight:600; text-align:center; }
+.gs-table td:first-child{ text-align:center; }
+.gs-note{ margin-top:12px; padding-top:10px; border-top:1px dashed #ddd; font-size:13px; color:#888; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -100,8 +99,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>🖥️ 本机 IP 查询</h1>
-    <p class="subtitle">公网 IP · 归属地 · 运营商</p>
+    <h1>🧾 个税计算</h1>
+    <p class="subtitle">累计预扣 · 年终奖单独计税 · 全年明细</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -218,50 +217,99 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线本机 IP 查询：打开页面即显示你的公网 IP 地址（支持 IPv4/IPv6）、大致归属地和运营商信息，一键复制 IP。</p>
-<div style="text-align:center;padding:10px 0;">
-    <div style="font-size:14px;color:#888;">你的公网 IP 地址</div>
-    <div class="myip-big" id="ip">查询中…</div>
-    <button type="button" class="submit-btn btn-sub" id="btn-copy">复制 IP</button>
+<p class="seo-intro">在线个人所得税计算器：输入税前月收入、五险一金和专项附加扣除，按累计预扣法算出 12 个月的每月个税、到手工资和全年总额；年终奖按全年一次性奖金单独计税（÷12 找税率），全部在浏览器本地计算。</p>
+<div class="field-row" style="margin-top:0;">
+    <div class="field">
+        <label for="salary">月收入（税前，元）</label>
+        <input class="tool-input" type="number" id="salary" min="0" step="100" value="20000">
+    </div>
+    <div class="field">
+        <label for="ins">五险一金（每月，元）</label>
+        <input class="tool-input" type="number" id="ins" min="0" step="100" value="3000">
+    </div>
+    <div class="field">
+        <label for="extra">专项附加扣除（每月，元）</label>
+        <input class="tool-input" type="number" id="extra" min="0" step="100" value="2000">
+    </div>
+    <div class="field">
+        <label for="bonus">年终奖（全年一次性，元，可填 0）</label>
+        <input class="tool-input" type="number" id="bonus" min="0" step="1000" value="0">
+    </div>
 </div>
-<div id="out"></div>
+
+<div class="btn-row">
+    <button type="button" class="submit-btn" id="btn-calc">立即计算</button>
+</div>
+
+<div class="result-box" id="result"></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>打开页面自动查询你的公网 IP 地址</li>
-            <li>下方显示大致归属地、运营商和时区</li>
-            <li>点 <strong>复制 IP</strong> 一键取用</li>
+            <li>输入税前月收入、每月五险一金和专项附加扣除（子女教育/赡养老人/房贷利息等合计）</li>
+            <li>有年终奖可填入「年终奖」一栏（单独计税），没有填 0</li>
+            <li>点击 <strong>立即计算</strong>，查看每月明细表和全年汇总</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>显示的是你的公网出口 IP（经过路由器/运营商 NAT 后的地址）；归属地基于 IP 库估算，精度到城市级。</div>
+        <div class="tip"><strong>💡 提示：</strong>按 2019 年起施行的累计预扣法和现行税率表计算；未考虑免税收入、其他扣除和年中换工作等情况，实际以单位代扣和个税 App 汇算为准。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
-
 <script>
-var myip='';
-fetch('https://api64.ipify.org?format=json').then(function(r){ return r.json(); }).then(function(d){
-    myip=d.ip;
-    document.getElementById('ip').textContent=myip;
-    return fetch('https://ipwho.is/'+myip).then(function(r){ return r.json(); });
-}).then(function(j){
-    if(!j||!j.success) return;
-    var rows='';
-    function row(k,v){ if(v) rows+='<tr><th>'+k+'</th><td>'+v+'</td></tr>'; }
-    row('归属地',[j.country,j.region,j.city].filter(Boolean).join(' '));
-    row('运营商',j.connection?j.connection.isp:'');
-    row('时区',j.timezone?j.timezone.id:'');
-    if(rows) document.getElementById('out').innerHTML='<table class="kv-table">'+rows+'</table>';
-}).catch(function(){
-    document.getElementById('ip').textContent='查询失败，请检查网络后刷新';
-});
-document.getElementById('btn-copy').addEventListener('click',function(){
-    if(!myip) return;
-    var b=this;
-    navigator.clipboard.writeText(myip).then(function(){
-        b.textContent='已复制';
-        setTimeout(function(){ b.textContent='复制 IP'; },1200);
-    });
+// 工资薪金：累计预扣法年度税率表（应纳税所得额 → [税率, 速算扣除数]）
+var BRACKETS=[[36000,0.03,0],[144000,0.10,2520],[300000,0.20,16920],[420000,0.25,31920],[660000,0.30,52920],[960000,0.35,85920],[Infinity,0.45,181920]];
+// 年终奖：÷12 后按月换算表
+var BONUS_BRACKETS=[[3000,0.03,0],[12000,0.10,210],[25000,0.20,1410],[35000,0.25,2660],[55000,0.30,4410],[80000,0.35,7160],[Infinity,0.45,15160]];
+function taxOf(taxable,table){
+    if(taxable<=0) return 0;
+    for(var i=0;i<table.length;i++){
+        if(taxable<=table[i][0]) return taxable*table[i][1]-table[i][2];
+    }
+    return 0;
+}
+function yuan(v){ return v.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+document.getElementById('btn-calc').addEventListener('click',function(){
+    var r=document.getElementById('result');
+    function err(msg){ r.className='result-box show error'; r.textContent=msg; }
+    var salary=parseFloat(document.getElementById('salary').value)||0,
+        ins=parseFloat(document.getElementById('ins').value)||0,
+        extra=parseFloat(document.getElementById('extra').value)||0,
+        bonus=parseFloat(document.getElementById('bonus').value)||0;
+    if(salary<0||ins<0||extra<0||bonus<0){ err('各项金额不能为负数'); return; }
+    if(salary<=0&&bonus<=0){ err('请输入月收入或年终奖'); return; }
+    // 累计预扣：每月 应纳税所得额 = 累计收入 - 累计5000×n - 累计五险一金 - 累计专项附加
+    var monthly=Math.max(salary-5000-ins-extra,0), rows=[], paid=0, totalTax=0, totalNet=0;
+    for(var m=1;m<=12;m++){
+        var cum=monthly*m,
+            cumTax=Math.max(taxOf(cum,BRACKETS),0),
+            tax=Math.max(cumTax-paid,0),
+            net=salary-ins-tax;
+        paid+=tax; totalTax+=tax; totalNet+=net;
+        rows.push('<tr><td>'+m+' 月</td><td>'+yuan(cum)+'</td><td>'+yuan(tax)+'</td><td>'+yuan(net)+'</td></tr>');
+    }
+    // 年终奖：÷12 按月换算表找税率和速算扣除数
+    var bonusTax=0, bonusRate=0, bonusDeduct=0;
+    if(bonus>0){
+        var b12=bonus/12;
+        for(var i=0;i<BONUS_BRACKETS.length;i++){
+            if(b12<=BONUS_BRACKETS[i][0]){ bonusRate=BONUS_BRACKETS[i][1]; bonusDeduct=BONUS_BRACKETS[i][2]; break; }
+        }
+        bonusTax=bonus*bonusRate-bonusDeduct;
+    }
+    var html='<div style="font-size:13px;color:#888;">全年个税合计（工资 + 年终奖）</div>'
+        +'<div class="gs-num">'+yuan(totalTax+bonusTax)+' 元</div>'
+        +'<div class="gs-row">'
+        +'<div class="gs-cell"><div class="t">工资个税（全年）</div><div class="v">'+yuan(totalTax)+' 元</div></div>'
+        +'<div class="gs-cell"><div class="t">年终奖个税</div><div class="v">'+yuan(bonusTax)+' 元</div></div>'
+        +'<div class="gs-cell"><div class="t">税后年收入</div><div class="v">'+yuan(totalNet+bonus-bonusTax)+' 元</div></div>'
+        +'<div class="gs-cell"><div class="t">月均到手</div><div class="v">'+yuan(totalNet/12)+' 元</div></div>'
+        +'<div class="gs-cell"><div class="t">平均税率</div><div class="v">'+((totalTax+bonusTax)/(salary*12+bonus)*100).toFixed(1)+'%</div></div>'
+        +'</div>'
+        +'<table class="gs-table"><tr><th>月份</th><th>累计应纳税所得额</th><th>当月个税</th><th>当月到手</th></tr>'+rows.join('')+'</table>'
+        +'<div class="gs-note">工资按累计预扣法：月应纳税所得额 = 收入 − 5000 − 五险一金 − 专项附加扣除 = '+yuan(monthly)+' 元；'
+        +(bonus>0?('年终奖 '+yuan(bonus)+' 元 ÷12 = '+yuan(bonus/12)+' 元，适用税率 '+(bonusRate*100)+'%、速算扣除数 '+bonusDeduct+' 元。'):'')
+        +'收入按每月不变估算。</div>';
+    r.className='result-box show';
+    r.innerHTML=html;
 });
 </script>
 <script src="../js/site-i18n.js" defer></script>

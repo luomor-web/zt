@@ -52,7 +52,7 @@ $checked[$fmt] = ' checked';
 <meta name="keywords" content="汉字转拼音，拼音转换，汉字拼音在线，带声调拼音，拼音首字母，烙馍网">
 <meta name="description" content="免费在线汉字转拼音工具：批量把汉字转换为拼音，支持带声调、不带声调、首字母三种格式。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/pinyin.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/pinyin.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -216,6 +216,10 @@ var _hmt = _hmt || [];
                 <a href="jisuan.html">在线计算器</a>
                 <a href="fangdai.html">房贷计算</a>
                 <a href="yanglao.html">养老金计算</a>
+                <a href="geshui.html">个税计算</a>
+                <a href="qiyeshui.html">企业所得税</a>
+                <a href="zengzhishui.html">增值税计算</a>
+                <a href="shangpin.html">商品税计算</a>
                 <a href="bmi.html">BMI 计算器</a>
                 <a href="huobi.html">币种转换</a>
                 <a href="shizhong.html">世界时钟</a>

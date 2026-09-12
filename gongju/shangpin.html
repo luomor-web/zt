@@ -3,34 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>本机IP查询 - 查看我的IP地址和归属地 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="本机IP查询，我的IP，查看IP地址，IP归属地，公网IP，烙馍网">
-<meta name="description" content="免费在线本机 IP 查询：一键查看你的公网 IP 地址（支持 IPv4/IPv6）和大致归属地、运营商信息。">
+<title>商品税计算 - 在线价税分离含税金额拆商品金额和税额 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="商品税计算，价税分离，含税金额换算，商品金额，税额计算，含税价，烙馍网">
+<meta name="description" content="免费在线商品税计算（价税分离）：输入含税销售金额和税率，拆分为商品金额（不含税）和税额；支持单价×数量合计，反向含税换算。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/myip.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/shangpin.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
 .field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
-.field-row .field{ flex:1; min-width:180px; }
+.field-row .field{ flex:1; min-width:150px; }
 .field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.q-list{ margin-top:18px; }
-.q-item{ display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border-color); border-radius:10px; margin-bottom:8px; background:#fff; transition:all .2s; flex-wrap:wrap; }
-.q-item:hover{ box-shadow:0 3px 12px rgba(0,0,0,.08); }
-.q-item .main{ flex:1; min-width:150px; font-size:15px; color:#444; }
-.q-item .big{ font-size:20px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
-.q-empty{ text-align:center; color:#bbb; padding:20px 0; font-size:14px; }
-.q-info{ margin-top:12px; font-size:13px; color:#999; }
-.kv-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:15px; }
-.kv-table th,.kv-table td{ border:1px solid var(--border-color); padding:10px 14px; text-align:left; }
-.kv-table th{ background:#f8f9fa; color:#666; font-weight:600; width:140px; }
-.result-box{ margin-top:18px; padding:14px 16px; background:#f8f9fa; border-radius:8px; font-size:15px; word-break:break-all; display:none; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
 .result-box.show{ display:block; }
 .result-box.error{ background:#fdecea; color:#c0392b; }
-.myip-big{ font-size:32px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; word-break:break-all; margin:10px 0; }
+.tax-num{ font-size:28px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.tax-row{ display:flex; flex-wrap:wrap; gap:24px; margin-top:10px; }
+.tax-cell{ min-width:140px; }
+.tax-cell .t{ font-size:13px; color:#888; }
+.tax-cell .v{ font-size:18px; font-weight:600; color:#2c3e50; margin-top:2px; }
+.tax-note{ margin-top:12px; padding-top:10px; border-top:1px dashed #ddd; font-size:13px; color:#888; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -100,8 +95,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>🖥️ 本机 IP 查询</h1>
-    <p class="subtitle">公网 IP · 归属地 · 运营商</p>
+    <h1>🏷️ 商品税计算</h1>
+    <p class="subtitle">价税分离 · 商品金额 + 税额 · 单价数量</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -218,50 +213,65 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线本机 IP 查询：打开页面即显示你的公网 IP 地址（支持 IPv4/IPv6）、大致归属地和运营商信息，一键复制 IP。</p>
-<div style="text-align:center;padding:10px 0;">
-    <div style="font-size:14px;color:#888;">你的公网 IP 地址</div>
-    <div class="myip-big" id="ip">查询中…</div>
-    <button type="button" class="submit-btn btn-sub" id="btn-copy">复制 IP</button>
+<p class="seo-intro">在线商品税计算（价税分离）工具：输入商品含税单价、数量和税率，商品销售金额自动拆分为商品金额（不含税）和税额两部分；也可只填含税总额直接换算，全部在浏览器本地计算。</p>
+<div class="field-row" style="margin-top:0;">
+    <div class="field">
+        <label for="price">含税单价（元）</label>
+        <input class="tool-input" type="number" id="price" min="0" step="0.01" value="113">
+    </div>
+    <div class="field">
+        <label for="qty">数量</label>
+        <input class="tool-input" type="number" id="qty" min="0" step="1" value="100">
+    </div>
+    <div class="field">
+        <label for="rate">税率 / 征收率</label>
+        <select class="tool-input" id="rate">
+            <option value="0.13" selected>13%</option>
+            <option value="0.09">9%</option>
+            <option value="0.06">6%</option>
+            <option value="0.03">3%</option>
+            <option value="0.01">1%</option>
+        </select>
+    </div>
 </div>
-<div id="out"></div>
+
+<div class="btn-row">
+    <button type="button" class="submit-btn" id="btn-calc">立即计算</button>
+</div>
+
+<div class="result-box" id="result"></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>打开页面自动查询你的公网 IP 地址</li>
-            <li>下方显示大致归属地、运营商和时区</li>
-            <li>点 <strong>复制 IP</strong> 一键取用</li>
+            <li>输入商品含税单价和数量，选择税率</li>
+            <li>点击 <strong>立即计算</strong>，含税销售金额自动拆分为商品金额（不含税）和税额</li>
+            <li>只算单件时数量填 1；已知含税总额时，把总额填进单价、数量填 1 即可</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>显示的是你的公网出口 IP（经过路由器/运营商 NAT 后的地址）；归属地基于 IP 库估算，精度到城市级。</div>
+        <div class="tip"><strong>💡 提示：</strong>价税分离公式：不含税金额 = 含税金额 ÷ (1 + 税率)；开票和记账时请核对税率档位与商品品类是否匹配。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
-
 <script>
-var myip='';
-fetch('https://api64.ipify.org?format=json').then(function(r){ return r.json(); }).then(function(d){
-    myip=d.ip;
-    document.getElementById('ip').textContent=myip;
-    return fetch('https://ipwho.is/'+myip).then(function(r){ return r.json(); });
-}).then(function(j){
-    if(!j||!j.success) return;
-    var rows='';
-    function row(k,v){ if(v) rows+='<tr><th>'+k+'</th><td>'+v+'</td></tr>'; }
-    row('归属地',[j.country,j.region,j.city].filter(Boolean).join(' '));
-    row('运营商',j.connection?j.connection.isp:'');
-    row('时区',j.timezone?j.timezone.id:'');
-    if(rows) document.getElementById('out').innerHTML='<table class="kv-table">'+rows+'</table>';
-}).catch(function(){
-    document.getElementById('ip').textContent='查询失败，请检查网络后刷新';
-});
-document.getElementById('btn-copy').addEventListener('click',function(){
-    if(!myip) return;
-    var b=this;
-    navigator.clipboard.writeText(myip).then(function(){
-        b.textContent='已复制';
-        setTimeout(function(){ b.textContent='复制 IP'; },1200);
-    });
+function yuan(v){ return v.toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+document.getElementById('btn-calc').addEventListener('click',function(){
+    var r=document.getElementById('result');
+    var price=parseFloat(document.getElementById('price').value),
+        qty=parseFloat(document.getElementById('qty').value),
+        rate=parseFloat(document.getElementById('rate').value);
+    if(!(price>=0&&qty>=0)){ r.className='result-box show error'; r.textContent='请输入正确的含税单价和数量'; return; }
+    var gross=price*qty,                       // 含税销售金额
+        net=gross/(1+rate),                    // 商品金额（不含税）
+        tax=gross-net,                         // 税额
+        netUnit=price/(1+rate);
+    r.className='result-box show';
+    r.innerHTML='<div style="font-size:13px;color:#888;">商品销售金额（含税）'+yuan(gross)+' 元 拆分如下</div>'
+        +'<div class="tax-row">'
+        +'<div class="tax-cell"><div class="t">商品金额（不含税）</div><div class="tax-num" style="font-size:24px;">'+yuan(net)+' 元</div></div>'
+        +'<div class="tax-cell"><div class="t">税额（'+(rate*100)+'%）</div><div class="tax-num" style="font-size:24px;color:#e74c3c;">'+yuan(tax)+' 元</div></div>'
+        +'</div>'
+        +'<div class="tax-note">商品金额 = 含税金额 ÷ (1+'+(rate*100)+'%)；税额 = 含税金额 − 商品金额。'
+        +'不含税单价 '+yuan(netUnit)+' 元 × '+qty+' 件。</div>';
 });
 </script>
 <script src="../js/site-i18n.js" defer></script>
