@@ -7,7 +7,7 @@
 <meta name="keywords" content="车牌号查询，车牌归属地，车牌号段查询，京A，车牌字母代表，烙馍网">
 <meta name="description" content="免费在线车牌号查询：输入车牌前两位（如 京A）查归属地，默认展示全国 419 个车牌号段与省市对照表。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/chepai.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/chepai.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -27,7 +27,8 @@
 .kv-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:15px; }
 .kv-table th,.kv-table td{ border:1px solid var(--border-color); padding:10px 14px; text-align:left; }
 .kv-table th{ background:#f8f9fa; color:#666; font-weight:600; }
-.cp-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; margin-top:14px; } .cp-item{ background:#fff; border:1px solid var(--border-color); border-radius:8px; padding:8px 12px; font-size:14px; display:flex; gap:10px; } .cp-item b{ color:#764ba2; font-family:Menlo,Consolas,monospace; } .cp-item span{ color:#555; }
+.cp-prov{ margin:20px 0 10px; font-size:16px; font-weight:700; color:#2c3e50; border-left:4px solid #764ba2; padding-left:10px; }
+.cp-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px; } .cp-item{ background:#fff; border:1px solid var(--border-color); border-radius:8px; padding:8px 12px; font-size:14px; display:flex; gap:10px; } .cp-item b{ color:#764ba2; font-family:Menlo,Consolas,monospace; } .cp-item span{ color:#555; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -226,7 +227,7 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线车牌号查询：收录全国 419 个车牌号段（省简称 + 字母）与归属地对照，输入「京A」「粤B」等即可查询，默认展示全部，数据来自 ip138 车牌库。</p>
+<p class="seo-intro">在线车牌号查询：收录全国 419 个车牌号段（省简称 + 字母）与归属地对照，按省份分类展示，输入「京A」「粤B」或省份城市名即可查询，数据来自 ip138 车牌库。</p>
 <div class="field-row" style="margin-top:0;">
     <div class="field">
         <label for="kw">输入车牌开头（省简称 + 字母）</label>
@@ -238,8 +239,8 @@ var _hmt = _hmt || [];
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>默认展示全国全部车牌号段（省简称 + 字母 → 归属地）</li>
-            <li>输入「京A」「粤B」或城市名即可筛选</li>
+            <li>默认按省份分类展示全国全部车牌号段（省简称 + 字母 → 归属地）</li>
+            <li>输入「京A」「粤B」、城市名或省份名即可筛选</li>
             <li>号段含义：首位是省级简称，第二位字母一般代表地级行政区</li>
         </ol>
         <div class="tip"><strong>💡 提示：</strong>数据来自 ip138 车牌库；部分城市有多个号段，「其他」类号段多为增补；新能源车牌的字母规则（D/F）与普通车牌不同。</div>
@@ -251,19 +252,33 @@ var _hmt = _hmt || [];
 var DATA=null;
 fetch('../data/chepai.json').then(function(r){ return r.json(); }).then(function(d){
     DATA=d;
-    document.getElementById('q-info').textContent='共收录 '+d.length+' 个车牌号段，输入即筛选';
     render('');
 }).catch(function(){ document.getElementById('q-info').textContent='数据加载失败，请刷新重试'; });
+// 省份简称 → 全称（按 华北/东北/华东/中南/西南/西北 排列）
+var PROVS=[['京','北京市'],['津','天津市'],['冀','河北省'],['晋','山西省'],['蒙','内蒙古自治区'],
+['辽','辽宁省'],['吉','吉林省'],['黑','黑龙江省'],
+['沪','上海市'],['苏','江苏省'],['浙','浙江省'],['皖','安徽省'],['闽','福建省'],['赣','江西省'],['鲁','山东省'],
+['豫','河南省'],['鄂','湖北省'],['湘','湖南省'],['粤','广东省'],['桂','广西壮族自治区'],['琼','海南省'],
+['渝','重庆市'],['川','四川省'],['贵','贵州省'],['云','云南省'],['藏','西藏自治区'],
+['陕','陕西省'],['甘','甘肃省'],['青','青海省'],['宁','宁夏回族自治区'],['新','新疆维吾尔自治区']];
 function render(kw){
-    kw=kw.trim().toUpperCase();
-    var html='', n=0;
-    for(var i=0;i<DATA.length;i++){
-        var r=DATA[i];
-        if(kw&&r[0].toUpperCase().indexOf(kw)<0&&r[1].indexOf(kw)<0) continue;
-        html+='<div class="cp-item"><b>'+r[0]+'</b><span>'+r[1]+'</span></div>';
-        if(++n>=400) break;
-    }
-    document.getElementById('list').innerHTML=html||'<div style="color:#bbb;padding:10px;">未找到相关号段</div>';
+    kw=kw.trim();
+    var kwUp=kw.toUpperCase(), out='', total=0;
+    PROVS.forEach(function(pv){
+        var items=[];
+        for(var i=0;i<DATA.length;i++){
+            var r=DATA[i];
+            if(r[0][0]!==pv[0]) continue;
+            if(kw&&r[0].toUpperCase().indexOf(kwUp)<0&&r[1].indexOf(kw)<0&&pv[1].indexOf(kw)<0) continue;
+            items.push('<div class="cp-item"><b>'+r[0]+'</b><span>'+r[1]+'</span></div>');
+        }
+        if(items.length){
+            total+=items.length;
+            out+='<div class="cp-prov">'+pv[1]+'（'+pv[0]+'）</div><div class="cp-grid">'+items.join('')+'</div>';
+        }
+    });
+    document.getElementById('list').innerHTML=out||'<div style="color:#bbb;padding:10px;">未找到相关号段</div>';
+    document.getElementById('q-info').textContent=kw?('筛选出 '+total+' 个号段'):('共收录 '+DATA.length+' 个车牌号段，按省份分类展示');
 }
 document.getElementById('kw').addEventListener('input',function(){ render(this.value); });
 </script>

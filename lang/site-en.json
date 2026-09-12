@@ -1713,5 +1713,8 @@
 "默认展示全部 · 名称含义 · 点击复制": "All Shown · Names & Meanings · Click to Copy",
 "默认展示全部分类的 emoji，输入关键词可筛选": "All categories shown by default; type a keyword to filter",
 "默认展示全部，如：笑 / 爱心 / 猫 / 足球": "All shown by default, e.g. 笑 / 爱心 / 猫 / 足球",
-"😀 emoji 符号查询": "😀 Emoji Symbols"
+"😀 emoji 符号查询": "😀 Emoji Symbols",
+"在线车牌号查询：收录全国 419 个车牌号段（省简称 + 字母）与归属地对照，按省份分类展示，输入「京A」「粤B」或省份城市名即可查询，数据来自 ip138 车牌库。": "Online plate lookup: 419 Chinese plate prefixes (province abbreviation + letter) with their regions, grouped by province; search by prefix like 「京A」「粤B」 or a province/city name. Data from the ip138 plate database.",
+"输入「京A」「粤B」、城市名或省份名即可筛选": "Filter by prefix like 「京A」「粤B」, or a city/province name",
+"默认按省份分类展示全国全部车牌号段（省简称 + 字母 → 归属地）": "All Chinese plate prefixes (province abbreviation + letter → region) shown grouped by province by default"
 }
