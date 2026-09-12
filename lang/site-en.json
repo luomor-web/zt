@@ -1693,5 +1693,7 @@
 "🔢 大写数字查询": "🔢 Uppercase Numerals",
 "🔢 字数统计": "🔢 Word Counter",
 "🚗 车牌号查询": "🚗 License Plate Lookup",
-"🚦 交通标志查询": "🚦 Traffic Sign Lookup"
+"🚦 交通标志查询": "🚦 Traffic Sign Lookup",
+"筛选（读音 / 含义关键词）": "Filter (pronunciation / meaning keyword)",
+"默认展示全部，输入关键词筛选": "All shown by default; type a keyword to filter"
 }

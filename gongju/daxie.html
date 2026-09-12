@@ -7,7 +7,7 @@
 <meta name="keywords" content="大写数字查询，壹贰叁肆，人民币大写，金额大写转换，财务大写数字，烙馍网">
 <meta name="description" content="免费在线大写数字查询：零壹贰叁肆伍陆柒捌玖拾佰仟万亿对照表，含拼音读音和用法说明；输入金额自动转换为人民币大写。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/daxie.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/daxie.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -233,6 +233,12 @@ var _hmt = _hmt || [];
 
 <div class="card">
 <p class="seo-intro">在线大写数字查询：默认展示全部大写数字（零壹贰叁肆伍陆柒捌玖）和单位（拾佰仟万亿、元角分整）的读音与用法说明；输入阿拉伯数字金额可一键转换为人民币大写写法。</p>
+<div class="field-row" style="margin-top:0;">
+    <div class="field">
+        <label for="kw">筛选（读音 / 含义关键词）</label>
+        <input class="tool-input" type="text" id="kw" placeholder="默认展示全部，输入关键词筛选" autocomplete="off">
+    </div>
+</div>
 <div id="content"></div>
 
 <div class="sym-cat">金额转大写</div>
@@ -325,7 +331,7 @@ document.getElementById('btn-conv').addEventListener('click',function(){
             else seg+=NUM[d]+UNIT[n-1-j];
         }
         seg=seg.replace(/零+/g,'零').replace(/零$/,'');
-        if(seg) out+=seg+BIG[groups.length-1-gi];
+        if(seg){ if(out&&g[0]==='0') out+='零'; out+=seg+BIG[groups.length-1-gi]; }
     });
     out=out.replace(/零+/g,'零');
     var res=out?out+'元':'';

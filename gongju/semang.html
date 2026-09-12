@@ -7,7 +7,7 @@
 <meta name="keywords" content="色盲测试，色弱测试，在线色盲检测，石原色盲测试，色觉检查，烙馍网">
 <meta name="description" content="免费在线色盲测试：仿石原色盲检测图，多张彩色斑点数字图，根据你看到的数字判断色觉情况，结果仅供娱乐参考。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zt.luomor.com/gongju/semang.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/semang.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
@@ -277,17 +277,17 @@ function drawPlate(cfg){
 }
 function ask(){
     drawPlate(PLATES[idx]);
-    var html='';
-    for(var d=0;d<=9;d++) html+='<button type="button" class="mini-btn" data-d="'+d+'">'+d+'</button>';
-    html+='<button type="button" class="mini-btn" data-d="x">看不清</button>';
-    document.getElementById('answers').innerHTML=html;
-    document.querySelectorAll('#answers button').forEach(function(b){
-        b.addEventListener('click',function(){
-            var want=PLATES[idx].n, got=b.getAttribute('data-d');
-            var correct=want.length===2?(got!=='x'&&want.indexOf(got)>-1):(got===want);
-            // 两位数允许逐位作答：两位题点对任意一位算半对，这里简化：两位题答对任意一位即算看清
+    document.getElementById('answers').innerHTML='<input class="tool-input" type="text" id="sm-in" maxlength="2" inputmode="numeric" placeholder="你看到的数字" style="width:160px;text-align:center;font-size:20px;" autocomplete="off">'
+        +'<button type="button" class="mini-btn" id="sm-ok">确定</button>'
+        +'<button type="button" class="mini-btn" id="sm-skip">看不清</button>';
+    var smIn=document.getElementById('sm-in');
+    smIn.focus();
+    function submit(got){
+            var want=PLATES[idx].n;
+            var correct=got===want;
             if(!correct) wrong.push(PLATES[idx].n);
             idx++;
+            document.getElementById('out').innerHTML='';
             if(idx<PLATES.length) ask();
             else{
                 var out=document.getElementById('out');
@@ -296,8 +296,14 @@ function ask(){
                 else
                     out.innerHTML='<div class="result-box show error" style="margin-top:18px;">有 '+wrong.length+' 张图未看清（'+wrong.join('、')+'）。可能存在色觉异常，建议到眼科做专业色觉检查。<br><span style="color:#888;font-size:13px;">本测试仅供娱乐参考，不能替代医学诊断。</span></div>';
             }
-        });
+    }
+    document.getElementById('sm-ok').addEventListener('click',function(){
+        var v=smIn.value.trim();
+        if(!/^\d{1,2}$/.test(v)){ smIn.focus(); return; }
+        submit(v);
     });
+    document.getElementById('sm-skip').addEventListener('click',function(){ submit(''); });
+    smIn.addEventListener('keydown',function(e){ if(e.key==='Enter') document.getElementById('sm-ok').click(); });
 }
 ask();
 </script>
