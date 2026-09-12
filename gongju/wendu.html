@@ -3,25 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>邮编查询 - 在线中国邮政编码查询 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="邮编查询，邮政编码，中国邮编，zip code，邮政编码查询，烙馍网">
-<meta name="description" content="免费在线邮编查询：覆盖全国 2879 个区县的邮政编码，输入地区名称（支持拼音）或 6 位邮编即查，一键复制结果。">
+<title>温度转换 - 摄氏度华氏度开氏度在线换算 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="温度转换，摄氏度华氏度换算，开氏度，℃℉换算，温度单位换算，烙馍网">
+<meta name="description" content="免费在线温度转换：摄氏度（℃）、华氏度（℉）、开氏度（K）互相换算，输入任意一个立即得到其余两个，含换算公式。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/youbian.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/wendu.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
+.field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
+.field-row .field{ flex:1; min-width:150px; }
+.field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.yb-list{ margin-top:18px; }
-.yb-item{ display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border-color); border-radius:10px; margin-bottom:8px; background:#fff; transition:all .2s; }
-.yb-item:hover{ box-shadow:0 3px 12px rgba(0,0,0,.08); }
-.yb-addr{ flex:1; font-size:15px; color:#444; min-width:150px; }
-.yb-zip{ font-size:20px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; letter-spacing:1px; }
-.yb-copy{ flex:none; }
-.yb-info{ margin-top:12px; font-size:13px; color:#999; }
-.yb-empty{ text-align:center; color:#bbb; padding:20px 0; font-size:14px; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
+.result-box.show{ display:block; }
+.result-box.error{ background:#fdecea; color:#c0392b; }
+.stat-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-top:16px; }
+.stat-card{ background:#f8f9fa; border-radius:10px; padding:14px; text-align:center; }
+.stat-card .v{ font-size:24px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.stat-card .t{ font-size:13px; color:#888; margin-top:4px; }
+.kv-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:15px; }
+.kv-table th,.kv-table td{ border:1px solid var(--border-color); padding:10px 14px; text-align:left; }
+.kv-table th{ background:#f8f9fa; color:#666; font-weight:600; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -91,8 +96,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>📮 邮编查询</h1>
-    <p class="subtitle">全国区县级邮编 · 名称拼音反查 · 一键复制</p>
+    <h1>🌡️ 温度转换</h1>
+    <p class="subtitle">摄氏度 · 华氏度 · 开氏度</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -219,90 +224,43 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线邮编查询：收录全国 2879 个区县的邮政编码（按 2023 年行政区划修订）。输入地区名称（支持中文和拼音）或 6 位数字邮编，即输入即出结果，点击「复制」一键取用，全部在浏览器本地完成。</p>
+<p class="seo-intro">在线温度转换工具：摄氏度、华氏度、开氏度三个单位互相换算，任意输入一个立即更新其余两个，附换算公式和常见温度对照，全部在浏览器本地计算。</p>
 <div class="field-row" style="margin-top:0;">
     <div class="field">
-        <label for="kw">输入地区名称或 6 位邮编</label>
-        <input class="tool-input" type="text" id="kw" placeholder="例如：东城区 / dongcheng / 100010" autocomplete="off">
+        <label for="c">摄氏度（℃）</label>
+        <input class="tool-input" type="number" id="c" step="any" value="25">
     </div>
-    <div class="field" style="flex:0 0 110px;display:flex;align-items:flex-end;">
-        <button type="button" class="submit-btn" style="padding:10px 26px;font-size:15px;" id="btn-search">查询</button>
+    <div class="field">
+        <label for="f">华氏度（℉）</label>
+        <input class="tool-input" type="number" id="f" step="any">
+    </div>
+    <div class="field">
+        <label for="k">开氏度（K）</label>
+        <input class="tool-input" type="number" id="k" step="any">
     </div>
 </div>
-
-<div class="yb-info" id="yb-info">共收录 2879 个区县的邮政编码，输入关键词即查</div>
-<div class="yb-list" id="list"></div>
+<div class="result-box show">换算公式：℉ = ℃ × 9/5 + 32；K = ℃ + 273.15。绝对零度为 −273.15℃（0 K）。常见对照：冰点 0℃ = 32℉，体温 37℃ = 98.6℉，沸点 100℃ = 212℉。</div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>输入地区名称（如「东城区」、拼音「dongcheng」）或 6 位邮编（如「100010」）</li>
-            <li>输入时自动查询，也可点击 <strong>查询</strong> 或按回车</li>
-            <li>在结果列表中点击 <strong>复制</strong> 取用邮编</li>
+            <li>在任意一个单位输入温度，其余两个单位立即更新</li>
+            <li>摄氏转华氏：℉ = ℃ × 9/5 + 32；开氏度 = ℃ + 273.15</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>数据为区县级邮政编码（2023 年行政区划），乡镇街道可能有更细的邮编，寄件时以当地邮局为准；数据加载后查询完全离线可用。</div>
+        <div class="tip"><strong>💡 提示：</strong>华氏度主要用于美国；开氏度（K）是科学常用温标，0 K 为绝对零度。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
 <script>
-var DATA=null,
-    kwInput=document.getElementById('kw'),
-    list=document.getElementById('list'),
-    info=document.getElementById('yb-info'),
-    timer=null;
-fetch('../data/zipcode.json').then(function(r){ return r.json(); }).then(function(d){
-    DATA=d;
-    info.textContent='共收录 '+d.length+' 个区县的邮政编码，输入关键词即查';
-}).catch(function(){
-    info.textContent='数据加载失败，请刷新重试';
-});
-function search(kw){
-    kw=kw.trim().toLowerCase();
-    if(!kw||!DATA){ list.innerHTML=''; return; }
-    var isZip=/^\d{6}$/.test(kw), res=[];
-    for(var i=0;i<DATA.length;i++){
-        var r=DATA[i];
-        if(isZip){
-            if(r[3]===kw) res.push(r);
-        }else if(/^\d+$/.test(kw)){
-            if(r[3].indexOf(kw)===0) res.push(r);
-        }else{
-            var full=r[0]+r[1]+r[2];
-            if(full.indexOf(kw)>-1||r[4].indexOf(kw)>-1) res.push(r);
-        }
-        if(res.length>=50) break;
-    }
-    render(res,kw);
-}
-function render(res,kw){
-    if(!res.length){
-        list.innerHTML='<div class="yb-empty">未找到「'+kw.replace(/</g,'&lt;')+'」相关的邮编</div>';
-        return;
-    }
-    list.innerHTML='';
-    res.forEach(function(r){
-        var div=document.createElement('div');
-        div.className='yb-item';
-        div.innerHTML='<div class="yb-addr"></div><div class="yb-zip"></div>'
-            +'<button type="button" class="mini-btn yb-copy">复制</button>';
-        div.querySelector('.yb-addr').textContent=r[0]+' '+r[1]+' '+r[2];
-        div.querySelector('.yb-zip').textContent=r[3];
-        div.querySelector('.yb-copy').addEventListener('click',function(){
-            var b=this;
-            navigator.clipboard.writeText(r[3]).then(function(){
-                b.textContent='已复制';
-                setTimeout(function(){ b.textContent='复制'; },1200);
-            });
-        });
-        list.appendChild(div);
-    });
-}
-kwInput.addEventListener('input',function(){
-    clearTimeout(timer);
-    timer=setTimeout(function(){ search(kwInput.value); },200);
-});
-document.getElementById('btn-search').addEventListener('click',function(){ search(kwInput.value); });
-kwInput.addEventListener('keydown',function(e){ if(e.key==='Enter') search(kwInput.value); });
+var cEl=document.getElementById('c'), fEl=document.getElementById('f'), kEl=document.getElementById('k');
+function fmt(v){ return parseFloat(v.toFixed(2)); }
+function fromC(c){ fEl.value=fmt(c*9/5+32); kEl.value=fmt(c+273.15); }
+function fromF(f){ var c=(f-32)*5/9; cEl.value=fmt(c); kEl.value=fmt(c+273.15); }
+function fromK(k){ var c=k-273.15; cEl.value=fmt(c); fEl.value=fmt(c*9/5+32); }
+cEl.addEventListener('input',function(){ var v=parseFloat(this.value); if(!isNaN(v)) fromC(v); });
+fEl.addEventListener('input',function(){ var v=parseFloat(this.value); if(!isNaN(v)) fromF(v); });
+kEl.addEventListener('input',function(){ var v=parseFloat(this.value); if(!isNaN(v)) fromK(v); });
+fromC(25);
 </script>
 <script src="../js/site-i18n.js" defer></script>
 </body>

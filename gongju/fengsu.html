@@ -3,25 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>邮编查询 - 在线中国邮政编码查询 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="邮编查询，邮政编码，中国邮编，zip code，邮政编码查询，烙馍网">
-<meta name="description" content="免费在线邮编查询：覆盖全国 2879 个区县的邮政编码，输入地区名称（支持拼音）或 6 位邮编即查，一键复制结果。">
+<title>风速转换 - 风速几级风换算蒲福风级 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="风速转换，几级风，蒲福风级，风速换算，风级表，m/s转km/h，烙馍网">
+<meta name="description" content="免费在线风速转换：米/秒、公里/时与蒲福风级（几级风）互相换算，附 0-12 级风级对照表和各级名称。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/youbian.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/fengsu.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
+.field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
+.field-row .field{ flex:1; min-width:150px; }
+.field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.yb-list{ margin-top:18px; }
-.yb-item{ display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border-color); border-radius:10px; margin-bottom:8px; background:#fff; transition:all .2s; }
-.yb-item:hover{ box-shadow:0 3px 12px rgba(0,0,0,.08); }
-.yb-addr{ flex:1; font-size:15px; color:#444; min-width:150px; }
-.yb-zip{ font-size:20px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; letter-spacing:1px; }
-.yb-copy{ flex:none; }
-.yb-info{ margin-top:12px; font-size:13px; color:#999; }
-.yb-empty{ text-align:center; color:#bbb; padding:20px 0; font-size:14px; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
+.result-box.show{ display:block; }
+.result-box.error{ background:#fdecea; color:#c0392b; }
+.stat-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-top:16px; }
+.stat-card{ background:#f8f9fa; border-radius:10px; padding:14px; text-align:center; }
+.stat-card .v{ font-size:24px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.stat-card .t{ font-size:13px; color:#888; margin-top:4px; }
+.kv-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:15px; }
+.kv-table th,.kv-table td{ border:1px solid var(--border-color); padding:10px 14px; text-align:left; }
+.kv-table th{ background:#f8f9fa; color:#666; font-weight:600; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -91,8 +96,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>📮 邮编查询</h1>
-    <p class="subtitle">全国区县级邮编 · 名称拼音反查 · 一键复制</p>
+    <h1>💨 风速转换</h1>
+    <p class="subtitle">m/s · km/h · 蒲福风级（几级风）</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -219,90 +224,60 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线邮编查询：收录全国 2879 个区县的邮政编码（按 2023 年行政区划修订）。输入地区名称（支持中文和拼音）或 6 位数字邮编，即输入即出结果，点击「复制」一键取用，全部在浏览器本地完成。</p>
+<p class="seo-intro">在线风速转换工具：输入米每秒或公里每时的风速，立即换算并显示对应的蒲福风级（几级风）和风级名称；下方附 0-12 级完整风级对照表。</p>
 <div class="field-row" style="margin-top:0;">
     <div class="field">
-        <label for="kw">输入地区名称或 6 位邮编</label>
-        <input class="tool-input" type="text" id="kw" placeholder="例如：东城区 / dongcheng / 100010" autocomplete="off">
+        <label for="ms">风速（米/秒 m/s）</label>
+        <input class="tool-input" type="number" id="ms" step="any" placeholder="例如：10">
     </div>
-    <div class="field" style="flex:0 0 110px;display:flex;align-items:flex-end;">
-        <button type="button" class="submit-btn" style="padding:10px 26px;font-size:15px;" id="btn-search">查询</button>
+    <div class="field">
+        <label for="kmh">风速（公里/时 km/h）</label>
+        <input class="tool-input" type="number" id="kmh" step="any" placeholder="例如：36">
     </div>
 </div>
-
-<div class="yb-info" id="yb-info">共收录 2879 个区县的邮政编码，输入关键词即查</div>
-<div class="yb-list" id="list"></div>
+<div id="out"></div>
+<div class="sym-cat">蒲福风级对照表</div>
+<div id="table"></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>输入地区名称（如「东城区」、拼音「dongcheng」）或 6 位邮编（如「100010」）</li>
-            <li>输入时自动查询，也可点击 <strong>查询</strong> 或按回车</li>
-            <li>在结果列表中点击 <strong>复制</strong> 取用邮编</li>
+            <li>输入米/秒或公里/时的风速，另一个自动换算</li>
+            <li>下方卡片显示对应的蒲福风级（几级风）、名称和陆地征象</li>
+            <li>页底附 0-12 级完整风级对照表</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>数据为区县级邮政编码（2023 年行政区划），乡镇街道可能有更细的邮编，寄件时以当地邮局为准；数据加载后查询完全离线可用。</div>
+        <div class="tip"><strong>💡 提示：</strong>蒲福风级按 10 米高度空旷地面的风速划分；天气预报中的「几级风」即来源于此。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
 <script>
-var DATA=null,
-    kwInput=document.getElementById('kw'),
-    list=document.getElementById('list'),
-    info=document.getElementById('yb-info'),
-    timer=null;
-fetch('../data/zipcode.json').then(function(r){ return r.json(); }).then(function(d){
-    DATA=d;
-    info.textContent='共收录 '+d.length+' 个区县的邮政编码，输入关键词即查';
-}).catch(function(){
-    info.textContent='数据加载失败，请刷新重试';
-});
-function search(kw){
-    kw=kw.trim().toLowerCase();
-    if(!kw||!DATA){ list.innerHTML=''; return; }
-    var isZip=/^\d{6}$/.test(kw), res=[];
-    for(var i=0;i<DATA.length;i++){
-        var r=DATA[i];
-        if(isZip){
-            if(r[3]===kw) res.push(r);
-        }else if(/^\d+$/.test(kw)){
-            if(r[3].indexOf(kw)===0) res.push(r);
-        }else{
-            var full=r[0]+r[1]+r[2];
-            if(full.indexOf(kw)>-1||r[4].indexOf(kw)>-1) res.push(r);
-        }
-        if(res.length>=50) break;
-    }
-    render(res,kw);
+// [下限m/s, 级数, 名称, 陆地征象]
+var BF=[
+[0,'0 级','无风','静，烟直上'],[0.3,'1 级','软风','烟能表示风向'],[1.6,'2 级','轻风','人脸感觉有风'],
+[3.4,'3 级','微风','树叶微动'],[5.5,'4 级','和风','吹起尘土纸片'],[8.0,'5 级','清风','小树摇动'],
+[10.8,'6 级','强风','大树枝摇动'],[13.9,'7 级','疾风','全树摇动'],[17.2,'8 级','大风','折断小树枝'],
+[20.8,'9 级','烈风','烟囱瓦片受损'],[24.5,'10 级','狂风','拔树毁屋'],[28.5,'11 级','暴风','重大损毁'],[32.7,'12 级','飓风','摧毁力极大']];
+function levelOf(ms){
+    for(var i=BF.length-1;i>=0;i--){ if(ms>=BF[i][0]) return BF[i]; }
+    return BF[0];
 }
-function render(res,kw){
-    if(!res.length){
-        list.innerHTML='<div class="yb-empty">未找到「'+kw.replace(/</g,'&lt;')+'」相关的邮编</div>';
-        return;
-    }
-    list.innerHTML='';
-    res.forEach(function(r){
-        var div=document.createElement('div');
-        div.className='yb-item';
-        div.innerHTML='<div class="yb-addr"></div><div class="yb-zip"></div>'
-            +'<button type="button" class="mini-btn yb-copy">复制</button>';
-        div.querySelector('.yb-addr').textContent=r[0]+' '+r[1]+' '+r[2];
-        div.querySelector('.yb-zip').textContent=r[3];
-        div.querySelector('.yb-copy').addEventListener('click',function(){
-            var b=this;
-            navigator.clipboard.writeText(r[3]).then(function(){
-                b.textContent='已复制';
-                setTimeout(function(){ b.textContent='复制'; },1200);
-            });
-        });
-        list.appendChild(div);
-    });
+function fmt(v){ return parseFloat(v.toFixed(2)); }
+function show(ms){
+    var out=document.getElementById('out'), lv=levelOf(ms);
+    out.innerHTML='<div class="stat-grid">'
+        +'<div class="stat-card"><div class="v">'+fmt(ms)+'</div><div class="t">米/秒（m/s）</div></div>'
+        +'<div class="stat-card"><div class="v">'+fmt(ms*3.6)+'</div><div class="t">公里/时（km/h）</div></div>'
+        +'<div class="stat-card"><div class="v" style="color:#e74c3c">'+lv[1]+'</div><div class="t">'+lv[2]+' · '+lv[3]+'</div></div>'
+        +'</div>';
 }
-kwInput.addEventListener('input',function(){
-    clearTimeout(timer);
-    timer=setTimeout(function(){ search(kwInput.value); },200);
-});
-document.getElementById('btn-search').addEventListener('click',function(){ search(kwInput.value); });
-kwInput.addEventListener('keydown',function(e){ if(e.key==='Enter') search(kwInput.value); });
+document.getElementById('ms').addEventListener('input',function(){ var v=parseFloat(this.value); if(!isNaN(v)&&v>=0){ document.getElementById('kmh').value=fmt(v*3.6); show(v); } });
+document.getElementById('kmh').addEventListener('input',function(){ var v=parseFloat(this.value); if(!isNaN(v)&&v>=0){ var ms=v/3.6; document.getElementById('ms').value=fmt(ms); show(ms); } });
+var rows='<tr><th>风级</th><th>名称</th><th>风速（m/s）</th><th>陆地征象</th></tr>';
+for(var i=0;i<BF.length;i++){
+    var hi=i+1<BF.length?BF[i+1][0]:null;
+    rows+='<tr><td>'+BF[i][1]+'</td><td>'+BF[i][2]+'</td><td>'+BF[i][0]+' - '+(hi?hi:'以上')+'</td><td>'+BF[i][3]+'</td></tr>';
+}
+document.getElementById('table').innerHTML='<table class="kv-table">'+rows+'</table>';
 </script>
 <script src="../js/site-i18n.js" defer></script>
 </body>

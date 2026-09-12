@@ -3,25 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>邮编查询 - 在线中国邮政编码查询 - 工具专区 - 烙馍网</title>
-<meta name="keywords" content="邮编查询，邮政编码，中国邮编，zip code，邮政编码查询，烙馍网">
-<meta name="description" content="免费在线邮编查询：覆盖全国 2879 个区县的邮政编码，输入地区名称（支持拼音）或 6 位邮编即查，一键复制结果。">
+<title>色盲测试 - 在线色盲色弱自测 - 工具专区 - 烙馍网</title>
+<meta name="keywords" content="色盲测试，色弱测试，在线色盲检测，石原色盲测试，色觉检查，烙馍网">
+<meta name="description" content="免费在线色盲测试：仿石原色盲检测图，多张彩色斑点数字图，根据你看到的数字判断色觉情况，结果仅供娱乐参考。">
 <meta name="author" content="烙馍网">
-<link rel="canonical" href="https://zzzt.luomor.com/gongju/youbian.html">
+<link rel="canonical" href="https://zzzt.luomor.com/gongju/semang.html">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="../xiaoxue/form.css">
 <style>
 .tool-input{ width:100%; padding:10px 14px; border:2px solid var(--border-color); border-radius:8px; font-size:15px; font-family:inherit; background:#fff; }
 .tool-input:focus{ outline:none; border-color:#667eea; }
+.field-row{ display:flex; gap:14px; flex-wrap:wrap; margin-top:22px; }
+.field-row .field{ flex:1; min-width:150px; }
+.field-row label{ font-size:14px; font-weight:600; color:#666; display:block; margin-bottom:6px; }
 .btn-sub{ background:#fff; color:#667eea; border:2px solid #667eea; padding:12px 26px; font-size:15px; margin:6px 4px 0; }
-.yb-list{ margin-top:18px; }
-.yb-item{ display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border-color); border-radius:10px; margin-bottom:8px; background:#fff; transition:all .2s; }
-.yb-item:hover{ box-shadow:0 3px 12px rgba(0,0,0,.08); }
-.yb-addr{ flex:1; font-size:15px; color:#444; min-width:150px; }
-.yb-zip{ font-size:20px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; letter-spacing:1px; }
-.yb-copy{ flex:none; }
-.yb-info{ margin-top:12px; font-size:13px; color:#999; }
-.yb-empty{ text-align:center; color:#bbb; padding:20px 0; font-size:14px; }
+.result-box{ margin-top:18px; padding:16px 18px; background:#f8f9fa; border-radius:8px; font-size:15px; display:none; }
+.result-box.show{ display:block; }
+.result-box.error{ background:#fdecea; color:#c0392b; }
+.stat-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-top:16px; }
+.stat-card{ background:#f8f9fa; border-radius:10px; padding:14px; text-align:center; }
+.stat-card .v{ font-size:24px; font-weight:700; color:#764ba2; font-family:Menlo,Consolas,monospace; }
+.stat-card .t{ font-size:13px; color:#888; margin-top:4px; }
+.kv-table{ width:100%; border-collapse:collapse; margin-top:14px; font-size:15px; }
+.kv-table th,.kv-table td{ border:1px solid var(--border-color); padding:10px 14px; text-align:left; }
+.kv-table th{ background:#f8f9fa; color:#666; font-weight:600; }
+.sm-plate{ text-align:center; margin:16px 0; } .sm-plate canvas{ border-radius:50%; box-shadow:var(--shadow); max-width:100%; } .sm-answer{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px; } .sm-answer .mini-btn{ padding:10px 22px; font-size:16px; }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6096731848877113" crossorigin="anonymous"></script>
     <script async src="https://fundingchoicesmessages.google.com/i/pub-6096731848877113?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
@@ -91,8 +97,8 @@ var _hmt = _hmt || [];
         <a class="back-link" href="index.html">← 工具专区</a>
         <a class="back-link" href="../">← 首页</a>
     </div>
-    <h1>📮 邮编查询</h1>
-    <p class="subtitle">全国区县级邮编 · 名称拼音反查 · 一键复制</p>
+    <h1>🎨 色盲测试</h1>
+    <p class="subtitle">仿石原检测图 · 色觉自测</p>
 </header>
 
 <nav class="nav-bar" aria-label="主导航">
@@ -219,90 +225,81 @@ var _hmt = _hmt || [];
     </nav>
 
 <div class="card">
-<p class="seo-intro">在线邮编查询：收录全国 2879 个区县的邮政编码（按 2023 年行政区划修订）。输入地区名称（支持中文和拼音）或 6 位数字邮编，即输入即出结果，点击「复制」一键取用，全部在浏览器本地完成。</p>
-<div class="field-row" style="margin-top:0;">
-    <div class="field">
-        <label for="kw">输入地区名称或 6 位邮编</label>
-        <input class="tool-input" type="text" id="kw" placeholder="例如：东城区 / dongcheng / 100010" autocomplete="off">
-    </div>
-    <div class="field" style="flex:0 0 110px;display:flex;align-items:flex-end;">
-        <button type="button" class="submit-btn" style="padding:10px 26px;font-size:15px;" id="btn-search">查询</button>
-    </div>
-</div>
-
-<div class="yb-info" id="yb-info">共收录 2879 个区县的邮政编码，输入关键词即查</div>
-<div class="yb-list" id="list"></div>
+<p class="seo-intro">在线色盲色弱自测：仿石原色盲检测图（Ishihara），多张彩色斑点数字图，输入你看到的数字逐题作答，最后给出参考结论。结果仅供娱乐参考，不能替代医院专业检查。</p>
+<p class="seo-intro" style="margin-bottom:10px;">看清斑点图中的数字，点击下方你看到的数字作答；看不清就点「看不清」。</p>
+<div class="sm-plate"><canvas id="plate" width="340" height="340"></canvas></div>
+<div class="sm-answer" id="answers"></div>
+<div id="out"></div>
     <div class="tutorial">
         <h3>使用教程</h3>
         <ol>
-            <li>输入地区名称（如「东城区」、拼音「dongcheng」）或 6 位邮编（如「100010」）</li>
-            <li>输入时自动查询，也可点击 <strong>查询</strong> 或按回车</li>
-            <li>在结果列表中点击 <strong>复制</strong> 取用邮编</li>
+            <li>在光线正常的环境下，看手机/电脑屏幕上的斑点图</li>
+            <li>点击你看到的数字作答；看不清就点「看不清」</li>
+            <li>全部作答后查看参考结论</li>
         </ol>
-        <div class="tip"><strong>💡 提示：</strong>数据为区县级邮政编码（2023 年行政区划），乡镇街道可能有更细的邮编，寄件时以当地邮局为准；数据加载后查询完全离线可用。</div>
+        <div class="tip"><strong>💡 提示：</strong>本测试为仿石原图的简化实现，受屏幕色彩影响较大，结果仅供娱乐参考；色觉异常的确诊请到医院眼科做正规检查。</div>
     </div>
 </div>
 </div>
 <script src="../js/nav.js" defer></script>
 <script>
-var DATA=null,
-    kwInput=document.getElementById('kw'),
-    list=document.getElementById('list'),
-    info=document.getElementById('yb-info'),
-    timer=null;
-fetch('../data/zipcode.json').then(function(r){ return r.json(); }).then(function(d){
-    DATA=d;
-    info.textContent='共收录 '+d.length+' 个区县的邮政编码，输入关键词即查';
-}).catch(function(){
-    info.textContent='数据加载失败，请刷新重试';
-});
-function search(kw){
-    kw=kw.trim().toLowerCase();
-    if(!kw||!DATA){ list.innerHTML=''; return; }
-    var isZip=/^\d{6}$/.test(kw), res=[];
-    for(var i=0;i<DATA.length;i++){
-        var r=DATA[i];
-        if(isZip){
-            if(r[3]===kw) res.push(r);
-        }else if(/^\d+$/.test(kw)){
-            if(r[3].indexOf(kw)===0) res.push(r);
-        }else{
-            var full=r[0]+r[1]+r[2];
-            if(full.indexOf(kw)>-1||r[4].indexOf(kw)>-1) res.push(r);
-        }
-        if(res.length>=50) break;
+// 仿石原图：背景点与数字点取两组不同色相，明度抖动
+var PLATES=[{n:'12',bg:[[90,150],[150,210]],fg:[[0,30],[330,360]]},
+            {n:'8', bg:[[150,200]],fg:[[20,50]]},
+            {n:'29',bg:[[90,150]],fg:[[330,360]]},
+            {n:'5', bg:[[200,240]],fg:[[40,70]]},
+            {n:'74',bg:[[100,160]],fg:[[340,360]]}],
+    cv=document.getElementById('plate'), ctx=cv.getContext('2d'), idx=0, score=0, wrong=[];
+function hsl(h,s,l){ return 'hsl('+h+','+s+'%,'+l+'%)'; }
+function drawPlate(cfg){
+    ctx.clearRect(0,0,340,340);
+    // 离屏画数字掩码
+    var off=document.createElement('canvas'); off.width=off.height=340;
+    var oc=off.getContext('2d');
+    oc.font='bold 200px Arial'; oc.textAlign='center'; oc.textBaseline='middle';
+    oc.fillStyle='#000'; oc.fillText(cfg.n,170,175);
+    var mask=oc.getImageData(0,0,340,340).data;
+    var dots=0;
+    while(dots<900){
+        var r=3+Math.random()*10, x=r+Math.random()*(340-2*r), y=r+Math.random()*(340-2*r),
+            dist=Math.hypot(x-170,y-170);
+        if(dist+r>166) continue;
+        var xi=Math.floor(x), yi=Math.floor(y),
+            inNum=mask[(yi*340+xi)*4+3]>128,
+            pal=inNum?cfg.fg:cfg.bg,
+            range=pal[Math.floor(Math.random()*pal.length)],
+            h=range[0]+Math.random()*(range[1]-range[0]),
+            l=40+Math.random()*25;
+        ctx.beginPath(); ctx.arc(x,y,r,0,7);
+        ctx.fillStyle=hsl(h,65,l); ctx.fill();
+        dots++;
     }
-    render(res,kw);
 }
-function render(res,kw){
-    if(!res.length){
-        list.innerHTML='<div class="yb-empty">未找到「'+kw.replace(/</g,'&lt;')+'」相关的邮编</div>';
-        return;
-    }
-    list.innerHTML='';
-    res.forEach(function(r){
-        var div=document.createElement('div');
-        div.className='yb-item';
-        div.innerHTML='<div class="yb-addr"></div><div class="yb-zip"></div>'
-            +'<button type="button" class="mini-btn yb-copy">复制</button>';
-        div.querySelector('.yb-addr').textContent=r[0]+' '+r[1]+' '+r[2];
-        div.querySelector('.yb-zip').textContent=r[3];
-        div.querySelector('.yb-copy').addEventListener('click',function(){
-            var b=this;
-            navigator.clipboard.writeText(r[3]).then(function(){
-                b.textContent='已复制';
-                setTimeout(function(){ b.textContent='复制'; },1200);
-            });
+function ask(){
+    drawPlate(PLATES[idx]);
+    var html='';
+    for(var d=0;d<=9;d++) html+='<button type="button" class="mini-btn" data-d="'+d+'">'+d+'</button>';
+    html+='<button type="button" class="mini-btn" data-d="x">看不清</button>';
+    document.getElementById('answers').innerHTML=html;
+    document.querySelectorAll('#answers button').forEach(function(b){
+        b.addEventListener('click',function(){
+            var want=PLATES[idx].n, got=b.getAttribute('data-d');
+            var correct=want.length===2?(got!=='x'&&want.indexOf(got)>-1):(got===want);
+            // 两位数允许逐位作答：两位题点对任意一位算半对，这里简化：两位题答对任意一位即算看清
+            if(!correct) wrong.push(PLATES[idx].n);
+            idx++;
+            if(idx<PLATES.length) ask();
+            else{
+                var out=document.getElementById('out');
+                if(!wrong.length)
+                    out.innerHTML='<div class="result-box show" style="margin-top:18px;"><b style="color:#27ae60">✓ 全部看清，色觉大概率正常。</b>本测试仅供娱乐参考。</div>';
+                else
+                    out.innerHTML='<div class="result-box show error" style="margin-top:18px;">有 '+wrong.length+' 张图未看清（'+wrong.join('、')+'）。可能存在色觉异常，建议到眼科做专业色觉检查。<br><span style="color:#888;font-size:13px;">本测试仅供娱乐参考，不能替代医学诊断。</span></div>';
+            }
         });
-        list.appendChild(div);
     });
 }
-kwInput.addEventListener('input',function(){
-    clearTimeout(timer);
-    timer=setTimeout(function(){ search(kwInput.value); },200);
-});
-document.getElementById('btn-search').addEventListener('click',function(){ search(kwInput.value); });
-kwInput.addEventListener('keydown',function(e){ if(e.key==='Enter') search(kwInput.value); });
+ask();
 </script>
 <script src="../js/site-i18n.js" defer></script>
 </body>
