@@ -1,12 +1,12 @@
 # 烙馍网 · 田字格字帖生成器（完整版）
 
-> 烙馍网（zzzt.luomor.com）是免费的在线汉字练习字帖生成器，支持 9574 个常用汉字，可生成带笔顺动画和拼音的田字格/米字格打印字帖。本文件包含全部功能页的完整说明与使用方法；摘要版见 /llms.txt。
+> 烙馍网（zt.luomor.com）是免费的在线汉字练习字帖生成器，支持 9574 个常用汉字，可生成带笔顺动画和拼音的田字格/米字格打印字帖。本文件包含全部功能页的完整说明与使用方法；摘要版见 /llms.txt。
 
 ## 字帖生成器（首页）
 
 ### 田字格字帖生成器
 
-URL: https://zzzt.luomor.com/
+URL: https://zt.luomor.com/
 
 使用方法：
 1. 为保证打印效果，请使用 微软 Edge 浏览器 或 谷歌浏览器，建议字体设置为楷体
@@ -20,7 +20,7 @@ URL: https://zzzt.luomor.com/
 
 ### 笔画练习字帖
 
-URL: https://zzzt.luomor.com/xiaoxue/bihua.html
+URL: https://zt.luomor.com/xiaoxue/bihua.html
 
 汉字书写的地基练习：横、竖、撇、捺、点、提、横折、竖钩等 20 种基本笔画，每种笔画标注名称和拼音，并通过例字描红体会笔画的实际运用。
 
@@ -34,7 +34,7 @@ URL: https://zzzt.luomor.com/xiaoxue/bihua.html
 
 ### 成语练习字帖
 
-URL: https://zzzt.luomor.com/xiaoxue/chengyu.html
+URL: https://zt.luomor.com/xiaoxue/chengyu.html
 
 精选 100+ 小学常用成语，每条成语带拼音标注和通俗释义，田字格描红后可留空白行默写，书写与理解同步练习。每次随机抽取。
 
@@ -48,7 +48,7 @@ URL: https://zzzt.luomor.com/xiaoxue/chengyu.html
 
 ### 小学英语练习字帖
 
-URL: https://zzzt.luomor.com/xiaoxue/english.html
+URL: https://zt.luomor.com/xiaoxue/english.html
 
 小学英语书写练习：26 个字母大小写、课标常见单词（可按年级筛选，附中文释义）、常用口语句子，均采用标准四线三格描红排版，并可预留 1-3 行空白格供抄写练习。
 
@@ -62,7 +62,7 @@ URL: https://zzzt.luomor.com/xiaoxue/english.html
 
 ### 小学必背古诗75首描红字帖
 
-URL: https://zzzt.luomor.com/xiaoxue/gushi.html
+URL: https://zt.luomor.com/xiaoxue/gushi.html
 
 收录课标小学生必背古诗 75 首，任选一首或多首即可生成描红字帖。每句可选 1-2 行描红和默写空白行，支持拼音标注、田字格/米字格，适合古诗背诵与书写双重练习。
 
@@ -76,7 +76,7 @@ URL: https://zzzt.luomor.com/xiaoxue/gushi.html
 
 ### 汉字练习字帖
 
-URL: https://zzzt.luomor.com/xiaoxue/hanzi.html
+URL: https://zt.luomor.com/xiaoxue/hanzi.html
 
 按年级学期选择要练习的生字（数据与小学生常用汉字生字表一致，每学期约半册），生成带笔顺的描红字帖，可标注拼音。
 
@@ -90,7 +90,7 @@ URL: https://zzzt.luomor.com/xiaoxue/hanzi.html
 
 ### 烙馍网小学练习专区
 
-URL: https://zzzt.luomor.com/xiaoxue/index.html
+URL: https://zt.luomor.com/xiaoxue/index.html
 
 使用方法：
 1. 选择需要的练习类型：组词字帖、古诗描红、数学口算或英语练习
@@ -101,7 +101,7 @@ URL: https://zzzt.luomor.com/xiaoxue/index.html
 
 ### 看拼音写词语
 
-URL: https://zzzt.luomor.com/xiaoxue/kanxie.html
+URL: https://zt.luomor.com/xiaoxue/kanxie.html
 
 经典语文课堂练习：每个词语上方是带声调的拼音格，下方是空白田字格，让孩子根据拼音写出正确词语。词语从常用词库随机抽取，每次生成内容不同。
 
@@ -115,7 +115,7 @@ URL: https://zzzt.luomor.com/xiaoxue/kanxie.html
 
 ### 语文课贴
 
-URL: https://zzzt.luomor.com/xiaoxue/ketie.html
+URL: https://zt.luomor.com/xiaoxue/ketie.html
 
 选择年级和学期，一键生成该学期全部生字的笔顺描红字帖（生字表与小学生常用汉字生字表一致），无需逐个选字。
 
@@ -129,7 +129,7 @@ URL: https://zzzt.luomor.com/xiaoxue/ketie.html
 
 ### 小学数学口算题生成器
 
-URL: https://zzzt.luomor.com/xiaoxue/math.html
+URL: https://zt.luomor.com/xiaoxue/math.html
 
 面向小学低年级的口算练习生成器：加法、减法、乘法、除法、比大小五种题型，10 以内、20 以内、100 以内三档难度，每次点击随机生成一份新题，打印即可练习。
 
@@ -143,7 +143,7 @@ URL: https://zzzt.luomor.com/xiaoxue/math.html
 
 ### 拼音练习字帖
 
-URL: https://zzzt.luomor.com/xiaoxue/pinyin.html
+URL: https://zt.luomor.com/xiaoxue/pinyin.html
 
 汉语拼音基础练习：23 个声母、24 个韵母、16 个整体认读音节，标准四线三格描红排版，每项可预留空白行供反复书写。
 
@@ -157,7 +157,7 @@ URL: https://zzzt.luomor.com/xiaoxue/pinyin.html
 
 ### 歇后语练习字帖
 
-URL: https://zzzt.luomor.com/xiaoxue/xiehouyu.html
+URL: https://zt.luomor.com/xiaoxue/xiehouyu.html
 
 精选 80+ 条小学生常见歇后语（如"外甥打灯笼——照旧"），描红模式练书写，填空模式只给前半句、让孩子写出后半句。每次随机抽取。
 
@@ -171,7 +171,7 @@ URL: https://zzzt.luomor.com/xiaoxue/xiehouyu.html
 
 ### 组词字帖生成器
 
-URL: https://zzzt.luomor.com/xiaoxue/zuci.html
+URL: https://zt.luomor.com/xiaoxue/zuci.html
 
 输入想要练习的生字，自动为每个字生成笔顺描红格，并附上 1-3 个常用组词描红行，支持田字格/米字格、拼音标注和描红深浅调节，生成后自动打开打印窗口。
 
@@ -187,7 +187,7 @@ URL: https://zzzt.luomor.com/xiaoxue/zuci.html
 
 ### 外语专区
 
-URL: https://zzzt.luomor.com/waiyu/index.html
+URL: https://zt.luomor.com/waiyu/index.html
 
 使用方法：
 1. 点击语种卡片进入该语种的练习页面（自动预选语种）
@@ -198,7 +198,7 @@ URL: https://zzzt.luomor.com/waiyu/index.html
 
 ### 外语练习字帖
 
-URL: https://zzzt.luomor.com/waiyu/lianxi.html
+URL: https://zt.luomor.com/waiyu/lianxi.html
 
 支持韩语、日语、越南语、俄语、西班牙语、法语、德语、英语 8 个语种：字母表描红（日语五十音图、韩语音节字母、俄语西里尔字母等）、常用单词描红（附中文释义）、常用句子描红、看中文默写，均采用四线三格排版。
 
@@ -212,13 +212,13 @@ URL: https://zzzt.luomor.com/waiyu/lianxi.html
 
 ### 外语生字表
 
-URL: https://zzzt.luomor.com/waiyu/shengzi.html
+URL: https://zt.luomor.com/waiyu/shengzi.html
 
 ## 进阶专区
 
 ### 凑十法破十法
 
-URL: https://zzzt.luomor.com/jinjie/coushi.html
+URL: https://zt.luomor.com/jinjie/coushi.html
 
 低年级计算核心方法：凑十法（8+5=8+2+3）、破十法（13-5=10-5+3）、平十法（13-5=13-3-2），每题带步骤提示。
 
@@ -232,7 +232,7 @@ URL: https://zzzt.luomor.com/jinjie/coushi.html
 
 ### 进阶专区
 
-URL: https://zzzt.luomor.com/jinjie/index.html
+URL: https://zt.luomor.com/jinjie/index.html
 
 使用方法：
 1. 点击功能卡片进入对应练习页面，设置选项后点击 立即生成
@@ -242,7 +242,7 @@ URL: https://zzzt.luomor.com/jinjie/index.html
 
 ### 控笔练习
 
-URL: https://zzzt.luomor.com/jinjie/kongbi.html
+URL: https://zt.luomor.com/jinjie/kongbi.html
 
 4 种基础曲线描红，训练手腕灵活度与运笔稳定性，写字前的基本功练习。
 
@@ -256,7 +256,7 @@ URL: https://zzzt.luomor.com/jinjie/kongbi.html
 
 ### 空心字帖
 
-URL: https://zzzt.luomor.com/jinjie/kongxin.html
+URL: https://zt.luomor.com/jinjie/kongxin.html
 
 输入汉字，每个字生成 3 个大号空心字描红，帮助孩子感知汉字轮廓结构。建议使用 Chrome/Edge 打印。
 
@@ -270,7 +270,7 @@ URL: https://zzzt.luomor.com/jinjie/kongxin.html
 
 ### 每日一练
 
-URL: https://zzzt.luomor.com/jinjie/meiri.html
+URL: https://zt.luomor.com/jinjie/meiri.html
 
 每天自动轮换一份综合练习：一句古诗、一句成语（带拼音释义）、一句歇后语、一句英文、5 个英语单词、5 个汉字描红。选择日期可生成任意一天的练习。
 
@@ -284,7 +284,7 @@ URL: https://zzzt.luomor.com/jinjie/meiri.html
 
 ### 竖式计算
 
-URL: https://zzzt.luomor.com/jinjie/shushi.html
+URL: https://zt.luomor.com/jinjie/shushi.html
 
 竖式对位排版，减法不出现负数，除法保证整除，每题留答案书写空间。
 
@@ -297,7 +297,7 @@ URL: https://zzzt.luomor.com/jinjie/shushi.html
 
 ### 数字字帖
 
-URL: https://zzzt.luomor.com/jinjie/shuzi.html
+URL: https://zt.luomor.com/jinjie/shuzi.html
 
 0-9 数字田字格描红，顺序或随机两种模式，每个数字后预留空白行反复书写。
 
@@ -311,7 +311,7 @@ URL: https://zzzt.luomor.com/jinjie/shuzi.html
 
 ### 随机一练
 
-URL: https://zzzt.luomor.com/jinjie/suiji.html
+URL: https://zt.luomor.com/jinjie/suiji.html
 
 每次生成一份随机综合练习：一句古诗、一句成语（带拼音释义）、一句歇后语、一句英文、5 个英语单词、5 个汉字描红。选择日期可生成任意一天的练习。
 
@@ -325,7 +325,7 @@ URL: https://zzzt.luomor.com/jinjie/suiji.html
 
 ### 看汉字写拼音
 
-URL: https://zzzt.luomor.com/jinjie/xiepinyin.html
+URL: https://zt.luomor.com/jinjie/xiepinyin.html
 
 与看拼音写词语互逆的练习：上面描红汉字，下面空白拼音格写拼音，拼音汉字双向巩固。
 
@@ -339,7 +339,7 @@ URL: https://zzzt.luomor.com/jinjie/xiepinyin.html
 
 ### 姓名字帖
 
-URL: https://zzzt.luomor.com/jinjie/xingming.html
+URL: https://zt.luomor.com/jinjie/xingming.html
 
 输入姓名（1-4 字），每个字带笔顺描红和拼音，最后整名连写两遍，专属于孩子的第一份字帖。
 
@@ -353,7 +353,7 @@ URL: https://zzzt.luomor.com/jinjie/xingming.html
 
 ### 空白作业纸
 
-URL: https://zzzt.luomor.com/jinjie/zhizhi.html
+URL: https://zt.luomor.com/jinjie/zhizhi.html
 
 6 种常用作业纸型，整页铺满，页数可选，直接打印使用。
 
@@ -368,7 +368,7 @@ URL: https://zzzt.luomor.com/jinjie/zhizhi.html
 
 ### 康奈尔笔记纸
 
-URL: https://zzzt.luomor.com/templates/cornell.html
+URL: https://zt.luomor.com/templates/cornell.html
 
 经典康奈尔三区布局：左侧线索栏、右侧笔记栏、底部总结区，课堂笔记和会议记录神器。
 
@@ -379,7 +379,7 @@ URL: https://zzzt.luomor.com/templates/cornell.html
 
 ### 打卡表
 
-URL: https://zzzt.luomor.com/templates/daka.html
+URL: https://zt.luomor.com/templates/daka.html
 
 输入打卡项目名称，生成 21/30 天打卡表，每天完成涂一格，习惯养成看得见。
 
@@ -390,7 +390,7 @@ URL: https://zzzt.luomor.com/templates/daka.html
 
 ### 点阵纸
 
-URL: https://zzzt.luomor.com/templates/dianzhen.html
+URL: https://zt.luomor.com/templates/dianzhen.html
 
 均匀点阵布局，书写时既有参照又不像横线那样干扰内容，手账和子弹笔记必备。
 
@@ -401,7 +401,7 @@ URL: https://zzzt.luomor.com/templates/dianzhen.html
 
 ### 模板专区
 
-URL: https://zzzt.luomor.com/templates/index.html
+URL: https://zt.luomor.com/templates/index.html
 
 使用方法：
 1. 点击模板卡片进入，设置选项后点击 立即生成
@@ -411,7 +411,7 @@ URL: https://zzzt.luomor.com/templates/index.html
 
 ### 日计划表
 
-URL: https://zzzt.luomor.com/templates/jihua.html
+URL: https://zt.luomor.com/templates/jihua.html
 
 7:00 到 21:30 半小时粒度时间轴，左侧时间、中间事项、右侧完成情况。
 
@@ -422,7 +422,7 @@ URL: https://zzzt.luomor.com/templates/jihua.html
 
 ### 课程表
 
-URL: https://zzzt.luomor.com/templates/kechengbiao.html
+URL: https://zt.luomor.com/templates/kechengbiao.html
 
 标准课程表：上午 4 节、下午 3 节，周一到周五，A4 整页打印。
 
@@ -433,7 +433,7 @@ URL: https://zzzt.luomor.com/templates/kechengbiao.html
 
 ### 五言七言诗纸
 
-URL: https://zzzt.luomor.com/templates/shizhi.html
+URL: https://zt.luomor.com/templates/shizhi.html
 
 五言诗纸每行 5 个田字格、七言诗纸每行 7 个田字格，居中排列，可选 8/12/16 行，田字格/米字格可选。
 
@@ -444,7 +444,7 @@ URL: https://zzzt.luomor.com/templates/shizhi.html
 
 ### 五线谱纸
 
-URL: https://zzzt.luomor.com/templates/wuxianpu.html
+URL: https://zt.luomor.com/templates/wuxianpu.html
 
 标准五线谱空白谱纸，每组 5 线，组间距适中，适合音乐练习。
 
@@ -457,7 +457,7 @@ URL: https://zzzt.luomor.com/templates/wuxianpu.html
 
 ### emoji 主题字帖
 
-URL: https://zzzt.luomor.com/quwei/emoji.html
+URL: https://zt.luomor.com/quwei/emoji.html
 
 四种可爱主题装饰（emoji 横幅 + 主题色），输入要练的字，拼音格前还有主题小图标陪伴。
 
@@ -471,7 +471,7 @@ URL: https://zzzt.luomor.com/quwei/emoji.html
 
 ### 趣味专区
 
-URL: https://zzzt.luomor.com/quwei/index.html
+URL: https://zt.luomor.com/quwei/index.html
 
 使用方法：
 1. 点击功能卡片进入对应页面，设置选项后点击 立即生成
@@ -481,7 +481,7 @@ URL: https://zzzt.luomor.com/quwei/index.html
 
 ### 描绘画
 
-URL: https://zzzt.luomor.com/quwei/miaohui.html
+URL: https://zt.luomor.com/quwei/miaohui.html
 
 9 种简笔画线稿（虚线浅蓝），孩子沿虚线描画后在下方空白框临摹，练观察力和控笔。
 
@@ -495,7 +495,7 @@ URL: https://zzzt.luomor.com/quwei/miaohui.html
 
 ### 趣味田字格模板字帖
 
-URL: https://zzzt.luomor.com/quwei/picgrid.html
+URL: https://zt.luomor.com/quwei/picgrid.html
 
 选择一张喜欢的动物图片（自带田字格），设置行数和列数，生成整页图片田字格模板，打印后孩子直接在格子里写字。
 
@@ -509,7 +509,7 @@ URL: https://zzzt.luomor.com/quwei/picgrid.html
 
 ### 二维码生成器
 
-URL: https://zzzt.luomor.com/quwei/qrcode.html
+URL: https://zt.luomor.com/quwei/qrcode.html
 
 输入网址、文字或联系方式，一键生成二维码。可设置尺寸，生成后可直接打印或保存图片，适合课堂资料、分享卡片、联系方式卡。
 
@@ -522,7 +522,7 @@ URL: https://zzzt.luomor.com/quwei/qrcode.html
 
 ### 趣味主题字帖
 
-URL: https://zzzt.luomor.com/quwei/quwei.html
+URL: https://zt.luomor.com/quwei/quwei.html
 
 选择一张喜欢的动物图片（或随机），它会出现在每行田字格的格子里陪孩子练字。共 70 张可爱动物可选。
 
@@ -536,7 +536,7 @@ URL: https://zzzt.luomor.com/quwei/quwei.html
 
 ### 汉字信息汇
 
-URL: https://zzzt.luomor.com/quwei/zixun.html
+URL: https://zt.luomor.com/quwei/zixun.html
 
 输入一个汉字，显示它的拼音、笔画数、逐笔笔顺和常用组词。
 
