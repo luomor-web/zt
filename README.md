@@ -63,13 +63,6 @@
 php -S localhost:8000
 ```
 
-# tianzigebishun
-田字格笔顺生成
-田字格笔顺 字帖生成器
+## License
 
-基于开源项目: https://github.com/bunian/tianzigebishun 
-
-添加了拼音功能 thanks for https://github.com/jifei/Pinyin
-
-演示：
-https://zt.luomor.com
+MIT
